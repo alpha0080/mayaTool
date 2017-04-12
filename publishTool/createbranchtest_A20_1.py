@@ -646,8 +646,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "run buildExistFileInfoTree process         ------------start" 
 
         #update the json file begining
-      #  with open(self.branchFileStore, 'r') as f:
-     #       json_data = json.load(f)
     
 
         
@@ -802,10 +800,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #----------6. build 3rd level item in treeWidget    
 
         print "initial all Tree Data"
-         
-
-        
-      
+     
+        self.treeWidget_branches.clear()
         QtWidgets.QTreeWidgetItem(self.treeWidget_branches).setForeground(0,self.brushLevelOne)  #create contain master ,and define font color
         
         #1.default exist , master should exist in top of treeWidget
@@ -1458,6 +1454,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         
         except:
             pass
+        self.initialItemBuild()   #reNew treeWidget
 
                 
                 
@@ -1521,29 +1518,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
         print createTopLayerFoder
         
-    #   update self.branchDict, the dictionary of all branches   
+        #   update self.branchDict, the dictionary of all branches   
     
-       # print self.branchDict
+        # topLevelItemCount = len(self.branchDict.keys())
         
-
-    #   export json file
-        topLevelItemCount = len(self.branchDict.keys())
-        
-        self.branchDict.update({str(topLevelItemCount):{self.newBranch:{}}})
+        # self.branchDict.update({str(topLevelItemCount):{self.newBranch:{}}})
                           
-        #exportDate = json.dumps(self.branchDict, sort_keys=True , indent =4)
-       # print "--------------",self.branchFileStore
-        print self.branchFileStore
-        
-        jsonFile = open(self.branchFileStore,'w')
-        jsonFile.write(self.branchFileStore)
-        jsonFile.close
-       # with open(self.branchFileStore, 'a') as f:
-          #  self.branchDict = json.load(f)
-            
-           # f.write(self.branchDict)
-           
-        print "write to %s done "%self.branchFileStore
 
 
         

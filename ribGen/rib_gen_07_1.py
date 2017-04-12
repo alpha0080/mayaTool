@@ -1,0 +1,2610 @@
+# -*- coding: utf-8 -*-
+#
+#Pixar Renderman RIB Tool
+#release Note
+# 2017/02/06 add module shapeToIriginalName, modify shaderToOriginalName, modify reNameUsingNodeType
+#     -- named the shape that using "___" and dict, double check name 
+
+
+from PySide import QtCore, QtGui
+import pymel.core as pm
+import maya.cmds as cmds
+import os
+import subprocess
+import zipfile
+import json
+import getpass
+import datetime
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(440, 1078)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(11)
+        font.setWeight(75)
+        font.setBold(True)
+        MainWindow.setFont(font)
+        self.centralwidget = QtGui.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.tabWidget = QtGui.QTabWidget(self.centralwidget)
+        self.tabWidget.setGeometry(QtCore.QRect(0, 0, 431, 1051))
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtGui.QWidget()
+        self.tab.setObjectName("tab")
+        self.label_4 = QtGui.QLabel(self.tab)
+        self.label_4.setGeometry(QtCore.QRect(10, 290, 111, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.lineEdit_B04 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_B04.setEnabled(True)
+        self.lineEdit_B04.setGeometry(QtCore.QRect(110, 380, 70, 20))
+        self.lineEdit_B04.setObjectName("lineEdit_B04")
+        self.line_4 = QtGui.QFrame(self.tab)
+        self.line_4.setGeometry(QtCore.QRect(10, 630, 351, 20))
+        self.line_4.setFrameShape(QtGui.QFrame.HLine)
+        self.line_4.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_4.setObjectName("line_4")
+        self.line_2 = QtGui.QFrame(self.tab)
+        self.line_2.setGeometry(QtCore.QRect(10, 220, 351, 20))
+        self.line_2.setFrameShape(QtGui.QFrame.HLine)
+        self.line_2.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.label_6 = QtGui.QLabel(self.tab)
+        self.label_6.setGeometry(QtCore.QRect(10, 350, 111, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
+        self.checkBox_B03 = QtGui.QCheckBox(self.tab)
+        self.checkBox_B03.setGeometry(QtCore.QRect(110, 410, 221, 16))
+        self.checkBox_B03.setObjectName("checkBox_B03")
+        self.checkBox_B01 = QtGui.QCheckBox(self.tab)
+        self.checkBox_B01.setGeometry(QtCore.QRect(30, 240, 111, 16))
+        self.checkBox_B01.setObjectName("checkBox_B01")
+        self.horizontalSlider_2 = QtGui.QSlider(self.tab)
+        self.horizontalSlider_2.setGeometry(QtCore.QRect(190, 380, 161, 22))
+        self.horizontalSlider_2.setMinimum(2)
+        self.horizontalSlider_2.setMaximum(10)
+        self.horizontalSlider_2.setProperty("value", 2)
+        self.horizontalSlider_2.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider_2.setObjectName("horizontalSlider_2")
+        self.line_3 = QtGui.QFrame(self.tab)
+        self.line_3.setGeometry(QtCore.QRect(10, 430, 351, 20))
+        self.line_3.setFrameShape(QtGui.QFrame.HLine)
+        self.line_3.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.lineEdit_A03 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_A03.setEnabled(True)
+        self.lineEdit_A03.setGeometry(QtCore.QRect(230, 190, 91, 20))
+        self.lineEdit_A03.setObjectName("lineEdit_A03")
+        self.lineEdit_A02 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_A02.setEnabled(True)
+        self.lineEdit_A02.setGeometry(QtCore.QRect(130, 190, 91, 20))
+        self.lineEdit_A02.setObjectName("lineEdit_A02")
+        self.label_5 = QtGui.QLabel(self.tab)
+        self.label_5.setGeometry(QtCore.QRect(10, 320, 111, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.label_2 = QtGui.QLabel(self.tab)
+        self.label_2.setGeometry(QtCore.QRect(50, 190, 71, 16))
+        self.label_2.setObjectName("label_2")
+        self.horizontalSlider = QtGui.QSlider(self.tab)
+        self.horizontalSlider.setGeometry(QtCore.QRect(190, 260, 161, 22))
+        self.horizontalSlider.setMaximum(360)
+        self.horizontalSlider.setProperty("value", 80)
+        self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider.setObjectName("horizontalSlider")
+        self.lineEdit_B02 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_B02.setEnabled(True)
+        self.lineEdit_B02.setGeometry(QtCore.QRect(110, 290, 70, 20))
+        self.lineEdit_B02.setObjectName("lineEdit_B02")
+        self.checkBox_C01 = QtGui.QCheckBox(self.tab)
+        self.checkBox_C01.setGeometry(QtCore.QRect(10, 650, 141, 21))
+        self.checkBox_C01.setAutoExclusive(False)
+        self.checkBox_C01.setObjectName("checkBox_C01")
+        self.label_11 = QtGui.QLabel(self.tab)
+        self.label_11.setGeometry(QtCore.QRect(10, 620, 131, 16))
+        self.label_11.setObjectName("label_11")
+        self.label_7 = QtGui.QLabel(self.tab)
+        self.label_7.setGeometry(QtCore.QRect(10, 380, 91, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.comboBox = QtGui.QComboBox(self.tab)
+        self.comboBox.setGeometry(QtCore.QRect(110, 320, 131, 22))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox.sizePolicy().hasHeightForWidth())
+        self.comboBox.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.comboBox.setFont(font)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.label_3 = QtGui.QLabel(self.tab)
+        self.label_3.setGeometry(QtCore.QRect(10, 260, 91, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.comboBox_2 = QtGui.QComboBox(self.tab)
+        self.comboBox_2.setGeometry(QtCore.QRect(110, 350, 131, 22))
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
+        self.comboBox_2.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.comboBox_2.setFont(font)
+        self.comboBox_2.setObjectName("comboBox_2")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.pushButton_01 = QtGui.QPushButton(self.tab)
+        self.pushButton_01.setGeometry(QtCore.QRect(10, 450, 161, 31))
+        self.pushButton_01.setObjectName("pushButton_01")
+        self.lineEdit_B03 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_B03.setEnabled(True)
+        self.lineEdit_B03.setGeometry(QtCore.QRect(200, 290, 70, 20))
+        self.lineEdit_B03.setObjectName("lineEdit_B03")
+        self.label_10 = QtGui.QLabel(self.tab)
+        self.label_10.setGeometry(QtCore.QRect(9, 490, 131, 16))
+        self.label_10.setObjectName("label_10")
+        self.label = QtGui.QLabel(self.tab)
+        self.label.setGeometry(QtCore.QRect(10, 100, 111, 41))
+        self.label.setObjectName("label")
+        self.verticalLayoutWidget = QtGui.QWidget(self.tab)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(130, 110, 231, 61))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.checkBox_A01 = QtGui.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_A01.setAutoExclusive(True)
+        self.checkBox_A01.setObjectName("checkBox_A01")
+        self.verticalLayout.addWidget(self.checkBox_A01)
+        self.checkBox_A02 = QtGui.QCheckBox(self.verticalLayoutWidget)
+        self.checkBox_A02.setAutoExclusive(True)
+        self.checkBox_A02.setObjectName("checkBox_A02")
+        self.verticalLayout.addWidget(self.checkBox_A02)
+        self.label_8 = QtGui.QLabel(self.tab)
+        self.label_8.setGeometry(QtCore.QRect(10, 210, 131, 16))
+        self.label_8.setObjectName("label_8")
+        self.checkBox_B02 = QtGui.QCheckBox(self.tab)
+        self.checkBox_B02.setGeometry(QtCore.QRect(140, 240, 111, 16))
+        self.checkBox_B02.setObjectName("checkBox_B02")
+        self.label_9 = QtGui.QLabel(self.tab)
+        self.label_9.setGeometry(QtCore.QRect(10, 10, 131, 16))
+        self.label_9.setObjectName("label_9")
+        self.line = QtGui.QFrame(self.tab)
+        self.line.setGeometry(QtCore.QRect(10, 100, 351, 16))
+        self.line.setFrameShape(QtGui.QFrame.HLine)
+        self.line.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.lineEdit_B01 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_B01.setEnabled(True)
+        self.lineEdit_B01.setGeometry(QtCore.QRect(110, 260, 70, 20))
+        self.lineEdit_B01.setObjectName("lineEdit_B01")
+        self.checkBox_C02 = QtGui.QCheckBox(self.tab)
+        self.checkBox_C02.setEnabled(True)
+        self.checkBox_C02.setGeometry(QtCore.QRect(140, 650, 211, 21))
+        self.checkBox_C02.setAutoExclusive(False)
+        self.checkBox_C02.setObjectName("checkBox_C02")
+        self.lineEdit_c01 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_c01.setGeometry(QtCore.QRect(9, 510, 361, 101))
+        self.lineEdit_c01.setObjectName("lineEdit_c01")
+        self.label_23 = QtGui.QLabel(self.tab)
+        self.label_23.setGeometry(QtCore.QRect(30, 160, 91, 16))
+        self.label_23.setObjectName("label_23")
+        self.lineEdit_A01 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_A01.setEnabled(True)
+        self.lineEdit_A01.setGeometry(QtCore.QRect(130, 160, 91, 20))
+        self.lineEdit_A01.setObjectName("lineEdit_A01")
+        self.horizontalLayoutWidget = QtGui.QWidget(self.tab)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 690, 361, 31))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.checkBox_D01 = QtGui.QCheckBox(self.horizontalLayoutWidget)
+        self.checkBox_D01.setEnabled(False)
+        self.checkBox_D01.setAutoExclusive(True)
+        self.checkBox_D01.setObjectName("checkBox_D01")
+        self.horizontalLayout.addWidget(self.checkBox_D01)
+        self.checkBox_D02 = QtGui.QCheckBox(self.horizontalLayoutWidget)
+        self.checkBox_D02.setEnabled(False)
+        self.checkBox_D02.setAutoExclusive(True)
+        self.checkBox_D02.setObjectName("checkBox_D02")
+        self.horizontalLayout.addWidget(self.checkBox_D02)
+        self.toolButton_01 = QtGui.QToolButton(self.tab)
+        self.toolButton_01.setGeometry(QtCore.QRect(340, 490, 31, 20))
+        self.toolButton_01.setObjectName("toolButton_01")
+        self.pushButton_02 = QtGui.QPushButton(self.tab)
+        self.pushButton_02.setGeometry(QtCore.QRect(210, 450, 161, 31))
+        self.pushButton_02.setObjectName("pushButton_02")
+        self.pushButton_03 = QtGui.QPushButton(self.tab)
+        self.pushButton_03.setGeometry(QtCore.QRect(220, 890, 161, 31))
+        self.pushButton_03.setObjectName("pushButton_03")
+        self.pushButton = QtGui.QPushButton(self.tab)
+        self.pushButton.setGeometry(QtCore.QRect(350, 0, 61, 16))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.plainTextEdit = QtGui.QPlainTextEdit(self.tab)
+        self.plainTextEdit.setGeometry(QtCore.QRect(20, 30, 341, 71))
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.label_12 = QtGui.QLabel(self.tab)
+        self.label_12.setGeometry(QtCore.QRect(10, 860, 91, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_12.setFont(font)
+        self.label_12.setObjectName("label_12")
+        self.label_13 = QtGui.QLabel(self.tab)
+        self.label_13.setGeometry(QtCore.QRect(10, 800, 131, 16))
+        self.label_13.setObjectName("label_13")
+        self.line_6 = QtGui.QFrame(self.tab)
+        self.line_6.setGeometry(QtCore.QRect(10, 810, 351, 20))
+        self.line_6.setFrameShape(QtGui.QFrame.HLine)
+        self.line_6.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_6.setObjectName("line_6")
+        self.checkBox_E01 = QtGui.QCheckBox(self.tab)
+        self.checkBox_E01.setGeometry(QtCore.QRect(10, 830, 181, 16))
+        self.checkBox_E01.setObjectName("checkBox_E01")
+        self.lineEdit_D01 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_D01.setEnabled(True)
+        self.lineEdit_D01.setGeometry(QtCore.QRect(80, 860, 41, 20))
+        self.lineEdit_D01.setAccessibleName("")
+        self.lineEdit_D01.setObjectName("lineEdit_D01")
+        self.horizontalSlider_3 = QtGui.QSlider(self.tab)
+        self.horizontalSlider_3.setGeometry(QtCore.QRect(140, 860, 231, 22))
+        self.horizontalSlider_3.setMinimum(1)
+        self.horizontalSlider_3.setMaximum(100)
+        self.horizontalSlider_3.setProperty("value", 50)
+        self.horizontalSlider_3.setOrientation(QtCore.Qt.Horizontal)
+        self.horizontalSlider_3.setObjectName("horizontalSlider_3")
+        self.checkBox_E03 = QtGui.QCheckBox(self.tab)
+        self.checkBox_E03.setGeometry(QtCore.QRect(10, 930, 181, 16))
+        self.checkBox_E03.setObjectName("checkBox_E03")
+        self.lineEdit_D03 = QtGui.QLineEdit(self.tab)
+        self.lineEdit_D03.setEnabled(True)
+        self.lineEdit_D03.setGeometry(QtCore.QRect(130, 930, 41, 20))
+        self.lineEdit_D03.setAccessibleName("")
+        self.lineEdit_D03.setObjectName("lineEdit_D03")
+        self.pushButton_04 = QtGui.QPushButton(self.tab)
+        self.pushButton_04.setGeometry(QtCore.QRect(220, 970, 161, 31))
+        self.pushButton_04.setObjectName("pushButton_04")
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtGui.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.pushButton_page2_A01 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A01.setGeometry(QtCore.QRect(40, 150, 291, 31))
+        self.pushButton_page2_A01.setObjectName("pushButton_page2_A01")
+        self.pushButton_page2_A02 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A02.setGeometry(QtCore.QRect(40, 240, 291, 31))
+        self.pushButton_page2_A02.setObjectName("pushButton_page2_A02")
+        self.pushButton_page2_A03 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A03.setGeometry(QtCore.QRect(40, 280, 291, 31))
+        self.pushButton_page2_A03.setObjectName("pushButton_page2_A03")
+        self.lineEdit_page2_A01 = QtGui.QLineEdit(self.tab_2)
+        self.lineEdit_page2_A01.setGeometry(QtCore.QRect(180, 120, 41, 20))
+        self.lineEdit_page2_A01.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lineEdit_page2_A01.setObjectName("lineEdit_page2_A01")
+        self.label_14 = QtGui.QLabel(self.tab_2)
+        self.label_14.setGeometry(QtCore.QRect(40, 120, 141, 16))
+        self.label_14.setObjectName("label_14")
+        self.label_15 = QtGui.QLabel(self.tab_2)
+        self.label_15.setGeometry(QtCore.QRect(40, 30, 141, 16))
+        self.label_15.setObjectName("label_15")
+        self.lineEdit_page2_O01 = QtGui.QLineEdit(self.tab_2)
+        self.lineEdit_page2_O01.setGeometry(QtCore.QRect(180, 30, 141, 20))
+        self.lineEdit_page2_O01.setObjectName("lineEdit_page2_O01")
+        self.pushButton_page2_O01 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_O01.setGeometry(QtCore.QRect(40, 60, 281, 25))
+        self.pushButton_page2_O01.setObjectName("pushButton_page2_O01")
+        self.llineEdit_page2_B01 = QtGui.QLineEdit(self.tab_2)
+        self.llineEdit_page2_B01.setEnabled(False)
+        self.llineEdit_page2_B01.setGeometry(QtCore.QRect(50, 650, 281, 41))
+        self.llineEdit_page2_B01.setAlignment(QtCore.Qt.AlignCenter)
+        self.llineEdit_page2_B01.setObjectName("llineEdit_page2_B01")
+        self.pushButton_page2_B01 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_B01.setGeometry(QtCore.QRect(50, 620, 281, 25))
+        self.pushButton_page2_B01.setObjectName("pushButton_page2_B01")
+        self.pushButton_page2_B01_2 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_B01_2.setGeometry(QtCore.QRect(50, 700, 281, 25))
+        self.pushButton_page2_B01_2.setObjectName("pushButton_page2_B01_2")
+        self.line_5 = QtGui.QFrame(self.tab_2)
+        self.line_5.setGeometry(QtCore.QRect(20, 590, 371, 16))
+        self.line_5.setFrameShape(QtGui.QFrame.HLine)
+        self.line_5.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_5.setObjectName("line_5")
+        self.line_7 = QtGui.QFrame(self.tab_2)
+        self.line_7.setGeometry(QtCore.QRect(10, 90, 371, 16))
+        self.line_7.setFrameShape(QtGui.QFrame.HLine)
+        self.line_7.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_7.setObjectName("line_7")
+        self.label_16 = QtGui.QLabel(self.tab_2)
+        self.label_16.setGeometry(QtCore.QRect(60, 580, 331, 16))
+        self.label_16.setObjectName("label_16")
+        self.checkBox_page2_A01 = QtGui.QCheckBox(self.tab_2)
+        self.checkBox_page2_A01.setGeometry(QtCore.QRect(40, 210, 181, 19))
+        self.checkBox_page2_A01.setObjectName("checkBox_page2_A01")
+        self.pushButton_page2_A04 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A04.setGeometry(QtCore.QRect(40, 320, 291, 31))
+        self.pushButton_page2_A04.setObjectName("pushButton_page2_A04")
+        self.pushButton_page2_A05 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A05.setGeometry(QtCore.QRect(40, 360, 291, 31))
+        self.pushButton_page2_A05.setObjectName("pushButton_page2_A05")
+        self.checkBox_page2_A02 = QtGui.QCheckBox(self.tab_2)
+        self.checkBox_page2_A02.setGeometry(QtCore.QRect(40, 410, 211, 19))
+        self.checkBox_page2_A02.setObjectName("checkBox_page2_A02")
+        self.pushButton_page2_A06 = QtGui.QPushButton(self.tab_2)
+        self.pushButton_page2_A06.setGeometry(QtCore.QRect(40, 440, 291, 31))
+        self.pushButton_page2_A06.setObjectName("pushButton_page2_A06")
+        self.tabWidget.addTab(self.tab_2, "")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtGui.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        self.tabWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "RIB Generator", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_4.setText(QtGui.QApplication.translate("MainWindow", "Shutter Opening", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEdit_B04.setText(QtGui.QApplication.translate("MainWindow", "2", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_6.setText(QtGui.QApplication.translate("MainWindow", "Motion Blur Type", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_B03.setText(QtGui.QApplication.translate("MainWindow", "Ray traced Motion Blur", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_B01.setText(QtGui.QApplication.translate("MainWindow", "Motion Blur", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("MainWindow", "Shutter Timing", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Start/End", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_C01.setText(QtGui.QApplication.translate("MainWindow", "UUID Rename", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_11.setText(QtGui.QApplication.translate("MainWindow", "RIB Archive Option", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_7.setText(QtGui.QApplication.translate("MainWindow", "Motion Samples", None, QtGui.QApplication.UnicodeUTF8))
+        self.comboBox.setItemText(0, QtGui.QApplication.translate("MainWindow", "Frame Open", None, QtGui.QApplication.UnicodeUTF8))
+        self.comboBox.setItemText(1, QtGui.QApplication.translate("MainWindow", "Frame Center", None, QtGui.QApplication.UnicodeUTF8))
+        self.comboBox.setItemText(2, QtGui.QApplication.translate("MainWindow", "Frame Close", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Shutter Angle", None, QtGui.QApplication.UnicodeUTF8))
+        self.comboBox_2.setItemText(0, QtGui.QApplication.translate("MainWindow", "Frame", None, QtGui.QApplication.UnicodeUTF8))
+        self.comboBox_2.setItemText(1, QtGui.QApplication.translate("MainWindow", "Subframe", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_01.setText(QtGui.QApplication.translate("MainWindow", "Generate RIB Archive", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Note:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("MainWindow", "Cache time range", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_A01.setText(QtGui.QApplication.translate("MainWindow", "Current Frame", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_A02.setText(QtGui.QApplication.translate("MainWindow", "Start/End Frame", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_8.setText(QtGui.QApplication.translate("MainWindow", "with Motion Blur", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_B02.setText(QtGui.QApplication.translate("MainWindow", "Camera Blur", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_9.setText(QtGui.QApplication.translate("MainWindow", "Current Project:", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_C02.setText(QtGui.QApplication.translate("MainWindow", "RIB  Sequences Only", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEdit_c01.setText(QtGui.QApplication.translate("MainWindow", "type information before push \"Generate Rib Archive\"", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_23.setText(QtGui.QApplication.translate("MainWindow", "Curent Frame", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_D01.setText(QtGui.QApplication.translate("MainWindow", "Delayed Read Archive", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_D02.setText(QtGui.QApplication.translate("MainWindow", "Read Archive", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton_01.setText(QtGui.QApplication.translate("MainWindow", "...", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_02.setText(QtGui.QApplication.translate("MainWindow", "Generate Shave RIB", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_03.setText(QtGui.QApplication.translate("MainWindow", "Publish RIB Archive", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Reset", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_12.setText(QtGui.QApplication.translate("MainWindow", "Percentage", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_13.setText(QtGui.QApplication.translate("MainWindow", "GPU Cache Option", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_E01.setText(QtGui.QApplication.translate("MainWindow", "reduce GPU cache Mesh", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEdit_D01.setText(QtGui.QApplication.translate("MainWindow", "50", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_E03.setText(QtGui.QApplication.translate("MainWindow", "GPU step", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEdit_D03.setText(QtGui.QApplication.translate("MainWindow", "50", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_04.setText(QtGui.QApplication.translate("MainWindow", "Imput RIB Archive", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("MainWindow", "RIB Generate", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A01.setText(QtGui.QApplication.translate("MainWindow", "convert Hair Mesh to Curves", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A02.setText(QtGui.QApplication.translate("MainWindow", "Reverse  U", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A03.setText(QtGui.QApplication.translate("MainWindow", "Reverse V", None, QtGui.QApplication.UnicodeUTF8))
+        self.lineEdit_page2_A01.setText(QtGui.QApplication.translate("MainWindow", "3", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_14.setText(QtGui.QApplication.translate("MainWindow", "hairs/pre Mesh:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_15.setText(QtGui.QApplication.translate("MainWindow", "Name Meshes Title:", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_O01.setText(QtGui.QApplication.translate("MainWindow", "Rename Selected Poly Meshes", None, QtGui.QApplication.UnicodeUTF8))
+        self.llineEdit_page2_B01.setText(QtGui.QApplication.translate("MainWindow", "Pxr Shader Select", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_B01.setText(QtGui.QApplication.translate("MainWindow", "Get PxrShader", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_B01_2.setText(QtGui.QApplication.translate("MainWindow", "Assign PxrShader to ShaveHair", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_16.setText(QtGui.QApplication.translate("MainWindow", "Assign Pixar Renderman Shader", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_page2_A01.setText(QtGui.QApplication.translate("MainWindow", "show SubD surface", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A04.setText(QtGui.QApplication.translate("MainWindow", "Reverse Swap", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A05.setText(QtGui.QApplication.translate("MainWindow", "Reverse Both", None, QtGui.QApplication.UnicodeUTF8))
+        self.checkBox_page2_A02.setText(QtGui.QApplication.translate("MainWindow", "show Select Curve CV", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_page2_A06.setText(QtGui.QApplication.translate("MainWindow", "Reverse  Curve", None, QtGui.QApplication.UnicodeUTF8))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QtGui.QApplication.translate("MainWindow", "Shave Tools", None, QtGui.QApplication.UnicodeUTF8))
+
+
+
+        self.currentProj = pm.workspace(q=True, rd=True)
+        self.currentFrame = cmds.currentTime( query=True )
+        self.plainTextEdit.setPlainText(self.currentProj)
+        self.currentStartFrame = float(pm.getAttr('defaultRenderGlobals.startFrame'))
+        self.currentEndFrame = float(pm.getAttr('defaultRenderGlobals.endFrame'))
+        
+        self.lineEdit_A01.setText("%s"%self.currentFrame)
+        self.lineEdit_A02.setText("%s"%self.currentStartFrame)
+        self.lineEdit_A03.setText("%s"%self.currentEndFrame)
+        
+        self.lineEdit_B01.setText('%s'%self.horizontalSlider.value())
+        self.lineEdit_B02.setText('0.000')
+        self.lineEdit_B03.setText('1.000')
+
+        #self.checkBox_B01.setChecked(True)
+        pm.setAttr('renderManRISGlobals.rman__torattr___motionBlur',0)
+        self.ribGenDict['motionBlurCheck'] = '0'
+        self.checkBox_B01.setChecked(False)
+        self.setMotionOptionInit
+
+        self.checkBox_A01.setChecked(True)
+        self.checkBox_B02.setEnabled(False)
+        self.checkBox_B02.setChecked(False)
+        self.checkBox_B03.setChecked(False) 
+        self.checkBox_B03.setEnabled(False)
+        
+        self.lineEdit_B01.setEnabled(False) 
+        self.lineEdit_B02.setEnabled(False)
+        self.lineEdit_B03.setEnabled(False)
+        self.lineEdit_B04.setEnabled(False)
+
+        self.comboBox.setEnabled(False)
+        self.comboBox_2.setEnabled(False)
+        self.horizontalSlider.setEnabled(False)
+        self.horizontalSlider_2.setEnabled(False)
+        
+#---------------------------GPU Cache Option-------------------------------------        
+        self.checkBox_E01.setChecked(False)
+        self.lineEdit_D01.setEnabled(False) 
+        self.horizontalSlider_3.setEnabled(False)
+
+#        self.checkBox_C02.setChecked(False)
+    
+        self.checkBox_D01.setChecked(True)
+        self.checkBox_D02.setChecked(False)
+        self.comboxDisc ={'frameOpen':0,'frameCenter':1,'frameClose':2}
+        self.comboBox.setCurrentIndex(self.comboxDisc[pm.getAttr('renderManRISGlobals.rman__toropt___shutterTiming')])
+        self.combox_2Disc={'frame':0,'subframe':1}
+        self.comboBox_2.setCurrentIndex(self.combox_2Disc[pm.getAttr('renderManRISGlobals.rman__toropt___motionBlurType')])
+        self.gpuStepValue = 1.0
+
+        
+
+
+
+class mod_MainWindow(QtGui.QMainWindow, Ui_MainWindow):
+   
+    def __init__(self, parent= QtGui.QApplication.activeWindow()):
+        super(mod_MainWindow, self).__init__(parent)
+
+#---------------------------Data Sheet------------------init Start----------------------------------------------------------------------------------        
+#        self.ribGenDict ={}
+#        self.exportDict ={}
+        self.ribGenDict = {'currentFrameCheck':'1','startEndFrameCheck':'0','currentFrameValue':'1.0','startFrameValue':'1.0',
+              'endFrameValue':'10.0','motionBlurCheck':'0','cameraBlurCheck':'0','shutterAngleValue':'80.0',
+              'shutterOpeningOn':'0.0','shutterOpeningOff':'1.0','shutterTiming':'frameOpen','motionBlurType':'frame',
+              'motionSamples':'2.0','rayTracedMotionBlurCheck':'0','UUID_Check':'0','assignLamertShader':'0',
+              'delayedReadArchiveCheck':'1','ReadArchiveCheck':'0',
+              'noteText':'type information before push "Generate Rib Archive"',
+              'exportCmd':'\"rmanExportRIBCompression=0;rmanExportFullPaths=0;rmanExportGlobalLights=0;rmanExportLocalLights=0;rmanExportCoordinateSystems=0;rmanExportShaders=1;rmanExportAttributeBlock=0;',
+              'finalRibExportCmd':'none',
+              'finalGpuExportCmd':'none',
+              'cacheForder':'none',
+              'ribArchiveFileName':'none',
+              'gpuCacheFileName':'none'}
+        self.exportDict = {'projectName':'fullProjectPathAndName','ribIndexNumber':'00000','referenceAsset':'referenceAssetName',
+              'referenceAssetPosition':'referenceAssetFullPathName','ribArchiveName':'ribName','gpuCachePosition':'gpufullPathName',
+              'shadeMode':'beauty','subD':'enable',
+              'ribCachePosition':'ribfullPathName','ribArchiveDuration':'1.0','creator':'creatorName','buildTime':'yyyymmdd',
+              'ribScreenShot':'screenShotImagePosition','version':'xxxx','exportNoteText':'none'}
+        self.originalNodeDict= {}
+    #---------------------------Data Sheet------------------eR?a?¡¦oc??¡Le-------------------------------------------------------------------------------- 
+        self.ribGenDict['currentFrameCheck'] = "1"
+        self.ribGenDict['startEndFrameCheck'] = "0"
+        
+        self.ribGenDict['currentFrameValue']=str(cmds.currentTime( query=True ))
+        self.ribGenDict['startFrameValue']=str(pm.getAttr('defaultRenderGlobals.startFrame'))
+        self.ribGenDict['endFrameValue']=str(pm.getAttr('defaultRenderGlobals.endFrame'))
+        
+        #self.ribGenDict['motionBlurCheck'] = str(pm.getAttr('renderManRISGlobals.rman__torattr___motionBlur'))
+        self.ribGenDict['cameraBlurCheck'] = str(pm.getAttr('renderManRISGlobals.rman__torattr___cameraBlur'))
+        
+        self.ribGenDict['shutterAngleValue']=str(pm.getAttr('renderManRISGlobals.rman__toropt___shutterAngle'))
+        self.ribGenDict['shutterOpeningOn']=str(pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening0'))
+        self.ribGenDict['shutterOpeningOff']=str(pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening1'))
+        self.ribGenDict['shutterTiming'] = pm.getAttr("renderManRISGlobals.rman__toropt___shutterTiming")
+        self.ribGenDict['motionBlurType'] = pm.getAttr("renderManRISGlobals.rman__toropt___motionBlurType")
+        self.ribGenDict['motionSamples']=str(pm.getAttr('renderManRISGlobals.rman__torattr___motionSamples'))
+        self.ribGenDict['rayTracedMotionBlurCheck'] = "0"
+        self.ribGenDict['UUID_Check'] = "0"
+        self.ribGenDict['assignLamertShader'] = "0"
+        self.ribGenDict['delayedReadArchiveCheck'] = "1"
+        self.ribGenDict['ReadArchiveCheck'] = "0"
+        self.meshReduceValue = 50
+        self.hairCount = 3
+
+        #self.selectedGeo=[]
+
+
+    
+        
+
+        
+#---------------------------Data Sheet-------------------?aEND--------------------------------------------------------------------------------------         
+
+
+#-----------------------------------------signalbegin-------------------------------------------------------------------
+        # self.setWindowFlags(QtCore.Qt.Tool)
+        self.setupUi(self)
+        
+        #reset button signal      
+        self.pushButton.clicked.connect(self.modpushButton)
+        
+        #Cache time range mode ,checkbox modify and returen value to dictionary checkBox_A01 ,checkBox_A02
+        self.checkBox_A01.stateChanged.connect(self.modcheckBox_A01)
+        self.checkBox_A01.stateChanged.connect(self.modcheckBox_A02)
+        
+        #store value from current frame, start/end frame
+        self.lineEdit_A01.textChanged.connect(self.modlineEdit_A01)
+        self.lineEdit_A02.textChanged.connect(self.modlineEdit_A02)
+        self.lineEdit_A03.textChanged.connect(self.modlineEdit_A03)
+        
+        #MotionBlurCheckBox,CameraBlurCheckBok modify and store value to dictionary checkBox_B01 ,checkBox_B02
+        self.checkBox_B01.stateChanged.connect(self.modcheckBox_B01)
+        self.checkBox_B02.stateChanged.connect(self.modcheckBox_B02)
+        self.checkBox_B03.stateChanged.connect(self.modcheckBox_B03)
+
+        
+        
+        #ShutterComboBox ,MotionBlurTypeComboBox select modify signal
+        self.comboBox.currentIndexChanged.connect(self.modcomboBox)
+        self.comboBox_2.currentIndexChanged.connect(self.modcomboBox_2)
+        
+        #store value from current frame, shutter angle , shutter opening
+        self.horizontalSlider.valueChanged.connect(self.modlineEdit_B01)
+        self.lineEdit_B01.textChanged.connect(self.modhorizontalSlider)
+        self.lineEdit_B02.textChanged.connect(self.modlineEdit_B02)
+        self.lineEdit_B03.textChanged.connect(self.modlineEdit_B03)
+
+
+        
+        self.horizontalSlider_2.valueChanged.connect(self.modlineEdit_B04)
+        self.lineEdit_B04.textChanged.connect(self.modhorizontalSlider_2)
+        
+        
+        self.horizontalSlider_3.valueChanged.connect(self.modlineEdit_D01)
+        self.lineEdit_D01.textChanged.connect(self.modhorizontalSlider_3)
+        
+        
+        self.pushButton_01.clicked.connect(self.modpushButton_01)
+
+        #UUID_CheckBox, assignLambertShaderCheckBok modify and store value to dictionary checkBox_C01 ,checkBox_C02
+        self.checkBox_C01.stateChanged.connect(self.modcheckBox_C01)
+        self.checkBox_C02.stateChanged.connect(self.modcheckBox_C02)
+        
+        
+        #DelayedReadArchiveCheckBox, ReadArchiveCheckBok modify and store value to dictionary checkBox_D01 ,checkBox_D02
+        self.checkBox_D01.stateChanged.connect(self.modcheckBox_D01)
+        self.checkBox_D02.stateChanged.connect(self.modcheckBox_D02)
+        
+        
+        self.pushButton_02.clicked.connect(self.modpushButton_02)
+        self.pushButton_03.clicked.connect(self.modpushButton_03)
+        
+        
+        self.toolButton_01.clicked.connect(self.modtoolButton_01)
+        
+        
+        self.checkBox_E01.stateChanged.connect(self.modcheckBox_E01)
+        
+        self.lineEdit_D03.textChanged.connect(self.modlineEdit_D03)
+        self.pushButton_04.clicked.connect(self.modpushButton_04)
+        
+        
+        
+        
+        
+        
+        #page 2
+      #  self.pushButton_01.clicked.connect(self.modpushButton_01)
+        self.pushButton_page2_A01.clicked.connect(self.modpushButton_page2_A01)
+        self.pushButton_page2_O01.clicked.connect(self.modpushButton_page2_O01)
+        self.pushButton_page2_A02.clicked.connect(self.modpushButton_page2_A02)
+        self.pushButton_page2_A03.clicked.connect(self.modpushButton_page2_A03)
+        self.pushButton_page2_A04.clicked.connect(self.modpushButton_page2_A04)
+        self.pushButton_page2_A05.clicked.connect(self.modpushButton_page2_A05)
+        self.pushButton_page2_A06.clicked.connect(self.modpushButton_page2_A06)
+        
+        
+        
+        
+
+        self.pushButton_page2_B01.clicked.connect(self.modpushButton_page2_B01)
+        self.pushButton_page2_B01_2.clicked.connect(self.modpushButton_page2_B01_2)
+
+        self.lineEdit_page2_A01.textChanged.connect(self.modlineEdit_page2_A01)
+        self.lineEdit_page2_O01.textChanged.connect(self.modpushButton_page2_O01)
+
+        self.checkBox_page2_A01.stateChanged.connect(self.modcheckBox_page2_A01)
+        
+        self.checkBox_page2_A02.stateChanged.connect(self.modcheckBox_page2_A02)
+        
+        
+
+
+
+
+
+
+
+        
+        
+#-----------------------button_page2_A01------------------------------   
+    def modpushButton_page2_O01(self):
+        
+        self.meshRename= self.lineEdit_page2_O01.text() 
+        print self.meshRename
+        meshCount = 1
+        allSelectMeshs = pm.ls(sl=True,fl=True)
+        for singleMesh in allSelectMeshs:
+            if meshCount < (len(allSelectMeshs)+1):
+                pm.rename(singleMesh,self.meshRename +'%04d'%meshCount )
+                meshCount = meshCount +1
+            else:
+                pass
+                #print singleMesh
+            
+
+    def modlineEdit_page2_A01(self):
+        self.hairCount = self.lineEdit_page2_A01.text()
+        print self.hairCount
+
+  
+    def modpushButton_page2_A01(self):   
+        
+        selectMeshs= pm.ls(sl=True)
+       # print selectMeshs
+        for self.singleMesh in selectMeshs:  
+       #     print self.singleMesh
+            self.uvToEdges(self)
+            
+
+       
+    def modpushButton_page2_B01(self):   
+        self.selectPxrMarschnerHairShader = pm.ls(sl=True)[0]
+       # print selectPxrMarschnerHairShader
+        self.llineEdit_page2_B01.setText('%s'%self.selectPxrMarschnerHairShader)
+         
+        self.getDiffuseModelType = pm.getAttr('%s.diffuseModelType'%self.selectPxrMarschnerHairShader)
+        self.getDiffuseColor = pm.getAttr('%s.diffuseColor'%self.selectPxrMarschnerHairShader)
+        self.getDiffuseGain = pm.getAttr('%s.diffuseGain'%self.selectPxrMarschnerHairShader)
+        self.getSpecularColor = pm.getAttr('%s.specularColor'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainR = pm.getAttr('%s.specularGainR'%self.selectPxrMarschnerHairShader)
+        self.getSpecularSheen = pm.getAttr('%s.specularSheen'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainTRT = pm.getAttr('%s.specularGainTRT'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainTT = pm.getAttr('%s.specularGainTT'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainGLINTS = pm.getAttr('%s.specularGainGLINTS'%self.selectPxrMarschnerHairShader)
+        self.getSpecularConeAngle = pm.getAttr('%s.specularConeAngle'%self.selectPxrMarschnerHairShader)
+        self.getSpecularOffset = pm.getAttr('%s.specularOffset'%self.selectPxrMarschnerHairShader)
+        self.getSpecularIor = pm.getAttr('%s.specularIor'%self.selectPxrMarschnerHairShader)
+        self.getSpecularMixFresnel = pm.getAttr('%s.specularMixFresnel'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGlintWidth = pm.getAttr('%s.specularGlintWidth'%self.selectPxrMarschnerHairShader)
+        self.getSpecularEccentricity = pm.getAttr('%s.specularEccentricity'%self.selectPxrMarschnerHairShader)
+        self.getPresence = pm.getAttr('%s.presence'%self.selectPxrMarschnerHairShader)
+        self.getOpacityColor = pm.getAttr('%s.opacityColor'%self.selectPxrMarschnerHairShader)
+        self.getInputAOV = pm.listConnections('%s.inputAOV'%self.selectPxrMarschnerHairShader)[0]
+        self.getMattID0Color = pm.getAttr('%s.rman__riattr__user_MatteID7'%self.selectPxrMarschnerHairShader)
+        self.getInputAOVNum = pm.getAttr('%s.inputAOV'%self.getInputAOV)
+
+
+
+        self.shaderStore = {"Pattern"+" "+"\""+"PxrMatteID"+"\""+" " + "\""+ "%s"%self.getInputAOV + "\""+" " + "\"" + "int inputAOV"+"\""+" "+"["+"%s"%str(self.getInputAOVNum)+"]"
+        "Bxdf"+ " \""+"PxrMarschnerHair"+"\""+" "+"\""+"%s"%self.selectPxrMarschnerHairShader + "\""
+        " " +"\""+"int diffuseModelType" + "\""+ " "+ "["+"%s"%str(self.getDiffuseModelType) +"]"
+        " " +"\""+"color diffuseColor" + "\""+ " "+ "["+"%s"%str(self.getDiffuseColor[0])+" "+"%s"%str(self.getDiffuseColor[1])+" "+"%s"%str(self.getDiffuseColor[2]) +"]"
+        " " +"\""+"float diffuseGain" + "\""+ " "+ "["+"%s"%str(self.getDiffuseGain) +"]"
+        " " +"\""+"color specularColor" + "\""+ " "+ "["+"%s"%str(self.getSpecularColor[0])+" "+"%s"%str(self.getSpecularColor[1])+" "+"%s"%str(self.getSpecularColor[2]) +"]"
+        " " +"\""+"float specularGainR" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainR) +"]"
+        " " +"\""+"color specularSheen" + "\""+ " "+ "["+"%s"%str(self.getSpecularSheen[0])+" "+"%s"%str(self.getSpecularSheen[1])+" "+"%s"%str(self.getSpecularSheen[2]) +"]"
+        " " +"\""+"float specularGainTRT" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainTRT) +"]"
+        " " +"\""+"float specularGainTT" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainTT) +"]"
+        " " +"\""+"float specularGainGLINTS" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainGLINTS) +"]"
+        " " +"\""+"float specularConeAngle" + "\""+ " "+ "["+"%s"%str(self.getSpecularConeAngle) +"]"
+        " " +"\""+"float specularOffset" + "\""+ " "+ "["+"%s"%str(self.getSpecularOffset) +"]"
+        " " +"\""+"float specularIor" + "\""+ " "+ "["+"%s"%str(self.getSpecularIor) +"]"
+        " " +"\""+"float specularMixFresnel" + "\""+ " "+ "["+"%s"%str(self.getSpecularMixFresnel) +"]"
+        " " +"\""+"float specularGlintWidth" + "\""+ " "+ "["+"%s"%str(self.getSpecularGlintWidth) +"]"
+        " " +"\""+"float specularEccentricity" + "\""+ " "+ "["+"%s"%str(self.getSpecularEccentricity) +"]"
+        " " +"\""+"float presence" + "\""+ " "+ "["+"%s"%str(self.getPresence) +"]"
+        " " +"\""+"color opacityColor" + "\""+ " "+ "["+"%s"%str(self.getOpacityColor[0])+" "+"%s"%str(self.getOpacityColor[1])+" "+"%s"%str(self.getOpacityColor[2]) +"]"
+        #print " " +"\""+"int inputAOV" + "\""+ " "+ "[0]"
+        " " +"\""+"reference int inputAOV" + "\""+ " "+ "["+"\""+"%s"%str(self.getInputAOV) +":resultAOV" +"\""+"]"
+        " " +"\""+"__instanceid" + "\""+ " "+ "["+"\""+"%s"%str(self.selectPxrMarschnerHairShader) +"_0"+"\""+"]"
+        " " +"Attribute "+"\""+ "user" + "\"" +" "+"\""+"color MatteID7"+"\""+" "+"["+"%s"%str(self.getMattID0Color[0])+" "+"%s"%str(self.getMattID0Color[1])+" "+"%s"%str(self.getMattID0Color[2]) +"]"}
+        
+
+        
+    def modpushButton_page2_B01_2(self):   
+        self.selectPxrMarschnerHairShader = self.llineEdit_page2_B01.text()
+         
+        self.getDiffuseModelType = pm.getAttr('%s.diffuseModelType'%self.selectPxrMarschnerHairShader)
+        self.getDiffuseColor = pm.getAttr('%s.diffuseColor'%self.selectPxrMarschnerHairShader)
+        self.getDiffuseGain = pm.getAttr('%s.diffuseGain'%self.selectPxrMarschnerHairShader)
+        self.getSpecularColor = pm.getAttr('%s.specularColor'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainR = pm.getAttr('%s.specularGainR'%self.selectPxrMarschnerHairShader)
+        self.getSpecularSheen = pm.getAttr('%s.specularSheen'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainTRT = pm.getAttr('%s.specularGainTRT'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainTT = pm.getAttr('%s.specularGainTT'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGainGLINTS = pm.getAttr('%s.specularGainGLINTS'%self.selectPxrMarschnerHairShader)
+        self.getSpecularConeAngle = pm.getAttr('%s.specularConeAngle'%self.selectPxrMarschnerHairShader)
+        self.getSpecularOffset = pm.getAttr('%s.specularOffset'%self.selectPxrMarschnerHairShader)
+        self.getSpecularIor = pm.getAttr('%s.specularIor'%self.selectPxrMarschnerHairShader)
+        self.getSpecularMixFresnel = pm.getAttr('%s.specularMixFresnel'%self.selectPxrMarschnerHairShader)
+        self.getSpecularGlintWidth = pm.getAttr('%s.specularGlintWidth'%self.selectPxrMarschnerHairShader)
+        self.getSpecularEccentricity = pm.getAttr('%s.specularEccentricity'%self.selectPxrMarschnerHairShader)
+        self.getPresence = pm.getAttr('%s.presence'%self.selectPxrMarschnerHairShader)
+        self.getOpacityColor = pm.getAttr('%s.opacityColor'%self.selectPxrMarschnerHairShader)
+        self.getInputAOV = pm.listConnections('%s.inputAOV'%self.selectPxrMarschnerHairShader)[0]
+        self.getMattID0Color = pm.getAttr('%s.rman__riattr__user_MatteID7'%self.selectPxrMarschnerHairShader)
+        self.getInputAOVNum = pm.getAttr('%s.inputAOV'%self.getInputAOV)
+
+
+
+
+        self.shaderStore = {"Pattern"+" "+"\""+"PxrMatteID"+"\""+" " + "\""+ "%s"%self.getInputAOV + "\""+" " + "\"" + "int inputAOV"+"\""+" "+"["+"%s"%str(self.getInputAOVNum)+"]"
+        "Bxdf"+ " \""+"PxrMarschnerHair"+"\""+" "+"\""+"%s"%self.selectPxrMarschnerHairShader + "\""
+        " " +"\""+"int diffuseModelType" + "\""+ " "+ "["+"%s"%str(self.getDiffuseModelType) +"]"
+        " " +"\""+"color diffuseColor" + "\""+ " "+ "["+"%s"%str(self.getDiffuseColor[0])+" "+"%s"%str(self.getDiffuseColor[1])+" "+"%s"%str(self.getDiffuseColor[2]) +"]"
+        " " +"\""+"float diffuseGain" + "\""+ " "+ "["+"%s"%str(self.getDiffuseGain) +"]"
+        " " +"\""+"color specularColor" + "\""+ " "+ "["+"%s"%str(self.getSpecularColor[0])+" "+"%s"%str(self.getSpecularColor[1])+" "+"%s"%str(self.getSpecularColor[2]) +"]"
+        " " +"\""+"float specularGainR" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainR) +"]"
+        " " +"\""+"color specularSheen" + "\""+ " "+ "["+"%s"%str(self.getSpecularSheen[0])+" "+"%s"%str(self.getSpecularSheen[1])+" "+"%s"%str(self.getSpecularSheen[2]) +"]"
+        " " +"\""+"float specularGainTRT" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainTRT) +"]"
+        " " +"\""+"float specularGainTT" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainTT) +"]"
+        " " +"\""+"float specularGainGLINTS" + "\""+ " "+ "["+"%s"%str(self.getSpecularGainGLINTS) +"]"
+        " " +"\""+"float specularConeAngle" + "\""+ " "+ "["+"%s"%str(self.getSpecularConeAngle) +"]"
+        " " +"\""+"float specularOffset" + "\""+ " "+ "["+"%s"%str(self.getSpecularOffset) +"]"
+        " " +"\""+"float specularIor" + "\""+ " "+ "["+"%s"%str(self.getSpecularIor) +"]"
+        " " +"\""+"float specularMixFresnel" + "\""+ " "+ "["+"%s"%str(self.getSpecularMixFresnel) +"]"
+        " " +"\""+"float specularGlintWidth" + "\""+ " "+ "["+"%s"%str(self.getSpecularGlintWidth) +"]"
+        " " +"\""+"float specularEccentricity" + "\""+ " "+ "["+"%s"%str(self.getSpecularEccentricity) +"]"
+        " " +"\""+"float presence" + "\""+ " "+ "["+"%s"%str(self.getPresence) +"]"
+        " " +"\""+"color opacityColor" + "\""+ " "+ "["+"%s"%str(self.getOpacityColor[0])+" "+"%s"%str(self.getOpacityColor[1])+" "+"%s"%str(self.getOpacityColor[2]) +"]"
+        #print " " +"\""+"int inputAOV" + "\""+ " "+ "[0]"
+        " " +"\""+"reference int inputAOV" + "\""+ " "+ "["+"\""+"%s"%str(self.getInputAOV) +":resultAOV" +"\""+"]"
+        " " +"\""+"__instanceid" + "\""+ " "+ "["+"\""+"%s"%str(self.selectPxrMarschnerHairShader) +"_0"+"\""+"]"
+        " " +"Attribute "+"\""+ "user" + "\"" +" "+"\""+"color MatteID7"+"\""+" "+"["+"%s"%str(self.getMattID0Color[0])+" "+"%s"%str(self.getMattID0Color[1])+" "+"%s"%str(self.getMattID0Color[2]) +"]"}
+          
+
+        selectedShaveSet = pm.ls(sl=True)[0]
+        pm.setAttr('%s.ribStuff'%selectedShaveSet,self.shaderStore)
+        print self.shaderStore       
+            
+    def printSingleMesh(self,singleMesh):
+        print self.singleMesh
+
+        
+        
+#-------------------modcheckBox_page2_A01------------------------        
+    def modcheckBox_page2_A01(self):
+        allloftSurface = pm.ls('*_toLoftSurface')
+      # print allloftSurface
+        if self.checkBox_page2_A01.isChecked() == True:               
+            for i in allloftSurface:
+                pm.setAttr('%s.visibility'%i,1)
+
+        else:
+            for i in allloftSurface:
+                pm.setAttr('%s.visibility'%i,0)
+                
+                
+                
+#-------------------checkBox display CV-----------------------        
+    def modcheckBox_page2_A02(self):
+        
+        self.selectCurves = pm.ls(sl=True,shapes=True,dag=2,fl=True) 
+      # print allloftSurface
+        if self.checkBox_page2_A02.isChecked() == True: 
+            
+            for i in self.selectCurves:
+                pm.setAttr('%s.dispCV'%i,1)
+
+        else:
+            for i in self.selectCurves:
+                pm.setAttr('%s.dispCV'%i,0)
+
+                
+                
+                
+                
+                
+                
+#-----------------button reverse U---------------------------------      
+
+    def modpushButton_page2_A02(self):   
+        selectedSurf = pm.ls(sl=True)
+        for singleSurf in selectedSurf:
+            pm.reverseSurface(singleSurf,d=0,ch=1,rpo=1)
+       
+
+
+
+#-----------------button reverse V---------------------------------  
+
+
+    def modpushButton_page2_A03(self):   
+        selectedSurf = pm.ls(sl=True)
+        for singleSurf in selectedSurf:
+            pm.reverseSurface(singleSurf,d=1,ch=1,rpo=1)
+       
+                
+
+
+
+#-----------------button reverse swap---------------------------------  
+
+    def modpushButton_page2_A04(self):   
+        selectedSurf = pm.ls(sl=True)
+        for singleSurf in selectedSurf:
+            pm.reverseSurface(singleSurf,d=3,ch=1,rpo=1)
+       
+                
+
+#-----------------button reverse both---------------------------------       
+
+    def modpushButton_page2_A05(self):   
+        selectedSurf = pm.ls(sl=True)
+        for singleSurf in selectedSurf:
+            pm.reverseSurface(singleSurf,d=2,ch=1,rpo=1)
+       
+                                   
+                
+
+                
+#-----------------button reverse CV---------------------------------       
+
+    def modpushButton_page2_A06(self):   
+        self.selectCurves = pm.ls(sl=True,shapes=True,dag=2,fl=True) 
+        for singleCurve in self.selectCurves:
+            pm.reverseCurve(singleCurve, ch=True, rpo=True )
+       
+                                   
+                         
+                
+                
+
+        
+        
+        
+#---------------------convert select uvs to edge        
+    def uvToEdges(self,singleMesh):
+
+        
+        print "convert"+ self.singleMesh + "to Curves Start.................."
+
+        convertselectMeshToUVs = pm.ls(pm.polyListComponentConversion(self.singleMesh,toUV=True),fl=True)
+
+        #print len(convertselectMeshToUVs)
+
+        #print convertselectMeshToUVs
+        topUVs = []  #all UVs in top line
+        bottomUVs = []  #all UV in the bottom line
+        LeftUVs =[]
+
+
+        pm.select(cl=True)
+        newGroup = pm.group(n=self.singleMesh+'_polytoCurve_grp')        
+        
+        for singleUV in convertselectMeshToUVs:
+            if pm.polyEditUV(singleUV,q=True)[1] < 0.01:     #find Bottom UVs
+                bottomUVs.append( singleUV )
+            elif pm.polyEditUV(singleUV,q=True)[1] > 0.99:   #find top UVs
+                topUVs.append( singleUV )
+
+            else:
+                pass
+
+        for singleUV in convertselectMeshToUVs:
+            if pm.polyEditUV(singleUV,q=True)[0] <= 0.01:    #find Left UVs
+                LeftUVs.append(singleUV)
+            else:
+                pass
+                
+        totalUsteps= int(len(bottomUVs))  # steps in U
+        totalVsteps =int(len(LeftUVs))           # steps in V
+
+
+        #print len(pm.ls(sl=True,fl=True))
+
+
+
+        lineNum = 1
+
+        # store UVs in every Line
+
+        pm.select(cl=True)
+
+       # print topUVs
+       # print bottomUVs
+
+
+        # get the bottom and top UV and reOrder List from UVShell 0 to 1
+        newOrder_buttonUV =[]
+        newOrder_topUV = []
+        j=0.0
+        while j < (1 +0.01):
+            for du_inBottom , du_inTop in zip(bottomUVs,topUVs):
+                bottom_duCoord = pm.polyEditUV(du_inBottom,q=True)[0]
+                top_duCoord = pm.polyEditUV(du_inTop,q=True)[0]    
+                
+                
+                try:   
+                    if bottom_duCoord >= j and bottom_duCoord < (j+0.01) :
+                        newOrder_buttonUV.append(du_inBottom)
+                      #  print du_inBottom
+                    else:
+                        pass
+                        
+                    if top_duCoord >= j and top_duCoord < (j+0.01) :
+                        newOrder_topUV.append(du_inTop)
+                      #  print du_inTop
+                    else:
+                        pass
+                        
+                except:
+                    pass
+                    
+           
+            
+            j= j+0.01
+            
+            
+    
+        #check is closeed poly,like cylinder    
+        lastButtonUV = pm.select(newOrder_buttonUV[-1])    
+        lastButtonVertex = pm.polyListComponentConversion(tv=True)
+        lastButtonVertexPos = pm.pointPosition(lastButtonVertex,w=True)
+        firstButtonUV = pm.select(newOrder_buttonUV[0])    
+        firstButtonVertex = pm.polyListComponentConversion(tv=True)
+        firstButtonVertexPos = pm.pointPosition(firstButtonVertex,w=True)
+
+        if lastButtonVertexPos[0] == firstButtonVertexPos[0]:
+            totalUsteps = totalUsteps -1
+            closeSurf = 1   #give the close option for building loft surface with 1 
+            nonCloseStep = 0
+        else:
+            totalUsteps = totalUsteps    
+            closeSurf = 0    #give the close option for building loft surface with 0    
+            nonCloseStep = 1        
+            
+
+            
+         # find edge between two UV,shell, and convert curve from polyedges   
+
+        polyToCurves = []
+        pm.select(cl=True)
+
+
+        for eleNum in range(0,(totalUsteps)):
+
+            pointA = newOrder_buttonUV[eleNum]
+            pointB = newOrder_topUV[eleNum]
+            numA = int(pointA.split('[')[-1].split(']')[0])
+            numB = int(pointB.split('[')[-1].split(']')[0])  
+          #  print pointA , numA
+
+          #  print pointB ,numB
+            
+            pm.polySelect(self.singleMesh,spu =(numA,numB))
+
+            curveCreate = pm.mel.eval('polyToCurve -form 2 -degree 3')[0]             # conver select edge to Nurb Curve, degree =0  
+
+            pm.parent(curveCreate,newGroup) 
+            curveNewName = eleNum + 1
+            curveNewName = self.singleMesh+'_toCurve_'+ '%04d'%curveNewName 
+            pm.rename(curveCreate,curveNewName)   
+            pm.hide(curveNewName)
+            polyToCurves.append(curveNewName)    #store all polyToCurves in list    
+            pm.select(cl=True)
+       # print polyToCurves  
+
+        # make loft surface from duplacate edge curves
+
+        loftSurface = pm.loft(polyToCurves,ch=1,u=0,c=closeSurf,ar=1,d=1,ss=1,rn=0,po=0,rsn=True,n=self.singleMesh+'_toLoftSurface')[0]  #create loft surface using curves
+
+        
+        loftSurfaceSpanU = pm.getAttr('%s.spansU'%loftSurface)    #re define isoparms
+
+        
+        loftSurfaceSpanV = pm.getAttr('%s.spansV'%loftSurface)  
+        
+       # print loftSurfaceSpanU,loftSurfaceSpanV
+        pm.rebuildSurface(ch=1,rpo=1,rt=0,end=1,kr=0,kcp=0,kc=1,su=loftSurfaceSpanU,du=1,sv=loftSurfaceSpanV,dv=1,tol=0.01,fr=0,dir=2) #rebuild surface,cause the original surface's isoparms' range too large
+     #                       ch=1,rpo=1,rt=0,end=1,kr=0,kcp=0,kc=0,su=loftSurfaceSpanU,du=1,sv=loftSurfaceSpanV,dv=1,tol=0.01,fr=0,dir=2
+    #
+        pm.hide(loftSurface)
+        pm.parent(loftSurface,newGroup)           
+
+        #print loftSurface
+        
+        makeCurves= float(self.hairCount) # how many curves in one mesh
+        curveStep = 1.0/(makeCurves-nonCloseStep)
+        isoStep = 0
+        #print makeCurves,curveStep
+        pm.select(cl=True)
+        loftCurveNumber = 1
+
+        #realMakeCurve = makeCurves + nonCloseStep
+        while loftCurveNumber <= makeCurves  :
+            selectIsoP = loftSurface +'.v['+str(isoStep)+']'
+           # print selectIsoP
+            pm.select(selectIsoP,tgl=True)
+
+            duplaciteCurveFromIsoPalm = pm.duplicateCurve('%s'%selectIsoP,ch= True,n=loftSurface+'_toCurve_'+'%04d'%loftCurveNumber)[0]
+            loftCurveNumber = loftCurveNumber +1
+            if isoStep == 0 :
+                pm.color(duplaciteCurveFromIsoPalm,rgb=(1.0,0.0,0.0))
+
+            else:
+                stepGreen= 0.0 + isoStep
+                pm.color(duplaciteCurveFromIsoPalm,rgb=(0.0,stepGreen,0.0))
+
+                
+            pm.parent(duplaciteCurveFromIsoPalm,newGroup)           
+            isoStep = isoStep + curveStep
+            if isoStep >= (curveStep*(makeCurves-1)):
+                pm.color(duplaciteCurveFromIsoPalm,rgb=(0.0,0.0,1.0))
+            else :
+                pass
+        selectIsoP_V_Bottom = loftSurface +'.u[0]'
+        duplaciteCurveFromIsoPalm_V_Bottom = pm.duplicateCurve('%s'%selectIsoP_V_Bottom,ch= True,n=loftSurface+'_toCurve_V_bottim')[0]  
+        pm.color(duplaciteCurveFromIsoPalm_V_Bottom,rgb=(1.0,1.0,0.0))     
+      #  print duplaciteCurveFromIsoPalm
+        if len(pm.ls('polyToCurves_bottomLines')) >= 1:
+            pass
+        else:
+            pm.group(n='polyToCurves_bottomLines')
+            
+        pm.parent(duplaciteCurveFromIsoPalm_V_Bottom,'polyToCurves_bottomLines')            
+    
+
+        print "convert"+ self.singleMesh + "to Curves finishing.................."
+#----------------------poly convert 4 nurbs-------------        
+        
+    def getNurbEdge(self,singleMesh):
+    
+#singleMesh = pm.ls(sl=True)[0]
+        convertselectMeshToEdges = pm.select(pm.polyListComponentConversion(self.singleMesh,te=True))
+        allEdges = pm.ls(sl=True,fl=True)
+
+        uvCount = pm.polyEvaluate(self.singleMesh,uv=True)
+
+
+        unSelectEdges= []
+
+        # get edgeNeA   
+        pm.select(cl=True)
+        for n in range(0,uvCount):
+
+            
+            uvPoint = '%s.map'%self.singleMesh+'[%s]'%n
+          #  print pm.polyEditUV(uvPoint,q=True)[0]
+            try:
+                if pm.polyEditUV(uvPoint,q=True)[0] > 0.001:
+
+                    pm.select(uvPoint,tgl=True)
+            except:
+                pass
+                
+            convertEdges = pm.select(pm.polyListComponentConversion(te=True))   #convert select uv to edge
+            selectEdgesNeA = pm.ls(sl=True,fl=True)
+        # get edgeNeB  
+        pm.select(cl=True)
+        for n in range(0,uvCount):
+
+            
+            uvPoint = '%s.map'%self.singleMesh+'[%s]'%n
+          #  print pm.polyEditUV(uvPoint,q=True)[0]
+            try:
+                if pm.polyEditUV(uvPoint,q=True)[0] < 0.999:
+
+                    pm.select(uvPoint,tgl=True)
+            except:
+                pass
+                
+            convertEdges = pm.select(pm.polyListComponentConversion(te=True))   #convert select uv to edge
+            selectEdgesNeB = pm.ls(sl=True,fl=True)
+
+        # get edgeNeC  
+        pm.select(cl=True)
+        for n in range(0,uvCount):
+
+            
+            uvPoint = '%s.map'%self.singleMesh+'[%s]'%n
+          #  print pm.polyEditUV(uvPoint,q=True)[0]
+            try:
+                if pm.polyEditUV(uvPoint,q=True)[1] > 0.1:
+
+                    pm.select(uvPoint,tgl=True)
+            except:
+                pass
+                
+            convertEdges = pm.select(pm.polyListComponentConversion(te=True))   #convert select uv to edge
+            selectEdgesNeC = pm.ls(sl=True,fl=True)
+        # get edgeNeD
+        pm.select(cl=True)
+        for n in range(0,uvCount):
+
+            
+            uvPoint = '%s.map'%self.singleMesh+'[%s]'%n
+          #  print pm.polyEditUV(uvPoint,q=True)[0]
+            try:
+                if pm.polyEditUV(uvPoint,q=True)[1] < 0.999:
+
+                    pm.select(uvPoint,tgl=True)
+            except:
+                pass
+                
+            convertEdges = pm.select(pm.polyListComponentConversion(te=True))   #convert select uv to edge
+            selectEdgesNeD = pm.ls(sl=True,fl=True)
+
+
+
+        #pm.select(cl=True)
+        #for edge in allEdges:
+
+        #    unSelectEdges.append(edge)
+            
+        #len(allEdges)
+        #len(selectEdges)
+        #store EdgeA, left line of uv
+        selectEdgeA= []   
+        pm.select(cl=True)    
+        for edgeA in allEdges:
+           # print edgeA
+            if edgeA in selectEdgesNeA:
+                
+                pass
+            else:
+                selectEdgeA.append(edgeA)
+                
+        #store EdgeB, right line of uv
+        selectEdgeB= []   
+        pm.select(cl=True)    
+        for edgeB in allEdges:
+           # print edgeA
+            if edgeB in selectEdgesNeB:
+                
+                pass
+            else:
+                selectEdgeB.append(edgeB)
+                
+        #store EdgeB, upper line of uv        
+        selectEdgeC= []   
+        pm.select(cl=True)    
+        for edgeC in allEdges:
+           # print edgeA
+            if edgeC in selectEdgesNeC:
+                
+                pass
+            else:
+                selectEdgeC.append(edgeC)
+                
+        #store EdgeB, bottom line of uv        
+        selectEdgeD= []   
+        pm.select(cl=True)    
+        for edgeD in allEdges:
+           # print edgeA
+            if edgeD in selectEdgesNeD:
+                
+                pass
+            else:
+                selectEdgeD.append(edgeD)
+                
+
+        
+        pm.select(selectEdgeA)        
+       
+        curveA = pm.mel.eval('polyToCurve -form 2 -degree 3')[0]
+        curveAName =self.singleMesh+'toCurveA'
+        pm.rename(curveA,curveAName)
+        
+        
+        pm.select(selectEdgeB)        
+       
+        curveB = pm.mel.eval('polyToCurve -form 2 -degree 3')[0]
+        curveBName =self.singleMesh+'toCurveB'
+        pm.rename(curveB,curveBName)
+        
+        
+        pm.select(selectEdgeC)        
+       
+        curveC = pm.mel.eval('polyToCurve -form 2 -degree 3')[0]
+        curveCName =self.singleMesh+'toCurveC'
+        pm.rename(curveC,curveCName)
+        
+        
+        pm.select(selectEdgeD)       
+       
+        curveD = pm.mel.eval('polyToCurve -form 2 -degree 3')[0]
+        curveDName =self.singleMesh+'toCurveD'
+        pm.rename(curveD,curveDName)
+        
+        #preSurface = pm.doubleProfileBirailSurface( curveAName,curveBName,curveCName,curveDName,n=self.singleMesh+'ToSurface', bl=0.5 )
+        
+        makeGroup = pm.group(curveAName,curveBName,curveCName,curveDName,n=self.singleMesh+'CurveGrp')
+        
+        #make nurb surface with Birail Tool
+        preSurface = pm.doubleProfileBirailSurface( curveAName,curveBName,curveCName,curveDName,n=self.singleMesh+'ToSurface', bl=0.5 )[0]
+        print preSurface
+        print makeGroup
+        pm.parent(preSurface, makeGroup)
+        
+        #duplacite curves from surface isopalms
+        makeCurves= float(self.hairCount) # how many curves in one mesh
+        curveStep = 1.0/(makeCurves-1)
+        uStep = 0
+        pm.select(cl=True)
+        while uStep <= 1.0 :
+            selectIsoP = preSurface +'.u['+str(uStep)+']'
+         #   print selectIsoP
+           # pm.select(selectIsoP,tgl=True)
+            uStep = uStep + curveStep
+            duplaciteCurveFromIsoPalm = pm.duplicateCurve('%s'%selectIsoP,ch= True,n=preSurface+'toCurve'+'#')[0]
+          #  print duplaciteCurveFromIsoPalm
+            pm.parent(duplaciteCurveFromIsoPalm,makeGroup)
+            
+        
+        #hide NurbShrface and PolyTo curves
+        
+        pm.hide(preSurface, curveAName,curveBName,curveCName,curveDName)    
+                
+                
+        
+#-----------------------------------------signal End-------------------------------------------------------------------        
+        
+#    def projectInfo(self):
+#        self.plainTextEditA.setPlainText("ssss")
+
+    def modcheckBox_A01(self):
+        if self.checkBox_A01.isChecked() == True:
+            self.ribGenDict['currentFrameCheck'] = '1'
+            self.ribGenDict['startEndFrameCheck'] ='0'
+
+    def modcheckBox_A02(self):
+        if self.checkBox_A02.isChecked() == True:
+            self.ribGenDict['currentFrameCheck'] = '0'
+            self.ribGenDict['startEndFrameCheck'] ='1'
+
+    def modlineEdit_A01(self):
+        newCurentFrame = float(self.lineEdit_A01.text())
+        cmds.currentTime( newCurentFrame )
+       # print cmds.currentTime( newCurentFrame )
+        self.ribGenDict['currentFrameValue'] = str(cmds.currentTime( newCurentFrame ))
+
+    def modlineEdit_A02(self):
+        newStartFrame = float(self.lineEdit_A02.text())
+        pm.setAttr('defaultRenderGlobals.startFrame',newStartFrame)
+        self.ribGenDict['startFrameValue'] = self.lineEdit_A02.text()
+
+        
+    def modlineEdit_A03(self):
+        newEndFrame = float(self.lineEdit_A03.text())
+        pm.setAttr('defaultRenderGlobals.endFrame',newEndFrame)   
+        self.ribGenDict['endFrameValue'] = self.lineEdit_A03.text()
+#----------------------------------------------------------------------------------------------------------
+
+    def setMotionOptionInit(self):
+
+        
+        
+        if pm.getAttr('renderManRISGlobals.rman__torattr___motionBlur') == 0:
+            print "motion blur not Enable"
+            self.ribGenDict['motionBlurCheck'] = '0'
+            self.ribGenDict['cameraBlurCheck'] ='0'
+            self.checkBox_B01.setChecked(False)
+
+            self.checkBox_B02.setChecked(False)
+            self.checkBox_B02.setEnabled(False)
+            self.checkBox_B03.setEnabled(False)
+            self.lineEdit_B01.setEnabled(False)
+            self.lineEdit_B02.setEnabled(False)
+            self.lineEdit_B03.setEnabled(False)
+            self.lineEdit_B04.setEnabled(False)
+            self.comboBox.setEnabled(False)
+            self.comboBox_2.setEnabled(False)
+            self.horizontalSlider.setEnabled(False)
+            self.horizontalSlider_2.setEnabled(False)
+            
+        else:
+            pm.getAttr('renderManRISGlobals.rman__torattr___motionBlur') == 1 
+            print "motion blur Enable"
+            self.ribGenDict['motionBlurCheck'] = '1'
+            self.ribGenDict['cameraBlurCheck'] ='0'
+            self.checkBox_B01.setChecked(True)
+            self.checkBox_B02.setEnabled(True)
+            self.checkBox_B03.setEnabled(True)
+            self.lineEdit_B01.setEnabled(True)
+            self.lineEdit_B02.setEnabled(True)
+            self.lineEdit_B03.setEnabled(True)
+            self.lineEdit_B04.setEnabled(True)
+            self.comboBox.setEnabled(True)
+            self.comboBox_2.setEnabled(True)
+            self.horizontalSlider.setEnabled(True)
+            self.horizontalSlider_2.setEnabled(True)
+            
+            self.ribGenDict['shutterAngleValue'] =str('%1.f'%pm.getAttr('renderManRISGlobals.rman__toropt___shutterAngle'))
+            
+            self.lineEdit_B01.setText(self.ribGenDict['shutterAngleValue'])
+   #         self.ribGenDict['shutterAngleValue'] =str(newShutterAngle)
+   #         pm.setAttr('renderManRISGlobals.rman__toropt___shutterAngle',float(self.ribGenDict['shutterAngleValue']))
+            
+            self.ribGenDict['shutterOpeningOn'] =str('%.3f'%pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening0'))
+            self.ribGenDict['shutterOpeningOff'] =str('%.3f'%pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening1'))
+
+            self.lineEdit_B02.setText(self.ribGenDict['shutterOpeningOn']) 
+            self.lineEdit_B03.setText(self.ribGenDict['shutterOpeningOff']) 
+            
+            self.lineEdit_B04.setText(self.ribGenDict['motionSamples'])
+            
+            self.ribGenDict['rayTracedMotionBlurCheck'] =str(pm.getAttr('renderManRISGlobals.rman__riattr__trace_samplemotion'))
+            self.checkBox_B03.setChecked(int(self.ribGenDict['rayTracedMotionBlurCheck']))
+
+
+
+#----------------------------check motion blur option start----------------------------
+
+    def modcheckBox_B01(self):
+        if self.checkBox_B01.isChecked() == True:                     #motion blur check on and get info from renderman Globals
+            self.ribGenDict['motionBlurCheck'] = '1'
+            self.ribGenDict['cameraBlurCheck'] ='0'
+            self.checkBox_B02.setEnabled(True)
+            self.checkBox_B03.setEnabled(True)
+            self.lineEdit_B01.setEnabled(True)
+            self.lineEdit_B02.setEnabled(True)
+            self.lineEdit_B03.setEnabled(True)
+            self.lineEdit_B04.setEnabled(True)
+            self.comboBox.setEnabled(True)
+            self.comboBox_2.setEnabled(True)
+            self.horizontalSlider.setEnabled(True)
+            self.horizontalSlider_2.setEnabled(True)
+            
+            self.ribGenDict['shutterAngleValue'] =str('%1.f'%pm.getAttr('renderManRISGlobals.rman__toropt___shutterAngle'))
+            
+            self.lineEdit_B01.setText(self.ribGenDict['shutterAngleValue'])
+   #         self.ribGenDict['shutterAngleValue'] =str(newShutterAngle)
+   #         pm.setAttr('renderManRISGlobals.rman__toropt___shutterAngle',float(self.ribGenDict['shutterAngleValue']))
+            
+            self.ribGenDict['shutterOpeningOn'] =str('%.3f'%pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening0'))
+            self.ribGenDict['shutterOpeningOff'] =str('%.3f'%pm.getAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening1'))
+
+            self.lineEdit_B02.setText(self.ribGenDict['shutterOpeningOn']) 
+            self.lineEdit_B03.setText(self.ribGenDict['shutterOpeningOff']) 
+            
+            self.lineEdit_B04.setText(self.ribGenDict['motionSamples'])
+            
+            self.ribGenDict['rayTracedMotionBlurCheck'] =str(pm.getAttr('renderManRISGlobals.rman__riattr__trace_samplemotion'))
+            self.checkBox_B03.setChecked(int(self.ribGenDict['rayTracedMotionBlurCheck']))
+            
+            pm.setAttr('renderManRISGlobals.rman__torattr___motionBlur',1)
+            if self.checkBox_B02.isChecked() == False:
+                pm.setAttr('renderManRISGlobals.rman__torattr___cameraBlur',0)
+                
+        elif self.checkBox_B01.isChecked() == False:
+            self.ribGenDict['motionBlurCheck'] = '0'
+            self.ribGenDict['cameraBlurCheck'] ='0'
+            self.checkBox_B02.setChecked(False)
+            self.checkBox_B02.setEnabled(False)
+            self.checkBox_B03.setEnabled(False)
+            self.lineEdit_B01.setEnabled(False)
+            self.lineEdit_B02.setEnabled(False)
+            self.lineEdit_B03.setEnabled(False)
+            self.lineEdit_B04.setEnabled(False)
+            self.comboBox.setEnabled(False)
+            self.comboBox_2.setEnabled(False)
+            self.horizontalSlider.setEnabled(False)
+            self.horizontalSlider_2.setEnabled(False)
+            pm.setAttr('renderManRISGlobals.rman__torattr___motionBlur',0)
+            
+    def modcheckBox_B02(self):
+        if self.checkBox_B01.isChecked() == True:           
+            if self.checkBox_B02.isChecked() == True:
+                self.ribGenDict['motionBlurCheck'] = '1'
+                self.ribGenDict['cameraBlurCheck'] ='1'
+                pm.setAttr('renderManRISGlobals.rman__torattr___cameraBlur',1)
+            else:
+                self.ribGenDict['motionBlurCheck'] = '1'
+                self.ribGenDict['cameraBlurCheck'] ='0'
+                pm.setAttr('renderManRISGlobals.rman__torattr___cameraBlur',0)
+        elif self.checkBox_B01.isChecked() == False :
+            self.ribGenDict['motionBlurCheck'] = '0'
+            self.ribGenDict['cameraBlurCheck'] ='0'
+            self.checkBox_B02.setEnabled(False)
+            self.lineEdit_B01.setEnabled(False)
+            
+
+
+
+    def modlineEdit_B01(self):
+        self.lineEdit_B01.setText('%s'%self.horizontalSlider.value())
+        
+
+    def modlineEdit_B02(self):
+        newOpeningAStr = str(self.lineEdit_B02.text())
+ #       newOpeningA = float(newOpeningAStr)
+        self.ribGenDict['shutterOpeningOn']=newOpeningAStr
+        pm.setAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening0',float(newOpeningAStr))
+ 
+        
+    def modlineEdit_B03(self):
+        newOpeningBStr = str(self.lineEdit_B03.text())
+#        newOpeningB = float(newOpeningBStr)
+        self.ribGenDict['shutterOpeningOff']=newOpeningBStr
+        pm.setAttr('renderManRISGlobals.rman__riopt__Camera_shutteropening1',float(newOpeningBStr))
+
+        
+    def modhorizontalSlider(self):        
+        self.horizontalSlider.setValue(int(self.lineEdit_B01.text()))
+        newShutterAngle = self.horizontalSlider.value()
+        self.ribGenDict['shutterAngleValue'] =str(newShutterAngle)
+        pm.setAttr('renderManRISGlobals.rman__toropt___shutterAngle',float(self.ribGenDict['shutterAngleValue']))
+
+
+    def modcomboBox(self):
+        print self.comboBox.currentIndex()
+        if self.comboBox.currentIndex() == 0:
+            self.ribGenDict['shutterTiming'] = 'frameOpen'
+            pm.setAttr('renderManRISGlobals.rman__toropt___shutterTiming','frameOpen')
+            
+        elif self.comboBox.currentIndex() == 1:
+            self.ribGenDict['shutterTiming'] = 'frameCenter'
+            pm.setAttr('renderManRISGlobals.rman__toropt___shutterTiming','frameCenter')
+
+        elif self.comboBox.currentIndex() == 2:
+            self.ribGenDict['shutterTiming'] = 'frameClose'
+            pm.setAttr('renderManRISGlobals.rman__toropt___shutterTiming','frameClose')
+            
+
+    def modcomboBox_2(self):
+        if self.comboBox_2.currentIndex() == 0:
+            self.ribGenDict['motionBlurType'] = 'frame'
+            pm.setAttr("renderManRISGlobals.rman__toropt___motionBlurType",'frame')
+                       
+        elif self.comboBox_2.currentIndex() == 1:
+            self.ribGenDict['motionBlurType'] = 'subframe'
+            pm.setAttr("renderManRISGlobals.rman__toropt___motionBlurType",'subframe')
+
+
+     
+
+
+    def modcheckBox_B03(self):
+        if self.checkBox_B03.isChecked() == True:
+            self.ribGenDict['rayTracedMotionBlurCheck'] ='1'
+        elif self.checkBox_B03.isChecked() == False:
+            self.ribGenDict['rayTracedMotionBlurCheck'] ='0'
+            
+            
+
+        
+    def modlineEdit_B04(self):
+        self.lineEdit_B04.setText('%s'%self.horizontalSlider_2.value())
+        
+    def modhorizontalSlider_2(self):        
+        self.horizontalSlider_2.setValue(int(self.lineEdit_B04.text()))
+        newMotionSample = self.horizontalSlider_2.value()
+        self.ribGenDict['motionSamples'] =str(newMotionSample)
+
+
+
+    def modcheckBox_E01(self):
+        
+        if self.checkBox_E01.isChecked() == 1:
+            self.lineEdit_D01.setEnabled(True) 
+            self.horizontalSlider_3.setEnabled(True)
+        else:
+            self.lineEdit_D01.setEnabled(False) 
+            self.horizontalSlider_3.setEnabled(False)
+            
+        self.meshReduceValue = self.horizontalSlider_3.value()
+       # print self.meshReduceValue
+
+    def modlineEdit_D01(self):
+        self.lineEdit_D01.setText('%s'%self.horizontalSlider_3.value())
+        self.meshReduceValue = self.horizontalSlider_3.value()
+      #  print self.meshReduceValue
+
+        
+    def modhorizontalSlider_3(self):        
+        self.horizontalSlider_3.setValue(int(self.lineEdit_D01.text()))
+        newMotionSample = self.horizontalSlider_3.value()
+        self.meshReduceValue = self.horizontalSlider_3.value()
+       # print self.meshReduceValue
+
+
+
+
+
+#----------------------------check motion blur option End---------------------------    
+            
+    def modcheckBox_C01(self):
+        if self.checkBox_C01.isChecked() == True:
+            self.ribGenDict['UUID_Check'] ='1'
+        elif self.checkBox_C01.isChecked() == False:
+            self.ribGenDict['UUID_Check'] ='0'
+            
+    def modcheckBox_C02(self):
+        if self.checkBox_C02.isChecked() == True:
+            self.ribGenDict['assignLamertShader'] ='1'
+        elif self.checkBox_C02.isChecked() == False:
+            self.ribGenDict['assignLamertShader'] ='0'
+                        
+            
+    def modcheckBox_D01(self):
+        if self.checkBox_D01.isChecked() == True:
+            self.ribGenDict['delayedReadArchiveCheck'] = '1'
+            self.ribGenDict['ReadArchiveCheck'] ='0'
+            self.checkBox_D02.setChecked(False)
+        else:
+            self.ribGenDict['delayedReadArchiveCheck'] = '0'
+            self.ribGenDict['ReadArchiveCheck'] ='1'
+            self.checkBox_D02.setChecked(True)            
+            
+    def modcheckBox_D02(self):
+        if self.checkBox_D02.isChecked() == True:
+            self.ribGenDict['delayedReadArchiveCheck'] = '0'
+            self.ribGenDict['ReadArchiveCheck'] ='1'
+            self.checkBox_D01.setChecked(False)
+        else:
+            self.ribGenDict['delayedReadArchiveCheck'] = '1'
+            self.ribGenDict['ReadArchiveCheck'] ='0'
+            self.checkBox_D02.setChecked(False)           
+
+
+
+
+
+    def modpushButton(self):
+        self.ribGenDict = {'currentFrameCheck':'1','startEndFrameCheck':'0','currentFrameValue':'1.0','startFrameValue':'1.0',
+        'endFrameValue':'10.0','motionBlurCheck':'0','cameraBlurCheck':'0','shutterAngleValue':'80.0',
+        'shutterOpeningOn':'0.0','shutterOpeningOff':'1.0','shutterTiming':'frameOpen','motionBlurType':'frame',
+        'motionSamples':'2.0','rayTracedMotionBlurCheck':'0','UUID_Check':'0','assignLamertShader':'0',
+        'delayedReadArchiveCheck':'1','ReadArchiveCheck':'0',
+        'noteText':'type information before push "Generate Rib Archive"',
+                      'exportCmd':'\"rmanExportRIBCompression=0;rmanExportFullPaths=0;rmanExportGlobalLights=0;rmanExportLocalLights=0;rmanExportCoordinateSystems=0;rmanExportShaders=1;rmanExportAttributeBlock=0;',
+              'finalRibExportCmd':'none',
+              'finalGpuExportCmd':'none',
+              'cacheForder':'none',              
+              'ribArchiveFileName':'none',
+              'gpuCacheFileName':'none'}                      
+
+        self.checkBox_A01.setChecked(True)
+        self.checkBox_B01.setChecked(False)
+        self.checkBox_B03.setChecked(False)
+        self.checkBox_C01.setChecked(False)
+        self.checkBox_C02.setChecked(False)
+        self.checkBox_D01.setChecked(True)
+        
+
+#----------------------------------------------£á¡Ma?Group Start------------------------------------------------------------
+
+
+    def selectGrpList(self,singleGrp):
+        self.selectedTGrpList= pm.ls( sl=True)
+
+
+#----------------------------------------------£á¡Ma?Group End------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+#---------------------------------------------------¡Maca??shapeaR?c?c Start---¡Óa¡Mcgroupa¡M-e?¡Mshape------------------------------------------------------       
+
+ 
+    def selectedShape(self,singleGrp):
+        grpName = self.singleGrp
+        self.selectedGeoShape = pm.ls(grpName, type='geometryShape',dag=True,ap=True,lf=True)
+      #  pm.ls(sl=True, type='geometryShape',dag=True,ap=True,lf=True)
+        #pm.nodeType(pm.ls(sl=True))
+       # pm.ls(sl=True,dag=1)
+#---------------------------------------------------¡Maca??shapeaR?c?c end-----------------------------------------------------------
+
+
+
+
+
+
+
+#-----------------------------------------define create folder Begin------------------------------------------------
+
+    def createSelectFolder(self,singleGrp):   # singleGrp ¡Âa?a?¡Âa?¢Dc¡¨¡La??a3a¡VRa¡M£á¡Ma?group transforme
+        print "run createSelectFolder Function"
+        cacheFolderCreate = self.currentProj + 'data/cache/' + self.singleGrp
+
+        pm.sysFile( cacheFolderCreate, makeDir=True )  # create folder
+        
+        self.ribGenDict['cacheForder'] = cacheFolderCreate
+        print "run createSelectFolder Function Completed"
+#-----------------------------------------define create folder End------------------------------------------------
+        
+   
+   
+
+   
+
+#--------------------------------------------Define RIB Archive and GPUCache File Name Begin------------------------------------------------------------        
+    def cacheFileName(self,singleGrp):
+        print "run CacheFileName Function"
+        self.ribGenDict['ribArchiveFileName'] =''
+        self.ribGenDict['gpuCacheFileName'] =''
+        ribArchiveFileName = self.singleGrp         
+        fileOptionDisc ={'uuid':'',
+                         'assignLamertShader':'',
+                         'motionBlur':'',
+                         'currentFrame':''}
+        
+        if self.ribGenDict['UUID_Check'] == "1":            
+            fileOptionDisc['uuid'] = ''   #give uuid Flag Name
+        else:
+            fileOptionDisc['uuid'] = ''  
+             
+        if self.ribGenDict['assignLamertShader'] == "1":
+            fileOptionDisc['assignLamertShader'] = 'Reyes'
+        else:
+            fileOptionDisc['assignLamertShader'] = ''
+            
+        if self.ribGenDict['motionBlurCheck'] == "1":
+            fileOptionDisc['motionBlur']= 'Mblur'
+        else:    
+            fileOptionDisc['motionBlur']= ''
+            
+        if self.ribGenDict['currentFrameCheck'] == '0':
+            fileOptionDisc['currentFrame']= str(self.ribGenDict['currentFrameValue'])
+        else:
+            fileOptionDisc['currentFrame']= ''
+            
+       # self.ribGenDict['ribArchiveFileName'] = ribArchiveFileName+fileOptionDisc['subdivscheme']+fileOptionDisc['assignLamertShader']+fileOptionDisc['motionBlur']+fileOptionDisc['currentFrame']+".rib"
+       # self.ribGenDict['gpuCacheFileName'] = ribArchiveFileName+fileOptionDisc['subdivscheme']+fileOptionDisc['assignLamertShader']+fileOptionDisc['motionBlur']+fileOptionDisc['currentFrame']
+        self.ribGenDict['ribArchiveFileName'] = ribArchiveFileName+fileOptionDisc['uuid']+fileOptionDisc['assignLamertShader']+fileOptionDisc['motionBlur']+".rib"
+        self.ribGenDict['gpuCacheFileName'] = ribArchiveFileName+fileOptionDisc['uuid']+fileOptionDisc['assignLamertShader']+fileOptionDisc['motionBlur']
+       
+       # print self.ribGenDict['ribArchiveFileName']
+       # print self.ribGenDict['gpuCacheFileName']
+        self.exportRibName = self.ribGenDict['ribArchiveFileName']
+        self.gpuCacheFileName = self.ribGenDict['gpuCacheFileName']
+        print "run CacheFileName Function Completed"
+ 
+#--------------------------------------------Define RIB Archive and GPUCache File Name END------------------------------------------------------------        
+ 
+ 
+ 
+    def modlineEdit_D03(self):
+        self.gpuStepValue = self.lineEdit_D03.text()
+        
+ 
+ 
+     
+ 
+
+#---------------------------------------------------export Cmd Start--------------------------------------------------------------------
+    def getRibExportCmd(self,exportCmd): 
+        print "run getRibExportCmd Function"
+
+        #aR?c?ce?¡Ma?oe3?aa??eaa¡¨a?c¡L¡Ó  
+        self.cacheFileName(self)  
+        
+        exportRibNamePath = self.ribGenDict['cacheForder']+'/' + self.exportRibName
+    
+        ribFileDir = self.ribGenDict['cacheForder']
+        startFrameReal= str(float(self.ribGenDict['startFrameValue']))
+        endFrameReal = str(float(self.ribGenDict['endFrameValue']))
+        gpuCacheFileNameSingle = self.gpuCacheFileName
+        
+        if self.checkBox_E03.isChecked() == True:               
+            self.gpuStepValue = self.lineEdit_D03.text()
+
+        else:
+            pass
+       # if str(int(self.ribGenDict['currentFrameCheck'])) == '1':
+        if self.ribGenDict['currentFrameCheck'] == '1':
+            cmd01 = 'rmanExportRIBCompression=0;'
+            cmd02 ='rmanExportMultipleFrames=0;'
+            cmd03='rmanExportStartFrame=%s;'%self.ribGenDict['currentFrameValue']
+            cmd04='rmanExportEndFrame=%s;' %self.ribGenDict['currentFrameValue']
+            cmd05='rmanExportByFrame=1\"'
+            ribExportSingalOption=self.ribGenDict['exportCmd'] + cmd02+ cmd03+ cmd04 + cmd05
+            # e?¡Ma?o£ác£g?aa?                               "rmanExportRIBCompression=0
+            self.ribGenDict['finalRibExportCmd']="file -force -op"+" "+str(ribExportSingalOption)+" "+"-typ"+" "+"\"RIB_Archive\""+" "+"-pr"+" "+"-es"+" "+"\"%s"%exportRibNamePath+"\""
+            self.ribGenDict['finalGpuExportCmd'] = str("gpuCache -startTime "+"%s"%self.ribGenDict['currentFrameValue']+" -endTime "+"%s"%self.ribGenDict['currentFrameValue']+ " -optimize -optimizationThreshold 200000 -writeMaterials -dataFormat ogawa "+ "-directory "+"\"%s"%ribFileDir+"\"" + " -fileName " + "\" %s"%gpuCacheFileNameSingle+"\"")
+                                                       #gpuCache    ?a?e                   eR?a¡E¡M --------------------------c£g?a?e-----------eR?a¡E¡M--------------------------------------------------------------------------------------------------------
+
+    #        pm.mel.eval('%s'%exportCmd)
+    #        pm.mel.eval('%s'%exportGpuCacheCmd)
+    #        print ribExportSingalOption
+        else: 
+            cmd02 ='rmanExportMultipleFrames=1;'
+            #cmd03='rmanExportStartFrame=%s;'%self.ribGenDict['startFrameValue']
+           # cmd04='rmanExportEndFrame=%s;'%self.ribGenDict['endFrameValue']
+            cmd03='rmanExportStartFrame=%s;'%startFrameReal #e?¡Ma?o?aa??a?a?¡Â?a-¢G?a ?-1
+            cmd04='rmanExportEndFrame=%s;'%endFrameReal #e?¡Ma?o?aa??a?a?¡Â?a-¢G?a ?-1
+            cmd05='rmanExportByFrame=1\"'
+            ribExportMultiOptions = self.ribGenDict['exportCmd']+cmd02+ cmd03+ cmd04 + cmd05
+           # if 
+            self.ribGenDict['finalRibExportCmd'] = "file -force -op"+" "+str(ribExportMultiOptions)+" "+"-typ"+" "+"\"RIB_Archive\""+" "+"-pr"+" "+"-es"+" "+"\"%s"%exportRibNamePath+"\""
+            self.ribGenDict['finalGpuExportCmd'] = str("gpuCache -startTime "+"%s"%self.ribGenDict['startFrameValue']+" -endTime "+"%s"%self.ribGenDict['endFrameValue']+" -simulationRate "+"%s"%self.gpuStepValue + " -optimize -optimizationThreshold 200000 -writeMaterials -dataFormat ogawa "+ "-directory "+"\"%s"%ribFileDir+"\"" + " -fileName " + "\" %s"%gpuCacheFileNameSingle+"\"")
+
+        print "run getRibExportCmd Function Completed"
+
+#------------------------------------------------export Cmd End-------------------------------------------------------
+
+
+
+
+
+#---------------------------------------------------shaveRibExport Start--------------------------------------------------------------------
+
+
+    def shaveRibExport(self,singleGrp):
+
+        print "run shaveRibExport Function start"
+        #aR?c?ce?¡Ma?oe3?aa??eaa¡¨a?c¡L¡Ó  
+        ribArchiveFileName = str(self.singleGrp)
+        if self.ribGenDict['currentFrameCheck'] == '0':
+
+            
+            exportRibNamePath = self.ribGenDict['cacheForder']+'/' + ribArchiveFileName
+
+            shaveStartFrame = int(float(self.ribGenDict['startFrameValue']))
+            shaveEndFrame = int(float(self.ribGenDict['endFrameValue']))
+
+            
+            while (shaveStartFrame <= shaveEndFrame):
+                exportFrame = str('%04d'%shaveStartFrame)
+                print exportFrame
+                shaveEcportCmd = "shaveWriteRib -opa -rtc -b -gz -f"+" "+"%s"%exportFrame +" "+"\""+ exportRibNamePath+".%s"%exportFrame+".rib"+"\""
+                shaveStartFrame = shaveStartFrame + 1
+                print shaveEcportCmd
+                pm.mel.eval(shaveEcportCmd)   #create shave and Haircur Rib Archive 
+                
+            print shaveStartFrame
+            print shaveEndFrame
+           # print endFrameReal
+                   
+            pm.mel.eval('%s'%self.ribGenDict['finalGpuExportCmd'])  #create Gpu Cache
+
+
+        if self.ribGenDict['currentFrameCheck'] == '1':
+
+            
+            exportRibNamePath = self.ribGenDict['cacheForder']+'/' + ribArchiveFileName
+            
+            currentShaveFrame = int(float(self.ribGenDict['currentFrameValue']))
+            
+            exportFrame = str('%04d'%currentShaveFrame)
+
+
+            shaveEcportCmd = "shaveWriteRib -opa -rtc -b -gz -f"+" "+"%s"%exportFrame +" "+"\""+ exportRibNamePath +".rib"+"\""
+            print shaveEcportCmd
+
+            pm.mel.eval(shaveEcportCmd)   #create shave and Haircur Rib Archive 
+
+
+                   
+            pm.mel.eval('%s'%self.ribGenDict['finalGpuExportCmd'])  #create Gpu Cache
+
+
+      #  self.connectGpuRib(self)
+      #  if self.ribGenDict['shutterTiming'] == "frameCenter":
+      #      self.batchRename(self)
+
+       # self.batchRename(self)
+
+        self.bBoxFind(self)
+        
+        if self.checkBox_C02.isChecked() == 0:
+            self.zipRibFiles(self)
+        else:
+            pass
+                
+        print "run shaveRibExport Function Completed"
+
+
+
+
+#---------------------------------------------------shaveRibExport End--------------------------------------------------------------------
+
+#---------------------------------------------------e3|a SubD Start-----------------------------------------------------------
+    def addSubD(self,singleShape):
+
+        print "run addSubD Function"
+
+        geoShape = self.singleShape         
+
+        addSubDAttrCmdA = "rmanAddAttr "+"%s "%geoShape + "rman__torattr___subdivScheme "+ "\"\""
+        addSubDAttrCmdB = "rmanAddAttr "+"%s "%geoShape + "rman__torattr___subdivFacevaryingInterp "+ "\"\""
+        pm.mel.eval("%s"%addSubDAttrCmdA)
+        pm.mel.eval("%s"%addSubDAttrCmdB)
+        
+        print "run addSubD Function Completed"
+    
+      
+#---------------------------------------------------e3|a SubD End-----------------------------------------------------------
+
+
+
+
+#---------------------------------------------------ae?? SubD Start-----------------------------------------------------------
+
+    def delSubD(self,singleShape):
+
+        print "run delSubD Function "
+
+        geoShape = self.singleShape 
+        try:
+            pm.getAttr('%s.rman__torattr___subdivScheme'%geoShape)
+            cmds.deleteAttr( "%s.rman__torattr___subdivScheme"%geoShape)
+        except:
+            print '%s'%geoShape +'has no subdivScheme'
+        try:
+            pm.getAttr('%s.rman__torattr___subdivFacevaryingInterp'%geoShape)
+            cmds.deleteAttr( "%s.rman__torattr___subdivFacevaryingInterp"%geoShape)
+        except:
+            print '%s'%geoShape +'has no subdivFacevaryingInterp'        
+            
+            
+        print "run delSubD Function Completed"
+
+        
+#----------------------------------------------------ae?? SubD End-----------------------------------------------------------------------
+
+
+
+
+#----------------------------------------------------check Value and store the value in Dictionary Start-----------------------------------------------------------------------
+
+    def reStoreValue(self,data):
+        self.ribGenDict['currentFrameValue'] = cmds.currentTime( query=True )
+        self.lineEdit_A01.setText(str(self.ribGenDict['currentFrameValue']))
+
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------check Value and store the value in Dictionary End-----------------------------------------------------------------------
+    
+
+
+
+#---------------------------------------------------GPU RIB Cache Start--------------------------------------------------------
+
+
+    def connectGpuRib(self,singleGrp):
+        
+        print "run connectGpuRib Function "
+
+        #selectedTGrpList= pm.ls( sl=True)
+        ribArchiveShapeCount = len(pm.ls(type='RenderManArchive'))      #c£g¡Óe?a?RIB Archive?a¡E¡Ma¡M|a?¡L+1
+        #ribArchiveShapeCountInt = len(pm.ls(type='RenderManArchive'))+1
+        try:
+            pm.select('ribAssetGrp')
+        except:
+            self.createRibAssetGrp = pm.createNode( 'transform',n='ribAssetGrp')
+
+
+        
+        ribArchiveNodetransformName = self.singleGrp
+        ribArchiveShapeCountStr = str(ribArchiveShapeCount+1)
+        ribTransformName = pm.createNode( 'transform', n="%s"%ribArchiveNodetransformName+"RIBArchive%s"%ribArchiveShapeCountStr ,p='ribAssetGrp')  #¢FcRIB Archive £áa¡M?a¡Ó?group
+      #  print ribTransformName
+      #  print type(ribTransformName)
+        ribArchiveShapeName = pm.createNode('RenderManArchive',n='%s'%ribArchiveNodetransformName+'_ribShape%s'%ribArchiveShapeCountStr) #¢FcRIB Archive shape a¡M|c¡¨¢F?aa¡ÓTransform    
+        gpuCacheShapeName = pm.createNode('gpuCache',n='%s'%ribArchiveNodetransformName+'_GpuCacheShape%s'%ribArchiveShapeCountStr) #¢FcGPUCache shape a¡M|c¡¨¢F?aa¡ÓTransform    
+        pm.parent(ribArchiveShapeName,ribTransformName)  #a¢XRIB Archive parent £áa¡Ó?aa¡M?a¡Ó?Group
+        pm.parent(gpuCacheShapeName,ribTransformName)    #a¢XGpuCache parent £áa¡Ó?aa¡M?a¡Ó?Group
+     
+        self.gpuCacheShape = gpuCacheShapeName
+        self.ribArchiveShape = ribArchiveShapeName
+        self.ribTransform = '%s'%ribArchiveNodetransformName+'_rib%s'%ribArchiveShapeCountStr
+        self.gpuTransform = '%s'%ribArchiveNodetransformName+'_GpuCache%s'%ribArchiveShapeCountStr   
+      #  print self.ribGenDict['currentFrameCheck']
+      #  print self.ribGenDict['shutterTiming']
+      #  print self.ribGenDict['motionBlurCheck']
+
+        if self.ribGenDict['currentFrameCheck'] == '1':           
+            gpuFullName =self.ribGenDict['cacheForder']+'/'+self.ribGenDict['gpuCacheFileName']+'.abc'
+            ribFullName =self.ribGenDict['cacheForder']+'/'+self.ribGenDict['gpuCacheFileName']+'.zip'
+        else:
+            gpuFullName =self.ribGenDict['cacheForder']+'/'+self.ribGenDict['gpuCacheFileName']+'.abc'
+          #  ribFullName =self.ribGenDict['cacheForder']+'/'+self.ribGenDict['gpuCacheFileName']+'.$F4.rib'
+            ribFullName =self.ribGenDict['cacheForder']+'/'+self.ribGenDict['gpuCacheFileName']+'.zip'
+            
+
+
+        self.addRiAttribute(self)                         #?a?? RIB Archive e¡PGPUCache
+        
+        
+        pm.setAttr('%s'%gpuCacheShapeName +'.cacheFileName','%s'%gpuFullName)
+        pm.setAttr('%s'%ribArchiveShapeName +'.filename','%s'%ribFullName)
+        
+        self.gpuCacheAddAttribute(self)
+        
+        print "run connectGpuRib Function Completed"
+#---------------------------------------------------GPU RIB Cache End-------------------------------------------------------
+
+
+
+
+
+
+#---------------------------------------------------c£g|a Attribute End--------------------------------------------------------
+
+
+
+    def addRiAttribute(self,data): 
+        
+        print "run addRiAttribute Function "
+
+        setStartFrame = self.ribGenDict['startFrameValue']
+        setEndFrame = self.ribGenDict['endFrameValue']
+
+        expressionCmd_001 ="expression -s "+"\""+'%s'%self.ribArchiveShape +".startframe = "+'%s'%setStartFrame +"\""     #set StartFrame Mel Cmd
+        expressionCmd_002 ="expression -s "+"\""+'%s'%self.ribArchiveShape +".endframe = "+'%s'%setEndFrame +"\""     #set StartFrame Mel Cmd    
+        expressionCmd_003 ="expression -s "+"\""+'%s'%self.ribArchiveShape +".frame = "+"frame" +"\""     #set StartFrame Mel Cmd          
+        expressionCmd_004 ="expression -s "+"\""+'%s'%self.ribTransform +".translateX = "+'%s'%self.gpuTransform +".translateX"+"\""   #set StartFrame Mel Cmd   
+        expressionCmd_005 ="expression -s "+"\""+'%s'%self.ribTransform +".translateY = "+'%s'%self.gpuTransform +".translateY"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_006 ="expression -s "+"\""+'%s'%self.ribTransform +".translateZ = "+'%s'%self.gpuTransform +".translateZ"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_007 ="expression -s "+"\""+'%s'%self.ribTransform +".rotateX = "+'%s'%self.gpuTransform +".rotateX"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_008 ="expression -s "+"\""+'%s'%self.ribTransform +".rotateY = "+'%s'%self.gpuTransform +".rotateY"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_009 ="expression -s "+"\""+'%s'%self.ribTransform +".rotateZ = "+'%s'%self.gpuTransform +".rotateZ"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_010 ="expression -s "+"\""+'%s'%self.ribTransform +".scaleX = "+'%s'%self.gpuTransform +".scaleX"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_011 ="expression -s "+"\""+'%s'%self.ribTransform +".scaleY = "+'%s'%self.gpuTransform +".scaleY"+"\""   #set StartFrame Mel Cmd                 
+        expressionCmd_012 ="expression -s "+"\""+'%s'%self.ribTransform +".scaleZ = "+'%s'%self.gpuTransform +".scaleZ"+"\""   #set StartFrame Mel Cmd                 
+
+        if self.ribGenDict['currentFrameCheck'] == '0': 
+            
+            self.melCmd001 = pm.mel.eval(expressionCmd_001)    #run mel command
+            self.melCmd002 = pm.mel.eval(expressionCmd_002)
+            self.melCmd003 = pm.mel.eval(expressionCmd_003)
+        else:
+            pass
+            
+        self.melCmd004 = pm.mel.eval(expressionCmd_004)
+        self.melCmd005 = pm.mel.eval(expressionCmd_005)
+        self.melCmd006 = pm.mel.eval(expressionCmd_006)
+        self.melCmd007 = pm.mel.eval(expressionCmd_007)
+        self.melCmd008 = pm.mel.eval(expressionCmd_008)
+        self.melCmd009 = pm.mel.eval(expressionCmd_009)
+        self.melCmd010 = pm.mel.eval(expressionCmd_010)
+        self.melCmd011 = pm.mel.eval(expressionCmd_011)
+        self.melCmd012 = pm.mel.eval(expressionCmd_012)
+
+        
+        print "run addRiAttribute Function Completed"
+#---------------------------------------------------c£g|a Attribute End--------------------------------------------------------
+  
+  
+  
+  
+  
+  
+#---------------------------------------------------c£g|a GPUCache Attribute a¡M?ec| begin--------------------------------------------------------  
+  
+  
+    def gpuCacheAddAttribute(self,data):
+       # self.gpuCacheShape = gpuCacheShapeName
+       # self.ribArchiveShape = ribArchiveShapeName
+
+        print "run gpuCacheAddAttribute Function "
+        
+        
+        RiAttributeDict = {'cmd01':['CamVisCmd','rman__riattr__visibility_camera'],
+                           'cmd02':['IndirectVisCmd','rman__riattr__visibility_indirect'],
+                           'cmd03':['TransmissionVisCmd','rman__riattr__visibility_transmission'],
+                           'cmd05':['MatteObjCmd','rman__riattr___MatteObject'],              
+                           'cmd10':['IdentifierObjCmd','rman__riattr__identifier_objectid'],
+                           'cmd11':['TraceDiffMaxCmd','rman__riattr__trace_maxdiffusedepth'],
+                           'cmd12':['TraceSpecMaxCmd','rman__riattr__trace_maxspeculardepth'],
+                           'cmd14':['LPEGrpCmd','rman__riattr__identifier_lpegroup'],                           
+                           'cmd15':['PreShapeMel','rman__torattr___preShapeScript'],
+                           'cmd13':['ShadingGrpCmd','rman__torattr___customShadingGroup'],}
+                        #   'cmd06':['MatteID0Cmd','rman__riattr__user_MatteID0'],
+                       #    'cmd07':['MatteID1Cmd','rman__riattr__user_MatteID1'] ,
+                            #'cmd08':['MatteID2Cmd','rman__riattr__user_MatteID2'],
+                            #'cmd09':['MatteID3Cmd','rman__riattr__user_MatteID3'],
+                            #'cmd16':['SubdivFaceIntCmd','rman__torattr___subdivFacevaryingInterp'],
+                            #'cmd17':['SubdivSchemeCmd','rman__torattr___subdivScheme']}
+
+
+
+      #  for i in sorted(RiAttributeDict):       
+      #      RiAttr = RiAttributeDict[i][1]
+      #      addGPUAttrMelCmdA = "rmanAddAttr "+"%s "%self.gpuCacheShape + "%s "%RiAttr + "\"\""       #add GPUCacheShape RiAttribute command
+      #      pm.mel.eval("%s"%addGPUAttrMelCmdA)                                                       #add GPUCacheShape RiAttribute mel
+      #      addRibAttrMelCmdA = "rmanAddAttr "+"%s "%self.ribArchiveShape + "%s "%RiAttr + "\"\""     #add RibArchiveShape RiAttribute command
+     #       pm.mel.eval("%s"%addRibAttrMelCmdA)                                                       #add RibArchiveShape RiAttribute mel   
+          #  pm.connectAttr('%s'%self.gpuCacheShape +"." + '%s'%RiAttr , '%s'%self.ribArchiveShape + "." + "%s"%RiAttr)   
+            
+
+    #    pm.setAttr('%s'%self.gpuCacheShape+"."+"rman__riattr___MatteObject",0)
+        #pm.addAttr( 'cubeGrp_GpuCacheShape1',longName='Custom Shadin Group', attributeType='string' )
+        
+        
+        
+        
+        
+       
+        
+        print "run gpuCacheAddAttribute Function Completed"
+  
+  
+  
+  
+  
+#---------------------------------------------------c£g|a GPUCache Attribute a¡M?ec| begin--------------------------------------------------------  
+  
+  
+  
+
+  
+  
+  
+#---------------------------------------------------1a?!¡¦a¡¨1aa¡¨a Start-----------------------------------------------------------   
+  
+    def batchRename(self,singleGrp):   
+        print "run batchRename Function "
+        path = self.ribGenDict['cacheForder']   
+        #print os.listdir(path)
+        for filename in os.listdir(path):
+            if filename[-3:] == "rib" :
+                if filename[-4] == "." :
+                    if filename[-7] == "." :
+                        newName = os.path.join(path,filename[0:-6]+'rib')
+                        os.rename(os.path.join(path, filename), os.path.join(path, newName)) 
+                        print os.path.join(path,filename) 
+                    else:
+                        print "nothing rename"
+                        print "run batchRename Function Completed"
+                        pass
+
+                else:
+                    pass
+            
+            else:
+                pass
+                
+        print "run batchRename Function Completed"
+
+#---------------------------------------------------1a?!¡¦a¡¨1aa¡¨a End-----------------------------------------------------------   
+
+
+
+
+
+
+
+
+#---------------------------------------------------¢Dec¢Fbbbox  start-------------------------------------------------------   
+
+
+    def bBoxFind(self,singleGrp):
+        print " run bBoxFind Function "
+        unitNow = pm.currentUnit( query=True, linear=True )
+        pm.currentUnit( linear='cm' )
+        startFrame = float(self.ribGenDict['startFrameValue'])
+        
+        if self.ribGenDict['currentFrameCheck'] == "1":
+            endFrame = startFrame
+        else:
+            
+            endFrame = float(self.ribGenDict['endFrameValue'])
+        stepFrame = 1
+        path = self.ribGenDict['cacheForder']
+        currentUser = getpass.getuser()
+        prmanVersion = pm.mel.eval("rman getversion rfm")
+        self.ribGenDict['currentFrameCheck']
+
+#f.dumps(data)
+
+        jsonRibTitle={ "Format" : "RIB Manifest",  #ribArchive ?e -e3?aa?oc
+        "Start-Frame" : int(startFrame),
+        "End-Frame" : int(endFrame),
+        "Created-By": prmanVersion ,
+        "For" : currentUser}
+        
+
+
+        j = int(startFrame)
+
+        dtRibDict = {}    
+        dictOrder =[] 
+        jsObjTitle = json.dumps(jsonRibTitle,sort_keys=0,indent=4)[:-2] +",\n"      #ribArchive ?e -e3?aa-?a¡K¢Djson buffer
+        jsonName = path +'/'+ "RIBManifest.json"
+        f = open(jsonName , 'w')   
+        f.write(jsObjTitle)              #ribArchive ?e -e3?aa¡Â?a¡K¢Djson  
+        
+        addLineDriveFiles = "    "+"\""+"Driver-Files"+"\""+" : {"+" "  #ribArchive ?e -e3?a,addLine,a-?a¡K¢Djson buffer
+        f.write(addLineDriveFiles)      #ribArchive ?e -e3?a,addLine a¡Â?a¡K¢Djson
+        while j <= endFrame:
+            pm.currentTime(j,e=True)  # e¡P3e?3a¡M?a
+            
+          #  print self.singleGrp
+            bbSize = pm.xform(self.singleGrp,bb=True,q=True)  # 2abbBoxe3?e
+                       
+            self.bbMinX = '%.6f'%(bbSize[0])
+            self.bbMinY = '%.6f'%(bbSize[1])
+            self.bbMinZ = '%.6f'%(bbSize[2])
+            self.bbMaxX = '%.6f'%(bbSize[3])
+            self.bbMaxY = '%.6f'%(bbSize[4])
+            self.bbMaxZ = '%.6f'%(bbSize[5])
+            
+            self.bBoxValue = self.bbMinX +" "+ self.bbMaxX+ " "+ self.bbMinY +" "+ self.bbMaxY +" "+ self.bbMinZ +" "+ self.bbMaxZ
+            currentRibFrame = str("%04d"%j)
+            #ribFileName = path+'/' + self.ribGenDict['gpuCacheFileName']+'.' +currentRibFrame +'.zip'
+            if self.ribGenDict['currentFrameCheck'] == "1":
+                ribFileName = "renderman/ribarchives/"+ self.ribGenDict['gpuCacheFileName'] +'.rib'
+            else:
+                ribFileName = "renderman/ribarchives/"+ self.ribGenDict['gpuCacheFileName'] +'.' +currentRibFrame +'.rib'
+
+
+           # ribFileName = self.ribGenDict['ribArchiveFileName']
+            jsonRibFrame={                                     #ribArchive each frame e3?aa?oc
+                       str(j):{"RIB-File" : ribFileName,
+                        "Bounding-Box" : self.bBoxValue}
+                       }
+            jsObjFrame = json.dumps(jsonRibFrame,sort_keys=0,indent=8)[1:-2] +","   # ribArchive each frame e3?aa-?a¡K¢Djson buffer
+           # dictOrder.append(str(j))
+            f.write(jsObjFrame)              # ribArchive each frame e3?aa¡Â?a¡K¢Djson   
+            #print self.bBoxValue
+            j = j + stepFrame  
+           # print  pm.currentTime(q=True)
+
+            #?ajsonaa¡¨ai??ac?ca?ia¡L!aoa¡Â?
+
+        
+        endLine = "\n    }\n}"
+        f.write(endLine) 
+        f.close()                                               
+    
+        pm.currentUnit( linear= unitNow )
+
+        print " run bBoxFind Function Completed "
+
+
+#---------------------------------------------------¢Dec¢Fbbbox  End----------------------------------------------------------   
+
+
+
+
+#---------------------------------------------------a¢X?rib archive¡§a?zipaa¡¨a start-----------------------------------------------------------   
+
+
+    def zipRibFiles(self,singleGrp):
+        print "run zipRibFiles Function "
+        path = self.ribGenDict['cacheForder']
+        zName = path+'/' + self.ribGenDict['gpuCacheFileName'] +'.zip'
+        #z = zipfile.ZipFile(zName, 'w')
+       # print path
+      #  print zName
+        z = zipfile.ZipFile(zName, 'w',compression = zipfile.ZIP_DEFLATED,allowZip64=True)
+
+
+
+
+        for fileName in os.listdir(path):
+            
+            if fileName[-3:] == "rib":
+                fileDir = path +'/'+fileName
+                relative_path =  "renderman/ribarchives/"+fileName
+                z.write(fileDir,relative_path)
+              #  removeFile = path + fileName
+                os.remove(os.path.join(path, fileName))
+                
+                
+                
+                
+        ribJsonFile = path + "/RIBManifest.json"
+        z.write(ribJsonFile,"RIBManifest.json")
+        z.close()
+        os.remove(os.path.join(path, "RIBManifest.json"))
+       # print self.bBoxValue
+        
+        print "run zipRibFiles Function Completed "
+
+
+
+
+
+
+#----------------------------------------------------a¢X?rib archive¡§a?zipaa¡¨a End----------------------------------------------------------   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#---------------------------------------------------?acachee3?aa?start-----------------------------------------------------------   
+
+    def openFolder(self):
+        startingDir = cmds.workspace(q=True, rd=True)+'data/cache'
+        currentProjWin =''
+        for cha in startingDir:
+            if cha =="/":
+                currentProjWin += '\\'
+            else:    
+                currentProjWin += cha 
+        openCmd = "explorer "+'%s'%currentProjWin
+        subprocess.call(openCmd)
+
+#---------------------------------------------------?acachee3?aa?End-----------------------------------------------------------   
+    
+
+#------------------------------------------------run mel command ?a¡PeMel ?a?? start------------------------------
+    def runMelCommandCreateCache(self,singleGrp):
+        print "run runMelCommandCreateCache Function"
+        
+        
+        pm.mel.eval('%s'%self.ribGenDict['finalRibExportCmd'])
+        if self.checkBox_E01.isChecked() == 1:
+            self.gpuCacheMeshReduce(self)
+            pm.mel.eval('%s'%self.ribGenDict['finalGpuExportCmd']) 
+            print self.originalObjList       
+            print self.tempObjList   
+            for i in self.originalObjList:
+             
+                pm.showHidden(i)
+            
+            for j in self.tempObjList:
+                print j
+                pm.delete(j)
+            
+            
+        elif self.checkBox_E01.isChecked() == 0:
+            pm.mel.eval('%s'%self.ribGenDict['finalGpuExportCmd']) 
+            
+     #   for i in self.originalObjList:
+             
+         #   pm.showHidden(i)
+            
+     #   for j in self.tempObjList:
+            
+         #   pm.delete(j)
+            
+          
+
+            
+        print "run runMelCommandCreateCache Function completed"
+#------------------------------------------------run mel command ?a¡PeMel ?a?? end------------------------------
+ 
+
+#---------------------------------------------------?acache e3?aa?button Start-----------------------------------------------------------   
+            
+    def modtoolButton_01(self):
+
+        self.openFolder()
+  
+       
+
+#---------------------------------------------------?acache e3?aa?button Start-----------------------------------------------------------   
+    
+
+    def gpuCacheMeshReduce(self,singleGrp):
+        print "run gpuCacheMeshReduce Function"
+    
+           
+       # self.singleGrp = pm.ls(sl=True)
+#       print self.meshReduceValue
+       # self.selectGrpList(self)
+        self.selectedShape(self)
+        print self.selectedGeoShape
+        print self.meshReduceValue
+        self.originalObjList=[]            #original modeling shape list
+        self.tempObjList=[]                #temp obj list,diupicate form original model,and prepare to reduce
+
+        for selectShape in  self.selectedGeoShape:
+            tempGeoName = "temp"+selectShape
+            pm.duplicate(selectShape, n =tempGeoName )          # duplicate Oiginal polyMesh
+            #print tempGeoName
+            selectShapeToTransform = pm.listRelatives(selectShape,p=True)
+            self.originalObjList.append(selectShapeToTransform)
+            #selectTempShapeToTransform =  pm.listRelatives(tempGeoName,p=True)
+            self.tempObjList.append(tempGeoName)
+            pm.polyReduce(tempGeoName,ver=0,p=self.meshReduceValue,kbw=True,rpo=True)  #reduce polyMesh, khe,keep Hard Edge, p,peresent ,kqw,keep Quad,rpo, replace original
+            
+            pm.hide(selectShapeToTransform)
+        print self.tempObjList
+        print self.originalObjList
+
+        print "run gpuCacheMeshReduce Function Completed"
+
+
+
+#------------------------------------------give shader and geo UUID Name Start--------------------------------------------------------------------             
+    def tempRenameShadeNodeAndGeoShapeName(self,singleShape):
+        selectShadingGroups = pm.listConnections( self.singleShape, t='shadingEngine')
+        print selectShadingGroups  
+        print self.singleShape 
+
+
+    
+   # print ObjNewName
+
+        
+        
+    def shaderToOriginalName(self):    #rename shape, shader,texture,allthings,that select, by using stored dict
+        print " run shaderToOriginalName fuction"
+        print self.originalNodeDict
+        for node in self.originalNodeDict: 
+            print node
+            print self.originalNodeDict[node]
+            cmds.rename("%s"%node,self.originalNodeDict["%s"%node])
+            
+            
+    def shapeToOriginalName(self,singleShape):   #rename shape, shader,texture,allthings,that select, was  not rename by module shaderToOriginalName
+        print " run shapeToOriginalName fuction "
+        print self.singleShape
+        ObjNewName = singleShape.split('___')[0]  
+        print ObjNewName
+        #cmds.rename(node,ObjNewName)
+        cmds.rename("%s"%self.singleShape,"%s"%ObjNewName)
+
+        print " run shapeToOriginalName fuction complete"
+                     
+
+
+
+#------------------------------------------give shader and geo UUID Name END--------------------------------------------------------------------             
+    def reNameUsingNodeType(self,singleShape):
+        print "run reNameUsingNodeType Function"
+        selectShadingGroups = pm.listConnections( self.singleShape, t='shadingEngine')
+        print selectShadingGroups  
+        print self.singleShape 
+        if selectShadingGroups[0] == 'initialShadingGroup':
+            print "Have initialShadingGroup in select , Make sure shader was assigned"
+            print "Have initialShadingGroup in select , Make sure shader was assigned"
+            print "Have initialShadingGroup in select , Make sure shader was assigned"
+            print aaa
+        else:
+            print" rename with shaderType " 
+            listShaderNode = cmds.listHistory(selectShadingGroups)
+            listShaderNodeRealName = cmds.ls(listShaderNode,an=True)           
+            nodeCount = 0
+            self.originalNodeDict={}
+            for node in listShaderNodeRealName:   
+                if pm.nodeType(node) == "renderLayer":
+                    pass
+                else:
+                    nodeCount= nodeCount + 1
+                    print node
+                    print node,pm.nodeType(node)
+                    dt = datetime.datetime.now()
+                    newFormatDt = dt.strftime("%Y%m%d%H%M%S")
+                    objNewName = str(newFormatDt) +  str(dt.microsecond)
+                    print objNewName
+                    pm.lockNode(node,l=0)  
+                    splitStr = "___"
+                    nodeUuidName= str(pm.nodeType(node))+ splitStr + objNewName + str(nodeCount)
+                    print "nodeUuidName   :   " + nodeUuidName
+                    
+
+                    cmds.rename(node,nodeUuidName)      
+
+                    self.originalNodeDict.update({nodeUuidName:node})
+        print "run reNameUsingNodeType Function Completed"
+
+
+    
+#------------------------------------------Generate RIB Archive Button Def Begin---------------------------------------
+    def modpushButton_01(self):   
+        self.reStoreValue(self)
+        if self.ribGenDict['UUID_Check'] == '0':
+            pm.setAttr("renderManRISGlobals.rman__riopt__rib_format","ascii")   #set rib to ascii mode
+            self.selectGrpList(self)                        #  £á¡Ma?Group def
+          #  print self.selectedTGrpList
+            for self.singleGrp in self.selectedTGrpList:    #?a?¢D¡MaGroup                              
+            #   print self.singleGrp
+                pm.select(self.singleGrp)
+                self.createSelectFolder(self)               # define create folder def £ga?o£á¡Ma?grp folder
+                self.cacheFileName(self)                    # Define RIB Archive and GPUCache File Name   def
+                self.getRibExportCmd(self)                  # export command def
+              #  
+              #  print self.ribGenDict['finalRibExportCmd']
+              #  print self.ribGenDict['finalGpuExportCmd']
+                #self.selectedShape(self)
+             #   for self.singleShape in self.selectedGeoShape:   
+             #       self.reNameUsingNodeType(self.singleShape) 
+         
+                    
+                #    self.delSubD(self)                                  #a¢X?a¡Ma?a¡L!?a ae?? SUBD     
+                
+               # print self.selectedGeoShape
+                
+               # for self.singleShape in self.selectedGeoShape:                    #¡Ógroupa¡M-e?¡M¡Vshape def
+               #     self.addSubD(self)   
+              #      self.tempRenameShadeNodeAndGeoShapeName(self.singleShape)                               #a¢X?a¡Ma?a¡L!?a SUBD
+               # self.gpuCacheMeshReduce (self)                    # ¡PeMel Command
+
+                self.runMelCommandCreateCache(self)
+                print self.singleGrp
+                #for self.singleShape in self.selectedGeoShape:                    #¡Ógroupa¡M-e?¡M¡Vshape def
+                #    self.delSubD(self)                                  #a¢X?a¡Ma?a¡L!?a ae?? SUBD               
+                self.connectGpuRib(self)
+                if self.ribGenDict['shutterTiming'] == "frameCenter":
+                    self.batchRename(self)
+
+                self.bBoxFind(self)
+                if self.checkBox_C02.isChecked() == 0:
+                    self.zipRibFiles(self)
+                else:
+                    pass
+            #    self.shaderToOriginalName()    #delect uuidName
+
+                
+         
+         #   self.delSubD(self)                                  #a¢X?a¡Ma?a¡L!?aae?? SUBD
+        elif self.ribGenDict['UUID_Check'] == '1':
+            pm.setAttr("renderManRISGlobals.rman__riopt__rib_format","ascii")   #set rib to ascii mode
+
+            self.selectGrpList(self)                        # 
+            for self.singleGrp in self.selectedTGrpList:    #                       
+                pm.select(self.singleGrp)
+
+                self.createSelectFolder(self)               # define create folder def £ga?o£á¡Ma?grp folder
+                self.cacheFileName(self)                    # Define RIB Archive and GPUCache File Name   def
+                self.getRibExportCmd(self)                  # export command def
+          #      print self.ribGenDict['finalRibExportCmd']
+          #      print self.ribGenDict['finalGpuExportCmd']
+                self.selectedShape(self)   
+                self.originalNodeDict= {}    #init shader dict
+                for self.singleShape in self.selectedGeoShape:                    #¡Ógroupa¡M-e?¡M¡Vshape def                 
+                    self.reNameUsingNodeType(self.singleShape)     #give shaderNode and geoShape UUID name
+                #    #self.reNameUsingNodeType(self.singleShape) 
+                self.runMelCommandCreateCache(self)             
+                self.connectGpuRib(self)
+                if self.ribGenDict['shutterTiming'] == "frameCenter":
+                    self.batchRename(self)
+ 
+                self.bBoxFind(self)
+
+                if self.checkBox_C02.isChecked() == 0:
+                    self.zipRibFiles(self)
+                    
+
+                    
+                else:
+                    pass
+                print self.originalNodeDict
+                self.shaderToOriginalName()    #delect uuidName
+                for self.singleShape in self.selectedGeoShape:  
+                    self.shapeToOriginalName(self.singleShape)
+
+#------------------------------------------Generate RIB Archive Button Def End---------------------------------------
+
+                                                        #
+
+
+
+
+
+    def modpushButton_02(self):
+        print "aaaaa"
+        self.selectGrpList(self)  
+        for self.singleGrp in self.selectedTGrpList:    #?a?¢D¡MaGroup                              
+
+            pm.select(self.singleGrp)
+            self.createSelectFolder(self)               # define create folder def £ga?o£á¡Ma?grp folder
+            self.cacheFileName(self)                 # Define RIB Archive and GPUCache File Name   def
+            self.getRibExportCmd(self)                  # export command def
+            self.shaveRibExport(self)   
+            self.connectGpuRib(self)
+
+        
+#----------------------------------------------------button 3------------------------------------------------- 
+    def modpushButton_03(self):
+        gpuCacheName = pm.fileDialog()
+        
+        gpuPath = os.path.dirname(gpuCacheName)
+        
+        gpuOnlyName = os.path.basename(gpuCacheName)[0:-4] 
+
+        path = gpuPath
+
+        zName = path +'/' + gpuOnlyName +'.zip'
+            #z = zipfile.ZipFile(zName, 'w')
+           # print path
+          #  print zName
+        z = zipfile.ZipFile(zName, 'w',compression = zipfile.ZIP_DEFLATED,allowZip64=True)
+
+
+
+
+        for fileName in os.listdir(path):
+            
+            if fileName[-3:] == "rib":
+                fileDir = path +'/'+fileName
+                relative_path =  "renderman/ribarchives/"+fileName
+                z.write(fileDir,relative_path)
+              #  removeFile = path + fileName
+                os.remove(os.path.join(path, fileName))
+                
+                
+                
+                
+        ribJsonFile = path + "/RIBManifest.json"
+        z.write(ribJsonFile,"RIBManifest.json")
+        z.close()
+        os.remove(os.path.join(path, "RIBManifest.json"))
+           # print self.bBoxValue
+
+#----------------------------------------------------button 4------------------------------------------------- 
+    def modpushButton_04(self):
+        gpuCacheName = pm.fileDialog()
+        
+        gpuPath = os.path.dirname(gpuCacheName)
+        
+        gpuOnlyName = os.path.basename(gpuCacheName)[0:-4]
+        
+        groupName = pm.createNode('transform',n=gpuOnlyName)
+          
+
+        RibArchiveName = gpuCacheName[0:-3]+'zip'
+        gpuShapeName =  gpuOnlyName + '_GpuCacheShape'
+        ribShapeName = gpuOnlyName +'_ribShape'
+
+
+        createdGpuNode = pm.createNode('gpuCache',n = '%s'%gpuShapeName)
+        createdRIBNode = pm.createNode('RenderManArchive',n= '%s'%ribShapeName)
+        pm.parent(createdRIBNode,groupName)
+        pm.parent(createdGpuNode,groupName)
+
+        pm.setAttr('%s.cacheFileName'%createdGpuNode,gpuCacheName)
+        pm.setAttr('%s.filename'%createdRIBNode,RibArchiveName)
+        expressionCmd_ext ="expression -s "+"\""+'%s'%createdRIBNode +".frame = "+"frame" +"\""     #set StartFrame Mel Cmd    
+        pm.mel.eval(expressionCmd_ext)
+        
+        
+
+#def main():
+def rib_genMain():
+    global ui
+    app = QtGui.QApplication.instance()
+    if app == None: app = QApplication(sys.argv)
+    try:
+        ui.close()
+        ui.deleteLater()
+    except: pass
+    ui = mod_MainWindow()
+    ui.show()
+ 
+#if __name__ == '__main__':
+#    main() 
