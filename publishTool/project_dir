@@ -1,0 +1,25 @@
+--project--
+	--global
+	--asset
+		--characters
+			--concept
+			--modeling
+			--texture
+			--rigging
+
+		--vehicles
+		--sets
+		--props
+		--others
+
+	--publish
+		--characters
+		--vehicles
+		--sets
+		--props
+		--others
+		--animationClips
+		--effects
+
+	--shots
+		shot01

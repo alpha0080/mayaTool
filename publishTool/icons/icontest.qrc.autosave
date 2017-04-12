@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/publishIcons">
+        <file>abc_attr_set_200.png</file>
+    </qresource>
+</RCC>
