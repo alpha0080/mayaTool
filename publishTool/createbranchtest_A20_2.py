@@ -16,10 +16,13 @@ import datetime
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.setFontSize=8
+        #setPointSize(11) = setPointSize(self.setFontSize +3)
+        #setPointSize(self.setFontSize +2) = setPointSize(self.setFontSize +2)
+        #setPointSize(self.setFontSize) = setPointSize(self.setFontSize) 
 
 
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(691, 876)
+        MainWindow.resize(597, 786)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -69,7 +72,7 @@ class Ui_MainWindow(object):
         self.tab_branch = QtWidgets.QWidget()
         self.tab_branch.setObjectName("tab_branch")
         self.lineEdit_branchName = QtWidgets.QLineEdit(self.tab_branch)
-        self.lineEdit_branchName.setGeometry(QtCore.QRect(40, 110, 171, 31))
+        self.lineEdit_branchName.setGeometry(QtCore.QRect(40, 140, 171, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -84,7 +87,7 @@ class Ui_MainWindow(object):
         self.lineEdit_branchName.setText("")
         self.lineEdit_branchName.setObjectName("lineEdit_branchName")
         self.pushButton_editFileInfo = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_editFileInfo.setGeometry(QtCore.QRect(570, 270, 31, 31))
+        self.pushButton_editFileInfo.setGeometry(QtCore.QRect(570, 290, 31, 31))
         self.pushButton_editFileInfo.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -94,30 +97,15 @@ class Ui_MainWindow(object):
         self.pushButton_editFileInfo.setDefault(False)
         self.pushButton_editFileInfo.setFlat(True)
         self.pushButton_editFileInfo.setObjectName("pushButton_editFileInfo")
-        self.textBrowser_BranchFileInfo = QtWidgets.QTextBrowser(self.tab_branch)
-        self.textBrowser_BranchFileInfo.setGeometry(QtCore.QRect(220, 290, 351, 131))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.textBrowser_BranchFileInfo.setPalette(palette)
-        self.textBrowser_BranchFileInfo.setMidLineWidth(1)
-        self.textBrowser_BranchFileInfo.setTabChangesFocus(False)
-        self.textBrowser_BranchFileInfo.setReadOnly(False)
-        self.textBrowser_BranchFileInfo.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
-        self.textBrowser_BranchFileInfo.setOpenExternalLinks(True)
-        self.textBrowser_BranchFileInfo.setObjectName("textBrowser_BranchFileInfo")
         self.label = QtWidgets.QLabel(self.tab_branch)
         self.label.setGeometry(QtCore.QRect(40, 90, 161, 21))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.treeWidget_branches = QtWidgets.QTreeWidget(self.tab_branch)
-        self.treeWidget_branches.setGeometry(QtCore.QRect(40, 180, 171, 341))
+        self.treeWidget_branches.setGeometry(QtCore.QRect(40, 170, 171, 351))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -137,7 +125,7 @@ class Ui_MainWindow(object):
         self.treeWidget_branches.setObjectName("treeWidget_branches")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
         font = QtGui.QFont()
-        font.setPointSize(11)
+        font.setPointSize(self.setFontSize +3)
         font.setWeight(75)
         font.setBold(True)
         brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
@@ -182,7 +170,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.tableWidget_FileList.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(8)
+        font.setPointSize(self.setFontSize)
         self.tableWidget_FileList.setFont(font)
         self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget_FileList.setAutoScrollMargin(16)
@@ -305,13 +293,13 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(31, 44, 34))
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(31, 44, 34))
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
@@ -321,6 +309,10 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.lineEdit_currentFileName.setPalette(palette)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.lineEdit_currentFileName.setFont(font)
         self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
         self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_saveFile.setGeometry(QtCore.QRect(570, 110, 31, 31))
@@ -345,7 +337,7 @@ class Ui_MainWindow(object):
         self.pushButton_loadFile.setFlat(True)
         self.pushButton_loadFile.setObjectName("pushButton_loadFile")
         self.pushButton_openFolder = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_openFolder.setGeometry(QtCore.QRect(570, 300, 31, 31))
+        self.pushButton_openFolder.setGeometry(QtCore.QRect(570, 320, 31, 31))
         self.pushButton_openFolder.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -355,33 +347,22 @@ class Ui_MainWindow(object):
         self.pushButton_openFolder.setDefault(False)
         self.pushButton_openFolder.setFlat(True)
         self.pushButton_openFolder.setObjectName("pushButton_openFolder")
-        self.textBrowser_metaData = QtWidgets.QTextBrowser(self.tab_branch)
-        self.textBrowser_metaData.setGeometry(QtCore.QRect(220, 440, 351, 81))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.textBrowser_metaData.setPalette(palette)
-        self.textBrowser_metaData.setMidLineWidth(1)
-        self.textBrowser_metaData.setTabChangesFocus(False)
-        self.textBrowser_metaData.setReadOnly(False)
-        self.textBrowser_metaData.setTextInteractionFlags(QtCore.Qt.TextEditorInteraction)
-        self.textBrowser_metaData.setOpenExternalLinks(True)
-        self.textBrowser_metaData.setObjectName("textBrowser_metaData")
         self.label_fileDescription = QtWidgets.QLabel(self.tab_branch)
         self.label_fileDescription.setGeometry(QtCore.QRect(220, 273, 131, 16))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.label_fileDescription.setFont(font)
         self.label_fileDescription.setObjectName("label_fileDescription")
         self.label_metaData = QtWidgets.QLabel(self.tab_branch)
-        self.label_metaData.setGeometry(QtCore.QRect(220, 423, 131, 16))
+        self.label_metaData.setGeometry(QtCore.QRect(310, 540, 131, 16))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.label_metaData.setFont(font)
         self.label_metaData.setObjectName("label_metaData")
         self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_createNewBranch.setGeometry(QtCore.QRect(40, 140, 31, 31))
+        self.pushButton_createNewBranch.setGeometry(QtCore.QRect(40, 110, 31, 31))
         self.pushButton_createNewBranch.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -392,7 +373,7 @@ class Ui_MainWindow(object):
         self.pushButton_createNewBranch.setFlat(True)
         self.pushButton_createNewBranch.setObjectName("pushButton_createNewBranch")
         self.pushButton_mergeToMaster = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(70, 140, 31, 31))
+        self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(70, 110, 31, 31))
         self.pushButton_mergeToMaster.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -403,7 +384,7 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster.setFlat(True)
         self.pushButton_mergeToMaster.setObjectName("pushButton_mergeToMaster")
         self.pushButton_closeBranch = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_closeBranch.setGeometry(QtCore.QRect(150, 140, 31, 31))
+        self.pushButton_closeBranch.setGeometry(QtCore.QRect(570, 200, 31, 31))
         self.pushButton_closeBranch.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -425,7 +406,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson.setFlat(True)
         self.pushButton_openFileJson.setObjectName("pushButton_openFileJson")
         self.pushButton_openBranchJson = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_openBranchJson.setGeometry(QtCore.QRect(180, 140, 31, 31))
+        self.pushButton_openBranchJson.setGeometry(QtCore.QRect(180, 110, 31, 31))
         self.pushButton_openBranchJson.setText("")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -437,6 +418,10 @@ class Ui_MainWindow(object):
         self.pushButton_openBranchJson.setObjectName("pushButton_openBranchJson")
         self.label_fileData = QtWidgets.QLabel(self.tab_branch)
         self.label_fileData.setGeometry(QtCore.QRect(220, 90, 161, 21))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.label_fileData.setFont(font)
         self.label_fileData.setObjectName("label_fileData")
         self.pushButton_reNewBranchDict = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(570, 630, 31, 31))
@@ -450,10 +435,16 @@ class Ui_MainWindow(object):
         self.pushButton_reNewBranchDict.setFlat(True)
         self.pushButton_reNewBranchDict.setObjectName("pushButton_reNewBranchDict")
         self.label_currentProj = QtWidgets.QLabel(self.tab_branch)
-        self.label_currentProj.setGeometry(QtCore.QRect(50, 20, 47, 12))
+        self.label_currentProj.setGeometry(QtCore.QRect(10, 10, 141, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.label_currentProj.setFont(font)
+        self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_currentProj.setObjectName("label_currentProj")
         self.lineEdit_currentProj = QtWidgets.QLineEdit(self.tab_branch)
-        self.lineEdit_currentProj.setGeometry(QtCore.QRect(110, 15, 271, 31))
+        self.lineEdit_currentProj.setGeometry(QtCore.QRect(160, 10, 271, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 247))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -497,16 +488,24 @@ class Ui_MainWindow(object):
         self.pushButton_publish.setFlat(True)
         self.pushButton_publish.setObjectName("pushButton_publish")
         self.line = QtWidgets.QFrame(self.tab_branch)
-        self.line.setGeometry(QtCore.QRect(0, 50, 601, 20))
+        self.line.setGeometry(QtCore.QRect(10, 70, 601, 20))
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.checkBox_errorCheck = QtWidgets.QCheckBox(self.tab_branch)
         self.checkBox_errorCheck.setGeometry(QtCore.QRect(452, 530, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.checkBox_errorCheck.setFont(font)
         self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
         self.checkBox_collectFile = QtWidgets.QCheckBox(self.tab_branch)
         self.checkBox_collectFile.setGeometry(QtCore.QRect(452, 550, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize +2)
+        self.checkBox_collectFile.setFont(font)
         self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_collectFile.setObjectName("checkBox_collectFile")
         self.pushButton_setting = QtWidgets.QPushButton(self.tab_branch)
@@ -531,8 +530,8 @@ class Ui_MainWindow(object):
         self.pushButton_syncFile.setDefault(False)
         self.pushButton_syncFile.setFlat(True)
         self.pushButton_syncFile.setObjectName("pushButton_syncFile")
-        self.graphicsView = QtWidgets.QGraphicsView(self.tab_branch)
-        self.graphicsView.setGeometry(QtCore.QRect(40, 540, 256, 192))
+        self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
+        self.plainTextEdit_BranchFileInfo.setGeometry(QtCore.QRect(220, 290, 351, 171))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -543,8 +542,22 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.graphicsView.setPalette(palette)
-        self.graphicsView.setObjectName("graphicsView")
+        self.plainTextEdit_BranchFileInfo.setPalette(palette)
+        self.plainTextEdit_BranchFileInfo.setObjectName("plainTextEdit_BranchFileInfo")
+        self.plainTextEdit_metaData = QtWidgets.QPlainTextEdit(self.tab_branch)
+        self.plainTextEdit_metaData.setGeometry(QtCore.QRect(220, 460, 351, 61))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.plainTextEdit_metaData.setPalette(palette)
+        self.plainTextEdit_metaData.setObjectName("plainTextEdit_metaData")
         self.tabWidget_branch.addTab(self.tab_branch, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -552,56 +565,56 @@ class Ui_MainWindow(object):
         self.label_optionPage_projDescription.setGeometry(QtCore.QRect(30, 40, 130, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_projDescription.setFont(font)
         self.label_optionPage_projDescription.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_projDescription.setObjectName("label_optionPage_projDescription")
         self.label_optionPage_showFileType = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_showFileType.setGeometry(QtCore.QRect(30, 340, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_showFileType.setFont(font)
         self.label_optionPage_showFileType.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_showFileType.setObjectName("label_optionPage_showFileType")
         self.label_optionPage_tempB = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_tempB.setGeometry(QtCore.QRect(30, 390, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_tempB.setFont(font)
         self.label_optionPage_tempB.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_tempB.setObjectName("label_optionPage_tempB")
         self.label_optionPage_userPref = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_userPref.setGeometry(QtCore.QRect(30, 280, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_userPref.setFont(font)
         self.label_optionPage_userPref.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_userPref.setObjectName("label_optionPage_userPref")
         self.label_optionPage_User = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_User.setGeometry(QtCore.QRect(30, 230, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_User.setFont(font)
         self.label_optionPage_User.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_User.setObjectName("label_optionPage_User")
         self.label_optionPage_workProj = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_workProj.setGeometry(QtCore.QRect(30, 100, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_workProj.setFont(font)
         self.label_optionPage_workProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_workProj.setObjectName("label_optionPage_workProj")
         self.label_optionPage_branchFileInfo = QtWidgets.QLabel(self.tab_2)
         self.label_optionPage_branchFileInfo.setGeometry(QtCore.QRect(30, 160, 130, 16))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.label_optionPage_branchFileInfo.setFont(font)
         self.label_optionPage_branchFileInfo.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_optionPage_branchFileInfo.setObjectName("label_optionPage_branchFileInfo")
         self.plainTextEdit_optionPage_projDescription = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_projDescription.setGeometry(QtCore.QRect(170, 40, 351, 50))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_projDescription.setFont(font)
         self.plainTextEdit_optionPage_projDescription.setReadOnly(True)
         self.plainTextEdit_optionPage_projDescription.setPlainText("")
@@ -609,42 +622,42 @@ class Ui_MainWindow(object):
         self.plainTextEdit_optionPage_workProj = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_workProj.setGeometry(QtCore.QRect(170, 100, 351, 50))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_workProj.setFont(font)
         self.plainTextEdit_optionPage_workProj.setReadOnly(True)
         self.plainTextEdit_optionPage_workProj.setObjectName("plainTextEdit_optionPage_workProj")
         self.plainTextEdit_optionPage_branchInfoPos = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_branchInfoPos.setGeometry(QtCore.QRect(170, 160, 351, 50))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_branchInfoPos.setFont(font)
         self.plainTextEdit_optionPage_branchInfoPos.setReadOnly(True)
         self.plainTextEdit_optionPage_branchInfoPos.setObjectName("plainTextEdit_optionPage_branchInfoPos")
         self.plainTextEdit_optionPage_currentUser = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_currentUser.setGeometry(QtCore.QRect(170, 230, 351, 40))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_currentUser.setFont(font)
         self.plainTextEdit_optionPage_currentUser.setReadOnly(True)
         self.plainTextEdit_optionPage_currentUser.setObjectName("plainTextEdit_optionPage_currentUser")
         self.plainTextEdit_optionPage_userPref = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_userPref.setGeometry(QtCore.QRect(170, 280, 351, 50))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_userPref.setFont(font)
         self.plainTextEdit_optionPage_userPref.setReadOnly(True)
         self.plainTextEdit_optionPage_userPref.setObjectName("plainTextEdit_optionPage_userPref")
         self.plainTextEdit_optionPage_showFileType = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_showFileType.setGeometry(QtCore.QRect(170, 340, 351, 40))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_showFileType.setFont(font)
         self.plainTextEdit_optionPage_showFileType.setReadOnly(False)
         self.plainTextEdit_optionPage_showFileType.setObjectName("plainTextEdit_optionPage_showFileType")
         self.plainTextEdit_optionPage_tempB = QtWidgets.QPlainTextEdit(self.tab_2)
         self.plainTextEdit_optionPage_tempB.setGeometry(QtCore.QRect(170, 390, 351, 40))
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(6)
         self.plainTextEdit_optionPage_tempB.setFont(font)
         self.plainTextEdit_optionPage_tempB.setReadOnly(True)
         self.plainTextEdit_optionPage_tempB.setObjectName("plainTextEdit_optionPage_tempB")
@@ -660,11 +673,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
-        self.textBrowser_BranchFileInfo.setHtml(QtWidgets.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'PMingLiU\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Branch Name", None, -1))
         self.treeWidget_branches.headerItem().setText(0, QtWidgets.QApplication.translate("MainWindow", "branch Info", None, -1))
         __sortingEnabled = self.treeWidget_branches.isSortingEnabled()
@@ -730,15 +738,10 @@ class Ui_MainWindow(object):
         self.tableWidget_FileList.item(8, 2).setText(QtWidgets.QApplication.translate("MainWindow", "2017.03/28 10:00", None, -1))
         self.tableWidget_FileList.setSortingEnabled(__sortingEnabled)
         self.lineEdit_currentFileName.setText(QtWidgets.QApplication.translate("MainWindow", "SelectFile:", None, -1))
-        self.textBrowser_metaData.setHtml(QtWidgets.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'PMingLiU\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None, -1))
         self.label_fileDescription.setText(QtWidgets.QApplication.translate("MainWindow", "File description:", None, -1))
         self.label_metaData.setText(QtWidgets.QApplication.translate("MainWindow", "Meta Data", None, -1))
         self.label_fileData.setText(QtWidgets.QApplication.translate("MainWindow", "File Data", None, -1))
-        self.label_currentProj.setText(QtWidgets.QApplication.translate("MainWindow", "TextLabel", None, -1))
+        self.label_currentProj.setText(QtWidgets.QApplication.translate("MainWindow", "current WorkSpace", None, -1))
         self.checkBox_errorCheck.setText(QtWidgets.QApplication.translate("MainWindow", "Error Check", None, -1))
         self.checkBox_collectFile.setText(QtWidgets.QApplication.translate("MainWindow", "Collect File", None, -1))
         self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_branch), QtWidgets.QApplication.translate("MainWindow", "branch Edit", None, -1))
@@ -794,7 +797,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.tableWidget_FileList.itemClicked.connect(self.printOutFileInfo)
         
-        self.pushButton_editFileInfo.clicked.connect(self.printOutProjectInfo)
+        self.pushButton_editFileInfo.clicked.connect(self.addDescriptionToTextFile)
+        
+        self.pushButton_saveFile.clicked.connect(self.getSavingFile)
+        
+        self.pushButton_openFolder.clicked.connect(self.readFileInof)
+        
 
         self.getCurrentLevelList = []
         self.initialItemBuild()
@@ -1287,9 +1295,67 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print itemFileName
         else:
             pass
+            
+        self.currentSelectedFile = itemFileName
         print" run createFileTable function End..................."
 
+    #--------------------------get linking fileInfo json----------------------------start----------------------------
+    
+    def getLinkingFileInfoText(self):
+        # 1. define asset/shot description file location.
+        # 2. create an empty text file in folder
+        
+        print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
+        if self.isAsset == True:
+            fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetNow 
+            
+        else:
+            fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
+            
+    
+        fileInfoName = self.lineEdit_currentFileName.text().split('.')[0] +'.txt'  #define the file description Text file name
 
+        if os.path.isdir(fileInfoLocation) == False:
+            os.mkdir(fileInfoLocation)
+        else:
+            pass
+            
+        self.fullFileInfoName = fileInfoLocation + '/' + fileInfoName
+        
+
+        
+        timeNow = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        if os.path.isfile(self.fullFileInfoName) == False:
+            fileInfoText = open(self.fullFileInfoName,'w')
+            fileInfoText.write("### File Info ###"+"\n")
+            fileInfoText.write("builtTime: "+timeNow +"\n") 
+            fileInfoText.write("creator: "+self.currentUser +"\n")    
+            fileInfoText.write("#################"+"\n")     
+            fileInfoText.write("\n")
+            fileInfoText.write("\n")
+            fileInfoText.write("\n")   
+            fileInfoText.close
+            
+            
+            
+        else:
+            pass
+    #--------------------------get linking fileInfo json----------------------------END----------------------------
+    
+    
+    
+    
+    
+        
+    def addDescriptionToTextFile(self):
+        #add more description when push edit button
+        f = open(self.fullFileInfoName,'r+')
+        dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText()
+        f.write(dataEdit)
+        f.close
+        
+
+        
 
 
 
@@ -1353,8 +1419,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.getFilesInfoFormJson()
         self.buildExistFileInfoTree()
         self.createFileTable()
+        self.getLinkingFileInfoText()   # create file description file fileName.txt in global folder
         print "reNew file Table"
+    
 
+    
+    def readFileInof(self):
+        
+        printText = self.plainTextEdit_BranchFileInfo.toPlainText()
+        
+        print printText
+        
     
     
     
@@ -1407,20 +1482,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # datetime.datetime.fromtimestamp(t)
        
         if len(self.fullItemIndex) == 1:
-            print "getFilesInfoFormJson check point A"
             
-            print "getFilesInfoFormJson check point A01"
 
             print self.itemSelect
             self.branchFilesInListDict = self.branchPreDict[str(self.fullItemIndex[0])][self.itemSelect]['file']
-            print "getFilesInfoFormJson check point 02"
             
             fileCount = len(self.branchPreDict[str(self.fullItemIndex[0])][self.itemSelect]['file'].keys())
-            print "getFilesInfoFormJson check point 03"
 
             self.filesStoreBranchFolder = self.workProject + '/' +'scenes' + '/' + self.itemSelect
             #print fileTypeFillet
-            print "getFilesInfoFormJson check point 04"
 
             countDiff = 0.1  # countDiff is for different file,that has the same modify time.
  
@@ -1439,7 +1509,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            
            # print "tempTimeFileCompareDict",tempTimeFileCompareDict
         elif len(self.fullItemIndex) == 2:
-            print "getFilesInfoFormJson check point B"
             
             secLevelItem = self.branchPreDict[str(self.fullItemIndex[0])][self.branchPreDict[str(self.fullItemIndex[0])].keys()[0]]['folder'][self.itemSelect]
 
@@ -1546,7 +1615,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.lineEdit_currentFileName.setText(getFileName)
 
-
+        self.getLinkingFileInfoText()
+        
+        f = open(self.fullFileInfoName,'r')
+        data = f.readlines()
+        f.close
+        print data
+        load = ""
+        for line in data:
+            print line
+            load = load + line
+            
+        print load
+        self.plainTextEdit_BranchFileInfo.setPlainText(load)
+        
+        
+    
 
  #-----------------print out file info in textBrowser function End-------------------------------------------------------------------     
 
