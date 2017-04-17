@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>786</height>
+    <width>1149</width>
+    <height>867</height>
    </rect>
   </property>
   <property name="palette">
@@ -81,10 +81,10 @@
    <widget class="QTabWidget" name="tabWidget_branch">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>0</y>
-      <width>611</width>
-      <height>771</height>
+      <width>621</width>
+      <height>811</height>
      </rect>
     </property>
     <property name="palette">
@@ -164,9 +164,9 @@
      <widget class="QLineEdit" name="lineEdit_branchName">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>140</y>
-        <width>171</width>
+        <x>30</x>
+        <y>400</y>
+        <width>181</width>
         <height>31</height>
        </rect>
       </property>
@@ -214,8 +214,8 @@
      <widget class="QPushButton" name="pushButton_editFileInfo">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>290</y>
+        <x>580</x>
+        <y>550</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -246,8 +246,8 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>90</y>
+        <x>30</x>
+        <y>350</y>
         <width>161</width>
         <height>21</height>
        </rect>
@@ -265,9 +265,9 @@
      <widget class="QTreeWidget" name="treeWidget_branches">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>170</y>
-        <width>171</width>
+        <x>30</x>
+        <y>430</y>
+        <width>181</width>
         <height>351</height>
        </rect>
       </property>
@@ -445,8 +445,8 @@
      <widget class="QTableWidget" name="tableWidget_FileList">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>110</y>
+        <x>230</x>
+        <y>370</y>
         <width>351</width>
         <height>131</height>
        </rect>
@@ -953,8 +953,8 @@
      <widget class="QLineEdit" name="lineEdit_currentFileName">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>242</y>
+        <x>230</x>
+        <y>502</y>
         <width>351</width>
         <height>27</height>
        </rect>
@@ -1036,8 +1036,8 @@
      <widget class="QPushButton" name="pushButton_saveFile">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>110</y>
+        <x>580</x>
+        <y>370</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1068,8 +1068,8 @@
      <widget class="QPushButton" name="pushButton_loadFile">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>140</y>
+        <x>580</x>
+        <y>400</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1100,8 +1100,8 @@
      <widget class="QPushButton" name="pushButton_openFolder">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>320</y>
+        <x>580</x>
+        <y>580</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1132,8 +1132,8 @@
      <widget class="QLabel" name="label_fileDescription">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>273</y>
+        <x>230</x>
+        <y>533</y>
         <width>131</width>
         <height>16</height>
        </rect>
@@ -1148,30 +1148,11 @@
        <string>File description:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_metaData">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>540</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Meta Data</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_createNewBranch">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>110</y>
+        <x>30</x>
+        <y>370</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1202,8 +1183,8 @@
      <widget class="QPushButton" name="pushButton_mergeToMaster">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>110</y>
+        <x>60</x>
+        <y>370</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1234,8 +1215,8 @@
      <widget class="QPushButton" name="pushButton_closeBranch">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>200</y>
+        <x>580</x>
+        <y>460</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1266,8 +1247,8 @@
      <widget class="QPushButton" name="pushButton_openFileJson">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>170</y>
+        <x>580</x>
+        <y>430</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1299,7 +1280,7 @@
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>110</y>
+        <y>370</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1330,8 +1311,8 @@
      <widget class="QLabel" name="label_fileData">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>90</y>
+        <x>230</x>
+        <y>350</y>
         <width>161</width>
         <height>21</height>
        </rect>
@@ -1346,11 +1327,24 @@
        <string>File Data</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_reNewBranchDict">
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>330</y>
+        <width>601</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_setting">
       <property name="geometry">
        <rect>
         <x>570</x>
-        <y>630</y>
+        <y>0</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1360,7 +1354,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/wrench2-512.png</normaloff>icons/publishToolIcon/wrench2-512.png</iconset>
+        <normaloff>icons/publishToolIcon/gear2-512.png</normaloff>icons/publishToolIcon/gear2-512.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1378,36 +1372,248 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_currentProj">
+     <widget class="QPlainTextEdit" name="plainTextEdit_BranchFileInfo">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>141</width>
-        <height>20</height>
+        <x>230</x>
+        <y>550</y>
+        <width>351</width>
+        <height>171</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
       </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_metaData">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>720</y>
+        <width>351</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>181</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_createNewBranch_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>0</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
       </property>
       <property name="text">
-       <string>current WorkSpace</string>
+       <string/>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_createNewBranch_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>0</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/Structure2-512.png</normaloff>icons/publishToolIcon/Structure2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_createNewBranch_7">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_currentProj">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>10</y>
+        <x>738</x>
+        <y>329</y>
         <width>271</width>
         <height>31</height>
        </rect>
@@ -1507,11 +1713,11 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_publish">
+     <widget class="QPushButton" name="pushButton_createNewBranch_8">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>530</y>
+        <x>60</x>
+        <y>280</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1521,7 +1727,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/masterB2-512.png</normaloff>icons/publishToolIcon/masterB2-512.png</iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1539,68 +1745,11 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="Line" name="line">
+     <widget class="QPushButton" name="pushButton_createNewBranch_9">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>601</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_errorCheck">
-      <property name="geometry">
-       <rect>
-        <x>452</x>
-        <y>530</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="text">
-       <string>Error Check</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_collectFile">
-      <property name="geometry">
-       <rect>
-        <x>452</x>
-        <y>550</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="text">
-       <string>Collect File</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_setting">
-      <property name="geometry">
-       <rect>
-        <x>570</x>
-        <y>0</y>
+        <x>90</x>
+        <y>280</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1610,7 +1759,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/gear2-512.png</normaloff>icons/publishToolIcon/gear2-512.png</iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1628,11 +1777,11 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_syncFile">
+     <widget class="QPushButton" name="pushButton_createNewBranch_10">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>600</y>
+        <x>120</x>
+        <y>280</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1642,7 +1791,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/radial_arrows2-512.png</normaloff>icons/publishToolIcon/radial_arrows2-512.png</iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1660,98 +1809,68 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_BranchFileInfo">
+     <widget class="QPushButton" name="pushButton_createNewBranch_11">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>290</y>
-        <width>351</width>
-        <height>171</height>
+        <x>150</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>41</red>
-            <green>61</green>
-            <blue>55</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_metaData">
+     <widget class="QPushButton" name="pushButton_createNewBranch_12">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>460</y>
-        <width>351</width>
-        <height>61</height>
+        <x>180</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
        </rect>
       </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>41</red>
-            <green>61</green>
-            <blue>55</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/Camera_studio2-512.png</normaloff>icons/publishToolIcon/Camera_studio2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -2040,6 +2159,190 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_publish">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>730</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/masterB2-512.png</normaloff>icons/publishToolIcon/masterB2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_syncFile">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>730</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/radial_arrows2-512.png</normaloff>icons/publishToolIcon/radial_arrows2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_reNewBranchDict">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>730</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/wrench2-512.png</normaloff>icons/publishToolIcon/wrench2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_collectFile">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>690</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>Collect File</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_errorCheck">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>670</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>Error Check</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_metaData">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>640</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Meta Data</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_currentProj">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>180</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>current WorkSpace</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

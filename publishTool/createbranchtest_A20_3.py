@@ -15,7 +15,7 @@ import datetime
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        self.setFontSize=5
+        self.setFontSize=8
         #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +3)
         #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +2)
         #setPointSize(8 ) = setPointSize(self.setFontSize) 
@@ -1083,7 +1083,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.printOutProjectInfo()
         
         self.branch_index = 0
-        
+        #self.assetsOnOffTable = [0,0,0,0,0,1,0]
+        #self.clickAssetShotSelectButton()
         self.assetName  = "anna"
         self.branchDict={"0":{"master":{}}} 
         self.pushButton_reNewBranchDict.clicked.connect(self.getExistBranchDict)
@@ -1103,23 +1104,99 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.pushButton_openFolder.clicked.connect(self.readFileInof)
         
+        #asset and Shot button def
+        #1 character
+        self.pushButton_character.clicked.connect(self.clickCharacterButton)
+        #2 pushButton_vehicle
+        self.pushButton_vehicle.clicked.connect(self.clickVehicleButton)
+        #3 set
+        self.pushButton_set.clicked.connect(self.clickSetButton)
+        #4 props
+        self.pushButton_props.clicked.connect(self.clickPropsButton)
+        #5 others
+        self.pushButton_others.clicked.connect(self.clickOthersButton)
+        #6 all asset
+        self.pushButton_all.clicked.connect(self.clickAllButton)
+        #7 shot
+        self.pushButton_shot.clicked.connect(self.clickShotButton)
+
+
+
+
+
 
         self.getCurrentLevelList = []
         self.initialItemBuild()
+    def clickCharacterButton(self):
+        "print select assetType , Character"
+        self.clickAssetShotSelectButton()
+        #self.assetsOnOffTable = [1,0,0,0,0,0,0]
+        self.pushButton_character.setChecked(True)
+    def clickVehicleButton(self):
+        "print select assetType , Vehicle"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_vehicle.setChecked(True)
+
+    def clickSetButton(self):
+        "print select assetType , set"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_set.setChecked(True)
+
+    def clickPropsButton(self):
+        "print select assetType , pros"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_props.setChecked(True)
+
+    def clickOthersButton(self):
+        "print select assetType , others"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_others.setChecked(True)
+
+    def clickAllButton(self):
+        "print select assetType , All"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_all.setChecked(True)
+
+    def clickShotButton(self):
+        "print select assetType , Shot"
+        self.clickAssetShotSelectButton()
+
+        self.pushButton_shot.setChecked(True)
 
         
-  #-----------------------------------upper are load startUp-------------------------------------------------------------------------------------------------------      
+
+        
+    def clickAssetShotSelectButton(self):
+        
+        self.isAsset = 1
+        #self.assetsOnOffTable read on off
+        self.pushButton_character.setChecked(False)
+        self.pushButton_vehicle.setChecked(False)
+        self.pushButton_set.setChecked(False)
+        self.pushButton_props.setChecked(False)
+        self.pushButton_others.setChecked(False)
+        self.pushButton_all.setChecked(False)
+        self.pushButton_shot.setChecked(False)
+        
+        
+        
+        
+        
         
     def clear(self):
         
         self.tableWidget_FileList.clear()
         
-        
     def printOutProjectInfo(self):
         # input project infomation, project root, name,asset name, shot name, isAsset Value
         print "get input info"
-        self.root = "C:/mayaProjs"
-        #self.root ="//mcd-server/art_3d_project"
+        #self.root = "C:/mayaProjs"
+        self.root ="//mcd-server/art_3d_project"
         self.project = "3d_pipeline_test"
         self.assetClass ="character"
         self.assetNow = "shot_02"
