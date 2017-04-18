@@ -1157,22 +1157,35 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.publishTempPath = ""
         for cha in tempPath:
             if cha == "\\" :
-                self.publishTempPath.append("/")
+                self.publishTempPath = self.publishTempPath + "/"
             else:
-                self.publishTempPath.append(cha)
+                self.publishTempPath= self.publishTempPath + cha
                 
-        print self.publishTempPath    
+        #print self.publishTempPath    
         #print os.path.abspath(self.publishTempPath)
-       # self.creatUserPrefFile()
+        self.creatUserPrefFile()
         #print self.userPrefFileName
         
         
         
         
-   # def creatUserPrefFile(self):
-   #     self.userPrefFileName = self.publishTempPath +'/'+"publishToolUserPref.json")
+    def creatUserPrefFile(self):
+        userPrefName = "publishToolUserPref.json"
+        userPrefFullName = os.path.join(self.publishTempPath , userPrefName)
+       # self.userPrefFileName = self.publishTempPath +'/'+"publishToolUserPref.json")
+        #print userPrefFullName
+        self.userPrefFileName = ""
+        for cha in userPrefFullName:
+            if cha == "\\" :
+                self.userPrefFileName = self.userPrefFileName + "/"
+            else:
+                self.userPrefFileName= self.userPrefFileName + cha
+                
+        print self.userPrefFileName 
+        fileOpen = open(self.userPrefFileName,'w')
+        fileOpen.write
         
-    
+        print "created %s"%self.userPrefFileName 
     
     
                 
