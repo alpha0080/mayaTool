@@ -1,12 +1,12 @@
 import maya.cmds as cmds
 import pymel.core as pm
 
-totalParticleCount = pm.nParticle('nParticle1', query=True, ct=True)
+totalParticleCount = pm.nParticle('nParticle3', query=True, ct=True)
 
 
 particlePositionDict={}
 
-for n in range(0,totalParticleCount):
+for n in range(0,100):
     perParticle = 'nParticleShape1.pt[%s]'%str(n)
     positionPP = cmds.getParticleAttr(perParticle, at='position',a =True)
     particlePositionDict.update({str(n):positionPP})
