@@ -1,17 +1,19 @@
 import maya.cmds as cmds
 import pymel.core as pm
 
-totalParticleCount = pm.nParticle('nParticle3', query=True, ct=True)
+totalParticleCount = pm.nParticle('nParticle1', query=True, ct=True)
 
+
+cmds.getAttr('nParticleShape1.rotationPP')
 
 particlePositionDict={}
 
-for n in range(0,100):
+for n in range(0,totalParticleCount):
     perParticle = 'nParticleShape1.pt[%s]'%str(n)
-    positionPP = cmds.getParticleAttr(perParticle, at='position',a =True)
+    positionPP = cmds.getParticleAttr(perParticle, at='rotate',a =True)
     particlePositionDict.update({str(n):positionPP})
 
-
+w
 for n in range(0,totalParticleCount):
     newName = 'instanceObj' + str(n)
     newInstanceObj = cmds.duplicate( 'pSphere1', n=newName )
@@ -24,3 +26,6 @@ for n in range(0,totalParticleCount):
    # cmds.parent(instranceGrpName,newInstanceObj)
    
 #cmds.setAttr('instanceObj0.translateX',3)
+
+
+cmds.createNode('closestPointOnMesh')

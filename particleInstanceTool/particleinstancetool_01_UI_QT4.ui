@@ -142,7 +142,7 @@
      </font>
     </property>
     <property name="text">
-     <string>1</string>
+     <string>0</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -186,7 +186,7 @@
      </font>
     </property>
     <property name="text">
-     <string>1</string>
+     <string>0</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -310,6 +310,9 @@
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox_displayMode">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -399,6 +402,9 @@
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox_aimMode">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -488,6 +494,9 @@
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_spread">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -503,7 +512,7 @@
      </font>
     </property>
     <property name="text">
-     <string>1</string>
+     <string>0</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

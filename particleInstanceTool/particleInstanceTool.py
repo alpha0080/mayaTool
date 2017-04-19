@@ -10,7 +10,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 import pymel.core as pm
 import maya.cmds as cmds
-import random
+import random ,math
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -235,9 +235,9 @@ class Ui_MainWindow(object):
         self.pushButton_getParticle.setText(QtWidgets.QApplication.translate("MainWindow", "get Source Particle", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("MainWindow", "random Scale", None, -1))
         self.lineEdit_randomScale.setText(QtWidgets.QApplication.translate("MainWindow", "1", None, -1))
-        self.lineEdit_randomPosition.setText(QtWidgets.QApplication.translate("MainWindow", "1", None, -1))
+        self.lineEdit_randomPosition.setText(QtWidgets.QApplication.translate("MainWindow", "0", None, -1))
         self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "random Position", None, -1))
-        self.lineEdit_Rotation.setText(QtWidgets.QApplication.translate("MainWindow", "1", None, -1))
+        self.lineEdit_Rotation.setText(QtWidgets.QApplication.translate("MainWindow", "0", None, -1))
         self.label_3.setText(QtWidgets.QApplication.translate("MainWindow", "random Rotation", None, -1))
         self.label_4.setText(QtWidgets.QApplication.translate("MainWindow", "total particles Count", None, -1))
         self.lineEdit_particleCount.setText(QtWidgets.QApplication.translate("MainWindow", "1", None, -1))
@@ -351,7 +351,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_errorMessage.setText('aim mode : %s'%self.aimMode)
 
 
-    def clickButtin_createInstance(self):
+    def clickButtin_createInstanceB(self):
         totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
 
        # print self.selectParticleStr
@@ -359,39 +359,122 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         for n in range(0,totalParticleCount):
             perParticle = self.selectParticleStr.pt[n]
-            #print pm.getAttr('%s.position'%perParticle)
-           # print perParticle
+
             positionPP = pm.getParticleAttr(perParticle, at='position',a=True)
-           # print positionPP
-           # positionPP = cmds.getParticleAttr(perParticle, at='position',a =True)
+
             particlePositionDict.update({str(n):positionPP})
-        #print particlePositionDict
+
 
         emptyGrp = pm.createNode('transform', n='instanceGrp' )
         sourceObjCount = len(self.selectObjList)
 
 
+    def clickButtin_createInstance(self):
+        sourceObjCount = len(self.selectObjList)
+        particlePositionDict={}
+        self.allInstanceList=[]
+        print "particle",self.selectParticleStr
+        bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
+        bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
+        print bbMaxDistance
+        emptyGrp = pm.createNode('transform', n='instanceGrp' )
+        totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
+        multiplyNum= int(self.lineEdit_multiple.text())
+        scaleMultiPly = float(self.lineEdit_randomScale.text())
+        randomPosition = float(self.lineEdit_randomPosition.text())
+        randomRotation = float(self.lineEdit_Rotation.text())
+        print "multiply",self.lineEdit_multiple.text()
+        print "spread",self.lineEdit_spread.text()
+        print "scale", self.lineEdit_randomScale.text()
+        print "position",self.lineEdit_randomPosition.text()
+        print "rotation",self.lineEdit_Rotation.text()
+        
+        
+
         for n in range(0,totalParticleCount):
-            sourceObj = self.selectObjList[random.randint(0,(sourceObjCount-1))] #get random obj index
-            newName = 'instanceObj' +'_'+ str(n)
+            perParticle = self.selectParticleStr.pt[n]
+
+            positionPP = pm.getParticleAttr(perParticle, at='position',a=True)
+
+            particlePositionDict.update({str(n):positionPP})
+
+
+        #multiplyNum =5
+        #print totalParticleCount
+        for n in range(0,totalParticleCount):
+
+            for k in range(0,multiplyNum):
+                #print n,k
+                randMovement = random.uniform((-randomPosition),randomPosition)
+                sourceObj = self.selectObjList[random.randint(0,(sourceObjCount-1))] #get random obj index
+                newName = 'instanceObj' +'_'+ str(n)+'_'+str(k)
+                self.allInstanceList.append(newName)
+                #print allInstanceList 
+                #print newName
+
+
+                #randomRotation = random.uniform(-randomRotation,randomRotation)
+
+                randomScale = 1 * (random.uniform( -scaleMultiPly,scaleMultiPly))
+                if self.copyMode == "duplicate":
+                    newInstanceObj = cmds.duplicate( sourceObj, n=newName )
+                else:
+                    newInstanceObj = cmds.instance( sourceObj, n=newName )
+                #random position
+                
+                if self.lineEdit_randomPosition.text() == "0":
+                    moveX = particlePositionDict[str(n)][0] 
+                    moveY = particlePositionDict[str(n)][1] 
+                    moveZ = particlePositionDict[str(n)][2] 
+                    cmds.setAttr( "%s.translateX"%newName,moveX)
+                    cmds.setAttr( "%s.translateY"%newName,moveY)
+                    cmds.setAttr( "%s.translateZ"%newName,moveZ)
+                   # cmds.setAttr( "%s.rotateY"%newName,randomRotation)
+
+                else:
+                    randMoveX = particlePositionDict[str(n)][0] + randMovement/bbMaxDistance
+                    randMoveY = particlePositionDict[str(n)][1] 
+                    randMoveZ = particlePositionDict[str(n)][2] + randMovement/bbMaxDistance               
+                
+                    cmds.setAttr( "%s.translateX"%newName,randMoveX)
+                    cmds.setAttr( "%s.translateY"%newName,randMoveY)
+                    cmds.setAttr( "%s.translateZ"%newName,randMoveZ)
+                    
+                    #cmds.setAttr( "%s.rotateY"%newName,randomRotation)
+                    
+                    
+                #random scale
+                if self.lineEdit_randomScale.text() == "1":
+                    pass
+                else:
+                    cmds.setAttr( "%s.scaleX"%newName,randomScale)
+                    cmds.setAttr( "%s.scaleZ"%newName,randomScale)
+                    
+                    
+                #random rotate
+                if self.lineEdit_Rotation.text() == "0":
+                    pass
+                else:     
+                    rotationValue = int(self.lineEdit_Rotation.text())
+                    cmds.setAttr( "%s.rotateY"%newName,random.randint(-rotationValue,rotationValue))
+                    
+                    
+                    
+                    
+                    
+                pm.parent(newInstanceObj,emptyGrp)
+        #self.randomRotation()
+
+
+            
+            
+            
 
 
 
-            moveX = particlePositionDict[str(n)][0]
-            moveY = particlePositionDict[str(n)][1]
-            moveZ = particlePositionDict[str(n)][2]
-            if self.copyMode == "duplicate":
-                newInstanceObj = cmds.duplicate( sourceObj, n=newName )
-            else:
-                newInstanceObj = cmds.instance( sourceObj, n=newName )
-            cmds.setAttr( "%s.translateX"%newName,moveX)
-            cmds.setAttr( "%s.translateY"%newName,moveY)
-            cmds.setAttr( "%s.translateZ"%newName,moveZ)
-            pm.parent(newInstanceObj,emptyGrp)
 
-
-
-def main():
+#def main():
+def particleInstanceToolMain():     
     global ui
     app = QtWidgets.QApplication.instance()
     if app == None: app = QtWidgets.QApplication(sys.argv)
@@ -402,8 +485,8 @@ def main():
     ui = mod_MainWindow()
     ui.show()
  
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 
 
  
