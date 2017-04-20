@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
         self.lineEdit_randomScale.setObjectName("lineEdit_randomScale")
         self.horizontalSlider_randomScale = QtWidgets.QSlider(self.centralwidget)
         self.horizontalSlider_randomScale.setGeometry(QtCore.QRect(30, 522, 361, 20))
-        self.horizontalSlider_randomScale.setMinimum(1)
+        self.horizontalSlider_randomScale.setMinimum(-100)
         self.horizontalSlider_randomScale.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_randomScale.setObjectName("horizontalSlider_randomScale")
         self.label_randomScale = QtWidgets.QLabel(self.centralwidget)
@@ -359,15 +359,57 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_addObbject.clicked.connect(self.clickButtin_addObjIntoList)
         self.pushButton_create.clicked.connect(self.clickButtin_createInstance)
         self.pushButton_getSurfaceMesh.clicked.connect(self.clickButton_getSurfaceMesh)
+        self.pushButton_clearList.clicked.connect(self.clickButton_clearList)
+        #slide_1
+        self.horizontalSlider_multiPly.valueChanged.connect(self.change_Multiply)
+        #slide_2
+        self.horizontalSlider_randomPosition.valueChanged.connect(self.change_randomPosition)
+        #slide_3
+        self.horizontalSlider_spread.valueChanged.connect(self.change_spread)
+        #slide_4
+        self.horizontalSlider_randomRotation.valueChanged.connect(self.change_randomRotation)
+        #slide_5
+        self.horizontalSlider_randomScale.valueChanged.connect(self.change_randomScale)
+        #slide_6
+        self.horizontalSlider_offset.valueChanged.connect(self.change_offset)
         
 
         self.radioButton_duplicate.setChecked(True)
         self.radioButton_normal.setChecked(True)
+        
+        
+    def change_Multiply(self):
+        getMultiplyValue = self.horizontalSlider_multiPly.value()
+        self.lineEdit_multiple.setText(str(getMultiplyValue))
 
+    def change_randomPosition(self):
+        getrandomPositionValue = self.horizontalSlider_randomPosition.value()
+        self.lineEdit_randomPosition.setText(str(getrandomPositionValue))
+
+    def change_spread(self):
+        getspreadValue = self.horizontalSlider_spread.value()
+        self.lineEdit_spread.setText(str(getspreadValue))
+
+    def change_randomRotation(self):
+        getrandomRotationValue = self.horizontalSlider_randomRotation.value()
+        self.lineEdit_randomRotation.setText(str(getrandomRotationValue))
+
+    def change_randomScale(self):
+        getrandomScaleValue = self.horizontalSlider_randomScale.value()
+        self.lineEdit_randomScale.setText(str(getrandomScaleValue))
+
+    def change_offset(self):
+        getoffsetValue = self.horizontalSlider_offset.value()
+        self.lineEdit_offset.setText(str(getoffsetValue))
+
+
+
+
+        
     def clickButton_getSurfaceMesh(self):
         print" get the surface,that take form other scenes"
-        selectMesh = pm.ls(sl=True)[0].split('(')[0]
-        self.lineEdit_getSurfaceMesh.setText(selectMesh)
+        self.selectMesh = pm.ls(sl=True)[0].split('(')[0]
+        self.lineEdit_getSurfaceMesh.setText(self.selectMesh)
         
 
     def clickButton_getParticle(self):
@@ -425,10 +467,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
        # self.listWidget_objList.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "aaa", None, -1))
     
-
+    def clickButton_clearList(self):
+        self.listWidget_objList.clear()
+        self.objList = []
+        self.selectObjList = []
+        
 
     def getVertexNormal(self):
-        geo = pm.PyNode('pSphere1')
+        geo = pm.PyNode(self.selectMesh)
+       # print geo
         pos = self.positionPP
 
         nodeDagPath = OpenMaya.MObject()
@@ -471,7 +518,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #pm.select('pSphereShape1.vtx[141]')
 
         closeVertexNormal = pm.polyNormalPerVertex(closestVertex,q=1,xyz=1)
-        print closestVertex,closeVertexNormal,len(closeVertexNormal)
+       # print closestVertex,closeVertexNormal,len(closeVertexNormal)
 
 
         try:
@@ -481,7 +528,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         except:
             pass
             
-        print self.avarageNx,self.avarageNy,self.avarageNz
+        #print self.avarageNx,self.avarageNy,self.avarageNz
 
 
 
@@ -493,31 +540,34 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         sourceObjCount = len(self.selectObjList)
         particlePositionDict={}
         self.allInstanceList=[]
-        print "particle",self.selectParticleStr
+        #print "particle",self.selectParticleStr
         bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
         bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
-        print bbMaxDistance
+        #print bbMaxDistance
         emptyGrp = pm.createNode('transform', n='instanceGrp' )
         totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
-        print 'totalParticleCount',totalParticleCount
+        #print 'totalParticleCount',totalParticleCount
         multiplyNum= int(self.lineEdit_multiple.text())
-        scaleMultiPly = float(self.lineEdit_randomScale.text())
+        
+        
+        scaleMultiPly = (float(self.lineEdit_randomScale.text())/20)
         randomPosition = float(self.lineEdit_randomPosition.text())
-        randomRotation = float(self.lineEdit_Rotation.text())
-        print "multiply",self.lineEdit_multiple.text()
+        randomRotation = float(self.lineEdit_randomRotation.text())
+        offsetValue = float(self.lineEdit_offset.text())
+        print "multiply",multiplyNum
         print "spread",self.lineEdit_spread.text()
         print "scale", self.lineEdit_randomScale.text()
         print "position",self.lineEdit_randomPosition.text()
-        print "rotation",self.lineEdit_Rotation.text()
-        
+        print "rotation",self.lineEdit_randomRotation.text()
+        print "offset",self.lineEdit_offset.text()
 
-        
-        
 
         for n in range(0,totalParticleCount):
             
 
-            perParticle = self.selectParticleStr.pt[n]
+            perParticle = self.selectParticleStr.pt[n]  
+            #print perParticle
+
 
             self.positionPP = pm.getParticleAttr(perParticle, at='position',a=True)
             
@@ -532,7 +582,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             particlePositionDict.update({str(n):self.positionPP})
 
-        print particlePositionDict
+       # print particlePositionDict
 
         for n in range(0,totalParticleCount):
 
@@ -549,35 +599,51 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 #randomRotation = random.uniform(-randomRotation,randomRotation)
 
                 randomScale = 1 * (random.uniform( -scaleMultiPly,scaleMultiPly))
-                if self.radioButton_duplicate.isChecked == True:
+                if self.radioButton_duplicate.isChecked() == True:
+
                     newInstanceObj = cmds.duplicate( sourceObj, n=newName )
                 else:
+
                     newInstanceObj = cmds.instance( sourceObj, n=newName )
                 #random position
-                
+                pm.parent(newInstanceObj,emptyGrp)
+
+
+
                 if self.lineEdit_randomPosition.text() == "0":
                     moveX = particlePositionDict[str(n)][0] 
-                    moveY = particlePositionDict[str(n)][1] 
+                    
+                    if self.lineEdit_offset.text() == "0":
+                        moveY = particlePositionDict[str(n)][1]
+                    else:                      
+                        moveY = particlePositionDict[str(n)][1] + float(self.lineEdit_offset.text())
+                        
                     moveZ = particlePositionDict[str(n)][2] 
                     cmds.setAttr( "%s.translateX"%newName,moveX)
                     cmds.setAttr( "%s.translateY"%newName,moveY)
                     cmds.setAttr( "%s.translateZ"%newName,moveZ)
                    # cmds.setAttr( "%s.rotateY"%newName,randomRotation)
-
+                    #print moveX,moveY,moveZ
                 else:
                     randMoveX = particlePositionDict[str(n)][0] + randMovement/bbMaxDistance
+                                        
+                    if self.lineEdit_offset.text() == "0":
+                        randMoveY = particlePositionDict[str(n)][1] 
+                    else:                      
+                        randMoveY = particlePositionDict[str(n)][1] + float(self.lineEdit_offset.text())
+                        
                     randMoveY = particlePositionDict[str(n)][1] 
                     randMoveZ = particlePositionDict[str(n)][2] + randMovement/bbMaxDistance               
-                
+                    #print randMoveX,randMoveY,randMoveZ
                     cmds.setAttr( "%s.translateX"%newName,randMoveX)
                     cmds.setAttr( "%s.translateY"%newName,randMoveY)
                     cmds.setAttr( "%s.translateZ"%newName,randMoveZ)
                     
                     #cmds.setAttr( "%s.rotateY"%newName,randomRotation)
+
                     
-                    
-                #random scale
-                if self.lineEdit_randomScale.text() == "1":
+
+                if self.lineEdit_randomScale.text() == "0":
                     pass
                 else:
                     cmds.setAttr( "%s.scaleX"%newName,randomScale)
@@ -585,8 +651,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
                     
                 #random rotate
-                if self.lineEdit_Rotation.text() == "0":
-                   # pass
+
+                if self.radioButton_normal.isChecked() == True: 
                     rotateNormalx = particlePositionDict[str(n)][3]
                     rotateNormaly = particlePositionDict[str(n)][4]
                     rotateNormalz = particlePositionDict[str(n)][5]  
@@ -595,37 +661,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     rotX = math.degrees(math.atan2(rotateNormaly,rotateNormalz))
                     rotY = math.degrees(math.atan2(rotateNormalx,rotateNormalz))
 
-                 #   rotZ = math.degrees(math.atan2(rotateNormaly,rotateNormalx))
                     rotZ = math.degrees(math.pi/2-math.asin(rotateNormaly))
 
-                    print n,'rotX',rotX
-                    print n,'rotY',rotY
-                    print n,'rotZ',rotZ
-                    cmds.setAttr( "%s.rotateX"%newName,rotZ) 
-                    cmds.setAttr( "%s.rotateY"%newName,rotY) 
-                   # cmds.setAttr( "%s.rotateZ"%newName,rotZ) 
-                    #pass
-                else:     
-                    #rotationValue = int(self.lineEdit_Rotation.text())
-                    #cmds.setAttr( "%s.rotateY"%newName,random.randint(-rotationValue,rotationValue))
-                    pass
+                    #print n,'rotX',rotX
+                    #print n,'rotY',rotY
+                    #print n,'rotZ',rotZ
+                    randRotValue = float(self.lineEdit_randomRotation.text())
 
+ 
+                    cmds.setAttr( "%s.rotateX"%newName,(rotZ+random.uniform(-randRotValue,randRotValue)))
+                    cmds.setAttr( "%s.rotateY"%newName,(rotY+random.uniform(-randRotValue,randRotValue)))
                     
-              #     rotX =  
-                pm.parent(newInstanceObj,emptyGrp)
-        #self.randomRotation()
-             #   float $rotX = rad_to_deg( atan2( ($normal.z), ($normal.y) ) ); 
-                #float $rotZ = rad_to_deg( asin( -($normal.x) ) 
-#
-            
-            #warning
-            
+                   # cmds.setAttr( "%s.rotateY"%newName,randRotValue) 
 
+                
 
-
-
-def main():
-#def particleInstanceToolMain():     
+#def main():
+def particleInstanceToolMain():     
     global ui
     app = QtWidgets.QApplication.instance()
     if app == None: app = QtWidgets.QApplication(sys.argv)
@@ -636,8 +688,8 @@ def main():
     ui = mod_MainWindow()
     ui.show()
  
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 
 
  
