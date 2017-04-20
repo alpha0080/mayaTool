@@ -416,7 +416,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.radioButton_duplicate.setChecked(True)
         self.radioButton_normal.setChecked(True)
-        
+        self.errorInstanceObj= []
     def clickButton_reset(self):
         
         self.radioButton_duplicate.setChecked(True)
@@ -605,18 +605,33 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             if minLength is None or thisLength < minLength:
                 minLength = thisLength
                 closestVertex = v
-        #pm.select('pSphereShape1.vtx[141]')
-
+        #pm.select('pPlaneShape1.vtx[1785]')
+            #aa=pm.ls(sl=True,fl=True)[0].split('(')[0]
+            #print cmds.polyListComponentConversion(aa,fv=True, tf=True)
+            #print len(cmds.polyListComponentConversion(aa,fv=True, tf=True))
         closeVertexNormal = pm.polyNormalPerVertex(closestVertex,q=1,xyz=1)
-       # print closestVertex,closeVertexNormal,len(closeVertexNormal)
+        #print closestVertex,len(closeVertexNormal),closeVertexNormal
 
 
-        #try:
-        self.avarageNx =( closeVertexNormal[0] + closeVertexNormal[3] + closeVertexNormal[6]  + closeVertexNormal[9] )/4
-        self.avarageNy =( closeVertexNormal[1] + closeVertexNormal[4] + closeVertexNormal[7]  + closeVertexNormal[10] )/4
-        self.avarageNz =( closeVertexNormal[2] + closeVertexNormal[5] + closeVertexNormal[8]  + closeVertexNormal[11] )/4
-        #except:
-          #  pass
+        if len(closeVertexNormal) == 12:
+            self.avarageNx =( closeVertexNormal[0] + closeVertexNormal[3] + closeVertexNormal[6]  + closeVertexNormal[9] )/4.0
+            self.avarageNy =( closeVertexNormal[1] + closeVertexNormal[4] + closeVertexNormal[7]  + closeVertexNormal[10] )/4.0
+            self.avarageNz =( closeVertexNormal[2] + closeVertexNormal[5] + closeVertexNormal[8]  + closeVertexNormal[11] )/4.0
+        elif len(closeVertexNormal) == 6:
+            self.avarageNx =( closeVertexNormal[0] + closeVertexNormal[3] )/2.0
+            self.avarageNy =( closeVertexNormal[1] + closeVertexNormal[4] )/2.0
+            self.avarageNz =( closeVertexNormal[2] + closeVertexNormal[5] )/2.0
+        elif len(closeVertexNormal) == 3:
+            self.avarageNx =( closeVertexNormal[0] )
+            self.avarageNy =( closeVertexNormal[1] )
+            self.avarageNz =( closeVertexNormal[2] )
+        elif len(closeVertexNormal) == 12:
+            self.avarageNx =( closeVertexNormal[0] + closeVertexNormal[3] + closeVertexNormal[6]  + closeVertexNormal[9] + closeVertexNormal[12] )/5.0
+            self.avarageNy =( closeVertexNormal[1] + closeVertexNormal[4] + closeVertexNormal[7]  + closeVertexNormal[10] + closeVertexNormal[13] )/5.0
+            self.avarageNz =( closeVertexNormal[2] + closeVertexNormal[5] + closeVertexNormal[8]  + closeVertexNormal[11] + closeVertexNormal[14] )/5.0
+        else:
+            pass  
+          
             
         #print self.avarageNx,self.avarageNy,self.avarageNz
 
@@ -662,13 +677,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             self.positionPP = pm.getParticleAttr(perParticle, at='position',a=True)
             
+          #  try:
             self.getVertexNormal()  
 
             self.positionPP.append(self.avarageNx)
-            
+                
             self.positionPP.append(self.avarageNy)
             
             self.positionPP.append(self.avarageNz)
+           # except:
+             #   self.positionPP.append(0.0)
+             #   self.positionPP.append(0.0)
+             #   self.positionPP.append(0.0)
             
 
             particlePositionDict.update({str(n):self.positionPP})
@@ -758,11 +778,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     rotX = math.degrees(math.atan2(rotateNormaly,rotateNormalz))
                     rotY = math.degrees(math.atan2(rotateNormalx,rotateNormalz))
 
-                    rotZ = math.degrees(math.pi/2-math.asin(rotateNormaly))
-
+                    #rotZ = math.degrees((math.pi/(2.0))-math.asin(rotateNormaly))
+                    try:
+                        rotZ = math.degrees(1.57-math.asin(rotateNormaly))
+                        #print "correct",rotateNormaly
+                    except:
+                        #print "error",rotateNormaly
+                       # print math.asin(rotateNormaly)
+                        rotZ = math.degrees(1.57-abs(math.asin(1.0)))
+                        #print "%s"%newName + "   rotZ error"
+                        self.errorInstanceObj.append(newName)
+                        pass
                     #print n,'rotX',rotX
                     #print n,'rotY',rotY
                     #print n,'rotZ',rotZ
+                    math.asin(-0.5)
                     randRotValue = float(self.lineEdit_randomRotation.text())
 
  
@@ -779,9 +809,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     originalTranslateY = cmds.getAttr("%s.translateY"%newName)
                     moveY = originalTranslateY + offsetValue
                     cmds.setAttr( "%s.translateY"%newName,moveY)
+        print self.errorInstanceObj
+        #self.lineEdit_errorMessage.setText(self.errorInstanceObj)
 
-
-                    
 
     def returnProcessPersent(self):
         self.processUnitValue = self.processUnitValue + self.processUnitValue
