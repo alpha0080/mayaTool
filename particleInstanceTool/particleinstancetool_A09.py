@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize) 
 
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(476, 650)
+        MainWindow.resize(476, 668)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.lineEdit_sourceParticle = QtWidgets.QLineEdit(self.centralwidget)
@@ -149,10 +149,11 @@ class Ui_MainWindow(object):
         self.lineEdit_randomScale.setReadOnly(False)
         self.lineEdit_randomScale.setObjectName("lineEdit_randomScale")
         self.horizontalSlider_randomScale = QtWidgets.QSlider(self.centralwidget)
+        self.horizontalSlider_randomScale.setEnabled(True)
         self.horizontalSlider_randomScale.setGeometry(QtCore.QRect(30, 522, 361, 20))
-        self.horizontalSlider_randomScale.setMinimum(-100)
-        self.horizontalSlider_randomScale.setMaximum(100)
-        self.horizontalSlider_randomScale.setSingleStep(0)
+        self.horizontalSlider_randomScale.setMinimum(0)
+        self.horizontalSlider_randomScale.setMaximum(1000)
+        self.horizontalSlider_randomScale.setSingleStep(1)
         self.horizontalSlider_randomScale.setPageStep(10)
         self.horizontalSlider_randomScale.setSliderPosition(1)
         self.horizontalSlider_randomScale.setOrientation(QtCore.Qt.Horizontal)
@@ -176,8 +177,8 @@ class Ui_MainWindow(object):
         self.lineEdit_randomPosition.setObjectName("lineEdit_randomPosition")
         self.horizontalSlider_randomPosition = QtWidgets.QSlider(self.centralwidget)
         self.horizontalSlider_randomPosition.setGeometry(QtCore.QRect(30, 432, 361, 20))
-        self.horizontalSlider_randomPosition.setMinimum(0)
-        self.horizontalSlider_randomPosition.setMaximum(9999)
+        self.horizontalSlider_randomPosition.setMinimum(-1000)
+        self.horizontalSlider_randomPosition.setMaximum(1000)
         self.horizontalSlider_randomPosition.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_randomPosition.setObjectName("horizontalSlider_randomPosition")
         self.label_randomPosition = QtWidgets.QLabel(self.centralwidget)
@@ -222,6 +223,7 @@ class Ui_MainWindow(object):
         self.lineEdit_spread.setReadOnly(True)
         self.lineEdit_spread.setObjectName("lineEdit_spread")
         self.horizontalSlider_spread = QtWidgets.QSlider(self.centralwidget)
+        self.horizontalSlider_spread.setEnabled(False)
         self.horizontalSlider_spread.setGeometry(QtCore.QRect(30, 462, 361, 20))
         self.horizontalSlider_spread.setMinimum(0)
         self.horizontalSlider_spread.setOrientation(QtCore.Qt.Horizontal)
@@ -236,6 +238,7 @@ class Ui_MainWindow(object):
         self.label_spread.setAlignment(QtCore.Qt.AlignCenter)
         self.label_spread.setObjectName("label_spread")
         self.label_offset = QtWidgets.QLabel(self.centralwidget)
+        self.label_offset.setEnabled(True)
         self.label_offset.setGeometry(QtCore.QRect(140, 540, 141, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -244,7 +247,7 @@ class Ui_MainWindow(object):
         self.label_offset.setAlignment(QtCore.Qt.AlignCenter)
         self.label_offset.setObjectName("label_offset")
         self.lineEdit_offset = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_offset.setEnabled(False)
+        self.lineEdit_offset.setEnabled(True)
         self.lineEdit_offset.setGeometry(QtCore.QRect(400, 550, 51, 20))
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -254,10 +257,10 @@ class Ui_MainWindow(object):
         self.lineEdit_offset.setReadOnly(True)
         self.lineEdit_offset.setObjectName("lineEdit_offset")
         self.horizontalSlider_offset = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider_offset.setEnabled(False)
+        self.horizontalSlider_offset.setEnabled(True)
         self.horizontalSlider_offset.setGeometry(QtCore.QRect(30, 552, 361, 20))
-        self.horizontalSlider_offset.setMinimum(0)
-        self.horizontalSlider_offset.setMaximum(5)
+        self.horizontalSlider_offset.setMinimum(-1000)
+        self.horizontalSlider_offset.setMaximum(1000)
         self.horizontalSlider_offset.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_offset.setObjectName("horizontalSlider_offset")
         self.checkBox_exportJson = QtWidgets.QCheckBox(self.centralwidget)
@@ -318,6 +321,14 @@ class Ui_MainWindow(object):
         self.toolButton = QtWidgets.QToolButton(self.centralwidget)
         self.toolButton.setGeometry(QtCore.QRect(401, 369, 51, 21))
         self.toolButton.setObjectName("toolButton")
+        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(32, 374, 360, 12))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(self.setFontSize-2)
+        self.progressBar.setFont(font)
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setObjectName("progressBar")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -364,6 +375,7 @@ class Ui_MainWindow(object):
 
 
 
+
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
    
     def __init__(self, parent= QtWidgets.QApplication.activeWindow()):
@@ -399,7 +411,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #slide_6
         self.horizontalSlider_offset.valueChanged.connect(self.change_offset)
-        
+        self.lineEdit_offset.textChanged.connect(self.change_offsetText)
+
 
         self.radioButton_duplicate.setChecked(True)
         self.radioButton_normal.setChecked(True)
@@ -429,12 +442,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     #slide_2
     def change_randomPosition(self):
-        getrandomPositionValue = self.horizontalSlider_randomPosition.value()
+        getrandomPositionValue = float(self.horizontalSlider_randomPosition.value())/(100.0)
         self.lineEdit_randomPosition.setText(str(getrandomPositionValue))
         
     def change_randomPositionText(self):
-        getrandomPositionValue = float(self.lineEdit_randomPosition.text())
-        self.horizontalSlider_randomPosition.setValue(getrandomPositionValue)
+        getrandomPositionValue = float(self.lineEdit_randomPosition.text())*(100.0)
+        self.horizontalSlider_randomPosition.setValue(int(getrandomPositionValue))
         
     #slide_3
 
@@ -455,11 +468,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     #slide_5
     def change_randomScale(self):
-        getrandomScaleValue = self.horizontalSlider_randomScale.value()
+        getrandomScaleValue = float(self.horizontalSlider_randomScale.value())/(100.0)
+        print getrandomScaleValue
         self.lineEdit_randomScale.setText(str(getrandomScaleValue))
     
     def change_randomScaleText(self):
-        getrandomScaleValue = float(self.lineEdit_randomScale.text())
+        getrandomScaleValue = int(float(self.lineEdit_randomScale.text())*(100.0))
         self.horizontalSlider_randomScale.setValue(getrandomScaleValue)
             
         
@@ -470,9 +484,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     #slide_6
     def change_offset(self):
-        getoffsetValue = self.horizontalSlider_offset.value()
+        getoffsetValue = float(self.horizontalSlider_offset.value()/(100.0))
         self.lineEdit_offset.setText(str(getoffsetValue))
-
+    
+    def change_offsetText(self):
+        getoffsetValue = int(float(self.lineEdit_offset.text())*(100.0))
+        self.horizontalSlider_offset.setValue(getoffsetValue)
+            
 
 
 
@@ -504,6 +522,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.totalParticleCount = pm.nParticle(getParticle, query=True, ct=True)
         self.lineEdit_particleCount.setText('%s'%self.totalParticleCount)
+
 
             
     def clickButtin_addObjIntoList(self):
@@ -621,7 +640,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         multiplyNum= int(self.lineEdit_multiple.text())
         
         
-        scaleMultiPly = (float(self.lineEdit_randomScale.text())/5)
+        scaleMultiPly = (float(self.lineEdit_randomScale.text())/(1.0))
         randomPosition = float(self.lineEdit_randomPosition.text())
         randomRotation = float(self.lineEdit_randomRotation.text())
         offsetValue = float(self.lineEdit_offset.text())
@@ -631,8 +650,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "position",self.lineEdit_randomPosition.text()
         print "rotation",self.lineEdit_randomRotation.text()
         print "offset",self.lineEdit_offset.text()
+        
 
-
+        countGetValue = 0
         for n in range(0,self.totalParticleCount):
             
 
@@ -652,10 +672,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
 
             particlePositionDict.update({str(n):self.positionPP})
-
+            countGetValue = countGetValue +1
+            processPresentValue = int(((float(countGetValue)/float(self.totalParticleCount))/2.0)*100.0)
+           # print processPresentValue
+            self.progressBar.setValue(processPresentValue)
+        print "get all data from particle"
+            
        # print particlePositionDict
-
+        countSetObj =0
         for n in range(0,self.totalParticleCount):
+            countSetObj = countSetObj +1
+            processPresentValue = int(((float(countSetObj)/float(self.totalParticleCount))/(2.0) + 0.5)*100.0)
+           # print processPresentValue
+           # self.progressBar.value(processPresentValue)
+            self.progressBar.setValue(processPresentValue)
 
             for k in range(0,multiplyNum):
                 #print n,k
@@ -665,11 +695,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.allInstanceList.append(newName)
                 #print allInstanceList 
                 #print newName
-
-
+                #self.totalParticleCount
                 #randomRotation = random.uniform(-randomRotation,randomRotation)
 
-                randomScale = 1 * (random.uniform( -scaleMultiPly,scaleMultiPly))
+                randomScale = 1 * (random.uniform( (1.0-scaleMultiPly),(1.0+scaleMultiPly)))
                 if self.radioButton_duplicate.isChecked() == True:
 
                     newInstanceObj = cmds.duplicate( sourceObj, n=newName,rc=True,rr=True )
@@ -701,10 +730,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #randMoveY = particlePositionDict[str(n)][1] 
                     #randMoveZ = particlePositionDict[str(n)][2] + randMovement/bbMaxDistance               
                     #print randMoveX,randMoveY,randMoveZ
-                    cmds.setAttr( "%s.translateX"%newName,(particlePositionDict[str(n)][0] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))/bbMaxDistance))
+                    cmds.setAttr( "%s.translateX"%newName,(particlePositionDict[str(n)][0] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))))
 
                     cmds.setAttr( "%s.translateY"%newName,moveY)
-                    cmds.setAttr( "%s.translateZ"%newName,(particlePositionDict[str(n)][2] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))/bbMaxDistance))
+                    cmds.setAttr( "%s.translateZ"%newName,(particlePositionDict[str(n)][2] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))))
                     
                     #cmds.setAttr( "%s.rotateY"%newName,randomRotation)
 
@@ -741,9 +770,24 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     cmds.setAttr( "%s.rotateY"%newName,(rotY+random.uniform(-randRotValue,randRotValue)))
 
                    # cmds.setAttr( "%s.rotateY"%newName,randRotValue) 
+                    #self.returnProcessPersent()
                 else:
                     pass
+                if self.lineEdit_offset.text() == "0":
+                    pass
+                else:
+                    originalTranslateY = cmds.getAttr("%s.translateY"%newName)
+                    moveY = originalTranslateY + offsetValue
+                    cmds.setAttr( "%s.translateY"%newName,moveY)
+
+
                     
+
+    def returnProcessPersent(self):
+        self.processUnitValue = self.processUnitValue + self.processUnitValue
+
+        
+        self.progressBar.value(int(self.processUnitValue))
                 
 
 def main():
