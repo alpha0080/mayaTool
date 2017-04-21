@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT7.ui'
+# Form implementation generated from reading ui file 'C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT7.ui'
 #
-# Created: Thu Apr 20 21:58:04 2017
+# Created: Fri Apr 21 08:47:17 2017
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
@@ -242,7 +242,7 @@ class Ui_MainWindow(object):
         font.setPointSize(8)
         self.lineEdit_offset.setFont(font)
         self.lineEdit_offset.setAlignment(QtCore.Qt.AlignCenter)
-        self.lineEdit_offset.setReadOnly(True)
+        self.lineEdit_offset.setReadOnly(False)
         self.lineEdit_offset.setObjectName("lineEdit_offset")
         self.horizontalSlider_offset = QtWidgets.QSlider(self.centralwidget)
         self.horizontalSlider_offset.setEnabled(True)
@@ -311,9 +311,23 @@ class Ui_MainWindow(object):
         self.toolButton.setObjectName("toolButton")
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
         self.progressBar.setGeometry(QtCore.QRect(32, 374, 360, 12))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Highlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Highlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(51, 153, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Highlight, brush)
+        self.progressBar.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(6)
+        font.setPointSize(8)
+        font.setWeight(75)
+        font.setItalic(True)
+        font.setBold(True)
         self.progressBar.setFont(font)
         self.progressBar.setProperty("value", 0)
         self.progressBar.setObjectName("progressBar")
