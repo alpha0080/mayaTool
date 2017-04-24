@@ -15,6 +15,10 @@ import pymel.core as pm
 import maya.cmds as cmds
 import random ,math, os,json
 import maya.OpenMaya as OpenMaya
+import threading
+import maya.utils
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         
@@ -22,6 +26,7 @@ class Ui_MainWindow(object):
         #setPointSize(11) = setPointSize(self.setFontSize +3)
         #setPointSize(10) = setPointSize(self.setFontSize +2)
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize) 
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(457, 811)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -330,10 +335,6 @@ class Ui_MainWindow(object):
         self.line.setObjectName("line")
         self.toolButton = QtWidgets.QToolButton(self.centralwidget)
         self.toolButton.setGeometry(QtCore.QRect(380, 520, 51, 21))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(self.setFontSize)
-        self.toolButton.setFont(font)
         self.toolButton.setObjectName("toolButton")
         self.lineEdit_errorMessage = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_errorMessage.setGeometry(QtCore.QRect(30, 314, 401, 51))
@@ -476,7 +477,7 @@ class Ui_MainWindow(object):
         self.lineEdit_sourceParticle.setPalette(palette)
         self.lineEdit_sourceParticle.setObjectName("lineEdit_sourceParticle")
         self.checkBox_inputFromFile = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_inputFromFile.setEnabled(False)
+        self.checkBox_inputFromFile.setEnabled(True)
         self.checkBox_inputFromFile.setGeometry(QtCore.QRect(30, 390, 141, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -531,13 +532,13 @@ class Ui_MainWindow(object):
         self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
-        self.pushButton_openCacheFolder = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_openCacheFolder.setGeometry(QtCore.QRect(410, 370, 21, 21))
+        self.pushButton_addObbject_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_addObbject_2.setGeometry(QtCore.QRect(410, 370, 21, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_openCacheFolder.sizePolicy().hasHeightForWidth())
-        self.pushButton_openCacheFolder.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.pushButton_addObbject_2.sizePolicy().hasHeightForWidth())
+        self.pushButton_addObbject_2.setSizePolicy(sizePolicy)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(88, 130, 117))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -566,13 +567,13 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.pushButton_openCacheFolder.setPalette(palette)
+        self.pushButton_addObbject_2.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(self.setFontSize)
-        self.pushButton_openCacheFolder.setFont(font)
-        self.pushButton_openCacheFolder.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.pushButton_openCacheFolder.setObjectName("pushButton_openCacheFolder")
+        self.pushButton_addObbject_2.setFont(font)
+        self.pushButton_addObbject_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_addObbject_2.setObjectName("pushButton_addObbject_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(390, 20, 47, 12))
         self.label.setObjectName("label")
@@ -634,7 +635,7 @@ class Ui_MainWindow(object):
         self.pushButton_writeCache.setFont(font)
         self.pushButton_writeCache.setObjectName("pushButton_writeCache")
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.progressBar.setGeometry(QtCore.QRect(30, 524, 341, 16))
+        self.progressBar.setGeometry(QtCore.QRect(30, 524, 360, 12))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -761,7 +762,7 @@ class Ui_MainWindow(object):
         self.pushButton_getSurfaceMesh.setText(QtWidgets.QApplication.translate("MainWindow", "get surface Mesh", None, -1))
         self.pushButton_getParticle.setText(QtWidgets.QApplication.translate("MainWindow", "get Source Partic ", None, -1))
         self.checkBox_inputFromFile.setText(QtWidgets.QApplication.translate("MainWindow", "input From File", None, -1))
-        self.pushButton_openCacheFolder.setText(QtWidgets.QApplication.translate("MainWindow", "...", None, -1))
+        self.pushButton_addObbject_2.setText(QtWidgets.QApplication.translate("MainWindow", "...", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Ver. 0.92", None, -1))
         __sortingEnabled = self.listWidget_fileList.isSortingEnabled()
         self.listWidget_fileList.setSortingEnabled(False)
@@ -783,6 +784,8 @@ class Ui_MainWindow(object):
 
 
 
+
+
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
    
     def __init__(self, parent= QtWidgets.QApplication.activeWindow()):
@@ -790,13 +793,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
     #def self.MODDEF(self):
-        #self.check_ExportToFile() selectParticleStr
+        #self.check_ExportToFile()
         
         self.listWidget_objList.clear()
 
         self.pushButton_getParticle.clicked.connect(self.clickButton_getParticle)
         self.pushButton_addObbject.clicked.connect(self.clickButtin_addObjIntoList)
-        self.pushButton_create.clicked.connect(self.clickButtin_createInstance)
+        self.pushButton_create.clicked.connect(self.clickButtin_createInstance_multiThread)
+        #self.pushButton_create.clicked.connect(self.clickButtin_createInstance)
+        
+        
         self.pushButton_getSurfaceMesh.clicked.connect(self.clickButton_getSurfaceMesh)
         self.pushButton_clearList.clicked.connect(self.clickButton_clearList)
         
@@ -830,51 +836,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_writeCache.clicked.connect(self.clickButton_writeCache)
         self.listWidget_fileList.clicked.connect(self.clickListWidget_fileList)
         self.pushButton_placeItemFromCache.clicked.connect(self.placeItemFromCache)
-        self.pushButton_openCacheFolder.clicked.connect(self.setCacheFolder)
+
+
 
         self.radioButton_duplicate.setChecked(True)
         self.radioButton_normal.setChecked(True)
         self.errorInstanceObj= []
         
-    def setCacheFolder(self):
-        print"select to export Folder"
-        self.exportFolder = cmds.fileDialog2(fm=3)[0]
-        self.lineEdit_exportFolder.setText(self.exportFolder)
-        
-        self.searchParticleJsonFolder()
-
-        jsonFilesCount = len(self.fileList)
-        self.listWidget_fileList.clear()
-        fileReverseStored = sorted(self.fileList, reverse = True )
-        for i in range(0,jsonFilesCount):
-     
-            QtWidgets.QListWidgetItem(self.listWidget_fileList)
-
-            itemName = fileReverseStored[i].split('(')[0]
-            self.listWidget_fileList.item(i).setText(QtWidgets.QApplication.translate("MainWindow","tempName", None, -1))
-            self.listWidget_fileList.item(i).setText(itemName)        
-        
     def clickListWidget_fileList(self):
         openFileName = self.listWidget_fileList.currentItem().text()
         self.oprnFileFullName =  self.exportFolder +'/' +openFileName
+        #dataName = open(oprnFileFullName,'r')
+        ##self.particlePositionDict = json.load(dataName)   
+        #self.clickButtin_createInstanceFromCache()
         
-    def placeItemFromCache(self):
-        
-        
-        
-        if  len(self.lineEdit_sourceParticle.text()) == 0:
-            self.lineEdit_errorMessage.setText("type name for instance object")
-        else:
-            pass
-
-            self.instanceObjName = self.lineEdit_sourceParticle.text()
-        
-            #self.selectParticleStr = self.lineEdit_sourceParticle.text()
-            dataName = open(self.oprnFileFullName,'r')
-            self.particlePositionDict = json.load(dataName)   
-            self.totalParticleCount = len(self.particlePositionDict.keys())
-            self.clickButtin_createInstanceFromCache()
-            
     def check_ExportToFile(self):
 
         print"export to file"
@@ -1070,7 +1045,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.totalParticleCount = pm.nParticle(getParticle, query=True, ct=True)
         self.lineEdit_particleCount.setText('%s'%self.totalParticleCount)
 
-
             
     def clickButtin_addObjIntoList(self):
         print "add object into list"
@@ -1110,11 +1084,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.selectObjList = []
         
 
+        
+        # n
     def getVertexNormal(self):
         geo = pm.PyNode(self.selectMesh)
-       # print geo
         pos = self.positionPP
-
+        
         nodeDagPath = OpenMaya.MObject()
         
 
@@ -1140,24 +1115,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         mfnMesh.getClosestPoint(pointA, pointB, space, idPointer)  
         idx = OpenMaya.MScriptUtil(idPointer).asInt()
-
+        
         faceVerts = [geo.vtx[i] for i in geo.f[idx].getVertices()]
         closestVertex = None
         minLength = None
-        
-   # def aaaaaa(self):
-        
+
         for v in faceVerts:
             thisLength = (pos - v.getPosition(space='world')).length()
             if minLength is None or thisLength < minLength:
                 minLength = thisLength
                 closestVertex = v
-        #pm.select('pPlaneShape1.vtx[1785]')
-            #aa=pm.ls(sl=True,fl=True)[0].split('(')[0]
-            #print cmds.polyListComponentConversion(aa,fv=True, tf=True)
-            #print len(cmds.polyListComponentConversion(aa,fv=True, tf=True))
+
         closeVertexNormal = pm.polyNormalPerVertex(closestVertex,q=1,xyz=1)
-        #print closestVertex,len(closeVertexNormal),closeVertexNormal
 
 
         if len(closeVertexNormal) == 12:
@@ -1180,21 +1149,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass  
           
             
-        #print self.avarageNx,self.avarageNy,self.avarageNz allInstanceList selectParticleStr
+       # print self.avarageNx,self.avarageNy,self.avarageNz 
+        
+        self.positionPP.append(self.avarageNx)
+                
+        self.positionPP.append(self.avarageNy)
+        
+        self.positionPP.append(self.avarageNz)
+       # except:
+         #   self.positionPP.append(0.0)
+         #   self.positionPP.append(0.0)
+         #   self.positionPP.append(0.0)
+        
+
+        self.particlePositionDict.update({str(self.n):self.positionPP})
+        self.countGetValue = self.countGetValue +1
+        processPresentValue = int(((float(self.countGetValue)/float(self.totalParticleCount))/2.0)*100.0)
+       # print processPresentValue
+        self.progressBar.setValue(processPresentValue)
 
     def clickButtin_createInstanceFromCache(self):
-
         sourceObjCount = len(self.selectObjList)
         #self.particlePositionDict={}
         self.allInstanceList=[]
         #print "particle",self.selectParticleStr
    
-        #bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
-        #bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
+        bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
+        bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
         #print bbMaxDistance
-        emptyGrp = pm.createNode('transform', n='%s_instanceGrp'%self.instanceObjName )
-        #self.totalParticleCount = pm.nParticle('%s'%self.instanceObjName, query=True, ct=True)
-        #print self.totalParticleCount
+        emptyGrp = pm.createNode('transform', n='%s_instanceGrp'%self.selectParticleStr )
+        self.totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
         #print 'totalParticleCount',totalParticleCount
         multiplyNum= int(self.lineEdit_multiple.text())
         
@@ -1227,7 +1211,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 #print n,k
                 randMovement = random.uniform((-randomPosition),randomPosition)
                 sourceObj = self.selectObjList[random.randint(0,(sourceObjCount-1))] #get random obj index
-                newName = self.instanceObjName +'_instanceObj' +'_'+ str(n)+'_'+str(k)
+                newName = self.selectParticleStr+'_instanceObj' +'_'+ str(n)+'_'+str(k)
                 self.allInstanceList.append(newName)
                 #print allInstanceList 
                 #print newName
@@ -1327,8 +1311,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     originalTranslateY = cmds.getAttr("%s.translateY"%newName)
                     moveY = originalTranslateY + offsetValue
                     cmds.setAttr( "%s.translateY"%newName,moveY)
-            #print self.errorInstanceObj
-            #self.lineEdit_errorMessage.setText(self.errorInstanceObj)
+        print self.errorInstanceObj
+        #self.lineEdit_errorMessage.setText(self.errorInstanceObj)
+
+
+
+
 
 
 
@@ -1506,16 +1494,265 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print self.errorInstanceObj
         #self.lineEdit_errorMessage.setText(self.errorInstanceObj)
 
-
-    def returnProcessPersent(self):
-        self.processUnitValue = self.processUnitValue + self.processUnitValue
-
+#countGetValue
+    def clickButtin_createInstance_multiThread(self):  #test maya multi thread
+        self.sourceObjCount = len(self.selectObjList)
+        self.particlePositionDict={}
+        self.allInstanceList=[]
+        #print "particle",self.selectParticleStr
+        bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
+        bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
+        #print bbMaxDistance
+        self.emptyGrp = pm.createNode('transform', n='%s_instanceGrp'%self.selectParticleStr )
+        self.totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
+        #print 'totalParticleCount',totalParticleCount
+        self.multiplyNum= int(self.lineEdit_multiple.text())
         
-        self.progressBar.value(int(self.processUnitValue))
-                
+        
+        self.scaleMultiPly = (float(self.lineEdit_randomScale.text())/(1.0))
+        self.randomPosition = float(self.lineEdit_randomPosition.text())
+        self.randomRotation = float(self.lineEdit_randomRotation.text())
+        self.offsetValue = float(self.lineEdit_offset.text())
+        print "multiply",self.multiplyNum
+        print "spread",self.lineEdit_spread.text()
+        print "scale", self.lineEdit_randomScale.text()
+        print "position",self.lineEdit_randomPosition.text()
+        print "rotation",self.lineEdit_randomRotation.text()
+        print "offset",self.lineEdit_offset.text()
+        
 
-#def main():
-def particleInstanceToolMain():     
+        self.countGetValue = 0
+
+        self.getMultiThreadJobNumDict()
+       # print self.jobNumDict
+        jobSplitNum = len(self.jobNumDict.keys())
+        for i in range(0,jobSplitNum):
+            for self.n in self.jobNumDict[i]:
+            #for self.n in range(0,self.totalParticleCount):
+               # self.perParticle = self.selectParticleStr.pt[self.n]  
+               # print self.perParticle, type(self.perParticle)
+                maya.utils.executeInMainThreadWithResult(self.doGetDataFromParticles)
+                
+            
+            
+        print "get all data from particle"
+    
+        self.countSetObj =0
+        for i in range(0,jobSplitNum):
+            for self.n in self.jobNumDict[i]:
+       # for self.n in range(0,self.totalParticleCount):
+                maya.utils.executeInMainThreadWithResult(self.doPlaceObjectFromParticlesDate)
+          ##  t = threading.Thread(target=self.doGetDataFromParticles, args=()) n
+          #  t.start()
+        print self.errorInstanceObj
+
+    def getMultiThreadJobNumDict(self):
+        start =0
+        end =(self.totalParticleCount-1)
+        threadNum = 6
+        block = end/threadNum
+
+        numListStart =[]
+        numListEnd =[]
+        self.jobNumDict={}
+
+        for num in range(start,end+1):
+            if num% block == 0:
+                numListStart.append(num)
+            if num% block == block-1:
+                numListEnd.append(num)
+        if len(numListStart) > len(numListEnd):
+            numListEnd.append(end)
+                
+        listNum= len(numListStart)
+        for listIndex in range(0,(listNum)):
+            #numDict.update({listIndex:[]})
+            print listIndex
+            tempNumList =[]
+            for i in range(numListStart[listIndex],((numListEnd[listIndex])+1)):
+                #try:
+                tempNumList.append(i)
+            self.jobNumDict.update({listIndex:tempNumList})
+        print self.jobNumDict
+            
+    
+    
+        
+    def doGetDataFromParticles(self):
+        self.perParticle = self.selectParticleStr.pt[self.n]  
+
+        self.positionPP = pm.getParticleAttr('%s'%self.perParticle, at='position',a=True)
+        self.getVertexNormal()  
+        
+
+        #multi thread start
+
+
+    def doPlaceObjectFromParticlesDate(self):
+        self.countSetObj = self.countSetObj +1
+        processPresentValue = int(((float(self.countSetObj)/float(self.totalParticleCount))/(2.0) + 0.5)*100.0)
+        self.progressBar.setValue(processPresentValue)
+
+        for k in range(0,self.multiplyNum):
+            #print n,k
+            randMovement = random.uniform((-self.randomPosition),self.randomPosition)
+            sourceObj = self.selectObjList[random.randint(0,(self.sourceObjCount-1))] #get random obj index
+            newName = self.selectParticleStr+'_instanceObj' +'_'+ str(self.n)+'_'+str(k)
+            self.allInstanceList.append(newName)
+
+            randomScale = 1 * (random.uniform( (1.0-self.scaleMultiPly),(1.0+self.scaleMultiPly)))
+            if self.radioButton_duplicate.isChecked() == True:
+
+                newInstanceObj = cmds.duplicate( sourceObj, n=newName,rc=True,rr=True )
+            else:
+
+                newInstanceObj = cmds.instance( sourceObj, n=newName )
+            #random position
+            pm.parent(newInstanceObj,self.emptyGrp)
+
+
+
+            if self.lineEdit_randomPosition.text() == "0":
+                moveX = self.particlePositionDict[str(self.n)][0]                
+                moveY = self.particlePositionDict[str(self.n)][1]                 
+                moveZ = self.particlePositionDict[str(self.n)][2] 
+                cmds.setAttr( "%s.translateX"%newName,moveX)
+                cmds.setAttr( "%s.translateY"%newName,moveY)
+                cmds.setAttr( "%s.translateZ"%newName,moveZ)
+               # cmds.setAttr( "%s.rotateY"%newName,randomRotation)
+                #print moveX,moveY,moveZ
+            else:
+                #randMoveX = particlePositionDict[str(n)][0] + randMovement/bbMaxDistance
+                                    
+                #if self.lineEdit_offset.text() == "0":
+                   # randMoveY = particlePositionDict[str(n)][1] 
+                #else:                      
+                   # randMoveY = particlePositionDict[str(n)][1] + float(self.lineEdit_offset.text())
+                moveY = self.particlePositionDict[str(self.n)][1]
+                #randMoveY = particlePositionDict[str(n)][1] 
+                #randMoveZ = particlePositionDict[str(n)][2] + randMovement/bbMaxDistance               
+                #print randMoveX,randMoveY,randMoveZ
+                cmds.setAttr( "%s.translateX"%newName,(self.particlePositionDict[str(self.n)][0] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))))
+
+                cmds.setAttr( "%s.translateY"%newName,moveY)
+                cmds.setAttr( "%s.translateZ"%newName,(self.particlePositionDict[str(self.n)][2] +random.uniform(-float(self.lineEdit_randomPosition.text()),float(self.lineEdit_randomPosition.text()))))
+                
+                #cmds.setAttr( "%s.rotateY"%newName,randomRotation)
+
+                #(particlePositionDict[str(n)][0] +random.uniform(float(self.lineEdit_randomPosition.text())))
+
+            if self.lineEdit_randomScale.text() == "0":
+                pass
+            else:
+                cmds.setAttr( "%s.scaleX"%newName,randomScale)
+                cmds.setAttr( "%s.scaleZ"%newName,randomScale)
+                
+                
+            #random rotate
+
+            if self.radioButton_normal.isChecked() == True: 
+
+                rotateNormalx = self.particlePositionDict[str(self.n)][3]
+                rotateNormaly = self.particlePositionDict[str(self.n)][4]
+                rotateNormalz = self.particlePositionDict[str(self.n)][5]  
+                
+                
+                rotX = math.degrees(math.atan2(rotateNormaly,rotateNormalz))
+                rotY = math.degrees(math.atan2(rotateNormalx,rotateNormalz))
+
+                #rotZ = math.degrees((math.pi/(2.0))-math.asin(rotateNormaly))
+                try:
+                    rotZ = math.degrees(1.57-math.asin(rotateNormaly))
+                    #print "correct",rotateNormaly
+                except:
+                    #print "error",rotateNormaly
+                   # print math.asin(rotateNormaly)
+                    rotZ = math.degrees(1.57-abs(math.asin(1.0)))
+                    #print "%s"%newName + "   rotZ error"
+                    self.errorInstanceObj.append(newName)
+                    pass
+                #print n,'rotX',rotX
+                #print n,'rotY',rotY
+                #print n,'rotZ',rotZ
+                math.asin(-0.5)
+                randRotValue = float(self.lineEdit_randomRotation.text())
+
+
+                cmds.setAttr( "%s.rotateX"%newName,(rotZ+random.uniform(-randRotValue,randRotValue)))
+                cmds.setAttr( "%s.rotateY"%newName,(rotY+random.uniform(-randRotValue,randRotValue)))
+
+               # cmds.setAttr( "%s.rotateY"%newName,randRotValue) 
+                #self.returnProcessPersent()
+            else:
+                pass
+            if self.lineEdit_offset.text() == "0":
+                pass
+            else:
+                originalTranslateY = cmds.getAttr("%s.translateY"%newName)
+                moveY = originalTranslateY + self.offsetValue
+                cmds.setAttr( "%s.translateY"%newName,moveY)
+        #self.lineEdit_errorMessage.setText(self.errorInstanceObj) multiplyNum
+
+
+
+    def placeItemFromCache(self): #selectParticleStr
+        self.sourceObjCount = len(self.selectObjList)
+        #self.particlePositionDict={}
+        self.allInstanceList=[]
+        #print "particle",self.selectParticleStr
+        #bb=cmds.xform('%s'%self.selectParticleStr,bb=True,q=True)
+        #bbMaxDistance = math.sqrt(((bb[3]-bb[0]) *(bb[3]-bb[0])) + ((bb[4]-bb[1]) *(bb[4]-bb[1])) +((bb[5]-bb[2]) *(bb[5]-bb[2])))
+        #print bbMaxDistance
+        #self.emptyGrp = pm.createNode('transform', n='%s_instanceGrp'%self.selectParticleStr )
+        #self.totalParticleCount = pm.nParticle('%s'%self.selectParticleStr, query=True, ct=True)
+        #print 'totalParticleCount',totalParticleCount
+        self.multiplyNum= int(self.lineEdit_multiple.text())
+        
+        
+        self.scaleMultiPly = (float(self.lineEdit_randomScale.text())/(1.0))
+        self.randomPosition = float(self.lineEdit_randomPosition.text())
+        self.randomRotation = float(self.lineEdit_randomRotation.text())
+        self.offsetValue = float(self.lineEdit_offset.text())
+        print "multiply",self.multiplyNum
+        print "spread",self.lineEdit_spread.text()
+        print "scale", self.lineEdit_randomScale.text()
+        print "position",self.lineEdit_randomPosition.text()
+        print "rotation",self.lineEdit_randomRotation.text()
+        print "offset",self.lineEdit_offset.text()
+        
+        
+        
+        
+        if  len(self.lineEdit_sourceParticle.text()) == 0:
+            self.lineEdit_errorMessage.setText("type name for instance object")
+        else:
+            pass
+
+            self.selectParticleStr = self.lineEdit_sourceParticle.text()
+        
+            #self.selectParticleStr = self.lineEdit_sourceParticle.text()
+            dataName = open(self.oprnFileFullName,'r')
+            self.particlePositionDict = json.load(dataName)   
+            self.totalParticleCount = len(self.particlePositionDict.keys())
+            #self.clickButtin_createInstanceFromCache()
+            
+        self.emptyGrp = pm.createNode('transform', n='%s_instanceGrp'%self.selectParticleStr )
+
+        self.countSetObj =0
+
+        for self.n in range(0,self.totalParticleCount):
+            maya.utils.executeInMainThreadWithResult(self.doPlaceObjectFromParticlesDate)
+          ##  t = threading.Thread(target=self.doGetDataFromParticles, args=()) n
+          #  t.start()
+        print self.errorInstanceObj
+
+
+
+
+
+
+def main():
+#def particleInstanceToolMain():     
     global ui
     app = QtWidgets.QApplication.instance()
     if app == None: app = QtWidgets.QApplication(sys.argv)
@@ -1526,8 +1763,8 @@ def particleInstanceToolMain():
     ui = mod_MainWindow()
     ui.show()
  
-#if __name__ == '__main__':
-#    main()
+if __name__ == '__main__':
+    main()
 
 
  

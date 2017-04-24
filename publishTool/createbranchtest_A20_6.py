@@ -1139,16 +1139,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.root = "C:/mayaProjs"
         #get self.project
         self.project = "3d_pipeline_test"
+        self.projectAssembleDescription ={'assets':{'character':{},
+                                                    'vehicle':{},
+                                                    'set':{},
+                                                    'prop':{},
+                                                    'other':{}},
+                                          'shot':{}}
         
         projectFolder = self.root + '/' + self.project
         assetsFolder = projectFolder + '/' + 'assets'
         shotFolder = projectFolder + '/' + 'shot'
         
-        print os.listdir(projectFolder)
-        print os.listdir(assetsFolder)
-        print os.listdir(shotFolder)
-
+        for assetItem in self.projectAssembleDescription['assets'].keys():    
+            searchAssetFolder = assetsFolder +'/' + assetItem
+            
+            for assetClassItem in os.listdir(searchAssetFolder):
+                self.projectAssembleDescription['assets'][assetItem].update({assetClassItem:{}})
+                
+        for shotItem in os.listdir(shotFolder):
+            self.projectAssembleDescription['shot'].update({shotItem:{}})
+            
+            print searchAssetFolder
+            print os.listdir(searchAssetFolder)
+        #self.projectAssembleDescription['assets'].update({'assets':)
         
+        #print os.listdir(projectFolder)
+        #print os.listdir(assetsFolder)
+       # print os.listdir(shotFolder)
+        projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
+        #print projectAssembleDescriptionFile
+        print self.projectAssembleDescription
 
         
         

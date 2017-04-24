@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT7.ui'
+# Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT8.ui'
 #
-# Created: Mon Apr 24 11:24:15 2017
+# Created: Mon Apr 24 11:29:01 2017
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
@@ -319,6 +319,10 @@ class Ui_MainWindow(object):
         self.line.setObjectName("line")
         self.toolButton = QtWidgets.QToolButton(self.centralwidget)
         self.toolButton.setGeometry(QtCore.QRect(380, 520, 51, 21))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(8)
+        self.toolButton.setFont(font)
         self.toolButton.setObjectName("toolButton")
         self.lineEdit_errorMessage = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_errorMessage.setGeometry(QtCore.QRect(30, 314, 401, 51))
@@ -461,7 +465,7 @@ class Ui_MainWindow(object):
         self.lineEdit_sourceParticle.setPalette(palette)
         self.lineEdit_sourceParticle.setObjectName("lineEdit_sourceParticle")
         self.checkBox_inputFromFile = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_inputFromFile.setEnabled(True)
+        self.checkBox_inputFromFile.setEnabled(False)
         self.checkBox_inputFromFile.setGeometry(QtCore.QRect(30, 390, 141, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
