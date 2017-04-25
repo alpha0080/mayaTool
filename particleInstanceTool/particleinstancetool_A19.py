@@ -1543,40 +1543,86 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         
     def loadPartOfParticlesCache(self):
-        self.placeItemFromCache()
-        #self.particlePositionDict particles position dictionary
+        self.placeItemFromCache() #get select cache
         print self.oprnFileFullName
         #start = 0
         #end = len(self.particlePositionDict.keys())
         #print self.particlePositionDict
-       # dataName = open(self.oprnFileFullName,'r')
-       # self.particlePositionDict = json.load(dataName)   
-       # self.totalParticleCount = len(self.particlePositionDict.keys())
-      #  self.clickButtin_createInstanceFromCache()
+        dataName = open(self.oprnFileFullName,'r')
+        self.particlePositionDict = json.load(dataName)   
+        #print self.particlePositionDict
+        dataName.close
+        self.totalParticleCount = len(self.particlePositionDict.keys())
+        self.getParticlesSplitByInsert()
         
         
-    def test(self):
-        
-        threadNum = 3
-        block = end/threadNum
+    def getParticlesSplitByOrder(self):
+        particlePT_start = 0
+        particlePT_end =len(self.particlePositionDict.keys())
+        threadNum = 5
+        block = particlePT_end/threadNum
         numListStart =[]
         numListEnd =[]
-        numDict={}
-        for num in range(start,end+1):
+        self.numDict={}    #get particle list ,separate 5 arear by insert number
+        for num in range(particlePT_start,particlePT_end+1):
             if num% block == 0:
                 numListStart.append(num)
             if num% block == block-1:
                 numListEnd.append(num)
         if len(numListStart) > len(numListEnd):
-            numListEnd.append(end)   
+            numListEnd.append(particlePT_end)   
         listNum= len(numListStart)
         for listIndex in range(0,(listNum)):
             print listIndex
             tempNumList =[]
             for i in range(numListStart[listIndex],((numListEnd[listIndex])+1)):
                 tempNumList.append(i)
-            numDict.update({listIndex:tempNumList})
- 
+            self.numDict.update({listIndex:tempNumList})
+        print self.numDict
+        print self.numDict[0]
+        print self.numDict[1]
+        print self.numDict[2]
+        print self.numDict[3]
+        print self.numDict[4]
+        
+        
+    def getParticlesSplitByInsert(self):
+        #get the newList ,from self.particlePositionDict, by insert number
+        particlePT_start = 0
+        particlePT_end =len(self.particlePositionDict.keys())
+        #print particlePT_end
+        #print self.particlePositionDict
+        #print self.particlePositionDict.keys()[-1]
+        threadNum = 1  #seprate 5 list
+        block = particlePT_end/threadNum
+        numListStart =[]
+        numListEnd =[]
+        self.numDict={}    #get particle list ,separate 5 arear by insert number
+        for num in range(particlePT_start,particlePT_end+1):
+            if num% block == 0:
+                numListStart.append(num)
+            if num% block == block-1:
+                numListEnd.append(num)
+        if len(numListStart) > len(numListEnd):
+            numListEnd.append(particlePT_end)   
+        listNum= len(numListStart)
+
+                
+        for listIndex in range(0,(listNum-1)):
+            tempNumList =[]
+            for insertNum in range(0,(block+1)):
+                sumNum = listIndex + insertNum*threadNum
+                if sumNum > particlePT_end : 
+                    pass
+                else:
+                    tempNumList.append(sumNum)
+            self.numDict.update({listIndex:tempNumList})
+            #print tempNumList
+           # print self.numDict
+        print self.numDict
+
+        for i in self.numDict.keys():
+            print self.numDict[i]
     
         
     def clickButton_reset(self):
