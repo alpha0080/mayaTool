@@ -18,7 +18,7 @@ import maya.OpenMaya as OpenMaya
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         
-        self.setFontSize=5
+        self.setFontSize=8
         #setPointSize(11) = setPointSize(self.setFontSize +3)
         #setPointSize(10) = setPointSize(self.setFontSize +2)
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize) 
@@ -2011,7 +2011,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #slide_4
         self.horizontalSlider_randomRotation.valueChanged.connect(self.change_randomRotation)
         self.lineEdit_randomRotation.textChanged.connect(self.change_randomRotationText)
-
         #slide_5
         self.horizontalSlider_randomScale.valueChanged.connect(self.change_randomScale)
         self.lineEdit_randomScale.textChanged.connect(self.change_randomScaleText)
@@ -2022,7 +2021,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # export ,input from file
         self.pushButton_openCacheFolder.clicked.connect(self.ExportCacheFolderSelect)
-        self.pushButton_loadFromCache.clicked.connect(self.click_importFromFile)
+        #self.pushButton_loadFromCache.clicked.connect(self.click_importFromFile)
 
 
         self.pushButton_writeToCache.clicked.connect(self.clickButton_writeCache)
@@ -2349,9 +2348,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
         
         self.totalParticleCount = pm.nParticle(getParticle, query=True, ct=True)
-        self.lineEdit_particleCount.setText('%s'%self.totalParticleCount)
-
-
+        self.label_particlesCount.setText('%s'%self.totalParticleCount)
+        #self.pushButton_getSurfaceMesh.setChecked(False)
+        print self.pushButton_getSurfaceMesh.isChecked()
             
     def clickButtin_addObjIntoList(self):
         print "add object into list"
