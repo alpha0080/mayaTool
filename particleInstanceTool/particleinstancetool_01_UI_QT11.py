@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT10.ui'
+# Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/particleInstanceTool/particleinstancetool_01_UI_QT11.ui'
 #
-# Created: Thu Apr 27 00:39:06 2017
+# Created: Thu Apr 27 20:50:04 2017
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,9 +12,9 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.setWindowModality(QtCore.Qt.ApplicationModal)
+        MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(689, 396)
+        MainWindow.resize(703, 425)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -152,7 +152,7 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         MainWindow.setPalette(palette)
-        MainWindow.setAnimated(False)
+        MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
@@ -702,11 +702,12 @@ class Ui_MainWindow(object):
         self.label_aimMode.setAlignment(QtCore.Qt.AlignCenter)
         self.label_aimMode.setObjectName("label_aimMode")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(210, 194, 154, 29))
+        self.layoutWidget.setGeometry(QtCore.QRect(210, 194, 265, 38))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_2.setSpacing(5)
         self.horizontalLayout_2.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.radioButton_normal = QtWidgets.QRadioButton(self.layoutWidget)
         font = QtGui.QFont()
@@ -724,11 +725,12 @@ class Ui_MainWindow(object):
         self.radioButton_alwaysTop.setObjectName("radioButton_alwaysTop")
         self.horizontalLayout_2.addWidget(self.radioButton_alwaysTop)
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(210, 144, 154, 29))
+        self.layoutWidget1.setGeometry(QtCore.QRect(210, 144, 261, 38))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout.setSpacing(5)
         self.horizontalLayout.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.radioButton_duplicate = QtWidgets.QRadioButton(self.layoutWidget1)
         font = QtGui.QFont()
@@ -1328,7 +1330,7 @@ class Ui_MainWindow(object):
         icon3.addPixmap(QtGui.QPixmap("icons/particleInstanceToolIcons/getParticlesB-512.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_getParticle.setIcon(icon3)
         self.pushButton_getParticle.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_getParticle.setCheckable(True)
+        self.pushButton_getParticle.setCheckable(False)
         self.pushButton_getParticle.setFlat(True)
         self.pushButton_getParticle.setObjectName("pushButton_getParticle")
         self.pushButton_addObbject = QtWidgets.QPushButton(self.centralwidget)
