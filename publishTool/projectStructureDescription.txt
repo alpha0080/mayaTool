@@ -1,4 +1,49 @@
+
+
+
+
+1. click to process publish tool
+
+
+
+2
+2.1  
+搜尋位於 self.root下的資料夾名稱 (應由tactic中取得專案資料)
+定義所有專案的描述檔案
+
+
+
+2.3
+#self.root    , all projects are located in this path
+#self.root  , 所有專案所在位置。 公司 //mcd-server/art_3d_projects/
+#self.project  currecnt project, 
+#self.project 目前所執行的專案資料夾
+input self.root,   self.project
+
+3. create all request folder,  
+	assets
+	shot
+	global
+	output
+	QC
+	publish
+	reference
+
+
+#note. create comboBox item
+#self.comboBox_selectProj.addItem("")
+#self.comboBox_selectProj.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "a1", None, -1))
+#                                                                 index                                                     		   name												
+#
+
+
+4. select working Project in comboBox
+                             
+
+
+
 project structure description:
+
 
 
 assetBranch Process Step:

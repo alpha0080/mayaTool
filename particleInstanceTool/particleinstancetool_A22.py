@@ -18,7 +18,7 @@ import maya.OpenMaya as OpenMaya
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         
-        self.setFontSize=8
+        self.setFontSize=5
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize +3)
         #setPointSize(10) = setPointSize(self.setFontSize +2)
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize) 
