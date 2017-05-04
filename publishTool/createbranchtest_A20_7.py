@@ -1769,7 +1769,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # input project infomation, project root, name,asset name, shot name, isAsset Value
         print "get input info"
         #self.root = "C:/mayaProjs"
-        #self.root ="//mcd-server/art_3d_project"
+        self.root ="//mcd-server/art_3d_project"
         self.project = "3d_pipeline_test"
         self.assetClass ="character"
         self.assetNow = "shot_02"
