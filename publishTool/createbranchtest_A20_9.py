@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.label_2.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(self.tab_job_assemble)
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(220, 30, 80, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.listWidget = QtWidgets.QListWidget(self.tab_job_assemble)
@@ -290,7 +290,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setGeometry(QtCore.QRect(140, 70, 80, 20))
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab_job_assemble)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(750, 80, 81, 100))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(750, 80, 81, 112))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -309,7 +309,7 @@ class Ui_MainWindow(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.verticalLayout.addWidget(self.pushButton_7)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.tab_job_assemble)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(750, 240, 81, 152))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(750, 240, 81, 170))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -396,7 +396,7 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(250, 380, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
@@ -421,7 +421,7 @@ class Ui_MainWindow(object):
         self.treeWidget_branches.setObjectName("treeWidget_branches")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(11)
         font.setWeight(75)
         font.setBold(True)
         brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
@@ -447,7 +447,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.tableWidget_FileList.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.tableWidget_FileList.setFont(font)
         self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget_FileList.setAutoScrollMargin(16)
@@ -588,7 +588,7 @@ class Ui_MainWindow(object):
         self.lineEdit_currentFileName.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.lineEdit_currentFileName.setFont(font)
         self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
         self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
@@ -628,7 +628,7 @@ class Ui_MainWindow(object):
         self.label_fileDescription.setGeometry(QtCore.QRect(440, 250, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label_fileDescription.setFont(font)
         self.label_fileDescription.setObjectName("label_fileDescription")
         self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
@@ -690,7 +690,7 @@ class Ui_MainWindow(object):
         self.label_fileData.setGeometry(QtCore.QRect(440, 50, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label_fileData.setFont(font)
         self.label_fileData.setObjectName("label_fileData")
         self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
@@ -791,7 +791,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.listWidget_assetProj.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.listWidget_assetProj.setFont(font)
         self.listWidget_assetProj.setObjectName("listWidget_assetProj")
         QtWidgets.QListWidgetItem(self.listWidget_assetProj)
@@ -852,7 +852,7 @@ class Ui_MainWindow(object):
         self.checkBox_collectFile.setGeometry(QtCore.QRect(10, 530, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.checkBox_collectFile.setFont(font)
         self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_collectFile.setObjectName("checkBox_collectFile")
@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         self.checkBox_errorCheck.setGeometry(QtCore.QRect(10, 510, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.checkBox_errorCheck.setFont(font)
         self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
@@ -868,7 +868,7 @@ class Ui_MainWindow(object):
         self.label_metaData.setGeometry(QtCore.QRect(440, 450, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label_metaData.setFont(font)
         self.label_metaData.setObjectName("label_metaData")
         self.pushButton_vehicle = QtWidgets.QPushButton(self.tab_branch)
@@ -1095,10 +1095,10 @@ class Ui_MainWindow(object):
         self.pushButton_processComp.setFlat(True)
         self.pushButton_processComp.setObjectName("pushButton_processComp")
         self.label_currentProj = QtWidgets.QLabel(self.tab_branch)
-        self.label_currentProj.setGeometry(QtCore.QRect(370, 10, 141, 20))
+        self.label_currentProj.setGeometry(QtCore.QRect(450, 10, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label_currentProj.setFont(font)
         self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1137,7 +1137,7 @@ class Ui_MainWindow(object):
         self.lineEdit_currentProj.setReadOnly(True)
         self.lineEdit_currentProj.setObjectName("lineEdit_currentProj")
         self.comboBox_selectProj = QtWidgets.QComboBox(self.tab_branch)
-        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 30, 151, 22))
+        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 30, 351, 22))
         self.comboBox_selectProj.setObjectName("comboBox_selectProj")
         self.comboBox_selectProj.addItem("")
         self.comboBox_selectProj.addItem("")
@@ -1166,7 +1166,7 @@ class Ui_MainWindow(object):
         self.label_selectProject.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(10)
         self.label_selectProject.setFont(font)
         self.label_selectProject.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_selectProject.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -1404,7 +1404,6 @@ class Ui_MainWindow(object):
 
 
 
-
        ## self.tableWidget_FileList.verticalHeader().setDefaultSectionSize(28)#tableWidge verticalHeader space
 
        ## self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)   #add more control
@@ -1422,14 +1421,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         
+
         #define project root
         #self.root = "C:/mayaProjs" #test in home
-        self.root = "//mcd-server/art_3d_project"
+        self.root = "//mcd-server/art_3d_project"   # projects root in company
+        
+        
+        #creat projects Info in self.root
+        self.pushButton_setting.clicked.connect(self.doFromAdmin)
+        
+        
+        
+
         #clear treeWidger_branches, all Clear
-        self.treeWidget_branches.clear()
-        self.tableWidget_FileList.clear()
+        #self.treeWidget_branches.clear()   #branch system
+        #self.tableWidget_FileList.clear()  #branch system
         self.defineFont()
-        #self.printOutProjectInfo()
+        #self.printOutProjectInfo()    #branch system
         
         self.branch_index = 0
         #self.assetsOnOffTable = [0,0,0,0,0,1,0]
@@ -1476,17 +1484,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobal)
 
         #test--------------------
-        self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
+        #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
         self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
 
         self.getCurrentLevelList = []
         self.initialItemBuild()
     
     def selectWorkingProjectInGlobal(self):
-        print "run select working project"
+        #print "run select working project"
         
         self.project = self.comboBox_selectProj.currentText()
-        #print self.project
+       # print self.project
         
         self.defineWorkingProjectAssemble()
         self.buildAssetsList()
@@ -1497,7 +1505,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "build list from workingProjectAssemble description file"
         # 1.get data form dictionary , self.projectAssembleDescription
         # 2. self.projectAssembleDescription stored in self.projectAssembleDescriptionFile
-        # 3. show all assets in list, defaut set button to click 'all'
+        # 3. show all assets in list, defaut set button to click 'all' setAssetTypeSelect
         
         f= open(self.projectAssembleDescriptionFile, 'r')
         data = json.load(f)
@@ -1507,26 +1515,44 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print self.projectAssembleDescription.keys()
        # print self.projectAssembleDescription['assets']
         assetTempList = []
-        for i in self.projectAssembleDescription['assets'].keys():
-            print i
-            for j in self.projectAssembleDescription['assets'][i].keys():
-                assetTempList.append(j)
-        print assetTempList
-        #build assets list
-        listIndexCount = len(assetTempList)
-        self.listWidget_assetProj.clear()
-        for indexNum in renage (0 ,100):
+        if self.setAssetTypeSelect == "all":
+            for i in self.projectAssembleDescription['assets'].keys():
+               # print i
+                for j in self.projectAssembleDescription['assets'][i].keys():
+                    assetTempList.append(j)
+           # print assetTempList
+            #build assets list
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+               # print indexNum
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum])
             
-            QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-            self.listWidget_assetProj.item(3).setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
+        elif self.setAssetTypeSelect == "Character":
+            for i in self.projectAssembleDescription['assets']['character'].keys():
+                    assetTempList.append(i)
+            #build assets list
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                #print indexNum
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum])
+            
+            
+            
+        
+        
 
-        
-    
-        
-        
-
-        
-        
+    def doFromAdmin(self):
+        print self.root
+        self.selectProj()
+        self.saveProjectsInGlobalFile()        
         
         
         
@@ -1535,8 +1561,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     
     def test_processProjectGlobal(self):
-        #self.selectProj()
-        #self.saveProjectsInGlobalFile()
+
         self.buildProjectComboBox()
     
     def selectProj(self):
@@ -1551,15 +1576,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             if os.path.isdir(searchFile) == True:
                 self.allProjectsInRoot.update({i:{}})
-       # print self.allProjectsInRoot
+        #print self.allProjectsInRoot
                 
 
-    
     def saveProjectsInGlobalFile(self):
         # 1. define the all projects in root global file name.
         # 2. store all folder description in file.
         # 1. 定義 所有的project描述檔案的檔名
         # 2. 儲存定義檔於 global
+        
         self.projectsGlobalFile = self.root + '/' + 'global' + '/' + 'allProjectDescription.json'
         f = open( self.projectsGlobalFile , 'w')
         data = json.dumps(self.allProjectsInRoot, sort_keys=True , indent =4) 
@@ -1613,11 +1638,29 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     def defineWorkingProjectAssemble(self):
         # 1. 輸入 self.root,   
+        # 1.2 check 專案下的folder是否存在, 創建 assets, shot, output, publish, QC, reference,global
         # 2. 輸入 執行的專案資料夾, self.project,
         # 3. 輸出 專案組成的 dictionary, self.projectAssembleDescription
+        # 
         # 4. 輸出 寫入到 cache檔案, self.root / self.project / global / self.project + '_assembleDescription.json'
         #self.root = "//mcd-server/art_3d_project" #at company
         #get self.project
+        #
+        
+        
+        
+        #default folder in self.project
+        requestFolder= ['assets','shot','output','publish','QC','global','reference']
+        #print requestFolder
+        #check the request folder is exist in self.project ,and create folder
+        
+        for i in requestFolder:
+            searchFolder = self.root + '/' + self.project +'/' + i
+            if os.path.isdir(searchFolder) == True:
+                pass
+            else:
+                os.mkdir(searchFolder)
+
         self.projectAssembleDescription ={'assets':{'character':{},
                                                     'vehicle':{},
                                                     'set':{},
@@ -1627,32 +1670,40 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         projectFolder = self.root + '/' + self.project
         assetsFolder = projectFolder + '/' + 'assets'
+        #print assetsFolder 
         shotFolder = projectFolder + '/' + 'shot'
+        #print shotFolder
         
+
         for assetItem in self.projectAssembleDescription['assets'].keys():    
             searchAssetFolder = assetsFolder +'/' + assetItem
-            
-            for assetClassItem in os.listdir(searchAssetFolder):
-                self.projectAssembleDescription['assets'][assetItem].update({assetClassItem:{}})
-                
-        for shotItem in os.listdir(shotFolder):
-            self.projectAssembleDescription['shot'].update({shotItem:{}})
-            
+           # print assetItem
            # print searchAssetFolder
-           # print os.listdir(searchAssetFolder)
-        #self.projectAssembleDescription['assets'].update({'assets':)
-        
-        #print os.listdir(projectFolder)
-        #print os.listdir(assetsFolder)
-       # print os.listdir(shotFolder)
+            try:
+                for assetClassItem in os.listdir(searchAssetFolder):
+                    self.projectAssembleDescription['assets'][assetItem].update({assetClassItem:{}})
+            except:
+                pass
+
+            
+        try:
+            for shotItem in os.listdir(shotFolder):
+                #print shotItem
+                self.projectAssembleDescription['shot'].update({shotItem:{}})
+        except:
+            pass
+                
+
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        #print projectAssembleDescriptionFile
-        #print self.projectAssembleDescription
+
         f = open(self.projectAssembleDescriptionFile,'w')
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
-        #export self.projectAssembleDescription to assembleDescriptionJsonFile
+        
+        
+       # print self.projectAssembleDescription
+
 
         
         
@@ -1744,28 +1795,60 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         "print select assetType , Character"
         self.clickAssetShotSelectButton()
         #self.assetsOnOffTable = [1,0,0,0,0,0,0]
+        
+                
+        self.setAssetTypeSelect = "Character"
+        self.isAsset = 1
+        
+        
         self.pushButton_character.setChecked(True)
+        
+        self.buildAssetsList()
     def clickVehicleButton(self):
         "print select assetType , Vehicle"
         self.clickAssetShotSelectButton()
+        
+        
+                        
+        self.setAssetTypeSelect = "Vehicle"
+        self.isAsset = 1
+        
 
         self.pushButton_vehicle.setChecked(True)
 
     def clickSetButton(self):
         "print select assetType , set"
         self.clickAssetShotSelectButton()
+        
+                        
+        self.setAssetTypeSelect = "set"
+        self.isAsset = 1
+                
+        
 
         self.pushButton_set.setChecked(True)
 
     def clickPropsButton(self):
-        "print select assetType , pros"
+        "print select assetType , props"
         self.clickAssetShotSelectButton()
+        
+        self.setAssetTypeSelect = "props"
+        self.isAsset = 1
+                
+                
+        
 
         self.pushButton_props.setChecked(True)
 
     def clickOthersButton(self):
         "print select assetType , others"
         self.clickAssetShotSelectButton()
+        
+        self.setAssetTypeSelect = "others"
+        self.isAsset = 1
+                        
+        
+        
 
         self.pushButton_others.setChecked(True)
 
@@ -1778,10 +1861,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setAssetTypeSelect = "all"
         self.isAsset = 1
 
-
+        self.buildAssetsList()
     def clickShotButton(self):
         "print select assetType , Shot"
         self.clickAssetShotSelectButton()
+
+        self.setAssetTypeSelect = "Shot"
+        self.isAsset = 0
+                        
+        
+
 
         self.pushButton_shot.setChecked(True)
 
@@ -2043,15 +2132,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def initialItemBuild(self):
         
         #initial self.branchDict dictionary
-        self.root = "C:/mayaProjs"
+        #self.root = "C:/mayaProjs"
         self.branchDict={"0":{"master":{}}}    #default Master Item
         
-        self.buildExistFileInfoTree()
-        self.buildTreeFromExistFileData()
+        #self.buildExistFileInfoTree()        #branch system
+        #self.buildTreeFromExistFileData()      #branch system
         
         
         #initial button
-        self.pushButton_all.setChecked(True)
+        self.test_processProjectGlobal()
+        self.clickAllButton()
         
     
     
