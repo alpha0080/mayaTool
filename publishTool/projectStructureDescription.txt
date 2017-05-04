@@ -38,7 +38,23 @@ input self.root,   self.project
 
 
 4. select working Project in comboBox
-                             
+#  在comboBox選擇要執行的專案
+#
+4.1
+build project Assemble Tree    
+store self.projectAssembleDescription
+#self.projectAssembleDescription 定義專案的構成
+# 根據所選擇的project ，創建描述檔案
+4.2
+build assets list from working Project Assemble description file.                         
+
+
+5. push assetType button, including character, vehicle, set, props, other, all, shot
+5.1 from clickAssetButton module , clickCharacterButton ,clickVehicleButton, clickSetButton ,clickPropsButton, clickOthersButton, clickAllButton ,clickShotButton
+	# get self.isAsset, boolin
+	# get self.setAssetTypeSelect
+
+
 
 
 

@@ -1484,9 +1484,44 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "run select working project"
         
         self.project = self.comboBox_selectProj.currentText()
-        print self.project
+        #print self.project
         
         self.defineWorkingProjectAssemble()
+        self.buildAssetsList()
+        
+        
+        
+    def buildAssetsList(self):
+        print "build list from workingProjectAssemble description file"
+        # 1.get data form dictionary , self.projectAssembleDescription
+        # 2. self.projectAssembleDescription stored in self.projectAssembleDescriptionFile
+        # 3. show all assets in list, defaut set button to click 'all'
+        
+        f= open(self.projectAssembleDescriptionFile, 'r')
+        data = json.load(f)
+        #print data
+        #self.projectAssembleDescription = json.dumps(data, sort_keys=True , indent =4) 
+        self.projectAssembleDescription = data
+        #print self.projectAssembleDescription.keys()
+       # print self.projectAssembleDescription['assets']
+        assetTempList = []
+        for i in self.projectAssembleDescription['assets'].keys():
+            print i
+            for j in self.projectAssembleDescription['assets'][i].keys():
+                assetTempList.append(j)
+        print assetTempList
+        #build assets list
+        listIndexCount = len(assetTempList)
+        self.listWidget_assetProj.clear()
+        for indexNum in renage (0 ,100):
+            
+            QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+            self.listWidget_assetProj.item(3).setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
+
+        
+    
+        
+        
 
         
         
@@ -1537,7 +1572,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         ## get data from json file
         self.projectsGlobalFile = self.root + '/' + 'global' + '/' + 'allProjectDescription.json'
-        print self.projectsGlobalFile
+        #print self.projectsGlobalFile
         f = open(self.projectsGlobalFile)
         data = json.load(f)
         # print json.dumps(data, sort_keys=True , indent =4) 
@@ -1545,15 +1580,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         items = data.keys()
         itemsTotalIndexNum = len(items)
-        print items
-        print itemsTotalIndexNum
+       # print items
+        #print itemsTotalIndexNum
         self.comboBox_selectProj.clear()
         for i in range(0,itemsTotalIndexNum):
             self.comboBox_selectProj.addItem("")
             self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
             self.comboBox_selectProj.setItemText(i,items[i])
-            print i
-            print items[i]
+          #  print i
+           # print items[i]
             
         #self.comboBox_selectProj.addItem("")
         #self.comboBox_selectProj.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "a1", None, -1))
@@ -1601,17 +1636,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for shotItem in os.listdir(shotFolder):
             self.projectAssembleDescription['shot'].update({shotItem:{}})
             
-            print searchAssetFolder
-            print os.listdir(searchAssetFolder)
+           # print searchAssetFolder
+           # print os.listdir(searchAssetFolder)
         #self.projectAssembleDescription['assets'].update({'assets':)
         
         #print os.listdir(projectFolder)
         #print os.listdir(assetsFolder)
        # print os.listdir(shotFolder)
-        projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
+        self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
         #print projectAssembleDescriptionFile
-        print self.projectAssembleDescription
-        
+        #print self.projectAssembleDescription
+        f = open(self.projectAssembleDescriptionFile,'w')
+        data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
+        f.write(data)
+        f.close
         #export self.projectAssembleDescription to assembleDescriptionJsonFile
 
         
@@ -1734,6 +1772,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickAssetShotSelectButton()
 
         self.pushButton_all.setChecked(True)
+        
+        self.setAssetTypeSelect = "all"
+        self.isAsset = 1
+
 
     def clickShotButton(self):
         "print select assetType , Shot"
@@ -1746,7 +1788,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def clickAssetShotSelectButton(self):
         
-        self.isAsset = 1
         #self.assetsOnOffTable read on off
         self.pushButton_character.setChecked(False)
         self.pushButton_vehicle.setChecked(False)
@@ -1768,8 +1809,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def printOutProjectInfo(self):
         # input project infomation, project root, name,asset name, shot name, isAsset Value
         print "get input info"
-        #self.root = "C:/mayaProjs"
-        #self.root ="//mcd-server/art_3d_project"
+        self.root = "C:/mayaProjs"
+       # self.root ="//mcd-server/art_3d_project"
         self.project = "3d_pipeline_test"
         self.assetClass ="character"
         self.assetNow = "shot_02"
@@ -2000,12 +2041,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def initialItemBuild(self):
         
         #initial self.branchDict dictionary
-        #self.root = "C:/mayaProjs" home
-        #self.root = //mcd-server/art_3d_project
+        self.root = "C:/mayaProjs"
         self.branchDict={"0":{"master":{}}}    #default Master Item
         
         self.buildExistFileInfoTree()
         self.buildTreeFromExistFileData()
+        
+        
+        #initial button
+        self.pushButton_all.setChecked(True)
         
     
     
