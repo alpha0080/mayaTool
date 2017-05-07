@@ -53,9 +53,56 @@ build assets list from working Project Assemble description file.
 5.1 from clickAssetButton module , clickCharacterButton ,clickVehicleButton, clickSetButton ,clickPropsButton, clickOthersButton, clickAllButton ,clickShotButton
 	# get self.isAsset, boolin
 	# get self.setAssetTypeSelect
+	#        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        	#	self.listWidget_assetProj.item(3).setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
+        	# 
+        	# from  clickCharacterButton , clickVehicleButton, clickSetButton, clickPropsButton, clickOthersButton, clickShotButton module
+        	#  get      self.setAssetTypeSelect = "character" , "vehicle" ,"set, "prop",  "other" ,"shot"
+	#  		self.isAsset = 1 or 0
+
+	5.1.1 clickAssetShotSelectButton
+	# turn off all asset button, setChecked (False)
+
+6.  click button, processType
+# click button, pushButton_processConcept
+		,pushButton_processModeling
+		,pushButton_processTexture
+		,pushButton_processRigging
+
+		,pushButton_processLayout
+		,pushButton_processAnimation
+		,pushButton_processLighting
+		,pushButton_processEffects
+		,pushButton_processSimulation
+		,pushButton_processComp
 
 
 
+	6.1 turn all process button checked off, setChecked(Fasle)
+		clickProcessTypeSelectButton(self)
+
+
+	6.2 select item from asset list,  self.listWidget_assetProj
+		self.click_assetProjListWidget()
+
+
+
+
+#build branch list
+7.  
+	7.1  neet to get info 
+	# get the process Type  that selected by user
+	    self.root = "C:/mayaProjs"
+	 # self.root ="//mcd-server/art_3d_project"
+     	   self.project = "3d_pipeline_test"
+     	   self.assetClass ="character"
+     	   self.assetNow = "shot_02"
+     	   self.processNow ="lighting"
+     	   self.isAsset = False
+     	   self.currentUser = get
+
+
+ 	   7.2 run projectDescription
 
 
 project structure description:
@@ -85,6 +132,8 @@ projectName:
 		prop
 		other
 
+		self.process = concept, model, texture, rigging
+
 	shot
 		shot_01
 		shot_02
@@ -92,6 +141,8 @@ projectName:
 		.
 		.
 		.
+
+		self.process = layout, animation, effects, simulation, rendering, comp
 	global
 		projectStructure.json   -- projectName_Structure.json
 		\assets\assetName\

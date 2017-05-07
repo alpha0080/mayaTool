@@ -1446,6 +1446,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.branchDict={"0":{"master":{}}} 
         
         
+        #select item from assetProj List_widget
+        self.listWidget_assetProj.itemClicked.connect(self.click_assetProjListWidget)
+        
+        
+        
+        
         self.pushButton_reNewBranchDict.clicked.connect(self.checkPublishToolTempFolder)
         
         self.pushButton_createNewBranch.clicked.connect(self.createNewBranchCombo)
@@ -1478,6 +1484,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_all.clicked.connect(self.clickAllButton)
         #7 shot
         self.pushButton_shot.clicked.connect(self.clickShotButton)
+        
+        
+        #process Type buttonb click
+        self.pushButton_processConcept.clicked.connect(self.clickProcessConceptButton)
+        self.pushButton_processModeling.clicked.connect(self.clickProcessModelingButton)
+        self.pushButton_processTexture.clicked.connect(self.clickProcessTextureButton)
+                                                            
+        self.pushButton_processRigging.clicked.connect(self.clickProcessRiggingButton)
+        self.pushButton_processLayout.clicked.connect(self.clickProcessLayoutButton)
+        self.pushButton_processAnimation.clicked.connect(self.clickProcessAnimationButton)
+        self.pushButton_processLighting.clicked.connect(self.clickProcessLightingButton)
+        self.pushButton_processEffects.clicked.connect(self.clickProcessEffectsButton)
+        self.pushButton_processSimulation.clicked.connect(self.clickProcessSimulationButton)
+        self.pushButton_processComp.clicked.connect(self.clickProcessCompButton)
+        
+
 
 
         #selectProject ComboBox
@@ -1497,6 +1519,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # print self.project
         
         self.defineWorkingProjectAssemble()
+        self.assetClass = 'all'
         self.buildAssetsList()
         
         
@@ -1513,9 +1536,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.projectAssembleDescription = json.dumps(data, sort_keys=True , indent =4) 
         self.projectAssembleDescription = data
         #print self.projectAssembleDescription.keys()
-       # print self.projectAssembleDescription['assets']
+       # print self.projectAssembleDescription['assets'] selectWorkingProjectInGlobal buildAssetsList setAssetTypeSelect
         assetTempList = []
-        if self.setAssetTypeSelect == "all":
+        if self.assetClass == "all":
+            print "asset Type is all"
             for i in self.projectAssembleDescription['assets'].keys():
                # print i
                 for j in self.projectAssembleDescription['assets'][i].keys():
@@ -1529,20 +1553,98 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
                 QtWidgets.QListWidgetItem(self.listWidget_assetProj)
                 self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
-                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum])
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
             
-        elif self.setAssetTypeSelect == "Character":
+        elif self.assetClass == "character":
+            print "asset Type is character"
+
             for i in self.projectAssembleDescription['assets']['character'].keys():
                     assetTempList.append(i)
-            #build assets list
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
-                #print indexNum
                 
                 QtWidgets.QListWidgetItem(self.listWidget_assetProj)
                 self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
-                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum])
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+            
+
+        elif self.assetClass == "vehicle":
+            print "asset Type is vehicle"
+            
+            for i in self.projectAssembleDescription['assets']['vehicle'].keys():
+                    assetTempList.append(i)
+
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+                
+
+        elif self.assetClass == "set":
+            print "asset Type is set"
+            
+            for i in self.projectAssembleDescription['assets']['set'].keys():
+                    assetTempList.append(i)
+
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+                
+        elif self.assetClass == "prop":
+            print "asset Type is prop"
+
+            for i in self.projectAssembleDescription['assets']['prop'].keys():
+                    assetTempList.append(i)
+
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+    
+        elif self.assetClass == "other":
+            print "asset Type is other"
+
+            for i in self.projectAssembleDescription['assets']['other'].keys():
+                    assetTempList.append(i)
+
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+                                            
+        elif self.assetClass == "shot":
+            print "asset Type is shot"
+
+            for i in self.projectAssembleDescription['shot'].keys():
+                    assetTempList.append(i)
+
+            listIndexCount = len(assetTempList)
+            self.listWidget_assetProj.clear()
+            for indexNum in range(0 ,listIndexCount):
+                
+                QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+                self.listWidget_assetProj.item(indexNum).setText(QtWidgets.QApplication.translate("MainWindow", "tempName", None, -1))
+                self.listWidget_assetProj.item(indexNum).setText(assetTempList[indexNum].split('.')[0])
+                
+        else:
+            pass
+                                                        
+            
             
             
             
@@ -1635,10 +1737,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
     
-    
-    def defineWorkingProjectAssemble(self):
+    #projectAssembleDescriptionFile
+    def defineWorkingProjectAssemble(self):  
         # 1. 輸入 self.root,   
         # 1.2 check 專案下的folder是否存在, 創建 assets, shot, output, publish, QC, reference,global
+        # 1.2.1 check self.root / self.project / global /assets
+        # 1.2.1.1 check self.root / self.project / global /assets/    charcter,vehicle,set,prop,other
+
+
+        # 1.2.2 check self.root / self.project / global /shot
+        
         # 2. 輸入 執行的專案資料夾, self.project,
         # 3. 輸出 專案組成的 dictionary, self.projectAssembleDescription
         # 
@@ -1650,7 +1758,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         #default folder in self.project
-        requestFolder= ['assets','shot','output','publish','QC','global','reference']
+        requestFolder= ['assets',
+                        'shot',
+                        'output',
+                        'publish',
+                        'QC',
+                        'global',
+                        'reference']
         #print requestFolder
         #check the request folder is exist in self.project ,and create folder
         
@@ -1660,6 +1774,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
             else:
                 os.mkdir(searchFolder)
+                
+                
 
         self.projectAssembleDescription ={'assets':{'character':{},
                                                     'vehicle':{},
@@ -1673,15 +1789,61 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print assetsFolder 
         shotFolder = projectFolder + '/' + 'shot'
         #print shotFolder
-        
+        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
 
+        
+        
+        #check child folder,assets, shot, in global folder
+        assetsDescriptionFolder = projectFolder + '/' +'global'+'/'+ 'assets'
+        shotDescriptionFolder = projectFolder + '/' +'global'+'/'+ 'shot'
+        
+        if os.path.isdir(assetsDescriptionFolder) == True :
+            pass
+        else:
+            os.mkdir(assetsDescriptionFolder)
+            
+
+                
+            
+        if os.path.isdir(shotDescriptionFolder) == True :
+            pass
+        else:
+            os.mkdir(shotDescriptionFolder)
+            
+        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
+    
+        #check child folder ,character, vehicle,set,prop,other in global/assets/
+        for i in self.projectAssembleDescription['assets'].keys():
+            searchFolder = assetsFolder + '/' + i
+            if os.path.isdir(searchFolder) == True:
+                pass
+            else:
+                os.mkdir(searchFolder)
+                print searchFolder
+                
+            searchFolder = assetsDescriptionFolder + '/' + i
+
+            if os.path.isdir(searchFolder) == True:
+                pass
+            else:
+                print searchFolder
+                os.mkdir(searchFolder)
+                
+            
+            
+            
+            
+        
+        self.allAssetTempList = []
+        
         for assetItem in self.projectAssembleDescription['assets'].keys():    
             searchAssetFolder = assetsFolder +'/' + assetItem
            # print assetItem
            # print searchAssetFolder
             try:
                 for assetClassItem in os.listdir(searchAssetFolder):
-                    self.projectAssembleDescription['assets'][assetItem].update({assetClassItem:{}})
+                    self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
+                    self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
             except:
                 pass
 
@@ -1690,6 +1852,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             for shotItem in os.listdir(shotFolder):
                 #print shotItem
                 self.projectAssembleDescription['shot'].update({shotItem:{}})
+                self.allAssetTempList.append('%s.shot'%shotItem)
+
         except:
             pass
                 
@@ -1792,90 +1956,103 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
                 
     def clickCharacterButton(self):
-        "print select assetType , Character"
+        "print select assetType , character"
         self.clickAssetShotSelectButton()
         #self.assetsOnOffTable = [1,0,0,0,0,0,0]
         
                 
-        self.setAssetTypeSelect = "Character"
-        self.isAsset = 1
+        self.assetClass = "character"
+        self.isAsset = True
         
         
         self.pushButton_character.setChecked(True)
         
         self.buildAssetsList()
     def clickVehicleButton(self):
-        "print select assetType , Vehicle"
+        "print select assetType , vehicle"
         self.clickAssetShotSelectButton()
         
         
                         
-        self.setAssetTypeSelect = "Vehicle"
-        self.isAsset = 1
+        self.assetClass = "vehicle"
+        self.isAsset = True
         
 
         self.pushButton_vehicle.setChecked(True)
+        self.buildAssetsList()
+
 
     def clickSetButton(self):
         "print select assetType , set"
         self.clickAssetShotSelectButton()
         
                         
-        self.setAssetTypeSelect = "set"
-        self.isAsset = 1
+        self.assetClass = "set"
+        self.isAsset = True
                 
         
 
         self.pushButton_set.setChecked(True)
+        self.buildAssetsList()
+
+
 
     def clickPropsButton(self):
-        "print select assetType , props"
+        "print select assetType , prop"
         self.clickAssetShotSelectButton()
         
-        self.setAssetTypeSelect = "props"
-        self.isAsset = 1
+        self.assetClass = "prop"
+        self.isAsset = True
                 
                 
         
 
         self.pushButton_props.setChecked(True)
+        self.buildAssetsList()
+        
+        
+        
 
     def clickOthersButton(self):
-        "print select assetType , others"
+        "print select assetType , other"
         self.clickAssetShotSelectButton()
         
-        self.setAssetTypeSelect = "others"
-        self.isAsset = 1
+        self.assetClass = "other"
+        self.isAsset = True
                         
         
         
 
         self.pushButton_others.setChecked(True)
 
+        self.buildAssetsList()
+
+
+
     def clickAllButton(self):
-        "print select assetType , All"
+        "print select assetType , all"
         self.clickAssetShotSelectButton()
 
         self.pushButton_all.setChecked(True)
         
-        self.setAssetTypeSelect = "all"
-        self.isAsset = 1
+        self.assetClass = "all"
+        self.isAsset = True
 
         self.buildAssetsList()
     def clickShotButton(self):
-        "print select assetType , Shot"
+        "print select assetType , shot"
         self.clickAssetShotSelectButton()
 
-        self.setAssetTypeSelect = "Shot"
-        self.isAsset = 0
+        self.assetClass = "shot"
+        self.isAsset = False
                         
         
 
 
         self.pushButton_shot.setChecked(True)
 
-        
-
+        self.buildAssetsList()
+       
         
     def clickAssetShotSelectButton(self):
         
@@ -1888,7 +2065,146 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_all.setChecked(False)
         self.pushButton_shot.setChecked(False)
         
+    def click_assetProjListWidget(self):
+        print "select one asset/shot"
+        # get self.assetNow
+        self.assetNow = self.listWidget_assetProj.currentItem().text()
+        print self.assetNow
+        #print self.allAssetTempList
+        for i in self.allAssetTempList:
+            if i.split('.')[0] == self.assetNow:
+                self.assetClass = i.split('.')[1]
+            
+        print self.assetClass
+
+
+
+    def clickProcessConceptButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processConcept.setChecked(True)
         
+        #self.root + '/' + self.project + '/' + 'assets' +
+        self.processNow = 'concept'
+        self.processTypeSelectedRun()
+        
+        
+        
+        
+
+    def clickProcessModelingButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processModeling.setChecked(True)
+        self.processNow = 'model'
+
+        self.processTypeSelectedRun()
+
+
+        
+    def clickProcessTextureButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processTexture.setChecked(True)
+        
+        self.processNow = 'texture'
+
+        self.processTypeSelectedRun()
+
+
+    def clickProcessRiggingButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processRigging.setChecked(True)
+        self.processNow = 'rigging'
+
+        self.processTypeSelectedRun()
+
+
+    def clickProcessLayoutButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processLayout.setChecked(True)
+
+        self.processNow = 'layout'
+
+        self.processTypeSelectedRun()
+
+
+    def clickProcessAnimationButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processAnimation.setChecked(True)
+        self.processNow = 'animation'
+
+        self.processTypeSelectedRun()
+
+
+
+
+    def clickProcessLightingButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processLighting.setChecked(True)
+        self.processNow = 'lighting'
+
+        self.processTypeSelectedRun()
+
+
+
+
+    def clickProcessEffectsButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processEffects.setChecked(True)
+        
+        self.processNow = 'effects'
+
+        self.processTypeSelectedRun()
+
+
+
+
+    def clickProcessSimulationButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processSimulation.setChecked(True)
+        self.processNow = 'simulation'
+
+        self.processTypeSelectedRun()
+
+
+    
+        
+        
+
+
+    def clickProcessCompButton(self):
+        self.clickProcessTypeSelectButton()
+        self.pushButton_processComp.setChecked(True)
+        self.processNow = 'comp'
+
+        self.processTypeSelectedRun()
+
+
+        
+
+        
+    def clickProcessTypeSelectButton(self):
+        
+        print "all process type button Off"
+        self.pushButton_processConcept.setChecked(False)
+        self.pushButton_processModeling.setChecked(False)
+        self.pushButton_processTexture.setChecked(False)
+        self.pushButton_processRigging.setChecked(False)
+        self.pushButton_processLayout.setChecked(False)
+        self.pushButton_processAnimation.setChecked(False)
+        self.pushButton_processLighting.setChecked(False)
+        self.pushButton_processEffects.setChecked(False)
+        self.pushButton_processSimulation.setChecked(False)
+        self.pushButton_processComp.setChecked(False)
+        
+        
+    def processTypeSelectedRun(self):
+        # after click process button , run this to proces via module
+        # 點選流程分類按鈕後執行此一模組,以呼叫數個模組
+        print "run processType button was clicked"
+        
+        self.printOutProjectInfo()
+        #self.buildExistFileInfoTree()    
+        self.buildTreeFromExistFileData()	
+
         
         
         
@@ -1900,16 +2216,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def printOutProjectInfo(self):
         # input project infomation, project root, name,asset name, shot name, isAsset Value
         print "get input info"
-        self.root = "C:/mayaProjs"
+        ##self.root = "C:/mayaProjs"
        # self.root ="//mcd-server/art_3d_project"
-        self.project = "3d_pipeline_test"
-        self.assetClass ="character"
-        self.assetNow = "shot_02"
-        self.processNow ="lighting"
-        self.isAsset = False
+        #self.project = "3d_pipeline_test"
+        #self.assetClass ="character"
+        #self.assetNow = "shot_02"
+        ##self.processNow ="lighting"
+      #  self.isAsset = False
         self.currentUser = getpass.getuser()
 
         self.hostName = socket.gethostname()
+        
+        print "self.root" ,self.root
+        print "self.project" ,self.project
+        print "self.assetClass", self.assetClass
+        print "self.assetNow", self.assetNow   # if select assets
+        print "self.processNow", self.processNow
+        print "self.isAsset", self.isAsset
+        
+        
+
         self.projectDescription()    
       
         self.plainTextEdit_optionPage_currentUser.setPlainText(self.currentUser + "@" +self.hostName)
@@ -1923,6 +2249,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
    
     def projectDescription(self):
+        
+        print "check, run projectDescription Start"
         print self.isAsset
         
         #self.root 
@@ -1930,15 +2258,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.assetClass 
         #self.processNow
         self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
+        print "self.assetName", self.assetName
+        
         self.shotName = "shot"+"/"+ self.assetNow
+        
+        print "self.shotName" , self.shotName
         
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
-        #print self.shotProject
+        print "self.projectGlobal", self.projectGlobal
         
-        #projectStructure.json  -- projectName_Structure.json
+        #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
+        
+        print "self.projectStructureName", self.projectStructureName
+        
+        print "self.isAsset", self.isAsset
         
         if self.isAsset == True:
         #assetBranchFileInfo.json  -- assetName_process.json
@@ -1948,6 +2284,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.assetBranchFileDir = self.assetClassDir + "/"+ self.assetNow #assetBranchFileStore Folder
             self.assetBranchFileStore = self.assetBranchFileDir + "/" + self.assetBranchFileName    #export Path + fileName
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
+            
+            print "self.assetBranchFileDir",self.assetBranchFileDir
+            
 
             if os.path.isdir(self.assetBranchFileDir) == True:
                 pass
@@ -1984,6 +2323,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_optionPage_branchInfoPos.setPlainText(self.branchFileStore)
         
 
+        print "check, run projectDescription End"
 
         
    
@@ -1991,7 +2331,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def checkMasterExist(self):
         #---------1. check /scenes/master exist
         #.........2. check branchInfoFile exist, in global/assets(shot)/assetName(shotName)/assetName(shotName)_process.json,ex. shot_02_lighting.json
-        
+        print "run checkMasterExist start"
         print "check /scenes/master exist"
         print "check branchInfoFile exist"
         #get self.workProject, check master /scenes/master folder exist
@@ -2029,6 +2369,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             except:
                 pass
 
+        print "run checkMasterExist END"
 
 
     def buildExistFileInfoTree(self):
@@ -2142,7 +2483,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #initial button
         self.test_processProjectGlobal()
         self.clickAllButton()
-        
+
     
     
     
@@ -3579,5 +3920,7 @@ if __name__ == '__main__':
     main()
 
 
+ 
+ 
  
  
