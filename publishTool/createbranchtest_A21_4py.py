@@ -2188,8 +2188,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_optionPage_currentUser.setPlainText(self.currentUser + "@" +self.hostName)
         self.checkMasterExist()
         
-        #self.buildExistFileInfoTree()    
-       # self.buildTreeFromExistFileDate()	
+        self.buildExistFileInfoTree()    
+        self.buildTreeFromExistFileDate()	
 
         
         
@@ -2329,24 +2329,48 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "check branchInfoFile exist"
         #get self.workProject, check master /scenes/master folder exist
         #get self.branchFileStore ,check the branchInfoFile ,json file exist
-        print "workProject............:" , self.workProject 
-        print "branchInfoFile.........:",self.branchFileStore
-        masterFolder = self.workProject +'/'+'scenes'+ '/' + 'master'
-        print "masterFolder",masterFolder
-        print "master folder exist....:" ,os.path.isdir(masterFolder)
+        print "self.workProject............:" , self.workProject 
+        print "self.branchInfoFile.........:",self.branchFileStore
+        self.workProjectScenesFolder = self.workProject +'/'+'scenes'
+        self.workProjectData = self.workProject +'/'+'data'
+        self.workProjectDataCache = self.workProject +'/'+'data' +'/' +'cache'
+        self.workProjectDataExport = self.workProject +'/'+'data' +'/' +'export'
+        self.workProjectDataAlembic =self.workProject +'/'+'data' +'/' +'alembic'
+        self.workProjectDataFluid = self.workProject +'/'+'data' +'/' + 'fluid'
+        self.workProjectDataVdb =self.workProject +'/'+'data' +'/' + 'vdb'
+        self.workProjectParticles =self.workProject +'/'+'data' +'/' + 'particles'
+        self.workProjectImages =self.workProject +'/'+'images' 
+        self.workProjectSourceimages =self.workProject +'/'+'sourceimages' 
+        self.masterFolder = self.workProject +'/'+'scenes'+ '/' + 'master'
+        print "masterFolder",self.masterFolder
+        print "master folder exist....:" ,os.path.isdir(self.masterFolder)
         print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
         #timeNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         # .......1. check /scenes/master exist
-        if os.path.isdir(masterFolder) == True:
-            print "the /scense/master exist already"
-        else:
-            
-            try:
-
-                os.mkdir(masterFolder)
-                print"the /scenes/master was built"
-            except:
+        
+        #pre build folders ,in workProject
+        preBuildWorkProjectFolders = [self.workProject,
+                                      self.workProjectScenesFolder,
+                                      self.masterFolder,
+                                      self.workProjectData,
+                                      self.workProjectDataCache,
+                                      self.workProjectDataExport,
+                                      self.workProjectDataAlembic,
+                                      self.workProjectDataFluid,
+                                      self.workProjectDataVdb,
+                                      self.workProjectParticles,
+                                      self.workProjectImages,
+                                      self.workProjectSourceimages]
+        
+        for i in preBuildWorkProjectFolders:
+            if os.path.isdir(i) == True:
+                print  "folder, %s, was existed"%i
                 pass
+            else:
+                os.mkdir(i)
+                print "build %s"%i
+                                      
+
         if os.path.isfile(self.branchFileStore) == True:
             print "the branch Info File exist already"
            # branchInfoFileBuild = open(self.branchFileStore,'a')
@@ -2374,8 +2398,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         #currentProject = "//mcd-server/art_3d_project/3d_pipeline_test/shot/shot_02/lighting/"    #test project
         print "self.workProject",self.workProject
-        topLevelDirFileSearch = self.workProject +'/'+ "scenes"
-
+        topLevelDirFileSearch = self.workProjectScenesFolder
+        print 'topLevelDirFileSearch' ,topLevelDirFileSearch
+        
         topLevelDirList = ['master']
         branchPreDict = {"0":{"master":{}}}        
 
@@ -2530,7 +2555,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #----------4.for topLevelIndex in range(0,topLevelIndexCount): build sec Level items 
         #----------5. build 2nd level item in treeWidget    
         #----------6. build 3rd level item in treeWidget    
-
+        print "run buildTreeFromExistFileDate start"
         print "initial all Tree Data"
      
         self.treeWidget_branches.clear()
@@ -2573,7 +2598,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex)).setForeground(0,self.brushLevelFour)  #set 4rd level brush
                     self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setFont(0,self.fontLevelFour)  #set 4rd level font
                     self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setText(0,thirdLevelDirList[thirdLevelItemIndex])   #named the newItem , from typeIn line edit
-       
+        print "run buildTreeFromExistFileDate END"
+
     #---------------Load Exist Branch Data From Dictionary End-------------------------------------------------------------------------------------------------------
      
 
