@@ -1439,10 +1439,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.defineFont()
         #self.printOutProjectInfo()    #branch system
         
-        self.branch_index = 0
+        self.initialItemBuild()
+
         #self.assetsOnOffTable = [0,0,0,0,0,1,0]
         #self.clickAssetShotSelectButton()
-        self.branchDict={"0":{"master":{}}} 
+        #self.branchDict={"0":{"master":{}}} 
         
         
         #select item from assetProj List_widget
@@ -1509,7 +1510,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
 
         self.getCurrentLevelList = []
-        self.initialItemBuild()
     
     def selectWorkingProjectInGlobal(self):
         #print "run select working project"
@@ -1517,16 +1517,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.project = self.comboBox_selectProj.currentText()
        # print self.project
         
-        self.defineWorkingProjectAssemble()
-        self.assetClass = 'all'
-        
-        checkAssetsFolder = self.root + '/' + self.project + '/' +'assets'
+
+       # self.assetClass = 'all'
+        self.defineWorkingProjectAssemble()       
+        self.clickAllButton() 
+       # checkAssetsFolder = self.root + '/' + self.project + '/' +'assets'
         #check the assets folder in self.project is exist
         #檢查在專案目錄下 assets資料夾是否存在
-        if os.path.isdir(checkAssetsFolder) == True:
-            self.buildAssetsList()
-        else:
-            pass
+       # if os.path.isdir(checkAssetsFolder) == True:
+       #     self.buildAssetsList()
+       # else:
+        #    pass
     
 
         
@@ -1536,6 +1537,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 1.get data form dictionary , self.projectAssembleDescription
         # 2. self.projectAssembleDescription stored in self.projectAssembleDescriptionFile
         # 3. show all assets in list, defaut set button to click 'all' setAssetTypeSelect
+        # 
+       # self.defineWorkingProjectAssemble()
         
         f= open(self.projectAssembleDescriptionFile, 'r')
         data = json.load(f)
@@ -1670,9 +1673,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     
     def test_processProjectGlobal(self):
-
-        self.buildProjectComboBox()
         
+        print "run test_processProjectGlobal start" 
+        self.buildProjectComboBox()
+        #self.defineWorkingProjectAssemble()
+        print "run test_processProjectGlobal End" 
         
         
         
@@ -1708,6 +1713,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.close
         
     def buildProjectComboBox(self):
+        
+        print "run buildProjectComboBox start"
         #1. get info from projects description file.
         #2. build comboBox form info file.
         #1. 取得現有專案資料
@@ -1723,26 +1730,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         items = data.keys()
         itemsTotalIndexNum = len(items)
-       # print items
-        #print itemsTotalIndexNum
         self.comboBox_selectProj.clear()
         for i in range(0,itemsTotalIndexNum):
             self.comboBox_selectProj.addItem("")
             self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
             self.comboBox_selectProj.setItemText(i,items[i])
-          #  print i
-           # print items[i]
-            
-        #self.comboBox_selectProj.addItem("")
-        #self.comboBox_selectProj.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "a1", None, -1))
-        
-        
-       # dataName = open(fileName)
-        #json.load(dataName)           
-       ## f = json.load( self.projectsGlobalFile ) 
-       # data = f.read
-       # print data
-        
+
+        print "run buildProjectComboBox End"
     
     
 
@@ -1762,9 +1756,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 4. 輸出 寫入到 cache檔案, self.root / self.project / global / self.project + '_assembleDescription.json'
         #self.root = "//mcd-server/art_3d_project" #at company
         #get self.project
-        #
-
-
+        #itemsTotalIndexNum
+        print "run defineWorkingProjectAssemble start"
+        print "build all request folder in selected project folder"
+        self.project = self.comboBox_selectProj.currentText()
 
         #default folder in self.project
         requestFolder= ['assets',
@@ -1797,98 +1792,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
             else:
                 os.mkdir(searchFolder)
-                
-                
-    def adasdsdssadas(self):
-        self.projectAssembleDescription ={'assets':{'character':{},
-                                                    'vehicle':{},
-                                                    'set':{},
-                                                    'prop':{},
-                                                    'other':{}},
-                                          'shot':{}}
-
-
-        #print shotFolder
-        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
-
-
-
-
-
-        self.allAssetTempList = []
-
-        for assetItem in self.projectAssembleDescription['assets'].keys():    
-            searchAssetFolder = assetsFolder +'/' + assetItem
-           # print assetItem
-           # print searchAssetFolder
-            try:
-                for assetClassItem in os.listdir(searchAssetFolder):
-                    self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
-                    self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
-            except:
-                pass
-
-            
-        try:
-            for shotItem in os.listdir(shotFolder):
-                #print shotItem
-                self.projectAssembleDescription['shot'].update({shotItem:{}})
-                self.allAssetTempList.append('%s.shot'%shotItem)
-
-        except:
-            pass
-                
-
-        self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-
-        f = open(self.projectAssembleDescriptionFile,'w')
-        data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
-        f.write(data)
-        f.close
-
-           
-
-    
-    
-    #projectAssembleDescriptionFile
-    def defineWorkingProjectAssembleB(self):  
-        # 1. 輸入 self.root,   
-        # 1.2 check 專案下的folder是否存在, 創建 assets, shot, output, publish, QC, reference,global
-        # 1.2.1 check self.root / self.project / global /assets
-        # 1.2.1.1 check self.root / self.project / global /assets/    charcter,vehicle,set,prop,other
-
-
-        # 1.2.2 check self.root / self.project / global /shot
-        
-        # 2. 輸入 執行的專案資料夾, self.project,
-        # 3. 輸出 專案組成的 dictionary, self.projectAssembleDescription
-        # 
-        # 4. 輸出 寫入到 cache檔案, self.root / self.project / global / self.project + '_assembleDescription.json'
-        #self.root = "//mcd-server/art_3d_project" #at company
-        #get self.project
-        #
-        
-        
-        
-        #default folder in self.project
-        requestFolder= ['assets',
-                        'shot',
-                        'output',
-                        'publish',
-                        'QC',
-                        'global',
-                        'reference']
-        #print requestFolder
-        #check the request folder is exist in self.project ,and create folder
-        
-        for i in requestFolder:
-            searchFolder = self.root + '/' + self.project +'/' + i
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                os.mkdir(searchFolder)
-                
-                
 
         self.projectAssembleDescription ={'assets':{'character':{},
                                                     'vehicle':{},
@@ -1896,59 +1799,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                     'prop':{},
                                                     'other':{}},
                                           'shot':{}}
-        
+
+
         projectFolder = self.root + '/' + self.project
         assetsFolder = projectFolder + '/' + 'assets'
         #print assetsFolder 
         shotFolder = projectFolder + '/' + 'shot'
         #print shotFolder
-        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
 
-        
-        
-        #check child folder,assets, shot, in global folder
-        assetsDescriptionFolder = projectFolder + '/' +'global'+'/'+ 'assets'
-        shotDescriptionFolder = projectFolder + '/' +'global'+'/'+ 'shot'
-        
-        if os.path.isdir(assetsDescriptionFolder) == True :
-            pass
-        else:
-            os.mkdir(assetsDescriptionFolder)
-            
 
-                
-            
-        if os.path.isdir(shotDescriptionFolder) == True :
-            pass
-        else:
-            os.mkdir(shotDescriptionFolder)
-            
-        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
-    
-        #check child folder ,character, vehicle,set,prop,other in global/assets/
-        for i in self.projectAssembleDescription['assets'].keys():
-            searchFolder = assetsFolder + '/' + i
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                os.mkdir(searchFolder)
-                print searchFolder
-                
-            searchFolder = assetsDescriptionFolder + '/' + i
 
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                print searchFolder
-                os.mkdir(searchFolder)
-                
-            
-            
-            
-            
-        
         self.allAssetTempList = []
-        
+
         for assetItem in self.projectAssembleDescription['assets'].keys():    
             searchAssetFolder = assetsFolder +'/' + assetItem
            # print assetItem
@@ -1970,14 +1832,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         except:
             pass
                 
-
+        print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
 
         f = open(self.projectAssembleDescriptionFile,'w')
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
-        
+
+
+        print "run defineWorkingProjectAssemble End"
         
        # print self.projectAssembleDescription
 
@@ -2152,6 +2016,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.isAsset = True
 
         self.buildAssetsList()
+        
+        
     def clickShotButton(self):
         "print select assetType , shot"
         self.clickAssetShotSelectButton()
@@ -2314,9 +2180,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 點選流程分類按鈕後執行此一模組,以呼叫數個模組
         print "run processType button was clicked"
         
-        self.printOutProjectInfo()
+        #self.printOutProjectInfo()
+        self.currentUser = getpass.getuser()
+
+        self.hostName = socket.gethostname()
+        self.projectDescription()    
+        self.plainTextEdit_optionPage_currentUser.setPlainText(self.currentUser + "@" +self.hostName)
+        self.checkMasterExist()
+        
         #self.buildExistFileInfoTree()    
-        self.buildTreeFromExistFileData()	
+       # self.buildTreeFromExistFileDate()	
 
         
         
@@ -2364,12 +2237,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def projectDescription(self):
         
         print "check, run projectDescription Start"
-        print self.isAsset
-        
-        #self.root 
-        #self.project 
-        #self.assetClass 
-        #self.processNow
+                
+        print "self.root" ,self.root
+        print "self.project" ,self.project
+        print "self.assetClass", self.assetClass
+        print "self.assetNow", self.assetNow   # if select assets
+        print "self.processNow", self.processNow
+        print "self.isAsset", self.isAsset
+
+
         self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
         print "self.assetName", self.assetName
         
@@ -2387,7 +2263,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print "self.projectStructureName", self.projectStructureName
         
-        print "self.isAsset", self.isAsset
         
         if self.isAsset == True:
         #assetBranchFileInfo.json  -- assetName_process.json
@@ -2407,6 +2282,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 os.mkdir(self.assetBranchFileDir)
                 
             self.branchFileStore = self.assetBranchFileStore
+            print "self.assetBranchFileDir",self.assetBranchFileDir
+            print "self.assetBranchFileStore", self.assetBranchFileStore
+            print "self.workProject", self.workProject
 
        
             
@@ -2425,7 +2303,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 os.mkdir(self.shotBranchFileDir)
                 
             self.branchFileStore = self.shotBranchFileStore
-                
+            print "self.shotBranchFileDir", self.shotBranchFileDir
+            print "self.shotBranchFileStore",self.shotBranchFileStore
+            print "self.workProject", self.workProject    
                 
        # try:
           #  os.mkdir(self.projectGlobal + "/" + self.assetNow)
@@ -2585,19 +2465,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def initialItemBuild(self):
         
+        print "run initialItemBuild start"
+        
         #initial self.branchDict dictionary
         #self.root = "C:/mayaProjs"
         self.branchDict={"0":{"master":{}}}    #default Master Item
-        
+        self.branch_index = 0
+
         #self.buildExistFileInfoTree()        #branch system
-        #self.buildTreeFromExistFileData()      #branch system
+        #self.buildTreeFromExistFileDate()      #branch system
         
         
         #initial button
         self.test_processProjectGlobal()
-        self.clickAllButton()
+        #self.clickAllButton()
 
-    
+        print "run initialItemBuild End"
+   
     
     
     
@@ -2638,7 +2522,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     #---------------Load Exist Branch Data From Dictionary Start-------------------------------------------------------------------------------------------------------
-    def buildTreeFromExistFileData(self):
+    def buildTreeFromExistFileDate(self):
         #--------build Tree from Exist folders and files--------------------
         #----------1. define default ,master, that should be exist------------
         #----------2.get file info tree
