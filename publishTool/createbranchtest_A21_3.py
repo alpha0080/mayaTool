@@ -1442,7 +1442,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.branch_index = 0
         #self.assetsOnOffTable = [0,0,0,0,0,1,0]
         #self.clickAssetShotSelectButton()
-        self.assetName  = "anna"
         self.branchDict={"0":{"master":{}}} 
         
         
@@ -1520,8 +1519,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.defineWorkingProjectAssemble()
         self.assetClass = 'all'
-        self.buildAssetsList()
         
+        checkAssetsFolder = self.root + '/' + self.project + '/' +'assets'
+        #check the assets folder in self.project is exist
+        #檢查在專案目錄下 assets資料夾是否存在
+        if os.path.isdir(checkAssetsFolder) == True:
+            self.buildAssetsList()
+        else:
+            pass
+    
+
         
         
     def buildAssetsList(self):
@@ -1665,6 +1672,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def test_processProjectGlobal(self):
 
         self.buildProjectComboBox()
+        
+        
+        
+        
+        
+        
+        
     
     def selectProj(self):
     # get all folder in self.root
@@ -1733,12 +1747,111 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
 
     
-    
-    
+    def defineWorkingProjectAssemble(self):  
+        # 1. 輸入 self.root,   
+        # 1.2 check 專案下的folder是否存在, 創建 assets, shot, output, publish, QC, reference,global
+        # 1.2.1 check self.root / self.project / global /assets
+        # 1.2.1.1 check self.root / self.project / global /assets/    charcter,vehicle,set,prop,other
+
+
+        # 1.2.2 check self.root / self.project / global /shot
+
+        # 2. 輸入 執行的專案資料夾, self.project,
+        # 3. 輸出 專案組成的 dictionary, self.projectAssembleDescription
+        # 
+        # 4. 輸出 寫入到 cache檔案, self.root / self.project / global / self.project + '_assembleDescription.json'
+        #self.root = "//mcd-server/art_3d_project" #at company
+        #get self.project
+        #
+
+
+
+        #default folder in self.project
+        requestFolder= ['assets',
+                        'assets/character',
+                        'assets/vehicle',
+                        'assets/set',
+                        'assets/prop',
+                        'assets/other',                        
+                        'shot',
+                        'output',
+                        'publish',
+                        'QC',
+                        'global',
+                        'global/shot',
+                        'global/assets',
+                        'global/assets/character',
+                        'global/assets/vehicle',
+                        'global/assets/set',
+                        'global/assets/prop',
+                        'global/assets/other',                       
+                        'reference']
+
+
+        #print requestFolder
+        #check the request folder is exist in self.project ,and create folder
+
+        for i in requestFolder:
+            searchFolder = self.root + '/' + self.project +'/' + i
+            if os.path.isdir(searchFolder) == True:
+                pass
+            else:
+                os.mkdir(searchFolder)
+                
+                
+    def adasdsdssadas(self):
+        self.projectAssembleDescription ={'assets':{'character':{},
+                                                    'vehicle':{},
+                                                    'set':{},
+                                                    'prop':{},
+                                                    'other':{}},
+                                          'shot':{}}
+
+
+        #print shotFolder
+        # check/build child folder ,character,vehicle,set,prop,other in self.root /self.project /assets
+
+
+
+
+
+        self.allAssetTempList = []
+
+        for assetItem in self.projectAssembleDescription['assets'].keys():    
+            searchAssetFolder = assetsFolder +'/' + assetItem
+           # print assetItem
+           # print searchAssetFolder
+            try:
+                for assetClassItem in os.listdir(searchAssetFolder):
+                    self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
+                    self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
+            except:
+                pass
+
+            
+        try:
+            for shotItem in os.listdir(shotFolder):
+                #print shotItem
+                self.projectAssembleDescription['shot'].update({shotItem:{}})
+                self.allAssetTempList.append('%s.shot'%shotItem)
+
+        except:
+            pass
+                
+
+        self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
+
+        f = open(self.projectAssembleDescriptionFile,'w')
+        data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
+        f.write(data)
+        f.close
+
+           
+
     
     
     #projectAssembleDescriptionFile
-    def defineWorkingProjectAssemble(self):  
+    def defineWorkingProjectAssembleB(self):  
         # 1. 輸入 self.root,   
         # 1.2 check 專案下的folder是否存在, 創建 assets, shot, output, publish, QC, reference,global
         # 1.2.1 check self.root / self.project / global /assets
