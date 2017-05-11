@@ -16,10 +16,10 @@ import datetime
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.setFontSize=8
-        #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +3)
+        #setPointSize(self.setFontSize) = setPointSize(self.setFontSize +3)
         #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +2)
         #setPointSize(8 ) = setPointSize(self.setFontSize) 
-        MainWindow.setObjectName("MainWindow")
+
         MainWindow.resize(846, 708)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.label_2.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize) 
+        font.setPointSize(self.setFontSize)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(self.tab_job_assemble)
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(220, 30, 80, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(self.setFontSize) 
+        font.setPointSize(self.setFontSize)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.listWidget = QtWidgets.QListWidget(self.tab_job_assemble)
@@ -396,7 +396,7 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(250, 380, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
@@ -421,7 +421,7 @@ class Ui_MainWindow(object):
         self.treeWidget_branches.setObjectName("treeWidget_branches")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
         font = QtGui.QFont()
-        font.setPointSize(11)
+        font.setPointSize(self.setFontSize+3)
         font.setWeight(75)
         font.setBold(True)
         brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
@@ -447,7 +447,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.tableWidget_FileList.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize) 
+        font.setPointSize(self.setFontSize)
         self.tableWidget_FileList.setFont(font)
         self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget_FileList.setAutoScrollMargin(16)
@@ -588,7 +588,7 @@ class Ui_MainWindow(object):
         self.lineEdit_currentFileName.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.lineEdit_currentFileName.setFont(font)
         self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
         self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
@@ -628,7 +628,7 @@ class Ui_MainWindow(object):
         self.label_fileDescription.setGeometry(QtCore.QRect(440, 250, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label_fileDescription.setFont(font)
         self.label_fileDescription.setObjectName("label_fileDescription")
         self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
@@ -690,7 +690,7 @@ class Ui_MainWindow(object):
         self.label_fileData.setGeometry(QtCore.QRect(440, 50, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label_fileData.setFont(font)
         self.label_fileData.setObjectName("label_fileData")
         self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
@@ -791,7 +791,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.listWidget_assetProj.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize) 
+        font.setPointSize(self.setFontSize)
         self.listWidget_assetProj.setFont(font)
         self.listWidget_assetProj.setObjectName("listWidget_assetProj")
         QtWidgets.QListWidgetItem(self.listWidget_assetProj)
@@ -852,7 +852,7 @@ class Ui_MainWindow(object):
         self.checkBox_collectFile.setGeometry(QtCore.QRect(10, 530, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.checkBox_collectFile.setFont(font)
         self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_collectFile.setObjectName("checkBox_collectFile")
@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         self.checkBox_errorCheck.setGeometry(QtCore.QRect(10, 510, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.checkBox_errorCheck.setFont(font)
         self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
@@ -868,7 +868,7 @@ class Ui_MainWindow(object):
         self.label_metaData.setGeometry(QtCore.QRect(440, 450, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label_metaData.setFont(font)
         self.label_metaData.setObjectName("label_metaData")
         self.pushButton_vehicle = QtWidgets.QPushButton(self.tab_branch)
@@ -1012,7 +1012,7 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setObjectName("pushButton_processRigging")
         self.pushButton_processLayout = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processLayout.setEnabled(True)
-        self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 220, 30, 30))
+        self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 200, 30, 30))
         self.pushButton_processLayout.setText("")
         icon24 = QtGui.QIcon()
         icon24.addPixmap(QtGui.QPixmap("icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1026,7 +1026,7 @@ class Ui_MainWindow(object):
         self.pushButton_processLayout.setObjectName("pushButton_processLayout")
         self.pushButton_processAnimation = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processAnimation.setEnabled(True)
-        self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 250, 30, 30))
+        self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 230, 30, 30))
         self.pushButton_processAnimation.setText("")
         icon25 = QtGui.QIcon()
         icon25.addPixmap(QtGui.QPixmap("icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1040,7 +1040,7 @@ class Ui_MainWindow(object):
         self.pushButton_processAnimation.setObjectName("pushButton_processAnimation")
         self.pushButton_processLighting = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processLighting.setEnabled(True)
-        self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 280, 30, 30))
+        self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 260, 30, 30))
         self.pushButton_processLighting.setText("")
         icon26 = QtGui.QIcon()
         icon26.addPixmap(QtGui.QPixmap("icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1054,7 +1054,7 @@ class Ui_MainWindow(object):
         self.pushButton_processLighting.setObjectName("pushButton_processLighting")
         self.pushButton_processEffects = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processEffects.setEnabled(True)
-        self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 310, 30, 30))
+        self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 290, 30, 30))
         self.pushButton_processEffects.setText("")
         icon27 = QtGui.QIcon()
         icon27.addPixmap(QtGui.QPixmap("icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1068,7 +1068,7 @@ class Ui_MainWindow(object):
         self.pushButton_processEffects.setObjectName("pushButton_processEffects")
         self.pushButton_processSimulation = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processSimulation.setEnabled(True)
-        self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 340, 30, 30))
+        self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 320, 30, 30))
         self.pushButton_processSimulation.setText("")
         icon28 = QtGui.QIcon()
         icon28.addPixmap(QtGui.QPixmap("icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1082,7 +1082,7 @@ class Ui_MainWindow(object):
         self.pushButton_processSimulation.setObjectName("pushButton_processSimulation")
         self.pushButton_processComp = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processComp.setEnabled(True)
-        self.pushButton_processComp.setGeometry(QtCore.QRect(220, 370, 30, 30))
+        self.pushButton_processComp.setGeometry(QtCore.QRect(220, 350, 30, 30))
         self.pushButton_processComp.setText("")
         icon29 = QtGui.QIcon()
         icon29.addPixmap(QtGui.QPixmap("icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1098,7 +1098,7 @@ class Ui_MainWindow(object):
         self.label_currentProj.setGeometry(QtCore.QRect(450, 10, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label_currentProj.setFont(font)
         self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1137,13 +1137,13 @@ class Ui_MainWindow(object):
         self.lineEdit_currentProj.setReadOnly(True)
         self.lineEdit_currentProj.setObjectName("lineEdit_currentProj")
         self.comboBox_selectProj = QtWidgets.QComboBox(self.tab_branch)
-        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 30, 351, 22))
+        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 40, 241, 22))
         self.comboBox_selectProj.setObjectName("comboBox_selectProj")
         self.comboBox_selectProj.addItem("")
         self.comboBox_selectProj.addItem("")
         self.comboBox_selectProj.addItem("")
         self.label_selectProject = QtWidgets.QLabel(self.tab_branch)
-        self.label_selectProject.setGeometry(QtCore.QRect(70, 10, 141, 20))
+        self.label_selectProject.setGeometry(QtCore.QRect(70, 16, 141, 20))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1166,11 +1166,152 @@ class Ui_MainWindow(object):
         self.label_selectProject.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(10)
+        font.setPointSize(self.setFontSize+2)
         self.label_selectProject.setFont(font)
         self.label_selectProject.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_selectProject.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_selectProject.setObjectName("label_selectProject")
+        self.pushButton_inProgress = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_inProgress.setEnabled(True)
+        self.pushButton_inProgress.setGeometry(QtCore.QRect(319, 35, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_inProgress.setPalette(palette)
+        self.pushButton_inProgress.setAutoFillBackground(False)
+        self.pushButton_inProgress.setText("")
+        icon30 = QtGui.QIcon()
+        icon30.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon30.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_inProgress.setIcon(icon30)
+        self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_inProgress.setCheckable(True)
+        self.pushButton_inProgress.setChecked(False)
+        self.pushButton_inProgress.setAutoRepeat(False)
+        self.pushButton_inProgress.setAutoExclusive(False)
+        self.pushButton_inProgress.setAutoDefault(False)
+        self.pushButton_inProgress.setDefault(False)
+        self.pushButton_inProgress.setFlat(True)
+        self.pushButton_inProgress.setObjectName("pushButton_inProgress")
+        self.pushButton_recent = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_recent.setEnabled(True)
+        self.pushButton_recent.setGeometry(QtCore.QRect(350, 35, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_recent.setPalette(palette)
+        self.pushButton_recent.setAutoFillBackground(False)
+        self.pushButton_recent.setText("")
+        icon31 = QtGui.QIcon()
+        icon31.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon31.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButton_recent.setIcon(icon31)
+        self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_recent.setCheckable(True)
+        self.pushButton_recent.setChecked(False)
+        self.pushButton_recent.setAutoRepeat(False)
+        self.pushButton_recent.setAutoExclusive(False)
+        self.pushButton_recent.setAutoDefault(False)
+        self.pushButton_recent.setDefault(False)
+        self.pushButton_recent.setFlat(True)
+        self.pushButton_recent.setObjectName("pushButton_recent")
+        self.pushButton_complete = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_complete.setEnabled(True)
+        self.pushButton_complete.setGeometry(QtCore.QRect(382, 35, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_complete.setPalette(palette)
+        self.pushButton_complete.setAutoFillBackground(False)
+        self.pushButton_complete.setText("")
+        icon32 = QtGui.QIcon()
+        icon32.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButton_complete.setIcon(icon32)
+        self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_complete.setCheckable(True)
+        self.pushButton_complete.setChecked(False)
+        self.pushButton_complete.setAutoRepeat(False)
+        self.pushButton_complete.setAutoExclusive(False)
+        self.pushButton_complete.setAutoDefault(False)
+        self.pushButton_complete.setDefault(False)
+        self.pushButton_complete.setFlat(True)
+        self.pushButton_complete.setObjectName("pushButton_complete")
         self.tabWidget_branch.addTab(self.tab_branch, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -1404,6 +1545,8 @@ class Ui_MainWindow(object):
 
 
 
+
+
        ## self.tableWidget_FileList.verticalHeader().setDefaultSectionSize(28)#tableWidge verticalHeader space
 
        ## self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)   #add more control
@@ -1444,6 +1587,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.assetsOnOffTable = [0,0,0,0,0,1,0]
         #self.clickAssetShotSelectButton()
         #self.branchDict={"0":{"master":{}}} 
+        
+        
+        #select project filter from tactic:
+        self.pushButton_inProgress.clicked.connect(self.click_pushButton_inProgress)
+        self.pushButton_recent.clicked.connect(self.click_pushButton_recent)
+        self.pushButton_complete.clicked.connect(self.click_pushButton_complete)
+        
         
         
         #select item from assetProj List_widget
@@ -1516,6 +1666,112 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def runUserPref(self):
         self.comboBox_selectProj.setCurrentIndex(33)
         self.clickAllButton()
+    
+    #def self.comboBox_selectProj
+    
+    
+    
+    def getDataFromTactic(self):
+        print "run getDataFromTactic start"
+        scripts_path = "//Art-1405260002/d/assets"
+        sys.path.append(scripts_path +  "/client")
+        sys.path.append(scripts_path + "/scripts/tactic_scripts/ui")
+        from tactic_client_lib import TacticServerStub
+
+        server = TacticServerStub(setup=False)
+        tactic_server_ip = socket.gethostbyname("vg.com")
+
+        server.set_server(tactic_server_ip)
+        server.set_project("simpleslot")
+        ticket = server.get_ticket("julio", "1234")
+        server.set_ticket(ticket)
+
+        # export projects in Tactic
+        expr = "@SOBJECT(simpleslot/game)"
+        self.projectsInTactic = server.eval(expr)
+
+
+        # export assets
+        expr = "@SOBJECT(simpleslot/assets)"
+        self.assetsInTactic = server.eval(expr)
+
+        # export shots
+        expr = "@SOBJECT(simpleslot/shot)"
+        self.shotsInTactic = server.eval(expr)
+        print "run getDataFromTactic End"
+
+
+    def click_pushButton_inProgress(self):
+        print "set to in Progress"
+        self.pushButton_inProgress.setChecked(True)
+        self.pushButton_recent.setChecked(False)
+        self.pushButton_complete.setChecked(False)
+        self.progressType = "inProgress"
+        self.selectProjectFromTactic()
+        
+    def click_pushButton_recent(self):
+        print "set to recent"
+        self.pushButton_inProgress.setChecked(False)
+        self.pushButton_recent.setChecked(True)
+        self.pushButton_complete.setChecked(False)
+        self.progressType = "recent"
+        self.selectProjectFromTactic()
+        
+        
+        
+    def click_pushButton_complete(self):
+        print "set to complete"
+        self.pushButton_inProgress.setChecked(False)
+        self.pushButton_recent.setChecked(False)
+        self.pushButton_complete.setChecked(True)
+        self.progressType = "complete"
+        self.selectProjectFromTactic()
+        
+        
+
+        
+    def selectProjectFromTactic(self):
+        
+        #self.getDataFromTactic()
+        
+        
+        #self.projectsInTactic , all projects in Tactics
+        tempProjList = []
+        self.projectFilter = []
+        if self.progressType == "inProgress":
+            print "set to in Progress"
+            
+            
+            for i in self.projectsInTactic:
+                if i['project_status'] == '.In Progress':
+                    self.projectFilter.append(i['name'])
+            
+        elif self.progressType == "recent":
+            print "set to recent"
+            
+            for i in self.projectsInTactic:
+                #print i['timestamp']
+                #tempProjList.append(i['timestamp'])
+                tempProjList.append({i['timestamp']:i['name']})
+                
+               
+            for i in tempProjList[-20:]:
+                self.projectFilter.append(i[i.keys()[0]])
+            
+            
+        else:
+            print "set to complete"
+            for i in self.projectsInTactic:
+                if i['project_status'] == '.Complete':
+                    #print i['name']
+                    self.projectFilter.append(i['name'])
+                
+        print self.projectFilter
+        self.buildProjectComboBox()
+
+        
+    
+    
     
     def selectWorkingProjectInGlobal(self):
         #print "run select working project"
@@ -1681,7 +1937,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def test_processProjectGlobal(self):
         
         print "run test_processProjectGlobal start" 
-        self.buildProjectComboBox()
+        #self.buildProjectComboBox()
         #self.defineWorkingProjectAssemble()
         print "run test_processProjectGlobal End" 
         
@@ -1718,14 +1974,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.write(data)
         f.close
         
-    def buildProjectComboBox(self):
+    def buildProjectComboBoxB(self):  # get project from home disk
         
         print "run buildProjectComboBox start"
         #1. get info from projects description file.
         #2. build comboBox form info file.
         #1. 取得現有專案資料
         #2. 建立 comboBox
-        
+        #self.projectFilter
         ## get data from json file
         self.projectsGlobalFile = self.root + '/' + 'global' + '/' + 'allProjectDescription.json'
         #print self.projectsGlobalFile
@@ -1743,7 +1999,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.comboBox_selectProj.setItemText(i,items[i])
 
         print "run buildProjectComboBox End"
-    
+
+        
+    def buildProjectComboBox(self):  # get project from tactic
+        
+        print "run buildProjectComboBox start"
+        #1. get info from self.projectFilter, from tactic
+        #2. build comboBox form info file.
+        #1. 取得現有專案資料
+        #2. 建立 comboBox
+        #self.projectFilter
+
+        items = self.projectFilter
+        itemsTotalIndexNum = len(items)
+        self.comboBox_selectProj.clear()
+        for i in range(0,itemsTotalIndexNum):
+            self.comboBox_selectProj.addItem("")
+            self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
+            self.comboBox_selectProj.setItemText(i,items[i])
+
+        print "run buildProjectComboBox End"
+        
     
 
     
@@ -2431,8 +2707,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         for i in range(0,len(topLevelDirList)):
+            if topLevelDirList[i] == '.mayaSwatches':
+                pass
+            else:
            # print i
-            branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
+                branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
 
         #------analyze 2nd level dir and files-------------------
         #----------1.for i in branchPreDict.keys(): get search folder from branchPreDict dictionary, make sure index and branch name match
@@ -2503,13 +2782,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.root = "C:/mayaProjs"
         self.branchDict={"0":{"master":{}}}    #default Master Item
         self.branch_index = 0
-
+        
         #self.buildExistFileInfoTree()        #branch system
         #self.buildTreeFromExistFileDate()      #branch system
         
-        
+
         #initial button
         self.test_processProjectGlobal()
+        self.getDataFromTactic()
         #self.clickAllButton()
 
         print "run initialItemBuild End"
