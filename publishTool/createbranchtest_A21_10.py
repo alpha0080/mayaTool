@@ -1661,7 +1661,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.getCurrentLevelList = []
         
-        self.runUserPref()
+        #self.runUserPref()
         
     def runUserPref(self):
         self.comboBox_selectProj.setCurrentIndex(33)
@@ -1755,7 +1755,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 tempProjList.append({i['timestamp']:i['name']})
                 
                
-            for i in tempProjList[-20:]:
+            for i in tempProjList[-5:]:
                 self.projectFilter.append(i[i.keys()[0]])
             
             
@@ -1793,13 +1793,72 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
     def selectWorkingProjectInGlobalFromTactic(self):
+        
+        
+
+        
+        print "run selectWorkingProjectInGlobalFromTactic moudle start"
+        print "choose a project and list all data from select in Tactic"
         self.project = self.comboBox_selectProj.currentText()
         #self.defineWorkingProjectAssemble()
+        #self.projectSelectInfoFromTactic = []
+        self.assetsSelectInfoFromTactic = []
+        self.shotsSelectInfoFromTactic = []
+        
+        # get project info from select item on comboBox ,date in tactic  , export self.projectSelectInfoFromTactic,self.project,self.projectCode
                 
         for i in self.projectsInTactic:
             if i['name'] == self.project:
-                print i
+                self.projectSelectInfoFromTactic = i
+                self.project = i['name']
+                self.projectCode = i['code']
+                
+        # get assets info from select item on comboBox ,date in tactic
+        
+        for i in self.assetsInTactic:
+            if i['game_code'] == self.projectCode:
+                if i['asset_type_code'] == 'ASSET_TYPE00002' :
+                    i['asset_type_code'] = 'character'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00003' :
+                    i['asset_type_code'] = 'vehicle'
+            
+                elif i['asset_type_code'] == 'ASSET_TYPE00004' :
+                    i['asset_type_code'] = 'set'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00005' :
+                    i['asset_type_code'] = 'prop'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00006' :
+                    i['asset_type_code'] = 'other'
+                    
+                    
+                    
+                self.assetsSelectInfoFromTactic.append(i)
+        # character, ASSET_TYPE00002 
+        # vehicle, ASSET_TYPE00003 
+        # set, ASSET_TYPE00004 
+        # prop, ASSET_TYPE00005 
+        # other, ASSET_TYPE00006 
+        #
+
+                
+        # get shots info from select item on comboBox ,date in tactic
+                
+        for i in self.shotsInTactic:
+            if i['game_code'] == self.projectCode:
+                self.shotsSelectInfoFromTactic.append(i)
+      
+                
+        self.defineWorkingProjectAssembleFromTactic()
+        
+       # print self.projectSelectInfoFromTactic
+       # print self.project
+       # print self.projectCode
+        print self.assetsSelectInfoFromTactic
+       # print self.shotsSelectInfoFromTactic
  
+        print "run selectWorkingProjectInGlobalFromTactic moudle End"
 
         
         
@@ -1946,8 +2005,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def test_processProjectGlobal(self):
         
         print "run test_processProjectGlobal start" 
-        #self.buildProjectComboBox()
-        #self.defineWorkingProjectAssemble()
+        self.buildProjectComboBox()
+        self.defineWorkingProjectAssemble()
         print "run test_processProjectGlobal End" 
         
         
@@ -2030,7 +2089,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "run buildProjectComboBox End"
         
     def defineWorkingProjectAssembleFromTactic(self):
-        print "run defineWorkingProjectAssemble start"
+        
+        
+       # print self.projectSelectInfoFromTactic
+       # print self.project
+       # print self.projectCode
+       # print self.assetsSelectInfoFromTactic
+       # print self.shotsSelectInfoFromTactic
+        print "run defineWorkingProjectAssemble from Tactic start"
         print "build all request folder in selected project folder"
         self.project = self.comboBox_selectProj.currentText()
 
@@ -2065,27 +2131,45 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
             else:
                 os.mkdir(searchFolder)
-
+                
+                
+                
+    def asdasdsd(self):
         self.projectAssembleDescription ={'assets':{'character':{},
                                                     'vehicle':{},
                                                     'set':{},
                                                     'prop':{},
                                                     'other':{}},
                                           'shot':{}}
-        # character, ASSET_TYPE00002 
-        # vehicle, ASSET_TYPE00003 
-        # set, ASSET_TYPE00004 
-        # prop, ASSET_TYPE00005 
-        # other, ASSET_TYPE00006 
-        #
-        self.projectSelectInfoFromTactic = []
-        self.assetsSelectInfoFromTactic = []
-        self.shotsSelectInfoFromTactic = []
         
-        for i in self.projectsInTactic:
-            if i['name'] == self.project:
-                print i
- 
+        
+
+        self.allAssetTempList = []
+
+        for i in self.assetsSelectInfoFromTactic:    
+            assetItem= i['asset_type_code']
+            assetItem = i['name']
+
+            self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
+            self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
+
+        for i in self.shotsSelectInfoFromTactic:
+            shotItem = i['name']
+                #print shotItem
+            self.projectAssembleDescription['shot'].update({shotItem:{}})
+            self.allAssetTempList.append('%s.shot'%shotItem)
+        
+        print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
+        self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
+
+        f = open(self.projectAssembleDescriptionFile,'w')
+        data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
+        f.write(data)
+        f.close
+
+        print projectAssembleDescription
+        print "run defineWorkingProjectAssemble End"
+
 
     
     def defineWorkingProjectAssemble(self):  
@@ -2853,7 +2937,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #self.test_processProjectGlobal()
-        #self.getDataFromTactic()
+        self.getDataFromTactic()
 
         print "run initialItemBuild End"
    

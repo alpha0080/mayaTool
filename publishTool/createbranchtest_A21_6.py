@@ -16,10 +16,10 @@ import datetime
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.setFontSize=8
-        #setPointSize(self.setFontSize) = setPointSize(self.setFontSize +3)
+        #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +3)
         #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +2)
         #setPointSize(8 ) = setPointSize(self.setFontSize) 
-
+        MainWindow.setObjectName("MainWindow")
         MainWindow.resize(846, 708)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.label_2.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(self.tab_job_assemble)
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(220, 30, 80, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.listWidget = QtWidgets.QListWidget(self.tab_job_assemble)
@@ -385,7 +385,7 @@ class Ui_MainWindow(object):
         self.pushButton_editFileInfo.setGeometry(QtCore.QRect(790, 270, 31, 31))
         self.pushButton_editFileInfo.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_editFileInfo.setIcon(icon)
         self.pushButton_editFileInfo.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_editFileInfo.setAutoDefault(False)
@@ -396,7 +396,7 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(250, 380, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
@@ -421,7 +421,7 @@ class Ui_MainWindow(object):
         self.treeWidget_branches.setObjectName("treeWidget_branches")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize+3)
+        font.setPointSize(11)
         font.setWeight(75)
         font.setBold(True)
         brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
@@ -447,7 +447,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.tableWidget_FileList.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.tableWidget_FileList.setFont(font)
         self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.tableWidget_FileList.setAutoScrollMargin(16)
@@ -588,14 +588,14 @@ class Ui_MainWindow(object):
         self.lineEdit_currentFileName.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.lineEdit_currentFileName.setFont(font)
         self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
         self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_saveFile.setGeometry(QtCore.QRect(790, 70, 31, 31))
         self.pushButton_saveFile.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_saveFile.setIcon(icon1)
         self.pushButton_saveFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_saveFile.setAutoDefault(False)
@@ -606,7 +606,7 @@ class Ui_MainWindow(object):
         self.pushButton_loadFile.setGeometry(QtCore.QRect(790, 100, 31, 31))
         self.pushButton_loadFile.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_loadFile.setIcon(icon2)
         self.pushButton_loadFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_loadFile.setAutoDefault(False)
@@ -617,7 +617,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFolder.setGeometry(QtCore.QRect(790, 300, 31, 31))
         self.pushButton_openFolder.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFolder.setIcon(icon3)
         self.pushButton_openFolder.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFolder.setAutoDefault(False)
@@ -628,14 +628,14 @@ class Ui_MainWindow(object):
         self.label_fileDescription.setGeometry(QtCore.QRect(440, 250, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label_fileDescription.setFont(font)
         self.label_fileDescription.setObjectName("label_fileDescription")
         self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_createNewBranch.setGeometry(QtCore.QRect(250, 440, 31, 31))
         self.pushButton_createNewBranch.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_createNewBranch.setIcon(icon4)
         self.pushButton_createNewBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_createNewBranch.setAutoDefault(False)
@@ -646,7 +646,7 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(280, 440, 31, 31))
         self.pushButton_mergeToMaster.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_mergeToMaster.setIcon(icon5)
         self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_mergeToMaster.setAutoDefault(False)
@@ -657,7 +657,7 @@ class Ui_MainWindow(object):
         self.pushButton_closeBranch.setGeometry(QtCore.QRect(790, 160, 31, 31))
         self.pushButton_closeBranch.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_closeBranch.setIcon(icon6)
         self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_closeBranch.setAutoDefault(False)
@@ -668,7 +668,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson.setGeometry(QtCore.QRect(790, 130, 31, 31))
         self.pushButton_openFileJson.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFileJson.setIcon(icon7)
         self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFileJson.setAutoDefault(False)
@@ -679,7 +679,7 @@ class Ui_MainWindow(object):
         self.pushButton_openBranchJson.setGeometry(QtCore.QRect(390, 440, 31, 31))
         self.pushButton_openBranchJson.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openBranchJson.setIcon(icon8)
         self.pushButton_openBranchJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openBranchJson.setAutoDefault(False)
@@ -690,7 +690,7 @@ class Ui_MainWindow(object):
         self.label_fileData.setGeometry(QtCore.QRect(440, 50, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label_fileData.setFont(font)
         self.label_fileData.setObjectName("label_fileData")
         self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
@@ -756,8 +756,8 @@ class Ui_MainWindow(object):
         self.pushButton_character.setAutoFillBackground(False)
         self.pushButton_character.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon9.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_character.setIcon(icon9)
         self.pushButton_character.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_character.setCheckable(True)
@@ -791,7 +791,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         self.listWidget_assetProj.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.listWidget_assetProj.setFont(font)
         self.listWidget_assetProj.setObjectName("listWidget_assetProj")
         QtWidgets.QListWidgetItem(self.listWidget_assetProj)
@@ -808,7 +808,7 @@ class Ui_MainWindow(object):
         self.pushButton_setting.setGeometry(QtCore.QRect(40, 600, 31, 31))
         self.pushButton_setting.setText("")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap("icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_setting.setIcon(icon10)
         self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_setting.setAutoDefault(False)
@@ -819,7 +819,7 @@ class Ui_MainWindow(object):
         self.pushButton_publish.setGeometry(QtCore.QRect(40, 560, 31, 31))
         self.pushButton_publish.setText("")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap("icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_publish.setIcon(icon11)
         self.pushButton_publish.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_publish.setAutoDefault(False)
@@ -830,7 +830,7 @@ class Ui_MainWindow(object):
         self.pushButton_syncFile.setGeometry(QtCore.QRect(70, 560, 31, 31))
         self.pushButton_syncFile.setText("")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap("icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_syncFile.setIcon(icon12)
         self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_syncFile.setAutoDefault(False)
@@ -841,7 +841,7 @@ class Ui_MainWindow(object):
         self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(70, 600, 31, 31))
         self.pushButton_reNewBranchDict.setText("")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap("icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_reNewBranchDict.setIcon(icon13)
         self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_reNewBranchDict.setAutoDefault(False)
@@ -852,7 +852,7 @@ class Ui_MainWindow(object):
         self.checkBox_collectFile.setGeometry(QtCore.QRect(10, 530, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.checkBox_collectFile.setFont(font)
         self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_collectFile.setObjectName("checkBox_collectFile")
@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         self.checkBox_errorCheck.setGeometry(QtCore.QRect(10, 510, 101, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.checkBox_errorCheck.setFont(font)
         self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
@@ -868,7 +868,7 @@ class Ui_MainWindow(object):
         self.label_metaData.setGeometry(QtCore.QRect(440, 450, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label_metaData.setFont(font)
         self.label_metaData.setObjectName("label_metaData")
         self.pushButton_vehicle = QtWidgets.QPushButton(self.tab_branch)
@@ -876,8 +876,8 @@ class Ui_MainWindow(object):
         self.pushButton_vehicle.setGeometry(QtCore.QRect(40, 100, 30, 30))
         self.pushButton_vehicle.setText("")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon14.addPixmap(QtGui.QPixmap("icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap("icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_vehicle.setIcon(icon14)
         self.pushButton_vehicle.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_vehicle.setCheckable(True)
@@ -890,8 +890,8 @@ class Ui_MainWindow(object):
         self.pushButton_set.setGeometry(QtCore.QRect(40, 130, 30, 30))
         self.pushButton_set.setText("")
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon15.addPixmap(QtGui.QPixmap("icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap("icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_set.setIcon(icon15)
         self.pushButton_set.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_set.setCheckable(True)
@@ -904,8 +904,8 @@ class Ui_MainWindow(object):
         self.pushButton_props.setGeometry(QtCore.QRect(40, 160, 30, 30))
         self.pushButton_props.setText("")
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon16.addPixmap(QtGui.QPixmap("icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_props.setIcon(icon16)
         self.pushButton_props.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_props.setCheckable(True)
@@ -918,8 +918,8 @@ class Ui_MainWindow(object):
         self.pushButton_others.setGeometry(QtCore.QRect(40, 190, 30, 30))
         self.pushButton_others.setText("")
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon17.addPixmap(QtGui.QPixmap("icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_others.setIcon(icon17)
         self.pushButton_others.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_others.setCheckable(True)
@@ -932,8 +932,8 @@ class Ui_MainWindow(object):
         self.pushButton_all.setGeometry(QtCore.QRect(40, 250, 30, 30))
         self.pushButton_all.setText("")
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon18.addPixmap(QtGui.QPixmap("icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_all.setIcon(icon18)
         self.pushButton_all.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_all.setCheckable(True)
@@ -946,8 +946,8 @@ class Ui_MainWindow(object):
         self.pushButton_shot.setGeometry(QtCore.QRect(40, 300, 30, 30))
         self.pushButton_shot.setText("")
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon19.addPixmap(QtGui.QPixmap("icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_shot.setIcon(icon19)
         self.pushButton_shot.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_shot.setCheckable(True)
@@ -959,8 +959,8 @@ class Ui_MainWindow(object):
         self.pushButton_processConcept.setGeometry(QtCore.QRect(220, 70, 30, 30))
         self.pushButton_processConcept.setText("")
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon20.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon20.addPixmap(QtGui.QPixmap("icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processConcept.setIcon(icon20)
         self.pushButton_processConcept.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processConcept.setCheckable(True)
@@ -973,8 +973,8 @@ class Ui_MainWindow(object):
         self.pushButton_processModeling.setGeometry(QtCore.QRect(220, 100, 30, 30))
         self.pushButton_processModeling.setText("")
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon21.addPixmap(QtGui.QPixmap("icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap("icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processModeling.setIcon(icon21)
         self.pushButton_processModeling.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processModeling.setCheckable(True)
@@ -987,8 +987,8 @@ class Ui_MainWindow(object):
         self.pushButton_processTexture.setGeometry(QtCore.QRect(220, 130, 30, 30))
         self.pushButton_processTexture.setText("")
         icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon22.addPixmap(QtGui.QPixmap("icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap("icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processTexture.setIcon(icon22)
         self.pushButton_processTexture.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processTexture.setCheckable(True)
@@ -1001,8 +1001,8 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setGeometry(QtCore.QRect(220, 160, 30, 30))
         self.pushButton_processRigging.setText("")
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon23.addPixmap(QtGui.QPixmap("icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processRigging.setIcon(icon23)
         self.pushButton_processRigging.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processRigging.setCheckable(True)
@@ -1012,11 +1012,11 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setObjectName("pushButton_processRigging")
         self.pushButton_processLayout = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processLayout.setEnabled(True)
-        self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 200, 30, 30))
+        self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 220, 30, 30))
         self.pushButton_processLayout.setText("")
         icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon24.addPixmap(QtGui.QPixmap("icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLayout.setIcon(icon24)
         self.pushButton_processLayout.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLayout.setCheckable(True)
@@ -1026,11 +1026,11 @@ class Ui_MainWindow(object):
         self.pushButton_processLayout.setObjectName("pushButton_processLayout")
         self.pushButton_processAnimation = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processAnimation.setEnabled(True)
-        self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 230, 30, 30))
+        self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 250, 30, 30))
         self.pushButton_processAnimation.setText("")
         icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon25.addPixmap(QtGui.QPixmap("icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processAnimation.setIcon(icon25)
         self.pushButton_processAnimation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processAnimation.setCheckable(True)
@@ -1040,11 +1040,11 @@ class Ui_MainWindow(object):
         self.pushButton_processAnimation.setObjectName("pushButton_processAnimation")
         self.pushButton_processLighting = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processLighting.setEnabled(True)
-        self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 260, 30, 30))
+        self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 280, 30, 30))
         self.pushButton_processLighting.setText("")
         icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon26.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLighting.setIcon(icon26)
         self.pushButton_processLighting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLighting.setCheckable(True)
@@ -1054,11 +1054,11 @@ class Ui_MainWindow(object):
         self.pushButton_processLighting.setObjectName("pushButton_processLighting")
         self.pushButton_processEffects = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processEffects.setEnabled(True)
-        self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 290, 30, 30))
+        self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 310, 30, 30))
         self.pushButton_processEffects.setText("")
         icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon27.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processEffects.setIcon(icon27)
         self.pushButton_processEffects.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processEffects.setCheckable(True)
@@ -1068,11 +1068,11 @@ class Ui_MainWindow(object):
         self.pushButton_processEffects.setObjectName("pushButton_processEffects")
         self.pushButton_processSimulation = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processSimulation.setEnabled(True)
-        self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 320, 30, 30))
+        self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 340, 30, 30))
         self.pushButton_processSimulation.setText("")
         icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon28.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon28.addPixmap(QtGui.QPixmap("icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processSimulation.setIcon(icon28)
         self.pushButton_processSimulation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processSimulation.setCheckable(True)
@@ -1082,11 +1082,11 @@ class Ui_MainWindow(object):
         self.pushButton_processSimulation.setObjectName("pushButton_processSimulation")
         self.pushButton_processComp = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_processComp.setEnabled(True)
-        self.pushButton_processComp.setGeometry(QtCore.QRect(220, 350, 30, 30))
+        self.pushButton_processComp.setGeometry(QtCore.QRect(220, 370, 30, 30))
         self.pushButton_processComp.setText("")
         icon29 = QtGui.QIcon()
-        icon29.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon29.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon29.addPixmap(QtGui.QPixmap("icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon29.addPixmap(QtGui.QPixmap("icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processComp.setIcon(icon29)
         self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processComp.setCheckable(True)
@@ -1098,7 +1098,7 @@ class Ui_MainWindow(object):
         self.label_currentProj.setGeometry(QtCore.QRect(450, 10, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label_currentProj.setFont(font)
         self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -1137,13 +1137,13 @@ class Ui_MainWindow(object):
         self.lineEdit_currentProj.setReadOnly(True)
         self.lineEdit_currentProj.setObjectName("lineEdit_currentProj")
         self.comboBox_selectProj = QtWidgets.QComboBox(self.tab_branch)
-        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 40, 241, 22))
+        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 30, 351, 22))
         self.comboBox_selectProj.setObjectName("comboBox_selectProj")
         self.comboBox_selectProj.addItem("")
         self.comboBox_selectProj.addItem("")
         self.comboBox_selectProj.addItem("")
         self.label_selectProject = QtWidgets.QLabel(self.tab_branch)
-        self.label_selectProject.setGeometry(QtCore.QRect(70, 16, 141, 20))
+        self.label_selectProject.setGeometry(QtCore.QRect(70, 10, 141, 20))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1166,152 +1166,11 @@ class Ui_MainWindow(object):
         self.label_selectProject.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(10)
         self.label_selectProject.setFont(font)
         self.label_selectProject.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_selectProject.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_selectProject.setObjectName("label_selectProject")
-        self.pushButton_inProgress = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_inProgress.setEnabled(True)
-        self.pushButton_inProgress.setGeometry(QtCore.QRect(319, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_inProgress.setPalette(palette)
-        self.pushButton_inProgress.setAutoFillBackground(False)
-        self.pushButton_inProgress.setText("")
-        icon30 = QtGui.QIcon()
-        icon30.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon30.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_inProgress.setIcon(icon30)
-        self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_inProgress.setCheckable(True)
-        self.pushButton_inProgress.setChecked(False)
-        self.pushButton_inProgress.setAutoRepeat(False)
-        self.pushButton_inProgress.setAutoExclusive(False)
-        self.pushButton_inProgress.setAutoDefault(False)
-        self.pushButton_inProgress.setDefault(False)
-        self.pushButton_inProgress.setFlat(True)
-        self.pushButton_inProgress.setObjectName("pushButton_inProgress")
-        self.pushButton_recent = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_recent.setEnabled(True)
-        self.pushButton_recent.setGeometry(QtCore.QRect(350, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_recent.setPalette(palette)
-        self.pushButton_recent.setAutoFillBackground(False)
-        self.pushButton_recent.setText("")
-        icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon31.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_recent.setIcon(icon31)
-        self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_recent.setCheckable(True)
-        self.pushButton_recent.setChecked(False)
-        self.pushButton_recent.setAutoRepeat(False)
-        self.pushButton_recent.setAutoExclusive(False)
-        self.pushButton_recent.setAutoDefault(False)
-        self.pushButton_recent.setDefault(False)
-        self.pushButton_recent.setFlat(True)
-        self.pushButton_recent.setObjectName("pushButton_recent")
-        self.pushButton_complete = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_complete.setEnabled(True)
-        self.pushButton_complete.setGeometry(QtCore.QRect(382, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_complete.setPalette(palette)
-        self.pushButton_complete.setAutoFillBackground(False)
-        self.pushButton_complete.setText("")
-        icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_complete.setIcon(icon32)
-        self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_complete.setCheckable(True)
-        self.pushButton_complete.setChecked(False)
-        self.pushButton_complete.setAutoRepeat(False)
-        self.pushButton_complete.setAutoExclusive(False)
-        self.pushButton_complete.setAutoDefault(False)
-        self.pushButton_complete.setDefault(False)
-        self.pushButton_complete.setFlat(True)
-        self.pushButton_complete.setObjectName("pushButton_complete")
         self.tabWidget_branch.addTab(self.tab_branch, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -1545,8 +1404,6 @@ class Ui_MainWindow(object):
 
 
 
-
-
        ## self.tableWidget_FileList.verticalHeader().setDefaultSectionSize(28)#tableWidge verticalHeader space
 
        ## self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)   #add more control
@@ -1587,13 +1444,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.assetsOnOffTable = [0,0,0,0,0,1,0]
         #self.clickAssetShotSelectButton()
         #self.branchDict={"0":{"master":{}}} 
-        
-        
-        #select project filter from tactic:
-        self.pushButton_inProgress.clicked.connect(self.click_pushButton_inProgress)
-        self.pushButton_recent.clicked.connect(self.click_pushButton_recent)
-        self.pushButton_complete.clicked.connect(self.click_pushButton_complete)
-        
         
         
         #select item from assetProj List_widget
@@ -1653,8 +1503,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         #selectProject ComboBox
-        self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
-
+        self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobal)
+        #self.comboBox_selectProj.currentIndexChanged
         #test--------------------
         #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
         self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
@@ -1663,115 +1513,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.runUserPref()
         
+        
     def runUserPref(self):
         self.comboBox_selectProj.setCurrentIndex(33)
-        self.clickAllButton()
     
-    #def self.comboBox_selectProj
-    
-    
-    
-    def getDataFromTactic(self):
-        print "run getDataFromTactic start"
-        scripts_path = "//Art-1405260002/d/assets"
-        sys.path.append(scripts_path +  "/client")
-        sys.path.append(scripts_path + "/scripts/tactic_scripts/ui")
-        from tactic_client_lib import TacticServerStub
-
-        server = TacticServerStub(setup=False)
-        tactic_server_ip = socket.gethostbyname("vg.com")
-
-        server.set_server(tactic_server_ip)
-        server.set_project("simpleslot")
-        ticket = server.get_ticket("julio", "1234")
-        server.set_ticket(ticket)
-
-        # export projects in Tactic
-        expr = "@SOBJECT(simpleslot/game)"
-        self.projectsInTactic = server.eval(expr)
-
-
-        # export assets
-        expr = "@SOBJECT(simpleslot/assets)"
-        self.assetsInTactic = server.eval(expr)
-
-        # export shots
-        expr = "@SOBJECT(simpleslot/shot)"
-        self.shotsInTactic = server.eval(expr)
-        print "run getDataFromTactic End"
-
-
-    def click_pushButton_inProgress(self):
-        print "set to in Progress"
-        self.pushButton_inProgress.setChecked(True)
-        self.pushButton_recent.setChecked(False)
-        self.pushButton_complete.setChecked(False)
-        self.progressType = "inProgress"
-        self.selectProjectFromTactic()
         
-    def click_pushButton_recent(self):
-        print "set to recent"
-        self.pushButton_inProgress.setChecked(False)
-        self.pushButton_recent.setChecked(True)
-        self.pushButton_complete.setChecked(False)
-        self.progressType = "recent"
-        self.selectProjectFromTactic()
-        
-        
-        
-    def click_pushButton_complete(self):
-        print "set to complete"
-        self.pushButton_inProgress.setChecked(False)
-        self.pushButton_recent.setChecked(False)
-        self.pushButton_complete.setChecked(True)
-        self.progressType = "complete"
-        self.selectProjectFromTactic()
-        
-        
-
-        
-    def selectProjectFromTactic(self):
-        
-        #self.getDataFromTactic()
-        
-        
-        #self.projectsInTactic , all projects in Tactics
-        tempProjList = []
-        self.projectFilter = []
-        if self.progressType == "inProgress":
-            print "set to in Progress"
-            
-            
-            for i in self.projectsInTactic:
-                if i['project_status'] == '.In Progress':
-                    self.projectFilter.append(i['name'])
-            
-        elif self.progressType == "recent":
-            print "set to recent"
-            
-            for i in self.projectsInTactic:
-                #print i['timestamp']
-                #tempProjList.append(i['timestamp'])
-                tempProjList.append({i['timestamp']:i['name']})
-                
-               
-            for i in tempProjList[-20:]:
-                self.projectFilter.append(i[i.keys()[0]])
-            
-            
-        else:
-            print "set to complete"
-            for i in self.projectsInTactic:
-                if i['project_status'] == '.Complete':
-                    #print i['name']
-                    self.projectFilter.append(i['name'])
-                
-        print self.projectFilter
-        self.buildProjectComboBox()
-
-        
-    
-    
     
     def selectWorkingProjectInGlobal(self):
         #print "run select working project"
@@ -1791,15 +1537,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # else:
         #    pass
     
-    
-    def selectWorkingProjectInGlobalFromTactic(self):
-        self.project = self.comboBox_selectProj.currentText()
-        #self.defineWorkingProjectAssemble()
-                
-        for i in self.projectsInTactic:
-            if i['name'] == self.project:
-                print i
- 
 
         
         
@@ -1946,7 +1683,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def test_processProjectGlobal(self):
         
         print "run test_processProjectGlobal start" 
-        #self.buildProjectComboBox()
+        self.buildProjectComboBox()
         #self.defineWorkingProjectAssemble()
         print "run test_processProjectGlobal End" 
         
@@ -1983,14 +1720,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.write(data)
         f.close
         
-    def buildProjectComboBoxB(self):  # get project from home disk
+    def buildProjectComboBox(self):
         
         print "run buildProjectComboBox start"
         #1. get info from projects description file.
         #2. build comboBox form info file.
         #1. 取得現有專案資料
         #2. 建立 comboBox
-        #self.projectFilter
+        
         ## get data from json file
         self.projectsGlobalFile = self.root + '/' + 'global' + '/' + 'allProjectDescription.json'
         #print self.projectsGlobalFile
@@ -2008,84 +1745,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.comboBox_selectProj.setItemText(i,items[i])
 
         print "run buildProjectComboBox End"
-
-        
-    def buildProjectComboBox(self):  # get project from tactic
-        
-        print "run buildProjectComboBox start"
-        #1. get info from self.projectFilter, from tactic
-        #2. build comboBox form info file.
-        #1. 取得現有專案資料
-        #2. 建立 comboBox
-        #self.projectFilter
-
-        items = self.projectFilter
-        itemsTotalIndexNum = len(items)
-        self.comboBox_selectProj.clear()
-        for i in range(0,itemsTotalIndexNum):
-            self.comboBox_selectProj.addItem("")
-            self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
-            self.comboBox_selectProj.setItemText(i,items[i])
-
-        print "run buildProjectComboBox End"
-        
-    def defineWorkingProjectAssembleFromTactic(self):
-        print "run defineWorkingProjectAssemble start"
-        print "build all request folder in selected project folder"
-        self.project = self.comboBox_selectProj.currentText()
-
-        #default folder in self.project
-        requestFolder= ['assets',
-                        'assets/character',
-                        'assets/vehicle',
-                        'assets/set',
-                        'assets/prop',
-                        'assets/other',                        
-                        'shot',
-                        'output',
-                        'publish',
-                        'QC',
-                        'global',
-                        'global/shot',
-                        'global/assets',
-                        'global/assets/character',
-                        'global/assets/vehicle',
-                        'global/assets/set',
-                        'global/assets/prop',
-                        'global/assets/other',                       
-                        'reference']
-
-
-        #print requestFolder
-        #check the request folder is exist in self.project ,and create folder
-
-        for i in requestFolder:
-            searchFolder = self.root + '/' + self.project +'/' + i
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                os.mkdir(searchFolder)
-
-        self.projectAssembleDescription ={'assets':{'character':{},
-                                                    'vehicle':{},
-                                                    'set':{},
-                                                    'prop':{},
-                                                    'other':{}},
-                                          'shot':{}}
-        # character, ASSET_TYPE00002 
-        # vehicle, ASSET_TYPE00003 
-        # set, ASSET_TYPE00004 
-        # prop, ASSET_TYPE00005 
-        # other, ASSET_TYPE00006 
-        #
-        self.projectSelectInfoFromTactic = []
-        self.assetsSelectInfoFromTactic = []
-        self.shotsSelectInfoFromTactic = []
-        
-        for i in self.projectsInTactic:
-            if i['name'] == self.project:
-                print i
- 
+    
+    
 
     
     def defineWorkingProjectAssemble(self):  
@@ -2393,7 +2054,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def click_assetProjListWidget(self):
         print "select one asset/shot"
-        self.treeWidget_branches.clear()
         # get self.assetNow
         self.assetNow = self.listWidget_assetProj.currentItem().text()
         print self.assetNow
@@ -2735,10 +2395,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
 
         print "run checkMasterExist END"
-        
-        
-   # def buildInfoTreeFromTactic(self):
-        
 
 
     def buildExistFileInfoTree(self):
@@ -2776,11 +2432,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         for i in range(0,len(topLevelDirList)):
-            if topLevelDirList[i] == '.mayaSwatches':
-                pass
-            else:
            # print i
-                branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
+            branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
 
         #------analyze 2nd level dir and files-------------------
         #----------1.for i in branchPreDict.keys(): get search folder from branchPreDict dictionary, make sure index and branch name match
@@ -2847,13 +2500,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print "run initialItemBuild start"
         
+        #initial self.branchDict dictionary
+        #self.root = "C:/mayaProjs"
         self.branchDict={"0":{"master":{}}}    #default Master Item
         self.branch_index = 0
-        
-        
 
-        #self.test_processProjectGlobal()
-        #self.getDataFromTactic()
+        #self.buildExistFileInfoTree()        #branch system
+        #self.buildTreeFromExistFileDate()      #branch system
+        
+        
+        #initial button
+        self.test_processProjectGlobal()
+        #self.clickAllButton()
 
         print "run initialItemBuild End"
    
@@ -3011,7 +2669,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
         fontSizeAdj = self.setFontSize
         self.fontLevelOne = QtGui.QFont()
-        self.fontLevelOne.setPointSize((fontSizeAdj+2))
+        self.fontLevelOne.setPointSize((fontSizeAdj+4))
         self.fontLevelOne.setWeight(75)
         self.fontLevelOne.setBold(True)
         self.fontLevelOne.setUnderline(True)
@@ -3055,8 +2713,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def createFileTable(self):
         print" run createFileTable function start..................."
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        print self.itemSelect
+    
+    
+    
+    
+    def asdasdasdas(self):
 
-        self.getFilesInfoFromJson()
+        self.getFilesInfoFormJson()
         self.tableWidget_FileList.clear()
 
                              
@@ -3163,7 +2827,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def getSavingFile(self):
         # print self.workProject
         
-        #print self.getFilesInfoFromJson()
+        #print self.getFilesInfoFormJson()
         #print self.filesStoreBranchFolder  #, export branch folder
         # print "self.fileInfoDict" ,self.fileInfoDict
         #self.root ="//mcd-server/art_3d_project"
@@ -3217,7 +2881,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cmds.file( save=True, type='mayaBinary' )
         
         #self.initialItemBuild()
-        #self.getFilesInfoFromJson()
+        #self.getFilesInfoFormJson()
         self.buildExistFileInfoTree()
         self.createFileTable()
         self.getLinkingFileInfoText()   # create file description file fileName.txt in global folder
@@ -3235,7 +2899,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
 
-    def getFilesInfoFromJson(self):
+    def getFilesInfoFormJson(self):
         #   1.  export files to list_widget ,build from branchInfoFile as json ,ex. globals/shot/shot_02/shot02/shot_02_lighting.json
         #   2.  check the select tree item depth, 
         #   3.  export file dict, self.branchFilesInListDict       
@@ -3258,7 +2922,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         fileTypeFillet = self.plainTextEdit_optionPage_showFileType.toPlainText().split(',')
         print fileTypeFillet
-        print "run getFilesInfoFromJson starting......................."
+        print "run getFilesInfoFormJson starting......................."
         print "finding files in the branch"
         #self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
         print self.branchFileStore
@@ -3341,7 +3005,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         else:
-            print "getFilesInfoFromJson check point C"
+            print "getFilesInfoFormJson check point C"
 
             topLayerItem = self.branchPreDict[str(self.fullItemIndex[0])].keys()[0]
 
@@ -3397,7 +3061,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         
-        print "run getFilesInfoFromJson End......................."
+        print "run getFilesInfoFormJson End......................."
         print self.fileInfoDict
         print "self.branchFilesInListDict" ,self.branchFilesInListDict
         print tempTimeFileCompareDict
@@ -3610,7 +3274,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.getExistBranchDict()
       #  print itemSelect.text(0)
-        
         try:
             if len(self.treeWidget_branches.selectedItems()) == 0:
                 
@@ -3715,7 +3378,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     #   update assetBranchFileInfo.json
   
-       # self.getFilesInfoFromJson()           #reNew jsonFile and dirctionary
+       # self.getFilesInfoFormJson()           #reNew jsonFile and dirctionary
  
         print "......createNewBranchTopLevel function End............."
         

@@ -1423,8 +1423,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #define project root
-        self.root = "C:/mayaProjs" #test in home
-        #self.root = "//mcd-server/art_3d_project"   # projects root in company
+        #self.root = "C:/mayaProjs" #test in home
+        self.root = "//mcd-server/art_3d_project"   # projects root in company
         #self.doFromAdmin()
         
         #creat projects Info in self.root
@@ -1520,7 +1520,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
        # self.assetClass = 'all'
         self.defineWorkingProjectAssemble()       
-        self.clickAllButton() 
+        #self.clickAllButton() 
        # checkAssetsFolder = self.root + '/' + self.project + '/' +'assets'
         #check the assets folder in self.project is exist
         #檢查在專案目錄下 assets資料夾是否存在
