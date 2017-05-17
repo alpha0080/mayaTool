@@ -1654,6 +1654,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #selectProject ComboBox
         self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
+        #self.comboBox_selectProj.curr
 
         #test--------------------
         #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
@@ -1679,7 +1680,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         from tactic_client_lib import TacticServerStub
 
         server = TacticServerStub(setup=False)
-        tactic_server_ip = socket.gethostbyname("vg.com")
+        try:
+            tactic_server_ip = socket.gethostbyname("vg.com")
+        except:
+            tactic_server_ip = "192.168.163.60"
+                
+                
+        
+        
 
         server.set_server(tactic_server_ip)
         server.set_project("simpleslot")
@@ -1758,6 +1766,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def selectProjectFromTactic(self):
         
+        print "run selectProjectFromTactic Start"
+        
         #self.getDataFromTactic()
         
         
@@ -1792,9 +1802,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #print i['name']
                     self.projectFilter.append(i['name'])
                 
-        print self.projectFilter
+        print "self.projectFilter", self.projectFilter
         self.buildProjectComboBox()
 
+        print "run selectProjectFromTactic End"
         
     
     
@@ -1830,6 +1841,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.projectSelectInfoFromTactic = []
         self.assetsSelectInfoFromTactic = []
         self.shotsSelectInfoFromTactic = []
+        print "self.project", self.project
         
         # get project info from select item on comboBox ,date in tactic  , export self.projectSelectInfoFromTactic,self.project,self.projectCode
                 
@@ -1838,12 +1850,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.projectSelectInfoFromTactic = i
                 self.project = i['name']
                 self.projectCode = i['code']
-                
-        print self.projectCode
-                
+        print "self.projectCode" , self.projectCode
         # get assets info from select item on comboBox ,date in tactic
-    def asdsad(self):    
+        
         for i in self.assetsInTactic:
+
             if i['game_code'] == self.projectCode:
                 if i['asset_type_code'] == 'ASSET_TYPE00002' :
                     i['asset_type_code'] = 'character'
@@ -1863,13 +1874,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
                     
                 self.assetsSelectInfoFromTactic.append(i)
+                
+        #print "assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic 
         # character, ASSET_TYPE00002 
         # vehicle, ASSET_TYPE00003 
         # set, ASSET_TYPE00004 
         # prop, ASSET_TYPE00005 
         # other, ASSET_TYPE00006 
         #
-
                 
         # get shots info from select item on comboBox ,date in tactic
                 
@@ -2105,15 +2117,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #2. build comboBox form info file.
         #1. 取得現有專案資料
         #2. 建立 comboBox
-        #self.projectFilter
-
-        items = self.projectFilter
-        itemsTotalIndexNum = len(items)
+        #self.projectFilter items
         self.comboBox_selectProj.clear()
+
+        projecItemsInFilter = self.projectFilter
+        print "projecItemsInFilter",projecItemsInFilter
+
+        
+        
+        itemsTotalIndexNum = len(projecItemsInFilter)
+        print "itemsTotalIndexNum", itemsTotalIndexNum
+
+      
         for i in range(0,itemsTotalIndexNum):
             self.comboBox_selectProj.addItem("")
             self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
-            self.comboBox_selectProj.setItemText(i,items[i])
+            self.comboBox_selectProj.setItemText(i,projecItemsInFilter[i])
 
         print "run buildProjectComboBox End"
         
@@ -2153,14 +2172,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #print requestFolder
         #check the request folder is exist in self.project ,and create folder
-
-        for i in requestFolder:
-            searchFolder = self.root + '/' + self.project +'/' + i
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                os.mkdir(searchFolder)
-                
+        try:
+            for i in requestFolder:
+                searchFolder = self.root + '/' + self.project +'/' + i
+                if os.path.isdir(searchFolder) == True:
+                    pass
+                else:
+                    os.mkdir(searchFolder)
+        except:
+            pass
         print "built all request folder done"
                 
                 
@@ -2967,9 +2987,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #self.test_processProjectGlobal()
-        self.getDataFromTacticFile()
+       # self.getDataFromTacticFile()
         
-       # self.getDataFromTactic()
+        self.getDataFromTactic()
 
         print "run initialItemBuild End"
    
