@@ -1840,9 +1840,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.projectCode = i['code']
                 
         print self.projectCode
+       # print self.assetsInTactic
+       # print self.shotsInTactic
+        
                 
         # get assets info from select item on comboBox ,date in tactic
-    def asdsad(self):    
         for i in self.assetsInTactic:
             if i['game_code'] == self.projectCode:
                 if i['asset_type_code'] == 'ASSET_TYPE00002' :
@@ -1868,9 +1870,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # set, ASSET_TYPE00004 
         # prop, ASSET_TYPE00005 
         # other, ASSET_TYPE00006 
-        #
-
-                
         # get shots info from select item on comboBox ,date in tactic
                 
         for i in self.shotsInTactic:
@@ -1878,15 +1877,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.shotsSelectInfoFromTactic.append(i)
       
        # print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
+       
         #     
-        self.defineWorkingProjectAssembleFromTactic()
         
         print "self.projectSelectInfoFromTactic", self.projectSelectInfoFromTactic
         print "self.project", self.project
         print "self.projectCode",self.projectCode
         print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
         print "self.shotsSelectInfoFromTactic", self.shotsSelectInfoFromTactic
- 
+        self.defineWorkingProjectAssembleFromTactic()
+        
+        self.listWidget_assetProj.clear()
+        self.clickAssetShotSelectButton()
+        
+
         print "run selectWorkingProjectInGlobalFromTactic moudle End"
 
         
@@ -1906,14 +1910,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.projectAssembleDescription = data
         #print self.projectAssembleDescription.keys()
        # print self.projectAssembleDescription['assets'] selectWorkingProjectInGlobal buildAssetsList setAssetTypeSelect
-        assetTempList = []
+        assetTempListNoSort = []
         if self.assetClass == "all":
             print "asset Type is all"
             for i in self.projectAssembleDescription['assets'].keys():
                # print i
                 for j in self.projectAssembleDescription['assets'][i].keys():
-                    assetTempList.append(j)
+                    assetTempListNoSort.append(j)
            # print assetTempList
+            assetTempList=sorted(assetTempListNoSort)
+            
             #build assets list
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
@@ -1928,8 +1934,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is character"
 
             for i in self.projectAssembleDescription['assets']['character'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+                    
+            
+            assetTempList =sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1943,8 +1951,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is vehicle"
             
             for i in self.projectAssembleDescription['assets']['vehicle'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+            assetTempList=sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1958,8 +1966,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is set"
             
             for i in self.projectAssembleDescription['assets']['set'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+            assetTempList=sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1972,8 +1980,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is prop"
 
             for i in self.projectAssembleDescription['assets']['prop'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+            assetTempList=sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1986,8 +1994,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is other"
 
             for i in self.projectAssembleDescription['assets']['other'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+            assetTempList=sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -2000,8 +2008,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is shot"
 
             for i in self.projectAssembleDescription['shot'].keys():
-                    assetTempList.append(i)
-
+                    assetTempListNoSort.append(i)
+            assetTempList=sorted(assetTempListNoSort)
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -2162,6 +2170,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 os.mkdir(searchFolder)
                 
         print "built all request folder done"
+        
                 
                 
                 
@@ -2177,27 +2186,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.allAssetTempList = []
 
         for i in self.assetsSelectInfoFromTactic:    
-            assetItem= i['asset_type_code']
+            assetClassItem= i['asset_type_code']
             assetItem = i['name']
+            
 
-            self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
-            self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
+            self.projectAssembleDescription['assets'][assetClassItem].update({'%s.%s'%(assetItem,assetClassItem):{}})
+            self.allAssetTempList.append('%s.%s'%(assetItem,assetClassItem))
 
         for i in self.shotsSelectInfoFromTactic:
             shotItem = i['name']
                 #print shotItem
             self.projectAssembleDescription['shot'].update({shotItem:{}})
             self.allAssetTempList.append('%s.shot'%shotItem)
-        
         print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        print self.projectAssembleDescriptionFile
+        print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
         f = open(self.projectAssembleDescriptionFile,'w')
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
 
-        print self.projectAssembleDescription
+        print 'self.projectAssembleDescription',self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
 
@@ -2517,6 +2526,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.assetClass = i.split('.')[1]
             
         print self.assetClass
+        self.clickProcessTypeSelectButton()
 
 
 
