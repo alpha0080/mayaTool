@@ -2661,7 +2661,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.checkMasterExist()
         
         self.buildExistFileInfoTree()    
-        self.buildTreeFromExistFileDate()	
+        self.buildTreeFromExistFileData()	
 
         
         
@@ -3023,7 +3023,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     #---------------Load Exist Branch Data From Dictionary Start-------------------------------------------------------------------------------------------------------
-    def buildTreeFromExistFileDate(self):
+    def buildTreeFromExistFileData(self):
         #--------build Tree from Exist folders and files--------------------
         #----------1. define default ,master, that should be exist------------
         #----------2.get file info tree
@@ -3031,7 +3031,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #----------4.for topLevelIndex in range(0,topLevelIndexCount): build sec Level items 
         #----------5. build 2nd level item in treeWidget    
         #----------6. build 3rd level item in treeWidget    
-        print "run buildTreeFromExistFileDate start"
+        print "run buildTreeFromExistFileData start"
         print "initial all Tree Data"
      
         self.treeWidget_branches.clear()
@@ -3074,7 +3074,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex)).setForeground(0,self.brushLevelFour)  #set 4rd level brush
                     self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setFont(0,self.fontLevelFour)  #set 4rd level font
                     self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setText(0,thirdLevelDirList[thirdLevelItemIndex])   #named the newItem , from typeIn line edit
-        print "run buildTreeFromExistFileDate END"
+        print "run buildTreeFromExistFileData END"
 
     #---------------Load Exist Branch Data From Dictionary End-------------------------------------------------------------------------------------------------------
      

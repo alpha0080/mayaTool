@@ -6,7 +6,7 @@
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
-#C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/
+
 from PySide2 import QtCore, QtGui, QtWidgets
 import maya.cmds as cmds
 import json , os , getpass,socket ,ctypes.wintypes
@@ -385,7 +385,7 @@ class Ui_MainWindow(object):
         self.pushButton_editFileInfo.setGeometry(QtCore.QRect(790, 270, 31, 31))
         self.pushButton_editFileInfo.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_editFileInfo.setIcon(icon)
         self.pushButton_editFileInfo.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_editFileInfo.setAutoDefault(False)
@@ -595,7 +595,7 @@ class Ui_MainWindow(object):
         self.pushButton_saveFile.setGeometry(QtCore.QRect(790, 70, 31, 31))
         self.pushButton_saveFile.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_saveFile.setIcon(icon1)
         self.pushButton_saveFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_saveFile.setAutoDefault(False)
@@ -606,7 +606,7 @@ class Ui_MainWindow(object):
         self.pushButton_loadFile.setGeometry(QtCore.QRect(790, 100, 31, 31))
         self.pushButton_loadFile.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_loadFile.setIcon(icon2)
         self.pushButton_loadFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_loadFile.setAutoDefault(False)
@@ -617,7 +617,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFolder.setGeometry(QtCore.QRect(790, 300, 31, 31))
         self.pushButton_openFolder.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFolder.setIcon(icon3)
         self.pushButton_openFolder.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFolder.setAutoDefault(False)
@@ -635,7 +635,7 @@ class Ui_MainWindow(object):
         self.pushButton_createNewBranch.setGeometry(QtCore.QRect(250, 440, 31, 31))
         self.pushButton_createNewBranch.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_createNewBranch.setIcon(icon4)
         self.pushButton_createNewBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_createNewBranch.setAutoDefault(False)
@@ -646,7 +646,7 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(280, 440, 31, 31))
         self.pushButton_mergeToMaster.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_mergeToMaster.setIcon(icon5)
         self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_mergeToMaster.setAutoDefault(False)
@@ -657,7 +657,7 @@ class Ui_MainWindow(object):
         self.pushButton_closeBranch.setGeometry(QtCore.QRect(790, 160, 31, 31))
         self.pushButton_closeBranch.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_closeBranch.setIcon(icon6)
         self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_closeBranch.setAutoDefault(False)
@@ -668,7 +668,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson.setGeometry(QtCore.QRect(790, 130, 31, 31))
         self.pushButton_openFileJson.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFileJson.setIcon(icon7)
         self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFileJson.setAutoDefault(False)
@@ -679,7 +679,7 @@ class Ui_MainWindow(object):
         self.pushButton_openBranchJson.setGeometry(QtCore.QRect(390, 440, 31, 31))
         self.pushButton_openBranchJson.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openBranchJson.setIcon(icon8)
         self.pushButton_openBranchJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openBranchJson.setAutoDefault(False)
@@ -756,8 +756,8 @@ class Ui_MainWindow(object):
         self.pushButton_character.setAutoFillBackground(False)
         self.pushButton_character.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_character.setIcon(icon9)
         self.pushButton_character.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_character.setCheckable(True)
@@ -808,7 +808,7 @@ class Ui_MainWindow(object):
         self.pushButton_setting.setGeometry(QtCore.QRect(40, 600, 31, 31))
         self.pushButton_setting.setText("")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_setting.setIcon(icon10)
         self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_setting.setAutoDefault(False)
@@ -819,7 +819,7 @@ class Ui_MainWindow(object):
         self.pushButton_publish.setGeometry(QtCore.QRect(40, 560, 31, 31))
         self.pushButton_publish.setText("")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_publish.setIcon(icon11)
         self.pushButton_publish.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_publish.setAutoDefault(False)
@@ -830,7 +830,7 @@ class Ui_MainWindow(object):
         self.pushButton_syncFile.setGeometry(QtCore.QRect(70, 560, 31, 31))
         self.pushButton_syncFile.setText("")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_syncFile.setIcon(icon12)
         self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_syncFile.setAutoDefault(False)
@@ -841,7 +841,7 @@ class Ui_MainWindow(object):
         self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(70, 600, 31, 31))
         self.pushButton_reNewBranchDict.setText("")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_reNewBranchDict.setIcon(icon13)
         self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_reNewBranchDict.setAutoDefault(False)
@@ -876,8 +876,8 @@ class Ui_MainWindow(object):
         self.pushButton_vehicle.setGeometry(QtCore.QRect(40, 100, 30, 30))
         self.pushButton_vehicle.setText("")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon14.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_vehicle.setIcon(icon14)
         self.pushButton_vehicle.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_vehicle.setCheckable(True)
@@ -890,8 +890,8 @@ class Ui_MainWindow(object):
         self.pushButton_set.setGeometry(QtCore.QRect(40, 130, 30, 30))
         self.pushButton_set.setText("")
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon15.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_set.setIcon(icon15)
         self.pushButton_set.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_set.setCheckable(True)
@@ -904,8 +904,8 @@ class Ui_MainWindow(object):
         self.pushButton_props.setGeometry(QtCore.QRect(40, 160, 30, 30))
         self.pushButton_props.setText("")
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon16.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_props.setIcon(icon16)
         self.pushButton_props.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_props.setCheckable(True)
@@ -918,8 +918,8 @@ class Ui_MainWindow(object):
         self.pushButton_others.setGeometry(QtCore.QRect(40, 190, 30, 30))
         self.pushButton_others.setText("")
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon17.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_others.setIcon(icon17)
         self.pushButton_others.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_others.setCheckable(True)
@@ -932,8 +932,8 @@ class Ui_MainWindow(object):
         self.pushButton_all.setGeometry(QtCore.QRect(40, 250, 30, 30))
         self.pushButton_all.setText("")
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon18.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_all.setIcon(icon18)
         self.pushButton_all.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_all.setCheckable(True)
@@ -946,8 +946,8 @@ class Ui_MainWindow(object):
         self.pushButton_shot.setGeometry(QtCore.QRect(40, 300, 30, 30))
         self.pushButton_shot.setText("")
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon19.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_shot.setIcon(icon19)
         self.pushButton_shot.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_shot.setCheckable(True)
@@ -959,8 +959,8 @@ class Ui_MainWindow(object):
         self.pushButton_processConcept.setGeometry(QtCore.QRect(220, 70, 30, 30))
         self.pushButton_processConcept.setText("")
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon20.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processConcept.setIcon(icon20)
         self.pushButton_processConcept.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processConcept.setCheckable(True)
@@ -973,8 +973,8 @@ class Ui_MainWindow(object):
         self.pushButton_processModeling.setGeometry(QtCore.QRect(220, 100, 30, 30))
         self.pushButton_processModeling.setText("")
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon21.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processModeling.setIcon(icon21)
         self.pushButton_processModeling.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processModeling.setCheckable(True)
@@ -987,8 +987,8 @@ class Ui_MainWindow(object):
         self.pushButton_processTexture.setGeometry(QtCore.QRect(220, 130, 30, 30))
         self.pushButton_processTexture.setText("")
         icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon22.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processTexture.setIcon(icon22)
         self.pushButton_processTexture.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processTexture.setCheckable(True)
@@ -1001,8 +1001,8 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setGeometry(QtCore.QRect(220, 160, 30, 30))
         self.pushButton_processRigging.setText("")
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon23.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processRigging.setIcon(icon23)
         self.pushButton_processRigging.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processRigging.setCheckable(True)
@@ -1015,8 +1015,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 200, 30, 30))
         self.pushButton_processLayout.setText("")
         icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon24.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLayout.setIcon(icon24)
         self.pushButton_processLayout.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLayout.setCheckable(True)
@@ -1029,8 +1029,8 @@ class Ui_MainWindow(object):
         self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 230, 30, 30))
         self.pushButton_processAnimation.setText("")
         icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon25.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processAnimation.setIcon(icon25)
         self.pushButton_processAnimation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processAnimation.setCheckable(True)
@@ -1043,8 +1043,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 260, 30, 30))
         self.pushButton_processLighting.setText("")
         icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLighting.setIcon(icon26)
         self.pushButton_processLighting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLighting.setCheckable(True)
@@ -1057,8 +1057,8 @@ class Ui_MainWindow(object):
         self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 290, 30, 30))
         self.pushButton_processEffects.setText("")
         icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processEffects.setIcon(icon27)
         self.pushButton_processEffects.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processEffects.setCheckable(True)
@@ -1071,8 +1071,8 @@ class Ui_MainWindow(object):
         self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 320, 30, 30))
         self.pushButton_processSimulation.setText("")
         icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon28.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processSimulation.setIcon(icon28)
         self.pushButton_processSimulation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processSimulation.setCheckable(True)
@@ -1085,8 +1085,8 @@ class Ui_MainWindow(object):
         self.pushButton_processComp.setGeometry(QtCore.QRect(220, 350, 30, 30))
         self.pushButton_processComp.setText("")
         icon29 = QtGui.QIcon()
-        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon29.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon29.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processComp.setIcon(icon29)
         self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processComp.setCheckable(True)
@@ -1206,8 +1206,8 @@ class Ui_MainWindow(object):
         self.pushButton_inProgress.setAutoFillBackground(False)
         self.pushButton_inProgress.setText("")
         icon30 = QtGui.QIcon()
-        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon30.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon30.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_inProgress.setIcon(icon30)
         self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_inProgress.setCheckable(True)
@@ -1253,8 +1253,8 @@ class Ui_MainWindow(object):
         self.pushButton_recent.setAutoFillBackground(False)
         self.pushButton_recent.setText("")
         icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon31.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon31.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_recent.setIcon(icon31)
         self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_recent.setCheckable(True)
@@ -1300,8 +1300,8 @@ class Ui_MainWindow(object):
         self.pushButton_complete.setAutoFillBackground(False)
         self.pushButton_complete.setText("")
         icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_complete.setIcon(icon32)
         self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_complete.setCheckable(True)
@@ -1654,6 +1654,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #selectProject ComboBox
         self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
+        #self.comboBox_selectProj.curr
 
         #test--------------------
         #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
@@ -1679,7 +1680,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         from tactic_client_lib import TacticServerStub
 
         server = TacticServerStub(setup=False)
-        tactic_server_ip = socket.gethostbyname("vg.com")
+        try:
+            tactic_server_ip = socket.gethostbyname("vg.com")
+        except:
+            tactic_server_ip = "192.168.163.60"
+                
+                
+        
+        
 
         server.set_server(tactic_server_ip)
         server.set_project("simpleslot")
@@ -1758,6 +1766,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def selectProjectFromTactic(self):
         
+        print "run selectProjectFromTactic Start"
+        
         #self.getDataFromTactic()
         
         
@@ -1792,9 +1802,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #print i['name']
                     self.projectFilter.append(i['name'])
                 
-        print self.projectFilter
+        print "self.projectFilter", self.projectFilter
         self.buildProjectComboBox()
 
+        print "run selectProjectFromTactic End"
         
     
     
@@ -1830,6 +1841,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.projectSelectInfoFromTactic = []
         self.assetsSelectInfoFromTactic = []
         self.shotsSelectInfoFromTactic = []
+        print "self.project", self.project
         
         # get project info from select item on comboBox ,date in tactic  , export self.projectSelectInfoFromTactic,self.project,self.projectCode
                 
@@ -1838,14 +1850,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.projectSelectInfoFromTactic = i
                 self.project = i['name']
                 self.projectCode = i['code']
-                
-        print self.projectCode
-       # print self.assetsInTactic
-       # print self.shotsInTactic
-        
-                
+        print "self.projectCode" , self.projectCode
         # get assets info from select item on comboBox ,date in tactic
+        
         for i in self.assetsInTactic:
+
             if i['game_code'] == self.projectCode:
                 if i['asset_type_code'] == 'ASSET_TYPE00002' :
                     i['asset_type_code'] = 'character'
@@ -1865,11 +1874,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
                     
                 self.assetsSelectInfoFromTactic.append(i)
+                
+        #print "assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic 
         # character, ASSET_TYPE00002 
         # vehicle, ASSET_TYPE00003 
         # set, ASSET_TYPE00004 
         # prop, ASSET_TYPE00005 
         # other, ASSET_TYPE00006 
+        #
+                
         # get shots info from select item on comboBox ,date in tactic
                 
         for i in self.shotsInTactic:
@@ -1877,20 +1890,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.shotsSelectInfoFromTactic.append(i)
       
        # print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
-       
         #     
+        self.defineWorkingProjectAssembleFromTactic()
         
         print "self.projectSelectInfoFromTactic", self.projectSelectInfoFromTactic
         print "self.project", self.project
         print "self.projectCode",self.projectCode
         print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
         print "self.shotsSelectInfoFromTactic", self.shotsSelectInfoFromTactic
-        self.defineWorkingProjectAssembleFromTactic()
-        
-        self.listWidget_assetProj.clear()
-        self.clickAssetShotSelectButton()
-        
-
+ 
         print "run selectWorkingProjectInGlobalFromTactic moudle End"
 
         
@@ -1910,16 +1918,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.projectAssembleDescription = data
         #print self.projectAssembleDescription.keys()
        # print self.projectAssembleDescription['assets'] selectWorkingProjectInGlobal buildAssetsList setAssetTypeSelect
-        assetTempListNoSort = []
+        assetTempList = []
         if self.assetClass == "all":
             print "asset Type is all"
             for i in self.projectAssembleDescription['assets'].keys():
                # print i
                 for j in self.projectAssembleDescription['assets'][i].keys():
-                    assetTempListNoSort.append(j)
+                    assetTempList.append(j)
            # print assetTempList
-            assetTempList=sorted(assetTempListNoSort)
-            
             #build assets list
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
@@ -1934,10 +1940,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is character"
 
             for i in self.projectAssembleDescription['assets']['character'].keys():
-                    assetTempListNoSort.append(i)
-                    
-            
-            assetTempList =sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1951,8 +1955,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is vehicle"
             
             for i in self.projectAssembleDescription['assets']['vehicle'].keys():
-                    assetTempListNoSort.append(i)
-            assetTempList=sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1966,8 +1970,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is set"
             
             for i in self.projectAssembleDescription['assets']['set'].keys():
-                    assetTempListNoSort.append(i)
-            assetTempList=sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1980,8 +1984,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is prop"
 
             for i in self.projectAssembleDescription['assets']['prop'].keys():
-                    assetTempListNoSort.append(i)
-            assetTempList=sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -1994,8 +1998,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is other"
 
             for i in self.projectAssembleDescription['assets']['other'].keys():
-                    assetTempListNoSort.append(i)
-            assetTempList=sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -2008,8 +2012,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "asset Type is shot"
 
             for i in self.projectAssembleDescription['shot'].keys():
-                    assetTempListNoSort.append(i)
-            assetTempList=sorted(assetTempListNoSort)
+                    assetTempList.append(i)
+
             listIndexCount = len(assetTempList)
             self.listWidget_assetProj.clear()
             for indexNum in range(0 ,listIndexCount):
@@ -2113,15 +2117,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #2. build comboBox form info file.
         #1. 取得現有專案資料
         #2. 建立 comboBox
-        #self.projectFilter
-
-        items = self.projectFilter
-        itemsTotalIndexNum = len(items)
+        #self.projectFilter items
         self.comboBox_selectProj.clear()
+
+        projecItemsInFilter = self.projectFilter
+        print "projecItemsInFilter",projecItemsInFilter
+
+        
+        
+        itemsTotalIndexNum = len(projecItemsInFilter)
+        print "itemsTotalIndexNum", itemsTotalIndexNum
+
+      
         for i in range(0,itemsTotalIndexNum):
             self.comboBox_selectProj.addItem("")
             self.comboBox_selectProj.setItemText(i, QtWidgets.QApplication.translate("MainWindow",'tmepName', None, -1))
-            self.comboBox_selectProj.setItemText(i,items[i])
+            self.comboBox_selectProj.setItemText(i,projecItemsInFilter[i])
 
         print "run buildProjectComboBox End"
         
@@ -2161,16 +2172,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #print requestFolder
         #check the request folder is exist in self.project ,and create folder
-
-        for i in requestFolder:
-            searchFolder = self.root + '/' + self.project +'/' + i
-            if os.path.isdir(searchFolder) == True:
-                pass
-            else:
-                os.mkdir(searchFolder)
-                
+        try:
+            for i in requestFolder:
+                searchFolder = self.root + '/' + self.project +'/' + i
+                if os.path.isdir(searchFolder) == True:
+                    pass
+                else:
+                    os.mkdir(searchFolder)
+        except:
+            pass
         print "built all request folder done"
-        
                 
                 
                 
@@ -2186,27 +2197,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.allAssetTempList = []
 
         for i in self.assetsSelectInfoFromTactic:    
-            assetClassItem= i['asset_type_code']
+            assetItem= i['asset_type_code']
             assetItem = i['name']
-            
 
-            self.projectAssembleDescription['assets'][assetClassItem].update({'%s.%s'%(assetItem,assetClassItem):{}})
-            self.allAssetTempList.append('%s.%s'%(assetItem,assetClassItem))
+            self.projectAssembleDescription['assets'][assetItem].update({'%s.%s'%(assetClassItem,assetItem):{}})
+            self.allAssetTempList.append('%s.%s'%(assetClassItem,assetItem))
 
         for i in self.shotsSelectInfoFromTactic:
             shotItem = i['name']
                 #print shotItem
             self.projectAssembleDescription['shot'].update({shotItem:{}})
             self.allAssetTempList.append('%s.shot'%shotItem)
+        
         print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
+        print self.projectAssembleDescriptionFile
         f = open(self.projectAssembleDescriptionFile,'w')
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
 
-        print 'self.projectAssembleDescription',self.projectAssembleDescription
+        print self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
 
@@ -2526,7 +2537,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.assetClass = i.split('.')[1]
             
         print self.assetClass
-        self.clickProcessTypeSelectButton()
 
 
 
@@ -2977,7 +2987,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #self.test_processProjectGlobal()
-        #self.getDataFromTacticFile()
+       # self.getDataFromTacticFile()
         
         self.getDataFromTactic()
 
