@@ -5,7 +5,7 @@
 # Created: Tue Feb 14 10:48:29 2017
 #      by: pyside-uic 0.2.14 running on PySide 1.2.0
 #
-# WARNING! All changes made in this file will be lost! UnicodeUTF8
+# WARNING! All changes made in this file will be lost!
 
 import maya.cmds as cmds
 import pymel.core as pm
@@ -308,7 +308,7 @@ class Ui_MainWindow(object):
         for addNum in range(0,poolCount):
             self.comboBox_deadPool.addItem("")
             comboBoxItemName = poolList[addNum]
-            self.comboBox_deadPool.setItemText(addNum, QtWidgets.QApplication.translate("MainWindow",comboBoxItemName, None,-1))
+            self.comboBox_deadPool.setItemText(addNum, QtWidgets.QApplication.translate("MainWindow",comboBoxItemName, None, -1))
 
 
 
@@ -394,7 +394,6 @@ class Ui_MainWindow(object):
         self.lineEdit_fileNamePrefix.textChanged.connect(self.modlineEdit_fileNamePrefix)
         self.lineEdit_deadLineJobName.textChanged.connect(self.modlineEdit_deadLineJobName)
         self.lineEdit_deadLineJobpriority.textChanged.connect(self.modlineEdit_deadLineJobpriority)
-
 
 
 
@@ -646,9 +645,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print self.lineEdit_filePath.text().split('/')[-4]
         newDeadLineJobName = self.lineEdit_deadLineJobName.text()
         newDeadLineJobpriority = self.lineEdit_deadLineJobpriority.text()
+        totalFrame = str((int(self.frameEnd) - int(self.frameStart)))
+        #print self.frameEnd
+        #print self.frameStart
+        #print self.frameEnd
+        
         print newDeadLineJobName 
        # jobinfo = ["Name="+"%s"%newDeadLineJobName,"UserName="+"%s"%user,"Frames="+"%s"%self.frameStart+"-"+"%s"%self.frameEnd,"Pool="+"%s"%poolSelect,"Priority="+"%s"%newDeadLineJobpriority,"Plugin=CommandScript","OutputDirectory0="+"%s"%output]
-        jobinfo = ["Name="+"%s"%newDeadLineJobName,"UserName="+"%s"%user,"Frames="+"%s"%self.frameStart+"-"+"%s"%self.frameEnd,"Pool="+"%s"%poolSelect,"Priority="+"%s"%newDeadLineJobpriority,"Plugin=CommandScript"]
+        jobinfo = ["Name="+"%s"%newDeadLineJobName,"UserName="+"%s"%user,"Frames="+"0"+"-"+"%s"%totalFrame,"Pool="+"%s"%poolSelect,"Priority="+"%s"%newDeadLineJobpriority,"Plugin=CommandScript"]
+       # jobinfo = ["Name="+"%s"%newDeadLineJobName,"UserName="+"%s"%user,"Frames="+"%s"%self.frameStart+"-"+"%s"%self.frameEnd,"Pool="+"%s"%poolSelect,"Priority="+"%s"%newDeadLineJobpriority,"Plugin=CommandScript"]
 
         jobinfoCount= int(len(jobinfo))
         
@@ -678,6 +683,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 renderBatchFile.write(self.batchRenderCmdLis[frameNum])
                 renderBatchFile.close
                 
+            if self.frameStart >= 0:
+                jobinfo[2] = "Frames="+"%s"%self.frameStart+"-"+"%s"%self.frameEnd
+                    
+                for echoFrameNum in range(0,self.frameStart):   # export all bat job to json, deadline commandsFile.txt
+                    #commandFile = open(commandsfileName,'w')
+                    echoCommand = "echo\n"
+                    commandFile = open(commandsfileName,'a')
+                    commandFile.write(echoCommand)
+                    commandFile.close
+                    
+                    
+                    
 
 
             for frameNum in range(0,(len(self.batchRenderCmdLis))):   # export all bat job to json, deadline commandsFile.txt
@@ -852,11 +869,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # print self.frameRange[0]
            # print self.frameRange[-1]
             self.cmdFrameRange ="-s"+" "+"%s"%self.frameNumDict[self.frameNumByDivide[rangeNum][0]] + " "+"-e" +" "+"%s"%self.frameNumDict[self.frameNumByDivide[rangeNum][-1]]+" "+"-b"+" "+"%s"%self.step
-
           #  print self.cmdFrameRange
-            #ribExportCmd = genRibCmd + self.cmdFrameRange +" " + "-rd"+" "+"\""+ imagePath + "\""+" "+"-im"+" "+"\""+ self.fileNamePrefix + "\"" +" "+"-proj"+" "+"\""+ self.projectPath + "\""+" "+"\""+self.mayaNamePath+"\""
-            ribExportCmd = genRibCmd + self.cmdFrameRange +" " + "-rd"+" "+"\""+ imagePath + "\""  +" "+"-proj"+" "+"\""+ self.projectPath + "\""+" "+"\""+self.mayaNamePath+"\""
-           
+          #  ribExportCmd = genRibCmd + self.cmdFrameRange +" " + "-rd"+" "+"\""+ imagePath + "\""+" "+"-im"+" "+"\""+ self.fileNamePrefix + "\"" +" "+"-proj"+" "+"\""+ self.projectPath + "\""+" "+"\""+self.mayaNamePath+"\""
+            ribExportCmd = genRibCmd + self.cmdFrameRange +" " + "-rd"+" "+"\""+ imagePath + "\""+" "+"-proj"+" "+"\""+ self.projectPath + "\""+" "+"\""+self.mayaNamePath+"\""
+
+
+
             print ribExportCmd
             self.ribGenCmdList.append(ribExportCmd)
 
