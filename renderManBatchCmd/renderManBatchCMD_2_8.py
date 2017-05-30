@@ -945,8 +945,8 @@ class mod_MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
 
-#def main():
-def renderManBatchCMDMain():
+def main():
+#def renderManBatchCMDMain():
     global ui
     app = QtGui.QApplication.instance()
     if app == None: app = QApplication(sys.argv)
@@ -957,6 +957,6 @@ def renderManBatchCMDMain():
     ui = mod_MainWindow()
     ui.show()
  
-#if __name__ == '__main__':
-#    main() 
+if __name__ == '__main__':
+    main() 
 #
