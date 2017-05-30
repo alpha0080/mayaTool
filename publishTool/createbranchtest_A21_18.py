@@ -2662,6 +2662,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.buildExistFileInfoTree()    
         self.buildTreeFromExistFileData()	
+        self.tableWidget_FileList.clear()
+
 
         
         
@@ -3209,45 +3211,47 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.getFilesInfoFromJson()
         self.tableWidget_FileList.clear()
 
-                             
-        tableIndex = sorted(self.fileInfoDict.keys())  #string
-        
-        verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
-        print "verIndex",verIndex
-        print "createFileTable check point 01"
-        if len(tableIndex) > 0:
-            for i in range(0,len(tableIndex)):
-               # print i,verIndex[i],self.fileInfoDict[str(verIndex[i])]  #i indexNum,verIndex[i]--->version,self.fileInfoDict[str(verIndex[i])--->fileName
-                itemVer = "v"+verIndex[i]
-                #print itemVer
-
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 0, self.tableItem)
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 1, self.tableItem)
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 2, self.tableItem)
-               # self.tableWidget_FileList.setItem(i, 3, self.tableItem)
-               # print self.fileInfoDict[str(verIndex[i])]# ,type(self.tableWidget_FileList.setItem(i, 0, self.tableItem)[2])
-
-                
-                itemUser = self.currentUser
-                itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
-                itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
-                itemFileName = self.fileInfoDict[str(verIndex[i])][0]
-                self.tableWidget_FileList.item(i, 0).setText(QtWidgets.QApplication.translate("MainWindow", itemVer, None, -1))
-
-
-                self.tableWidget_FileList.item(i, 1).setText(QtWidgets.QApplication.translate("MainWindow", itemUser, None, -1))
-                self.tableWidget_FileList.item(i, 2).setText(QtWidgets.QApplication.translate("MainWindow", itemDate, None, -1))
-               # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
-
-              #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
-                print itemFileName
-        else:
-            pass
+        try:                   
+            tableIndex = sorted(self.fileInfoDict.keys())  #string
             
-        self.currentSelectedFile = itemFileName
+            verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
+            print "verIndex",verIndex
+            print "createFileTable check point 01"
+            if len(tableIndex) > 0:
+                for i in range(0,len(tableIndex)):
+                   # print i,verIndex[i],self.fileInfoDict[str(verIndex[i])]  #i indexNum,verIndex[i]--->version,self.fileInfoDict[str(verIndex[i])--->fileName
+                    itemVer = "v"+verIndex[i]
+                    #print itemVer
+
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 0, self.tableItem)
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 1, self.tableItem)
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 2, self.tableItem)
+                   # self.tableWidget_FileList.setItem(i, 3, self.tableItem)
+                   # print self.fileInfoDict[str(verIndex[i])]# ,type(self.tableWidget_FileList.setItem(i, 0, self.tableItem)[2])
+
+                    
+                    itemUser = self.currentUser
+                    itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
+                    itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
+                    itemFileName = self.fileInfoDict[str(verIndex[i])][0]
+                    self.tableWidget_FileList.item(i, 0).setText(QtWidgets.QApplication.translate("MainWindow", itemVer, None, -1))
+
+
+                    self.tableWidget_FileList.item(i, 1).setText(QtWidgets.QApplication.translate("MainWindow", itemUser, None, -1))
+                    self.tableWidget_FileList.item(i, 2).setText(QtWidgets.QApplication.translate("MainWindow", itemDate, None, -1))
+                   # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
+
+                  #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
+                    print itemFileName
+            else:
+                pass
+                
+            self.currentSelectedFile = itemFileName
+        except:
+            pass
         print" run createFileTable function End..................."
 
     #--------------------------get linking fileInfo json----------------------------start----------------------------
@@ -3305,6 +3309,28 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.write(dataEdit)
         f.close
         
+        
+    def getSaveingBranchFolder(self):
+
+        """Returns Current top level item and child index.
+        If no child is selected, returns -1. 
+        """
+        
+        
+        
+        #Check if top level item is selected or child selected
+        if self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())==-1:
+            try:
+                if len(self.treeWidget_branches.currentItem().parent().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().parent().text(0) + '/' + self.treeWidget_branches.currentItem().parent().text(0) +'/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder
+            except:
+                if len(self.treeWidget_branches.currentItem().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().text(0) + '/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder           
+        else: 
+            self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
+            #print currentBranchFolder
 
         
 
@@ -3325,7 +3351,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         currentBranch = self.itemSelect 
-        #print currentBranch
+        print 'currentBranch', currentBranch
         
 
         #-------------define project initial
@@ -3333,7 +3359,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for par in self.project.split('_'):
             self.projectInitial = self.projectInitial + par[0]
             
-       
+        print 'self.projectInitial', self.projectInitial
         #-----------finding last version, illegal
         tempVerList= []
         if len(self.fileInfoDict.keys()) >0:
@@ -3356,9 +3382,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #------------define savingFileName in branch
         getSavingName = self.projectInitial + '_' + self.assetNow +'_'+ self.processNow[0:3] + '_' + currentBranch +'_'+ nextVerNum +'_'+self.currentUser +'.mb'
         
-        self.longSavingName = self.filesStoreBranchFolder + '/' +getSavingName
+        print 'getSavingName',getSavingName
+        self.getSaveingBranchFolder()  #get saving folder
+        self.longSavingName = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder +'/'  +getSavingName
         
-        print self.longSavingName
+        print 'self.longSavingName' ,self.longSavingName
         
         
         #cmds.file(self.longSavingName,rename=True)
