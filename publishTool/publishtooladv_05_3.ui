@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1035</width>
+    <width>1418</width>
     <height>851</height>
    </rect>
   </property>
@@ -92,8 +92,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>841</width>
-      <height>681</height>
+      <width>1091</width>
+      <height>721</height>
      </rect>
     </property>
     <property name="palette">
@@ -1046,10 +1046,10 @@
      <widget class="QLineEdit" name="lineEdit_branchName">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>401</y>
+        <x>220</x>
+        <y>280</y>
         <width>171</width>
-        <height>31</height>
+        <height>30</height>
        </rect>
       </property>
       <property name="palette">
@@ -1093,11 +1093,33 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_editFileInfo">
+     <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>270</y>
+        <x>220</x>
+        <y>260</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Create New Branch</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_createNewBranch">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>280</y>
         <width>31</width>
         <height>31</height>
        </rect>
@@ -1107,7 +1129,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/edit2_512.png</normaloff>icons/publishToolIcon/edit2_512.png</iconset>
+        <normaloff>icons/publishToolIcon/newBranch2-512.png</normaloff>icons/publishToolIcon/newBranch2-512.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1125,13 +1147,567 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QPushButton" name="pushButton_mergeToMaster">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/merge2-512.png</normaloff>icons/publishToolIcon/merge2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_openBranchJson">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/option2-512.png</normaloff>icons/publishToolIcon/option2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_metaData">
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>380</y>
-        <width>161</width>
-        <height>21</height>
+        <y>510</y>
+        <width>201</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_character">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/chaS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/chaS5Open.png</activeon>icons/publishToolIcon/chaS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_assetProj">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>100</y>
+        <width>147</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>concept</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>modeling</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>texture</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rigging</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>animatic</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>layout</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>animation</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>effect</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>simulation</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>lighting</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_setting">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>600</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/gear2-512.png</normaloff>icons/publishToolIcon/gear2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_publish">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>560</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/masterB2-512.png</normaloff>icons/publishToolIcon/masterB2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_syncFile">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>560</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/radial_arrows2-512.png</normaloff>icons/publishToolIcon/radial_arrows2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_reNewBranchDict">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>600</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/wrench2-512.png</normaloff>icons/publishToolIcon/wrench2-512.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_collectFile">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>530</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="text">
+       <string>Collect File</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_errorCheck">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>510</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="text">
+       <string>Error Check</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_metaData">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>490</y>
+        <width>131</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="font">
@@ -1141,19 +1717,895 @@
        </font>
       </property>
       <property name="text">
-       <string>Branch Name</string>
+       <string>Meta Data</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_vehicle">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>100</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/vehS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/vehS5_open.png</activeon>icons/publishToolIcon/vehS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_set">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>130</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/setS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/setS5Open.png</activeon>icons/publishToolIcon/setS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_props">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/propsS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/propsS5Open.png</activeon>icons/publishToolIcon/propsS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_others">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>190</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/otherS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/otherS5Open.png</activeon>icons/publishToolIcon/otherS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_all">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>250</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/AllS5close.png</normaloff>
+        <activeon>icons/publishToolIcon/AllS5Open.png</activeon>icons/publishToolIcon/AllS5close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_shot">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>300</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/shotS5Close.png</normaloff>
+        <activeon>icons/publishToolIcon/shotS5Open.png</activeon>icons/publishToolIcon/shotS5Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processConcept">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/concept_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/concept3_open.png</activeon>icons/publishToolIcon/concept_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processModeling">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/modeling_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/modeling_3Open.png</activeon>icons/publishToolIcon/modeling_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_currentProj">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>10</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calibri</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>current WorkSpace</string>
       </property>
       <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_currentProj">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>247</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>247</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="BrightText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>14</red>
+            <green>21</green>
+            <blue>19</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>41</red>
+            <green>61</green>
+            <blue>55</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_selectProj">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>40</y>
+        <width>151</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>select project</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_inProgress">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>677</x>
+        <y>500</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/projSelect_inProgressB.png</normaloff>
+        <activeon>icons/publishToolIcon/projSelect_inProgressA.png</activeon>icons/publishToolIcon/projSelect_inProgressB.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_recent">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>708</x>
+        <y>500</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/projSelect_recentB.png</normaloff>
+        <normalon>icons/publishToolIcon/projSelect_recentA.png</normalon>icons/publishToolIcon/projSelect_recentB.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_complete">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>500</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/projSelect_completeB.png</normaloff>
+        <normalon>icons/publishToolIcon/projSelect_completeA.png</normalon>icons/publishToolIcon/projSelect_completeB.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <property name="autoRepeat">
+       <bool>false</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QTreeWidget" name="treeWidget_branches">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>70</y>
-        <width>171</width>
-        <height>311</height>
+        <x>220</x>
+        <y>100</y>
+        <width>291</width>
+        <height>161</height>
        </rect>
       </property>
       <property name="palette">
@@ -1253,13 +2705,286 @@
        </property>
       </item>
      </widget>
+     <widget class="QPushButton" name="pushButton_processTexture">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/texture_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/texture_3Open.png</activeon>icons/publishToolIcon/texture_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processRigging">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/rigging_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/rigging_3Open.png</activeon>icons/publishToolIcon/rigging_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processLayout">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/layout_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/layout_3Open.png</activeon>icons/publishToolIcon/layout_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processAnimation">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/animation_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/animation_3Open.png</activeon>icons/publishToolIcon/animation_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processLighting">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/lighting_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/lighting_3Open.png</activeon>icons/publishToolIcon/lighting_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processEffects">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/effect_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/effect_3Open.png</activeon>icons/publishToolIcon/effect_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_processSimulation">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>70</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/publishToolIcon/simulation_3Close.png</normaloff>
+        <activeon>icons/publishToolIcon/simulation_3Open.png</activeon>icons/publishToolIcon/simulation_3Close.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
      <widget class="QTableWidget" name="tableWidget_FileList">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>70</y>
-        <width>351</width>
-        <height>151</height>
+        <x>550</x>
+        <y>100</y>
+        <width>281</width>
+        <height>161</height>
        </rect>
       </property>
       <property name="palette">
@@ -1764,9 +3489,9 @@
      <widget class="QLineEdit" name="lineEdit_currentFileName">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>220</y>
-        <width>351</width>
+        <x>550</x>
+        <y>270</y>
+        <width>281</width>
         <height>27</height>
        </rect>
       </property>
@@ -1844,312 +3569,12 @@
        <string>SelectFile:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_saveFile">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>70</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string/>
-      </property>
-      <property name="whatsThis">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/upload2-512 C.png</normaloff>icons/publishToolIcon/upload2-512 C.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_loadFile">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>100</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/download2-512.png</normaloff>icons/publishToolIcon/download2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_openFolder">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>300</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/openFolder2-512.png</normaloff>icons/publishToolIcon/openFolder2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_fileDescription">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>250</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>File description:</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_createNewBranch">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>440</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/newBranch2-512.png</normaloff>icons/publishToolIcon/newBranch2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_mergeToMaster">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>440</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/merge2-512.png</normaloff>icons/publishToolIcon/merge2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_closeBranch">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>160</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/delete2_512.png</normaloff>icons/publishToolIcon/delete2_512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_openFileJson">
-      <property name="geometry">
-       <rect>
-        <x>790</x>
-        <y>130</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/document2-512.png</normaloff>icons/publishToolIcon/document2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_openBranchJson">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>440</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/option2-512.png</normaloff>icons/publishToolIcon/option2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_fileData">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>50</y>
-        <width>161</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>File Data</string>
-      </property>
-     </widget>
      <widget class="QPlainTextEdit" name="plainTextEdit_BranchFileInfo">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>270</y>
-        <width>351</width>
+        <x>550</x>
+        <y>320</y>
+        <width>281</width>
         <height>171</height>
        </rect>
       </property>
@@ -2191,1810 +3616,11 @@
        </palette>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit_metaData">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>467</y>
-        <width>201</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>41</red>
-            <green>61</green>
-            <blue>55</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_character">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>70</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/chaS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/chaS5Open.png</activeon>icons/publishToolIcon/chaS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>false</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QListWidget" name="listWidget_assetProj">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>70</y>
-        <width>151</width>
-        <height>361</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>41</red>
-            <green>61</green>
-            <blue>55</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>8</pointsize>
-       </font>
-      </property>
-      <item>
-       <property name="text">
-        <string>concept</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>modeling</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>texture</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>rigging</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>animatic</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>layout</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>animation</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>effect</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>simulation</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>lighting</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QPushButton" name="pushButton_setting">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>600</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/gear2-512.png</normaloff>icons/publishToolIcon/gear2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_publish">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>560</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/masterB2-512.png</normaloff>icons/publishToolIcon/masterB2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_syncFile">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>560</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/radial_arrows2-512.png</normaloff>icons/publishToolIcon/radial_arrows2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_reNewBranchDict">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>600</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/wrench2-512.png</normaloff>icons/publishToolIcon/wrench2-512.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_collectFile">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>530</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="text">
-       <string>Collect File</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_errorCheck">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>510</y>
-        <width>101</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="text">
-       <string>Error Check</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_metaData">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>450</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Meta Data</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_vehicle">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>100</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/vehS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/vehS5_open.png</activeon>icons/publishToolIcon/vehS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_set">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>130</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/setS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/setS5Open.png</activeon>icons/publishToolIcon/setS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_props">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>160</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/propsS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/propsS5Open.png</activeon>icons/publishToolIcon/propsS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_others">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>190</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/otherS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/otherS5Open.png</activeon>icons/publishToolIcon/otherS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_all">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>250</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/AllS5close.png</normaloff>
-        <activeon>icons/publishToolIcon/AllS5Open.png</activeon>icons/publishToolIcon/AllS5close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_shot">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>300</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/shotS5Close.png</normaloff>
-        <activeon>icons/publishToolIcon/shotS5Open.png</activeon>icons/publishToolIcon/shotS5Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processConcept">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>70</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/concept_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/concept3_open.png</activeon>icons/publishToolIcon/concept_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processModeling">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>100</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/modeling_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/modeling_3Open.png</activeon>icons/publishToolIcon/modeling_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processTexture">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>130</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/texture_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/texture_3Open.png</activeon>icons/publishToolIcon/texture_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processRigging">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>160</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/rigging_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/rigging_3Open.png</activeon>icons/publishToolIcon/rigging_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processLayout">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>200</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/layout_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/layout_3Open.png</activeon>icons/publishToolIcon/layout_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processAnimation">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>230</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/animation_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/animation_3Open.png</activeon>icons/publishToolIcon/animation_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processLighting">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>260</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/lighting_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/lighting_3Open.png</activeon>icons/publishToolIcon/lighting_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processEffects">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>290</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/effect_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/effect_3Open.png</activeon>icons/publishToolIcon/effect_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processSimulation">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>320</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/simulation_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/simulation_3Open.png</activeon>icons/publishToolIcon/simulation_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_processComp">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>350</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/comp_3Close.png</normaloff>
-        <activeon>icons/publishToolIcon/comp_3Open.png</activeon>icons/publishToolIcon/comp_3Close.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_currentProj">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>10</y>
-        <width>151</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="text">
-       <string>current WorkSpace</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_currentProj">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>10</y>
-        <width>251</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>247</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>247</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>41</red>
-            <green>61</green>
-            <blue>55</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_selectProj">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>40</y>
-        <width>241</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <item>
-       <property name="text">
-        <string>a1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>a2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>a3</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_selectProject">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>16</y>
-        <width>141</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <family>Calibri</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="text">
-       <string>select Project</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_inProgress">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>319</x>
-        <y>35</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/projSelect_inProgressB.png</normaloff>
-        <activeon>icons/publishToolIcon/projSelect_inProgressA.png</activeon>icons/publishToolIcon/projSelect_inProgressB.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>false</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_recent">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>35</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/projSelect_recentB.png</normaloff>
-        <normalon>icons/publishToolIcon/projSelect_recentA.png</normalon>icons/publishToolIcon/projSelect_recentB.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>false</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_complete">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>382</x>
-        <y>35</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>icons/publishToolIcon/projSelect_completeB.png</normaloff>
-        <normalon>icons/publishToolIcon/projSelect_completeA.png</normalon>icons/publishToolIcon/projSelect_completeB.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="autoRepeat">
-       <bool>false</bool>
-      </property>
-      <property name="autoExclusive">
-       <bool>false</bool>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_showImage">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>490</y>
+        <x>870</x>
+        <y>320</y>
         <width>150</width>
         <height>150</height>
        </rect>
@@ -4004,434 +3630,6 @@
       </property>
       <property name="pixmap">
        <pixmap>icons/publishToolIcon/picture-01-150.png</pixmap>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>690</x>
-        <y>480</y>
-        <width>121</width>
-        <height>131</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>21</red>
-            <green>31</green>
-            <blue>28</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Midlight">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>17</red>
-            <green>26</green>
-            <blue>23</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Dark">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Mid">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>9</red>
-            <green>14</green>
-            <blue>12</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Shadow">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="AlternateBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>220</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>21</red>
-            <green>31</green>
-            <blue>28</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Midlight">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>17</red>
-            <green>26</green>
-            <blue>23</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Dark">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Mid">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>9</red>
-            <green>14</green>
-            <blue>12</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Shadow">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="AlternateBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>220</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>21</red>
-            <green>31</green>
-            <blue>28</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Midlight">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>17</red>
-            <green>26</green>
-            <blue>23</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Dark">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Mid">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>9</red>
-            <green>14</green>
-            <blue>12</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Text">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="BrightText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ButtonText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>7</red>
-            <green>10</green>
-            <blue>9</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Shadow">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="AlternateBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>14</red>
-            <green>21</green>
-            <blue>19</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipBase">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>220</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="ToolTipText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
     </widget>
@@ -4720,6 +3918,370 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_closeBranch">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>180</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/delete2_512.png</normaloff>icons/publishToolIcon/delete2_512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_openFileJson">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>150</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/document2-512.png</normaloff>icons/publishToolIcon/document2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_loadFile">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>120</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/download2-512.png</normaloff>icons/publishToolIcon/download2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_saveFile">
+    <property name="geometry">
+     <rect>
+      <x>1370</x>
+      <y>90</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/upload2-512 C.png</normaloff>icons/publishToolIcon/upload2-512 C.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_fileData">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>90</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>File Data</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_openFolder">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>380</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/openFolder2-512.png</normaloff>icons/publishToolIcon/openFolder2-512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_fileDescription">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>240</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>File description:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_editFileInfo">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>350</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/edit2_512.png</normaloff>icons/publishToolIcon/edit2_512.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_selectProject">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>790</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>select Project</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_processComp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>760</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/publishToolIcon/comp_3Close.png</normaloff>
+      <activeon>icons/publishToolIcon/comp_3Open.png</activeon>icons/publishToolIcon/comp_3Close.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
