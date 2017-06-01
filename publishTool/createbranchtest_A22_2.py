@@ -1544,6 +1544,7 @@ class Ui_MainWindow(object):
         self.plainTextEdit_optionPage_showFileType.setPlainText(QtWidgets.QApplication.translate("MainWindow", "ma,mb,rib,ass,zip", None, -1))
         self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_2), QtWidgets.QApplication.translate("MainWindow", "option Edit", None, -1))
 
+        #self.pushButton_saveFile.whatsThis.showText()
 
 
 
@@ -1554,8 +1555,56 @@ class Ui_MainWindow(object):
        ## self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)   #add more control
 
 
+        #setToolTips for all button
+        #self.pushButton_inProgress.setToolTip("show the project in progress")
+        #self.pushButton_recent.setToolTip("show the project recently, recent 20")
+        #self.pushButton_complete.setToolTip("show the project, completed")
+        
+        self.pushButton_inProgress.setToolTip(u"顯示正在執行中的專案")
+        self.pushButton_recent.setToolTip(u"顯示最近20個專案")
+        self.pushButton_complete.setToolTip(u"顯示已完成的專案")
 
- 
+
+        self.pushButton_character.setToolTip(u"角色")   
+        self.pushButton_vehicle.setToolTip(u"交通工具")   
+        self.pushButton_set.setToolTip(u"場景")   
+        self.pushButton_props.setToolTip(u"道具")   
+        self.pushButton_others.setToolTip(u"其他")   
+        self.pushButton_all.setToolTip(u"全部")   
+        self.pushButton_shot.setToolTip(u"shots")   
+        
+        self.pushButton_processConcept.setToolTip(u"concept")   
+        self.pushButton_processModeling.setToolTip(u"modeling")   
+        self.pushButton_processTexture.setToolTip(u"texture")   
+        self.pushButton_processRigging.setToolTip(u"rigging")   
+        self.pushButton_processLayout.setToolTip(u"layout")   
+        self.pushButton_processAnimation.setToolTip(u"animation")   
+        self.pushButton_processLighting.setToolTip(u"lighting")   
+        self.pushButton_processEffects.setToolTip(u"effect")   
+        self.pushButton_processSimulation.setToolTip(u"simulation")   
+        self.pushButton_processComp.setToolTip(u"comp")   
+        
+        
+        self.pushButton_createNewBranch.setToolTip(u"創建新的分支，需填入分支名稱")   
+        #self.pushButton_mergeToMaster.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_openBranchJson.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        self.pushButton_saveFile.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        self.pushButton_loadFile.setToolTip(u"讀取檔案")   
+        #self.pushButton_openFileJson.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_closeBranch.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        self.pushButton_editFileInfo.setToolTip(u"寫入註解")   
+        #self.pushButton_openFolder.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        #self.pushButton_publish.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_syncFile.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_setting.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_reNewBranchDict.setToolTip(u"儲存檔案到所選的分支，或master中")   
+
+
+
+
 
         
 
@@ -3319,6 +3368,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
     
         fileInfoName = self.lineEdit_currentFileName.text().split('.')[0] +'.txt'  #define the file description Text file name
+        thumbFileName = self.lineEdit_currentFileName.text().split('.')[0]
 
         if os.path.isdir(fileInfoLocation) == False:
             os.mkdir(fileInfoLocation)
@@ -3326,6 +3376,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
             
         self.fullFileInfoName = fileInfoLocation + '/' + fileInfoName
+        self.fullFileThumbName = fileInfoLocation + '/' + thumbFileName
         
 
         
@@ -3354,10 +3405,61 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def addDescriptionToTextFile(self):
         #add more description when push edit button
-        f = open(self.fullFileInfoName,'r+')
-        dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText()
+        f = open(self.fullFileInfoName,'w')
+        dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText().encode('utf-8')
+        print dataEdit
         f.write(dataEdit)
         f.close
+        
+        self.makeThumbnail()
+        
+        
+    def makeThumbnail(self):
+        #filename = self.fullFileThumbName
+        
+
+        currentFrame = cmds.currentTime(query=True)
+       
+        cmds.select(cl=True)
+        cmds.playblast(st=currentFrame, et=currentFrame, format="image", filename=self.fullFileThumbName, forceOverwrite=True, sequenceTime=False, clearCache=True, viewer=False, showOrnaments=False, framePadding=4, percent=100, compression="png", quality=70, width=400, height=400)
+
+           # currentFrame = ".%04d" % int(currentFrame)
+            #thumbPath = self.ui.save_path.text().replace("scenes/","images/") + filename + currentFrame 
+            #destination = self.ui.save_path.text().replace("scenes/","data/others/thumbnails/")
+  
+            # remove duplicate thumbnails
+            # imageFiles = os.listdir(destination)
+            # for imageFile in imageFiles:
+            #     if filename in imageFile:
+            #         os.remove(thumbPath + imageFile)
+
+            #shutil.copy2(thumbPath, destination)
+            #os.remove(thumbPath)
+            #self.getThumbnail()       
+
+    def getThumbnail(self):
+        try:
+            selectedFile = self.ui.file_list.currentItem().text().split("  ")[1].split(".")[0]
+            thumbPath = self.ui.save_path.text().replace("scenes/","data/others/thumbnails/")
+            imageFiles = os.listdir(thumbPath)
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+            
+            for imageFile in imageFiles:
+                if selectedFile in imageFile:
+                    image = QtGui.QImage(thumbPath + imageFile)
+                    self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+                    break
+        except:
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))            
+         
+
+        
+        
+        
         
         
     def getSaveingBranchFolder(self):
