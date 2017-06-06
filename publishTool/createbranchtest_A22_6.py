@@ -2152,7 +2152,8 @@ class Ui_MainWindow(object):
         #self.pushButton_reNewBranchDict.setToolTip(u"儲存檔案到所選的分支，或master中")   
         '''
 
-
+    #user pref
+    
 
 
         
@@ -2164,7 +2165,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         
-        self.userPrefDict= {}
+        '''
+        # define user pref file location and filename
+        CSIDL_PERSONAL = 5       # My Documents
+        SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+
+        buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
+        ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
+
+        self.userDoctFolder = (buf.value)
+        
+        self.userPrefFile = ""
+        tempUserPrefFile = self.userDoctFolder + '/' + 'publishToolUserPref.json'
+        
+        for i in tempUserPrefFile:
+            if i == '\\' :
+                self.userPrefFile = self.userPrefFile + '/'
+            else :
+                self.userPrefFile = self.userPrefFile + i
+        '''       
+
+                
         
 
         #define project root
@@ -2291,7 +2312,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
         #self.userPrefFile = 'c:/temp/publishToolUserPref.json'
        
-        print' self.userPrefFile', self.userPrefFile
+       # print' self.userPrefFile', self.userPrefFile
       #  f = open(self.userPrefFile,'w')
         
         
@@ -2299,7 +2320,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #data = json.dumps(self.userPrefDict, sort_keys=True , indent =4)  #編譯成json 且賦予格式 控四格
        # f.write(data)
        # f.close
-        self.writeToUserPref()
+       # self.writeToUserPref() userPrefDict
         
 
     def writeToUserPref(self):
@@ -2313,8 +2334,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # dataName = open(fileName)
     
     
+    def checkUserPrefFileExist(self):
+        self.runUserPref()
+
+        if os.path.isfile(self.userPrefFile) == True:
+            print "the user pref file existed"
+            self.restoreUserPref()
+        else:
+            self.userPrefDict= {}
+            self.writeToUserPref()
+        #print self.userPrefDict
+            
+            
+        
+    def restoreUserPref(self):
+        
+        print 'restoreUserPref start'
+        with open(self.userPrefFile) as data_file:    
+            self.userPrefDict = json.load(data_file)
     
     
+    
+        #self.userPrefRestore = open(self.userPrefFile,'r')
+        print 'restore self.userPrefDict from file', self.userPrefDict
+        
+        
+    def setFromUserPref(self):
+        print 'setFromUserPref start'
+       # self.pushButton_inProgress.isChecked(True)
+        
+
     
     
     def getDataFromTactic(self):
@@ -3721,9 +3770,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         #currentProject = "//mcd-server/art_3d_project/3d_pipeline_test/shot/shot_02/lighting/"    #test project
-        print "self.workProject",self.workProject
+        #print "self.workProject",self.workProject
         topLevelDirFileSearch = self.workProjectScenesFolder
-        print 'topLevelDirFileSearch' ,topLevelDirFileSearch
+        #print 'topLevelDirFileSearch' ,topLevelDirFileSearch
         
         topLevelDirList = ['master']
         branchPreDict = {"0":{"master":{}}}        
@@ -3744,7 +3793,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 else:
                     
                     topLevelDirList.append(allDir.split("\\")[1])
-                    print allDir.split("\\")[1]
+                 #   print allDir.split("\\")[1]
                 
             except:
                 pass
@@ -3804,9 +3853,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.branchPreDict = branchPreDict
         exportDate = json.dumps(self.branchPreDict, sort_keys=True , indent =4)
         #export json file
-        print exportDate 
-        print "--------------",self.branchFileStore
-
+       # print exportDate 
+       # print "--------------",self.branchFileStore
+        self.userPrefDict.update({'self.branchFileStore':self.branchFileStore})
         with open(self.branchFileStore, 'w') as f:
             f.write(exportDate)
                 
@@ -3820,7 +3869,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def initialItemBuild(self):
         
         print "run initialItemBuild start"
-        self.runUserPref()
+
+      
+        self.checkUserPrefFileExist()
 
         self.branchDict={"0":{"master":{}}}    #default Master Item
         self.branch_index = 0
@@ -3830,14 +3881,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.getDataFromTacticFile()
         #runUserPref
         self.getDataFromTactic()
+        self.setFromUserPref()
+        #print 'self.userPrefFile',self.userPrefFile
 
        # print self.projectsInTactic 
         #print self.assetsInTactic 
        # print self.shotsInTactic
         print "run initialItemBuild End"
-   
-    
-    
+
     
     
 
@@ -4053,6 +4104,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     #def asss(self):
         print" run createFileTable function start..................."
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        print 'self.itemSelect',self.itemSelect
+        
+        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+        
+        
+        
+        
+        '''
+        if self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())==-1:
+            try:
+                if len(self.treeWidget_branches.currentItem().parent().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().parent().text(0) + '/' + self.treeWidget_branches.currentItem().parent().text(0) +'/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder
+            except:
+                if len(self.treeWidget_branches.currentItem().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().text(0) + '/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder           
+        else: 
+            self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
+        
+        '''
         # self.buildExistFileInfoTree()
         self.getFilesInfoFromJson()
 
@@ -4080,7 +4152,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                     
                     itemUser = self.fileInfoDict[str(verIndex[i])][1]
-                    print 'itemUser',itemUser
+                   # print 'itemUser',itemUser
                     itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
                     itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
                     itemFileName = self.fileInfoDict[str(verIndex[i])][0]
@@ -4093,13 +4165,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                    # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
 
                   #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
-                    print itemFileName
+                   # print itemFileName
             else:
                 pass
                 
             self.currentSelectedFile = itemFileName
         except:
             pass
+         
         print" run createFileTable function End..................."
 
     #--------------------------get linking fileInfo json----------------------------start----------------------------
@@ -4722,9 +4795,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # print "thirdLevelItemIndex :",thirdLevelItemIndex fullItemIndex
             
             self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex,thirdLevelItemIndex]
-            
+            #self.fullItemIndexStore = [str(topLevelItemIndex),str(secLevelItemIndex),str(thirdLevelItemIndex)]
+            #'%s'%str(topLevelItemIndex),'%s'%str(secLevelItemIndex),'%s'%str(thirdLevelItemIndex)
+            #'%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex
+
+        self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex]})
+        self.writeToUserPref()
         print 'self.fullItemIndex',self.fullItemIndex
-            
+
         print 'run findParentTopLevelItem End'
 
 
@@ -5139,7 +5217,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.thirdLayerItemList = [] 
         
-        print self.branchDict
+        #print self.branchDict
 
         
         for itemCount in range(1,self.topLayerCount):
