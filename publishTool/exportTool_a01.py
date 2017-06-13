@@ -8,6 +8,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
+import maya.cmds as cmds
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -305,8 +306,19 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
     #def self.MODDEF(self):
     
+        self.countN1 = 0
+        self.countN2 = 0
+        self.countN3 = 0
+        self.countN4 = 0
+        self.countN5 = 0
+        self.countN6 = 0
+        self.countN7 = 0
+        #countN8 = 0
+        self.countN9 = 0
+        self.countN10 = 0
+
         self.buildItemTree()
-    
+
     
     
     
@@ -345,32 +357,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        #item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+       # item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         #item_0.setCheckState(0, QtCore.Qt.Checked)
         
-        countN1 = 0
-        countN2 = 0
-        countN3 = 0
-        countN4 = 0
-        countN5 = 0
-        countN6 = 0
-        countN7 = 0
-       # countN8 = 0
-        countN9 = 0
-        countN10 = 0
-
 
         
-        self.itemName_prmanTextures = "PrmanTextures"+'__('+'%03d'%countN1+')'
-        self.itemName_mayaTextures = "mayaTextures"+'__('+'%03d'%countN2+')'
-        self.itemName_gpuCaches = "gpuCaches"+'__('+'%03d'%countN3+')'
-        self.itemName_RibArchives = "RibArchives"+'__('+'%03d'%countN4+')'
-        self.itemName_alembics = "alembics"+'__('+'%03d'%countN5+')'
-        self.itemName_cameras = "cameras"+'__('+'%03d'%countN6+')'
-        self.itemName_PrmanLights = "PrmanLights"+'__('+'%03d'%countN7+')'
+        self.itemName_prmanTextures = "PrmanTextures"+'__('+'%03d'%self.countN1+')'
+        self.itemName_mayaTextures = "mayaTextures"+'__('+'%03d'%self.countN2+')'
+        self.itemName_gpuCaches = "gpuCaches"+'__('+'%03d'%self.countN3+')'
+        self.itemName_RibArchives = "RibArchives"+'__('+'%03d'%self.countN4+')'
+        self.itemName_alembics = "alembics"+'__('+'%03d'%self.countN5+')'
+        self.itemName_cameras = "cameras"+'__('+'%03d'%self.countN6+')'
+        self.itemName_PrmanLights = "PrmanLights"+'__('+'%03d'%self.countN7+')'
         #self.itemName_mayaLights = "mayaLights"+'__('+'%03d'%countN8+')'
-        self.itemName_fluidCaches = "fluidCaches"+'__('+'%03d'%countN9+')'
-        self.itemName_particleCaches = "particleCaches"+'__('+'%03d'%countN10+')'
+        self.itemName_fluidCaches = "fluidCaches"+'__('+'%03d'%self.countN9+')'
+        self.itemName_nParticleCaches = "particleCaches"+'__('+'%03d'%self.countN10+')'
 
         
 
@@ -382,9 +383,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.treeWidget.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_alembics, None, -1))
         self.treeWidget.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_cameras, None, -1))
         self.treeWidget.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_PrmanLights, None, -1))
-        self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_mayaLights, None, -1))
-        self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
-        self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_particleCaches, None, -1))
+        self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
+        self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_nParticleCaches, None, -1))
+       # self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
         
         '''
          linkingSearchDict = {
@@ -400,12 +401,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def test(self):
         self.findPrmanTexture()
-        self.findMayaTextures()
+        #self.findMayaTextures()
         self.findGpuCaches()
         self.findRibArchives()
         self.findAlembics()
         self.findCameras()
         self.findPrmanLights()
+        self.mayaFluidCache()
+        self.mayanParticleCache()
+        self.buildItemTree()
         
 #cmds.nodeType('nParticleShape1Cache1')
 
@@ -521,6 +525,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print camerasInfo
         print self.countN6
 
+
+
+        
+
+
+
+
+
         
         
     def findAlembics(self): # store alembics NodeName and location 
@@ -565,7 +577,48 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         print alembicPath
         print self.countN5
-    
+        
+       # cmds.nodeType('nParticleShape1')
+    def mayanParticleCache(self): # store mayanParticle NodeName and location fluidCache
+      
+        mayanParticleCacheInfo = {}
+        
+        mayanParticleNodes = cmds.ls( typ ='nParticle')
+        for nParticleShape in mayanParticleNodes:
+            for nParticleCache in cmds.listConnections(nParticleShape):
+                if cmds.nodeType(nParticleCache) == 'cacheFile':
+                    baseDirectory = cmds.getAttr('%s.cachePath'%nParticleCache)
+                    baseName = cmds.getAttr('%s.cacheName'%nParticleCache)
+                    isEnable = cmds.getAttr('%s.enable'%nParticleCache)
+                    startFrame = cmds.getAttr('%s.startFrame'%nParticleCache)
+                    scale = cmds.getAttr('%s.scale'%nParticleCache)
+                    hold = cmds.getAttr('%s.hold'%nParticleCache)
+                    preCycle = cmds.getAttr('%s.preCycle'%nParticleCache)
+                    postCycle = cmds.getAttr('%s.postCycle'%nParticleCache)
+                    sourceStart = cmds.getAttr('%s.sourceStart'%nParticleCache)
+                    sourceEnd = cmds.getAttr('%s.sourceEnd'%nParticleCache)
+                    originalStart = cmds.getAttr('%s.originalStart'%nParticleCache)
+                    originalEnd= cmds.getAttr('%s.originalEnd'%nParticleCache)
+                  
+                    mayanParticleCacheInfo.update({nParticleShape:[nParticleCache,
+                                                           baseDirectory,
+                                                           baseName,
+                                                           isEnable,
+                                                           startFrame,
+                                                           scale,
+                                                           hold,
+                                                           preCycle,
+                                                           postCycle,
+                                                           sourceStart,
+                                                           sourceEnd,
+                                                           originalStart,
+                                                           originalEnd]})
+          
+        self.countN10 = len(mayanParticleCacheInfo.keys())
+            
+        print mayanParticleCacheInfo
+        print self.countN10
+            
     def findRibArchives(self): # store RibArchives NodeName and location 
         
         RibArchivesNodes = cmds.ls( typ ='RenderManArchive')
@@ -595,22 +648,51 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print pxrTexturePath
         print self.countN1
         
-        
-    def findMayaTextures(self): # store mayaTextures NodeName and location 
+#cmds.listConnections('nParticleShape1')        
+    def mayaFluidCache(self): # store mayaTextures NodeName and location 
       #  pxrFilePath = 'file.fileTextureName'
+      
+        mayaFluidCacheInfo = {}
         
-        mayaFileNodes = cmds.ls( typ ='file')
-        mayaFilePath = {}
-        for i in mayaFileNodes:
-            path = cmds.getAttr('%s.fileTextureName'%i)
-            mayaFilePath.update({i:path})
+        mayaFileNodes = cmds.ls( typ ='fluidShape')
+        for fluidShape in mayaFileNodes:
+            for fluidCache in cmds.listConnections(fluidShape):
+                if cmds.nodeType(fluidCache) == 'cacheFile':
+                   # print fluidShape
+                    baseDirectory = cmds.getAttr('%s.cachePath'%fluidCache)
+                    baseName = cmds.getAttr('%s.cacheName'%fluidCache)
+                    isEnable = cmds.getAttr('%s.enable'%fluidCache)
+                    startFrame = cmds.getAttr('%s.startFrame'%fluidCache)
+                    scale = cmds.getAttr('%s.scale'%fluidCache)
+                    hold = cmds.getAttr('%s.hold'%fluidCache)
+                    preCycle = cmds.getAttr('%s.preCycle'%fluidCache)
+                    postCycle = cmds.getAttr('%s.postCycle'%fluidCache)
+                    sourceStart = cmds.getAttr('%s.sourceStart'%fluidCache)
+                    sourceEnd = cmds.getAttr('%s.sourceEnd'%fluidCache)
+                    originalStart = cmds.getAttr('%s.originalStart'%fluidCache)
+                    originalEnd= cmds.getAttr('%s.originalEnd'%fluidCache)
+                  
+                    mayaFluidCacheInfo.update({fluidShape:[fluidCache,
+                                                           baseDirectory,
+                                                           baseName,
+                                                           isEnable,
+                                                           startFrame,
+                                                           scale,
+                                                           hold,
+                                                           preCycle,
+                                                           postCycle,
+                                                           sourceStart,
+                                                           sourceEnd,
+                                                           originalStart,
+                                                           originalEnd]})
+          
+        self.countN9 = len(mayaFluidCacheInfo.keys())
             
-        self.countN2 = len(mayaFileNodes)
-            
-        print mayaFilePath
-        print self.countN2
+        print mayaFluidCacheInfo
+        print self.countN9
         
-        
+
+
 
     def findGpuCaches(self): # store mayaTextures NodeName and location 
       #  pxrFilePath = 'file.fileTextureName'

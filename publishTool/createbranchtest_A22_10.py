@@ -3705,7 +3705,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def clickProcessTypeSelectButton(self):
         
-        print "all process type button Off"
+        
+        print "clickProcessTypeSelectButton start"
+        print 'self.isAsset',self.isAsset ,'type is' ,type(self.isAsset)
+
         self.pushButton_processConcept.setChecked(False)
         self.pushButton_processModeling.setChecked(False)
         self.pushButton_processTexture.setChecked(False)
@@ -3716,6 +3719,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processEffects.setChecked(False)
         self.pushButton_processSimulation.setChecked(False)
         self.pushButton_processComp.setChecked(False)
+        
+        print "clickProcessTypeSelectButton end"
         
         
     def processTypeSelectedRun(self):

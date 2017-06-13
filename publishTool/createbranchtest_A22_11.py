@@ -2180,7 +2180,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         #creat projects Info in self.root
-        self.pushButton_setting.clicked.connect(self.doFromAdmin)
+        #self.pushButton_setting.clicked.connect(self.doFromAdmin)
         
         
         
@@ -2211,7 +2211,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         
-        self.pushButton_reNewBranchDict.clicked.connect(self.checkPublishToolTempFolder)
+       # self.pushButton_reNewBranchDict.clicked.connect(self.checkPublishToolTempFolder)
         
         self.pushButton_createNewBranch.clicked.connect(self.createNewBranchCombo)
 
@@ -2225,6 +2225,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_editFileInfo.clicked.connect(self.addDescriptionToTextFile)
         
         self.pushButton_saveFile.clicked.connect(self.getSavingFile)
+        
+        self.pushButton_loadFile.clicked.connect(self.openSelectFile)
         
         self.pushButton_openFolder.clicked.connect(self.readFileInof)
         
@@ -2263,9 +2265,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #selectProject ComboBox
         self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
 
-        #test--------------------
+        #test--------------------pushButton_setting
         #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
-        self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
+       # self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
 
         self.getCurrentLevelList = []
         
@@ -2496,19 +2498,38 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         self.setBranchItemSelectFromUserPref()
+        self.getBranchInfoFromJson()
+        self.setFileTableFromUserPref()
+        print 'self.branchDict',self.branchDict
+        self.createFileTable()
         
-      #  self.setFileTableFromUserPref()
-       # print self.branchDict
-        #self.createFileTable()
         
-        
-        
+    def getBranchInfoFromJson(self):
+        fileName =  self.userPrefDict['self.branchFileStore']
+        with open(fileName) as data_file:    
+            data = json.load(data_file)
+            
+    
+
+        self.branchDict={'0':{'master':{}}}
+        for i in range(1,len(data.keys())):
+            top = data[str(i)].keys()[0]
+            self.branchDict.update({str(i):{top:{}}})
+            for sec in data[str(i)][top]['folder'].keys():
+
+                self.branchDict[str(i)][top].update({sec:{}})
+                
+                for third in data[str(i)][top]['folder'][sec]['folder'].keys():
+
+                    self.branchDict[str(i)][top][sec].update({third:{}})
+
+
+
         
         
     def setFileTableFromUserPref(self):
         print 'setFileTableFromUserPref start'
         self.tableWidget_FileList.clear()
-
         #pprint(data)
         
     #def asss(self):
@@ -4220,7 +4241,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print "run initialItemBuild start"
 
-      
+        self.currentUser = getpass.getuser()
         self.checkUserPrefFileExist()
         #self.setFromUserPref()
         self.branchDict={"0":{"master":{}}}    #default Master Item
@@ -4655,7 +4676,19 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
             #print currentBranchFolder
 
+    def openSelectFile(self):
+        print "openSelectFile start"
+        #print 'self.filesStoreBranchFolder',self.filesStoreBranchFolder
+        #print 'self.fileInfoDict',self.fileInfoDict
+        fileName = self.lineEdit_currentFileName.text()
+        fullFileName = self.filesStoreBranchFolder +'/' +fileName
+        cmds.file( fullFileName, open=True,f=True )
         
+        print '%s'%fileName + ' was opened'
+        print "openSelectFile end"
+
+        
+            
 
 
 
@@ -4967,6 +5000,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.getThumbnail()
         
+        print 'self.branchDict',self.branchDict
         
     
 

@@ -3,13 +3,19 @@ import json
 from pprint import pprint
 
 
-fileName = 'C:/mayaProjs/ani_pop_v01_cf/global/shot/shot02/shot02_lighting.json'
+fileName =  "//mcd-server/art_3d_project/ani_pop_v01_cf/global/assets/character/bear/bear_model.json"
 with open(fileName) as data_file:    
     data = json.load(data_file)
     
-bb= {'1': {u'g': {u'dgdg': {u'gg': {}}}}, '0': {'master': {}}}   
+branchDict={'1': {u'g2': {u'g22': {u'c2': {}}}}, '0': {'master': {}}, '2': {u'h2': {}}}
 
-print data.keys()
+cc= {'0': {'master': {}}, '1': {u'g2': {u'g22': {u'c2': {}}}}, '2': {u'h2': {}}} 
+
+
+print branchDict['1']['g2'].keys()
+print cc['1']['g2'].keys()
+
+
 
 #dd= {u'0': {u'master': {}}, u'1': {u'g': {}}} 
 

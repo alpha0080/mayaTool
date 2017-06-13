@@ -2376,8 +2376,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #userPrefDict
         
         print " setAssetShotButtonFromUserPref start "
-
-        self.isAsset = self.userPrefDict['self.isAsset']
+        self.checkIsAssetValue()
+            
         print 'self.isAsset',self.isAsset
 
         
@@ -2419,6 +2419,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         
         self.buildAssetsList()
+        self.listWidget_assetProj.setCurrentRow(int(self.userPrefDict['self.assetListItemRow']))
         
         print " setAssetShotButtonFromUserPref end "
 
@@ -2447,7 +2448,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.treeWidget_branches.clear
         self.assetNow = self.userPrefDict['self.assetNow']
         
+        self.pushButton_processConcept.setChecked(int(self.userPrefDict['self.processOnOffTable'][0]))
+        self.pushButton_processModeling.setChecked(int(self.userPrefDict['self.processOnOffTable'][1]))
+        self.pushButton_processTexture.setChecked(int(self.userPrefDict['self.processOnOffTable'][2]))
+        self.pushButton_processRigging.setChecked(int(self.userPrefDict['self.processOnOffTable'][3]))
+        self.pushButton_processLayout.setChecked(int(self.userPrefDict['self.processOnOffTable'][4]))
+        self.pushButton_processAnimation.setChecked(int(self.userPrefDict['self.processOnOffTable'][5]))
+        self.pushButton_processLighting.setChecked(int(self.userPrefDict['self.processOnOffTable'][6]))
+        self.pushButton_processEffects.setChecked(int(self.userPrefDict['self.processOnOffTable'][7]))
+        self.pushButton_processSimulation.setChecked(int(self.userPrefDict['self.processOnOffTable'][8]))
+        self.pushButton_processComp.setChecked(int(self.userPrefDict['self.processOnOffTable'][9]))
         
+        
+        self.processNow = self.userPrefDict['self.processNow']
+        
+        print 'setProcessButtonFromUserPref end'
+
         print 'setAssetProjListWidgetFromUserPref end'
 
         
@@ -2463,7 +2479,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.pushButton_inProgress.isChecked(True) 
         self.setWorkingProjFromUserPref()     #load project info, assets, shots from tactic data
         self.setAssetShotButtonFromUserPref() #restore what asset/shot class was checked
-        #self.setAssetProjListWidgetFromUserPref()
+        self.setAssetProjListWidgetFromUserPref()
         #self.setProcessButtonFromUserPref()
 
     
@@ -3508,10 +3524,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "select one asset/shot"
         self.treeWidget_branches.clear()
         # get self.assetNow
+       # self.userPrefDict.update({'self.assetName':self.assetName})
+
         self.assetNow = self.listWidget_assetProj.currentItem().text()
-        #self.assetListItemIndex = self.listWidget_assetProj.currentIndex()
-        #print self.assetNow
+        self.assetListItemRow = self.listWidget_assetProj.currentRow()
+        print 'self.assetNow',self.assetNow
+        print 'self.assetListItemRow',self.assetListItemRow
         self.userPrefDict.update({'self.assetNow':self.assetNow})
+        self.userPrefDict.update({'self.assetListItemRow':self.assetListItemRow})
         #self.userPrefDict.update({'self.self.assetListItemIndex':self.assetListItemIndex})
 
         #print self.allAssetTempList
@@ -3522,7 +3542,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.writeToUserPref()
        # print self.assetClass
         self.clickProcessTypeSelectButton()
-        
 
         
 
@@ -3534,6 +3553,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         #self.root + '/' + self.project + '/' + 'assets' +
         self.processNow = 'concept'
+        
+        self.isAsset = True
+
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['1','0','0','0','0','0','0','0','0','0']})
@@ -3552,6 +3574,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processModeling.setChecked(True)
         self.processNow = 'model'
         
+        self.isAsset = True
+        
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','1','0','0','0','0','0','0','0','0']})
@@ -3566,6 +3590,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processTexture.setChecked(True)
         
         self.processNow = 'texture'
+        self.isAsset = True
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','1','0','0','0','0','0','0','0']})
@@ -3578,6 +3603,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processRigging.setChecked(True)
         self.processNow = 'rigging'
+        self.isAsset = True
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','1','0','0','0','0','0','0']})
@@ -3591,6 +3617,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processLayout.setChecked(True)
 
         self.processNow = 'layout'
+        self.isAsset = False
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','1','0','0','0','0','0']})
@@ -3603,7 +3630,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processAnimation.setChecked(True)
         self.processNow = 'animation'
-        
+        self.isAsset = False        
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','1','0','0','0','0']})
 
@@ -3617,7 +3644,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processLighting.setChecked(True)
         self.processNow = 'lighting'
-        
+        self.isAsset = False        
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','1','0','0','0']})
 
@@ -3632,7 +3659,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processEffects.setChecked(True)
         
         self.processNow = 'effects'
-        
+        self.isAsset = False        
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','1','0','0']})
 
@@ -3646,7 +3673,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processSimulation.setChecked(True)
         self.processNow = 'simulation'
-        
+        self.isAsset = False        
         
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','0','1','0']})
@@ -3664,7 +3691,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processComp.setChecked(True)
         self.processNow = 'comp'
-
+        self.isAsset = False
 
         self.userPrefDict.update({'self.processNow':self.processNow})
         self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','0','0','1']})
@@ -3694,9 +3721,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def processTypeSelectedRun(self):
         # after click process button , run this to proces via module
         # 點選流程分類按鈕後執行此一模組,以呼叫數個模組
-        print "run processType button was clicked"
+        print "run processTypeSelectedRun start"
         
-        self.writeToUserPref()
+        self.writeIsAssetToUserPref()
+     
+        
+        #self.writeToUserPref()
         #self.printOutProjectInfo()
         self.currentUser = getpass.getuser()
 
@@ -3711,7 +3741,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         
-        
+        print "run processTypeSelectedRun end"
+   
         
         
     def clear(self):
@@ -3751,7 +3782,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # print "Export brancg File Dir",self.branchFileStore
         
         self.checkMasterExist()
-
+    def checkIsAssetValue(self):
+        
+        if self.userPrefDict['self.isAsset'] == 'True':
+            self.isAsset = True
+        else:
+            self.isAsset = False
+    
+    def writeIsAssetToUserPref(self):
+        
+        if self.isAsset == True :
+            self.userPrefDict['self.isAsset'] == 'True'
+        else:
+            self.userPrefDict['self.isAsset'] == 'False'
+            
+        self.writeToUserPref()
+        
+    
+    
+        
    
     def projectDescription(self):
         
@@ -3763,39 +3812,47 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print "self.assetNow", self.assetNow   # if select assets
         #print "self.processNow", self.processNow
         #print "self.isAsset", self.isAsset
+        
+        self.checkIsAssetValue()
 
+        try:
+            self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
+            print "self.assetName", self.assetName
+        except:
+            pass
+        try:
+            self.shotName = "shot"+"/"+ self.assetNow
         
-        self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
-       # print "self.assetName", self.assetName
-        
-        self.shotName = "shot"+"/"+ self.assetNow
-        
-        #print "self.shotName" , self.shotName
-        
+            print "self.shotName" , self.shotName
+        except:
+            pass
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
-        #print "self.projectGlobal", self.projectGlobal
+        print "self.projectGlobal", self.projectGlobal
         #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
         
-       # print "self.projectStructureName", self.projectStructureName
+        print "self.projectStructureName", self.projectStructureName
         self.userPrefDict.update({'self.assetName':self.assetName})
         self.userPrefDict.update({'self.shotName':self.shotName})
         self.userPrefDict.update({'self.projectGlobal':self.projectGlobal})
         self.userPrefDict.update({'self.projectStructureName':self.projectStructureName})
-
+        print 'self.processNow',self.processNow
        
-        
+        print "projectDescription check point 01"
         if self.isAsset == True:
         #assetBranchFileInfo.json  -- assetName_process.json
             self.assetBranchFileName = self.assetNow + "_" + self.processNow +".json"       #assetBranchFileStore FileName
+            print "projectDescription check point 02"
+
             self.assetRootDir = self.projectGlobal + "/" + "assets"
             self.assetClassDir = self.assetRootDir + "/" + self.assetClass
             self.assetBranchFileDir = self.assetClassDir + "/"+ self.assetNow #assetBranchFileStore Folder
             self.assetBranchFileStore = self.assetBranchFileDir + "/" + self.assetBranchFileName    #export Path + fileName
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
             self.assetDir = self.root + "/" + self.project + "/" + self.assetName
+            
             print "self.assetBranchFileDir",self.assetBranchFileDir
 
             if os.path.isdir(self.assetDir) == True:
@@ -3823,15 +3880,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         else:
         #shotBranchFileInfo.json  -- shotName_process.json
+            print "projectDescription check point 03"
+
             self.shotBranchFileName = self.assetNow + "_" + self.processNow +".json"        #shotBranchFileStore FileName
+            print 'self.shotBranchFileName ',self.shotBranchFileName 
             self.shotRootDir = self.projectGlobal + "/" + "shot"
+            print 'self.shotRootDir',self.shotRootDir
             self.shotBranchFileDir = self.shotRootDir + "/"+ self.assetNow # shotBranchFileStore Folder
+            print 'self.shotBranchFileDir',self.shotBranchFileDir
             self.shotBranchFileStore = self.shotBranchFileDir + "/" + self.shotBranchFileName    #export Path + fileName
+            print 'self.shotBranchFileStore',self.shotBranchFileStore
             self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
+            print 'self.workProject',self.workProject
             self.shotDir = self.root + "/" + self.project + "/" + self.shotName 
+            print 'self.shotDir',self.shotDir
           #  
           
- 
+            print "projectDescription check point 04"
             if os.path.isdir(self.shotDir) == True:
                 pass
             else:
@@ -3843,18 +3908,29 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
             else:
                 os.mkdir(self.shotBranchFileDir)
-                
+            print "projectDescription check point 05"
+        
             self.branchFileStore = self.shotBranchFileStore
+            print 'self.branchFileStore',self.branchFileStore
            # print "self.shotBranchFileDir", self.shotBranchFileDir
            # print "self.shotBranchFileStore",self.shotBranchFileStore
            # print "self.workProject", self.workProject    
-            
-            self.userPrefDict.update({'self.shotBranchFileDir',self.shotBranchFileDir})
-            self.userPrefDict.update({'self.shotBranchFileStore',self.shotBranchFileStore})
+            print "projectDescription check point 05.1"
+
+            self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
+             
+            print "projectDescription check point 05.2"
+
+           # self.userPrefDict.update({'self.shotBranchFileStore',self.shotBranchFileStore})
+            print "projectDescription check point 05.3"
+
             self.userPrefDict.update({'self.workProject',self.workProject})
+            print "projectDescription check point 05.4"
+
             self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
 
-       
+            print "projectDescription check point 06"
+
                 
        # try:
           #  os.mkdir(self.projectGlobal + "/" + self.assetNow)

@@ -2165,27 +2165,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         
-        '''
-        # define user pref file location and filename
-        CSIDL_PERSONAL = 5       # My Documents
-        SHGFP_TYPE_CURRENT = 0   # Get current, not default value
 
-        buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
-        ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
-
-        self.userDoctFolder = (buf.value)
-        
-        self.userPrefFile = ""
-        tempUserPrefFile = self.userDoctFolder + '/' + 'publishToolUserPref.json'
-        
-        for i in tempUserPrefFile:
-            if i == '\\' :
-                self.userPrefFile = self.userPrefFile + '/'
-            else :
-                self.userPrefFile = self.userPrefFile + i
-        '''       
-
-                
         
 
         #define project root
@@ -4108,23 +4088,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
         
-        
-        
-        
-        '''
-        if self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())==-1:
-            try:
-                if len(self.treeWidget_branches.currentItem().parent().parent().text(0)) > 0 :
-                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().parent().text(0) + '/' + self.treeWidget_branches.currentItem().parent().text(0) +'/'+ self.treeWidget_branches.currentItem().text(0)
-                    #print currentBranchFolder
-            except:
-                if len(self.treeWidget_branches.currentItem().parent().text(0)) > 0 :
-                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().text(0) + '/'+ self.treeWidget_branches.currentItem().text(0)
-                    #print currentBranchFolder           
-        else: 
-            self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
-        
-        '''
+ 
         # self.buildExistFileInfoTree()
         self.getFilesInfoFromJson()
 
@@ -4734,14 +4698,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ##finding top Level Item topLevelItem(topItemLayerIndex)
         if self.depth == 0:
           #  print "top level item"
-            topLevelItemIndex = self.topLayerItemDict[selectItem]
+            try:
+
+                topLevelItemIndex = self.topLayerItemDict[selectItem]
             
            # print "selectItem          :",selectItem
            # print "topLevelItem  :",selectItem
           #  print "topLevelItemIndex   :",topLevelItemIndex  
-            
-            self.fullItemIndex = [topLevelItemIndex]
-
+                self.fullItemIndex = [topLevelItemIndex]
+            except:
+                pass
 
            
            
@@ -4749,55 +4715,59 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif self.depth == 1 :
             print "2nd level item"
             
-            
-            topLayerItem = self.treeWidget_branches.currentItem().parent().text(0)
-            
-            topLevelItemIndex = self.topLayerItemDict[topLayerItem]
-            
-           # print self.secLayerItemDict
-            secLevelItemIndex = self.secLayerItemDict[selectItem]
-          
-         #   print "selectItem          :",selectItem
-          #  print "topLevelItem  :",topLayerItem
-          #  print "topLevelItemIndex   :",topLevelItemIndex         
-          #  print "secLevelItemIndex   :",secLevelItemIndex
-            
-            self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex]
-            
+            try:
+                topLayerItem = self.treeWidget_branches.currentItem().parent().text(0)
+                
+                topLevelItemIndex = self.topLayerItemDict[topLayerItem]
+                
+               # print self.secLayerItemDict
+                secLevelItemIndex = self.secLayerItemDict[selectItem]
+              
+             #   print "selectItem          :",selectItem
+              #  print "topLevelItem  :",topLayerItem
+              #  print "topLevelItemIndex   :",topLevelItemIndex         
+              #  print "secLevelItemIndex   :",secLevelItemIndex
+                
+                self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex]
+                
+            except:
+                pass
 
         #finding 3rd level item topLevelItemIndex and childIndex ,     topLevelItem(topLevelItemIndex).child(secLevelItemIndex).chile(thirdLevelItemIndex)            
         else:
             print "3rd level item"
             
+            try:
+                thirdLevelItemIndex = self.thirdLayerItemDict[selectItem]     
+                
 
-            thirdLevelItemIndex = self.thirdLayerItemDict[selectItem]     
-            
+                            
+                secLayerItem = self.treeWidget_branches.currentItem().parent().text(0)  
+                
+                secLevelItemIndex = self.secLayerItemDict[secLayerItem]
+                
+                topLayerItem = self.treeWidget_branches.currentItem().parent().parent().text(0)
+                
+                topLevelItemIndex =self.topLayerItemDict[topLayerItem]
 
-                        
-            secLayerItem = self.treeWidget_branches.currentItem().parent().text(0)  
-            
-            secLevelItemIndex = self.secLayerItemDict[secLayerItem]
-            
-            topLayerItem = self.treeWidget_branches.currentItem().parent().parent().text(0)
-            
-            topLevelItemIndex =self.topLayerItemDict[topLayerItem]
-
-           
-            
+               
+                
 
 
-            
-          #  print "selectItem          :",selectItem
-          #  print "parentTopLevelItem  :",topLayerItem
-           # print "parentSecLayerItem  :",secLayerItem
-          #  print "topLevelItemIndex   :",topLevelItemIndex          #topLevelItem(topLevelItemIndex).child(1)
-          #  print "secLevelItemIndex   :",secLevelItemIndex
-           # print "thirdLevelItemIndex :",thirdLevelItemIndex fullItemIndex
-            
-            self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex,thirdLevelItemIndex]
-            #self.fullItemIndexStore = [str(topLevelItemIndex),str(secLevelItemIndex),str(thirdLevelItemIndex)]
-            #'%s'%str(topLevelItemIndex),'%s'%str(secLevelItemIndex),'%s'%str(thirdLevelItemIndex)
-            #'%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex
+                
+              #  print "selectItem          :",selectItem
+              #  print "parentTopLevelItem  :",topLayerItem
+               # print "parentSecLayerItem  :",secLayerItem
+              #  print "topLevelItemIndex   :",topLevelItemIndex          #topLevelItem(topLevelItemIndex).child(1)
+              #  print "secLevelItemIndex   :",secLevelItemIndex
+               # print "thirdLevelItemIndex :",thirdLevelItemIndex fullItemIndex
+                
+                self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex,thirdLevelItemIndex]
+                #self.fullItemIndexStore = [str(topLevelItemIndex),str(secLevelItemIndex),str(thirdLevelItemIndex)]
+                #'%s'%str(topLevelItemIndex),'%s'%str(secLevelItemIndex),'%s'%str(thirdLevelItemIndex)
+                #'%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex
+            except:
+                pass
 
         self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex]})
         self.writeToUserPref()

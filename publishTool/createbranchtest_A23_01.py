@@ -160,8 +160,8 @@ class Ui_MainWindow(object):
         self.pushButton_inProgress.setAutoFillBackground(False)
         self.pushButton_inProgress.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_inProgress.setIcon(icon)
         self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_inProgress.setCheckable(True)
@@ -207,8 +207,8 @@ class Ui_MainWindow(object):
         self.pushButton_recent.setAutoFillBackground(False)
         self.pushButton_recent.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_recent.setIcon(icon1)
         self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_recent.setCheckable(True)
@@ -254,8 +254,8 @@ class Ui_MainWindow(object):
         self.pushButton_complete.setAutoFillBackground(False)
         self.pushButton_complete.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_complete.setIcon(icon2)
         self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_complete.setCheckable(True)
@@ -475,7 +475,7 @@ class Ui_MainWindow(object):
         self.pushButton_createNewBranch.setGeometry(QtCore.QRect(495, 69, 40, 40))
         self.pushButton_createNewBranch.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_createNewBranch.setIcon(icon3)
         self.pushButton_createNewBranch.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_createNewBranch.setAutoDefault(False)
@@ -486,7 +486,7 @@ class Ui_MainWindow(object):
         self.pushButton_openBranchJson.setGeometry(QtCore.QRect(495, 120, 40, 40))
         self.pushButton_openBranchJson.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openBranchJson.setIcon(icon4)
         self.pushButton_openBranchJson.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_openBranchJson.setAutoDefault(False)
@@ -510,13 +510,13 @@ class Ui_MainWindow(object):
         self.label_showImage = QtWidgets.QLabel(self.tab_branch)
         self.label_showImage.setGeometry(QtCore.QRect(40, 445, 150, 150))
         self.label_showImage.setText("")
-        self.label_showImage.setPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/picture-01-150.png"))
+        self.label_showImage.setPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/picture-01-150.png"))
         self.label_showImage.setObjectName("label_showImage")
         self.pushButton_loadFile = QtWidgets.QPushButton(self.tab_branch)
         self.pushButton_loadFile.setGeometry(QtCore.QRect(495, 320, 40, 40))
         self.pushButton_loadFile.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_loadFile.setIcon(icon5)
         self.pushButton_loadFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_loadFile.setAutoDefault(False)
@@ -529,7 +529,7 @@ class Ui_MainWindow(object):
         self.pushButton_saveFile.setWhatsThis("")
         self.pushButton_saveFile.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_saveFile.setIcon(icon6)
         self.pushButton_saveFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_saveFile.setAutoDefault(False)
@@ -540,7 +540,7 @@ class Ui_MainWindow(object):
         self.pushButton_editFileInfo.setGeometry(QtCore.QRect(495, 440, 40, 40))
         self.pushButton_editFileInfo.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_editFileInfo.setIcon(icon7)
         self.pushButton_editFileInfo.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_editFileInfo.setAutoDefault(False)
@@ -551,7 +551,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFolder.setGeometry(QtCore.QRect(495, 490, 40, 40))
         self.pushButton_openFolder.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFolder.setIcon(icon8)
         self.pushButton_openFolder.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_openFolder.setAutoDefault(False)
@@ -562,7 +562,7 @@ class Ui_MainWindow(object):
         self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(150, 670, 31, 31))
         self.pushButton_reNewBranchDict.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_reNewBranchDict.setIcon(icon9)
         self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_reNewBranchDict.setAutoDefault(False)
@@ -573,7 +573,7 @@ class Ui_MainWindow(object):
         self.pushButton_publish.setGeometry(QtCore.QRect(30, 670, 31, 31))
         self.pushButton_publish.setText("")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_publish.setIcon(icon10)
         self.pushButton_publish.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_publish.setAutoDefault(False)
@@ -584,7 +584,7 @@ class Ui_MainWindow(object):
         self.pushButton_syncFile.setGeometry(QtCore.QRect(60, 670, 31, 31))
         self.pushButton_syncFile.setText("")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_syncFile.setIcon(icon11)
         self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_syncFile.setAutoDefault(False)
@@ -595,7 +595,7 @@ class Ui_MainWindow(object):
         self.pushButton_setting.setGeometry(QtCore.QRect(120, 670, 31, 31))
         self.pushButton_setting.setText("")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_setting.setIcon(icon12)
         self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_setting.setAutoDefault(False)
@@ -637,8 +637,8 @@ class Ui_MainWindow(object):
         self.pushButton_character.setAutoFillBackground(False)
         self.pushButton_character.setText("")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_character.setIcon(icon13)
         self.pushButton_character.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_character.setCheckable(True)
@@ -654,8 +654,8 @@ class Ui_MainWindow(object):
         self.pushButton_vehicle.setGeometry(QtCore.QRect(60, 40, 25, 25))
         self.pushButton_vehicle.setText("")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_vehicle.setIcon(icon14)
         self.pushButton_vehicle.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_vehicle.setCheckable(True)
@@ -668,8 +668,8 @@ class Ui_MainWindow(object):
         self.pushButton_set.setGeometry(QtCore.QRect(90, 40, 25, 25))
         self.pushButton_set.setText("")
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_set.setIcon(icon15)
         self.pushButton_set.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_set.setCheckable(True)
@@ -682,8 +682,8 @@ class Ui_MainWindow(object):
         self.pushButton_props.setGeometry(QtCore.QRect(120, 40, 25, 25))
         self.pushButton_props.setText("")
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_props.setIcon(icon16)
         self.pushButton_props.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_props.setCheckable(True)
@@ -696,8 +696,8 @@ class Ui_MainWindow(object):
         self.pushButton_others.setGeometry(QtCore.QRect(150, 40, 25, 25))
         self.pushButton_others.setText("")
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_others.setIcon(icon17)
         self.pushButton_others.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_others.setCheckable(True)
@@ -714,8 +714,8 @@ class Ui_MainWindow(object):
         self.pushButton_processConcept.setSizePolicy(sizePolicy)
         self.pushButton_processConcept.setText("")
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processConcept.setIcon(icon18)
         self.pushButton_processConcept.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processConcept.setCheckable(True)
@@ -728,8 +728,8 @@ class Ui_MainWindow(object):
         self.pushButton_processModeling.setGeometry(QtCore.QRect(225, 40, 25, 25))
         self.pushButton_processModeling.setText("")
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processModeling.setIcon(icon19)
         self.pushButton_processModeling.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processModeling.setCheckable(True)
@@ -742,8 +742,8 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setGeometry(QtCore.QRect(275, 40, 25, 25))
         self.pushButton_processRigging.setText("")
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processRigging.setIcon(icon20)
         self.pushButton_processRigging.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processRigging.setCheckable(True)
@@ -756,8 +756,8 @@ class Ui_MainWindow(object):
         self.pushButton_processTexture.setGeometry(QtCore.QRect(250, 40, 25, 25))
         self.pushButton_processTexture.setText("")
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processTexture.setIcon(icon21)
         self.pushButton_processTexture.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processTexture.setCheckable(True)
@@ -770,8 +770,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLayout.setGeometry(QtCore.QRect(340, 40, 25, 25))
         self.pushButton_processLayout.setText("")
         icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLayout.setIcon(icon22)
         self.pushButton_processLayout.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processLayout.setCheckable(True)
@@ -784,8 +784,8 @@ class Ui_MainWindow(object):
         self.pushButton_processAnimation.setGeometry(QtCore.QRect(370, 40, 25, 25))
         self.pushButton_processAnimation.setText("")
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processAnimation.setIcon(icon23)
         self.pushButton_processAnimation.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processAnimation.setCheckable(True)
@@ -798,8 +798,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLighting.setGeometry(QtCore.QRect(390, 40, 25, 25))
         self.pushButton_processLighting.setText("")
         icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLighting.setIcon(icon24)
         self.pushButton_processLighting.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processLighting.setCheckable(True)
@@ -812,8 +812,8 @@ class Ui_MainWindow(object):
         self.pushButton_processEffects.setGeometry(QtCore.QRect(410, 40, 25, 25))
         self.pushButton_processEffects.setText("")
         icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processEffects.setIcon(icon25)
         self.pushButton_processEffects.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processEffects.setCheckable(True)
@@ -826,8 +826,8 @@ class Ui_MainWindow(object):
         self.pushButton_processSimulation.setGeometry(QtCore.QRect(430, 40, 25, 25))
         self.pushButton_processSimulation.setText("")
         icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processSimulation.setIcon(icon26)
         self.pushButton_processSimulation.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_processSimulation.setCheckable(True)
@@ -840,8 +840,8 @@ class Ui_MainWindow(object):
         self.pushButton_all.setGeometry(QtCore.QRect(5, 70, 25, 25))
         self.pushButton_all.setText("")
         icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_all.setIcon(icon27)
         self.pushButton_all.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_all.setCheckable(True)
@@ -854,8 +854,8 @@ class Ui_MainWindow(object):
         self.pushButton_shot.setGeometry(QtCore.QRect(5, 100, 25, 25))
         self.pushButton_shot.setText("")
         icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_shot.setIcon(icon28)
         self.pushButton_shot.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_shot.setCheckable(True)
@@ -1907,7 +1907,7 @@ class Ui_MainWindow(object):
         self.pushButton_closeBranch.setGeometry(QtCore.QRect(1130, 380, 31, 31))
         self.pushButton_closeBranch.setText("")
         icon29 = QtGui.QIcon()
-        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon29.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_closeBranch.setIcon(icon29)
         self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_closeBranch.setAutoDefault(False)
@@ -1918,7 +1918,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson.setGeometry(QtCore.QRect(1130, 350, 31, 31))
         self.pushButton_openFileJson.setText("")
         icon30 = QtGui.QIcon()
-        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon30.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFileJson.setIcon(icon30)
         self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFileJson.setAutoDefault(False)
@@ -1944,7 +1944,7 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(1250, 770, 25, 25))
         self.pushButton_mergeToMaster.setText("")
         icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon31.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_mergeToMaster.setIcon(icon31)
         self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_mergeToMaster.setAutoDefault(False)
@@ -1956,8 +1956,8 @@ class Ui_MainWindow(object):
         self.pushButton_processComp.setGeometry(QtCore.QRect(1200, 570, 29, 29))
         self.pushButton_processComp.setText("")
         icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processComp.setIcon(icon32)
         self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processComp.setCheckable(True)
@@ -2108,7 +2108,7 @@ class Ui_MainWindow(object):
         #self.pushButton_inProgress.setToolTip("show the project in progress")
         #self.pushButton_recent.setToolTip("show the project recently, recent 20")
         #self.pushButton_complete.setToolTip("show the project, completed")
-        
+        '''
         self.pushButton_inProgress.setToolTip(u"顯示正在執行中的專案")
         self.pushButton_recent.setToolTip(u"顯示最近20個專案")
         self.pushButton_complete.setToolTip(u"顯示已完成的專案")
@@ -2150,9 +2150,10 @@ class Ui_MainWindow(object):
         #self.pushButton_syncFile.setToolTip(u"儲存檔案到所選的分支，或master中")   
         #self.pushButton_setting.setToolTip(u"儲存檔案到所選的分支，或master中")   
         #self.pushButton_reNewBranchDict.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        '''
 
-
-
+    #user pref
+    
 
 
         
@@ -2164,7 +2165,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         
-        self.userPrefDict= {}
+
         
 
         #define project root
@@ -2172,15 +2173,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.root = "//mcd-server/art_3d_project"   # projects root in company
         #self.doFromAdmin()
         
+        self.getDataFromTactic()
+
         
-        
-        #selectProject ComboBox
-        self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
 
         
         
         #creat projects Info in self.root
-        self.pushButton_setting.clicked.connect(self.doFromAdmin)
+        #self.pushButton_setting.clicked.connect(self.doFromAdmin)
         
         
         
@@ -2211,7 +2211,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         
-        self.pushButton_reNewBranchDict.clicked.connect(self.checkPublishToolTempFolder)
+       # self.pushButton_reNewBranchDict.clicked.connect(self.checkPublishToolTempFolder)
         
         self.pushButton_createNewBranch.clicked.connect(self.createNewBranchCombo)
 
@@ -2225,6 +2225,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_editFileInfo.clicked.connect(self.addDescriptionToTextFile)
         
         self.pushButton_saveFile.clicked.connect(self.getSavingFile)
+        
+        self.pushButton_loadFile.clicked.connect(self.openSelectFile)
         
         self.pushButton_openFolder.clicked.connect(self.readFileInof)
         
@@ -2260,16 +2262,19 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
 
+        #selectProject ComboBox
+        self.comboBox_selectProj.currentIndexChanged.connect(self.selectWorkingProjectInGlobalFromTactic)
 
-        #test--------------------
+        #test--------------------pushButton_setting
         #self.pushButton_syncFile.clicked.connect(self.defineWorkingProjectAssemble)
-        self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
+       # self.pushButton_publish.clicked.connect(self.test_processProjectGlobal)
 
         self.getCurrentLevelList = []
         
         #self.runUserPref()
         
     def runUserPref(self):
+        self.isAsset =True
         #userPrefFile = 
     #def self.comboBox_selectProj
         CSIDL_PERSONAL = 5       # My Documents
@@ -2280,21 +2285,302 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.userDoctFolder = (buf.value)
         
-        self.userPrefFile = self.userDoctFolder + '/' + 'publishToolUserPref.json'
+        self.userPrefFile = ""
+        tempUserPrefFile = self.userDoctFolder + '/' + 'publishToolUserPref.json'
+        
+        for i in tempUserPrefFile:
+            if i == '\\' :
+                self.userPrefFile = self.userPrefFile + '/'
+            else :
+                self.userPrefFile = self.userPrefFile + i
+                
+        #self.userPrefFile = 'c:/temp/publishToolUserPref.json'
+       
+       # print' self.userPrefFile', self.userPrefFile
+      #  f = open(self.userPrefFile,'w')
+        
+        
+       # data = 'sdasdadasd'    
+        #data = json.dumps(self.userPrefDict, sort_keys=True , indent =4)  #編譯成json 且賦予格式 控四格
+       # f.write(data)
+       # f.close
+       # self.writeToUserPref() userPrefDict
         
 
     def writeToUserPref(self):
         f = open(self.userPrefFile,'w')
-        f.write(self.userPrefDict)
         
+        
+        #data = 'hello world'    
+        data = json.dumps(self.userPrefDict, sort_keys=True , indent =4)  #編譯成json 且賦予格式 控四格
+        f.write(data)
+        f.close
+       # dataName = open(fileName)
+    
+    
+    def checkUserPrefFileExist(self):
+        self.runUserPref()
+        
+
+        if os.path.isfile(self.userPrefFile) == True:
+            print "the user pref file existed, and restored data from file"
+            self.restoreUserPref()
+
+        else:
+            "publishToolUserPref, user/doctument/publishToolUserPref.json is not exist"
+            self.userPrefDict= {}
+
+            self.getDataFromTactic()
+
+        #print self.userPrefDict
+
+        
+    def restoreUserPref(self):
+        
+        print 'restoreUserPref start'
+        
+        with open(self.userPrefFile) as data_file:    
+            self.userPrefDict = json.load(data_file)
+                
+        print 'len of self.userPrefDict',len(self.userPrefDict)
+        if len(self.userPrefDict) >= 1:
+            
+            #try:
+
+            self.project = self.userPrefDict['self.project']
+            print 'self.project',self.project
+            self.setFromUserPref()
+            #self.setFromUserPref()
+            
+                
+            #except:
+               # print "publishToolUserPref, user/doctument/publishToolUserPref.json is empty"
+
+        else:
+
+            print  "publishToolUserPref, user/doctument/publishToolUserPref.json is empty"
+
+            self.userPrefDict= {}
+            self.writeToUserPref()
+        #self.isAsset = self.userPrefDict['self.isAsset']
+        #print 'self.isAsset',self.isAsset
+
+        
+    
+    
+    
+        #self.userPrefRestore = open(self.userPrefFile,'r')
+        print 'restore self.userPrefDict from file', self.userPrefDict
+        print 'restoreUserPref end'
+  
+  
+    def setAssetShotButtonFromUserPref(self):
+        #userPrefDict
+        
+        print " setAssetShotButtonFromUserPref start "
+        self.checkIsAssetValue()
+            
+        print 'self.isAsset',self.isAsset
+
+        
+        self.assetClass = self.userPrefDict['self.assetClass']
+        print 'self.assetClass',self.assetClass
+
+        self.pushButton_character.setChecked(int(self.userPrefDict['assetsOnOffTable'][0]))
+        self.pushButton_vehicle.setChecked(int(self.userPrefDict['assetsOnOffTable'][1]))
+        self.pushButton_set.setChecked(int(self.userPrefDict['assetsOnOffTable'][2]))
+        self.pushButton_props.setChecked(int(self.userPrefDict['assetsOnOffTable'][3]))
+        self.pushButton_others.setChecked(int(self.userPrefDict['assetsOnOffTable'][4]))
+        self.pushButton_all.setChecked(int(self.userPrefDict['assetsOnOffTable'][5]))
+        self.pushButton_shot.setChecked(int(self.userPrefDict['assetsOnOffTable'][6]))
+        #print 'self.isAsset',self.isAsset
+        
+        if  self.isAsset == True:
+            self.pushButton_processConcept.setEnabled(True)
+            self.pushButton_processModeling.setEnabled(True)
+            self.pushButton_processTexture.setEnabled(True)
+            self.pushButton_processRigging.setEnabled(True)
+            self.pushButton_processLayout.setEnabled(False)
+            self.pushButton_processAnimation.setEnabled(False)
+            self.pushButton_processLighting.setEnabled(False)
+            self.pushButton_processEffects.setEnabled(False)
+            self.pushButton_processSimulation.setEnabled(False)
+            self. pushButton_processComp.setEnabled(False)
+            
+        else:
+            self.pushButton_processConcept.setEnabled(False)
+            self.pushButton_processModeling.setEnabled(False)
+            self.pushButton_processTexture.setEnabled(False)
+            self.pushButton_processRigging.setEnabled(False)
+            self.pushButton_processLayout.setEnabled(True)
+            self.pushButton_processAnimation.setEnabled(True)
+            self.pushButton_processLighting.setEnabled(True)
+            self.pushButton_processEffects.setEnabled(True)
+            self.pushButton_processSimulation.setEnabled(True)
+            self. pushButton_processComp.setEnabled(True)
+            
+        
+        self.buildAssetsList()
+        self.listWidget_assetProj.setCurrentRow(int(self.userPrefDict['self.assetListItemRow']))
+        
+        print " setAssetShotButtonFromUserPref end "
+
+        
+        
+    def setAssetProjListWidgetFromUserPref(self):
+        print 'setAssetProjListWidgetFromUserPref start'
+        #self.assetNow
+        #self.assetListItemRow
+        self.treeWidget_branches.clear
+        self.checkIsAssetValue()
+        self.assetNow = self.userPrefDict['self.assetNow']
+        self.assetListItemRow = self.userPrefDict['self.assetListItemRow']
+
+        
+        self.pushButton_processConcept.setChecked(int(self.userPrefDict['self.processOnOffTable'][0]))
+        self.pushButton_processModeling.setChecked(int(self.userPrefDict['self.processOnOffTable'][1]))
+        self.pushButton_processTexture.setChecked(int(self.userPrefDict['self.processOnOffTable'][2]))
+        self.pushButton_processRigging.setChecked(int(self.userPrefDict['self.processOnOffTable'][3]))
+        self.pushButton_processLayout.setChecked(int(self.userPrefDict['self.processOnOffTable'][4]))
+        self.pushButton_processAnimation.setChecked(int(self.userPrefDict['self.processOnOffTable'][5]))
+        self.pushButton_processLighting.setChecked(int(self.userPrefDict['self.processOnOffTable'][6]))
+        self.pushButton_processEffects.setChecked(int(self.userPrefDict['self.processOnOffTable'][7]))
+        self.pushButton_processSimulation.setChecked(int(self.userPrefDict['self.processOnOffTable'][8]))
+        self.pushButton_processComp.setChecked(int(self.userPrefDict['self.processOnOffTable'][9]))
+        
+        
+        self.processNow = self.userPrefDict['self.processNow']
+
+       # self.checkIsAssetValue()
+        #print 'self.isAsset', type(self.isAsset)
+        
+        if self.isAsset == True:
+           # print 'self.root',self.root
+           # print 'self.project',self.project
+            self.assetName= self.userPrefDict['self.assetName']
+           # print 'self.processNow',self.processNow
+            
+            self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
+        else:
+
+           # print 'self.root',self.root
+           # print 'self.project',self.project
+            self.shotName = self.userPrefDict['self.shotName']
+          #  print 'self.processNow',self.processNow
+            self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
+                        
+            
+        #print 'self.workProject',self.workProject 
+        self.branchFileStore = self.userPrefDict['self.branchFileStore']
+                                         #    aa['self.branchFileStore']
+       # print "self.branchInfoFile.........:",self.userPrefDict['self.branchFileStore']
+
+        self.checkMasterExist()
+        self.buildExistFileInfoTree()
+        self.buildTreeFromExistFileData()
+    
+        print 'setAssetProjListWidgetFromUserPref end'
+
+        
+        
+        
+        
+        
+        
+        
+    def setFromUserPref(self):
+        print 'setFromUserPref start'
+        self.setPushButton_ProjectSelect()    #restore what fillet button was checked
+       # self.pushButton_inProgress.isChecked(True) 
+        self.setWorkingProjFromUserPref()     #load project info, assets, shots from tactic data
+        self.setAssetShotButtonFromUserPref() #restore what asset/shot class was checked
+        self.setAssetProjListWidgetFromUserPref()
+        
+        
+        self.setBranchItemSelectFromUserPref()
+        self.getBranchInfoFromJson()
+        self.setFileTableFromUserPref()
+        print 'self.branchDict',self.branchDict
+        self.createFileTable()
+        
+        
+    def getBranchInfoFromJson(self):
+        fileName =  self.userPrefDict['self.branchFileStore']
+        with open(fileName) as data_file:    
+            data = json.load(data_file)
             
     
+
+        self.branchDict={'0':{'master':{}}}
+        for i in range(1,len(data.keys())):
+            top = data[str(i)].keys()[0]
+            self.branchDict.update({str(i):{top:{}}})
+            for sec in data[str(i)][top]['folder'].keys():
+
+                self.branchDict[str(i)][top].update({sec:{}})
+                
+                for third in data[str(i)][top]['folder'][sec]['folder'].keys():
+
+                    self.branchDict[str(i)][top][sec].update({third:{}})
+
+
+
+        
+        
+    def setFileTableFromUserPref(self):
+        print 'setFileTableFromUserPref start'
+        self.tableWidget_FileList.clear()
+        #pprint(data)
+        
+    #def asss(self):
+        print" run createFileTable function start..................."
+        self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        print 'self.itemSelect',self.itemSelect
+        
+        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+        self.getFilesInfoFromJson()
+        
+
+    def setBranchItemSelectFromUserPref(self):
+        #select tree item from userPref
+        
+        print  "setBranchItemSelectFromUserPref   start"
+        print self.userPrefDict['self.fullItemIndex']
+       # print self.treeWidget_branches.topLevelWidget()
+        #self.tree_widget.setCurrentItem(self.tree_widget.topLevelItem(0))
+
+        if len(self.userPrefDict['self.fullItemIndex']) > 0 :
+            print 'select branch item from user Pref'
     
+            if self.userPrefDict['self.fullItemIndex'][0] == 'none':
+                #print ' aaaa'
+                pass
+            else:
+               # print 'bbb'
+                topLevelIndex = int(self.userPrefDict['self.fullItemIndex'][0])
+                self.treeWidget_branches.setCurrentItem(self.treeWidget_branches.topLevelItem(topLevelIndex))
+
+             
+                if self.userPrefDict['self.fullItemIndex'][1] == 'none':
+                    pass
+                else:
+                    secLevelIndex =  int(self.userPrefDict['self.fullItemIndex'][1])
+                    self.treeWidget_branches.setCurrentItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelIndex))
+                                                   
+                    if self.userPrefDict['self.fullItemIndex'][2] == 'none':
+                        pass
+                    else:
+                        thirdLevelIndex = int(self.userPrefDict['self.fullItemIndex'][2])
+                        self.treeWidget_branches.setCurrentItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelIndex).child(thirdLevelIndex))
     
-    
-    
-    
-    
+        else:
+            pass
+            
+          
+                    
+        #self.treeWidget_branches.setCurrentItem(self.treeWidget_branches.topLevelItem(0).child().child())
+       # self.treeWidget_branches.
+
     def getDataFromTactic(self):
         print "run getDataFromTactic start"
         scripts_path = "//Art-1405260002/d/assets"
@@ -2357,7 +2643,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             
     #----------------------click push button, inProgress, _recent, _complete-----------------------------------------------------------
-            
+    def setPushButton_ProjectSelect(self):
+        print "setPushButton_ProjectSelect start"
+        
+        
+        self.pushButton_inProgress.setChecked(int(self.userPrefDict['projectFilectButtonChecked'][0]))
+        self.pushButton_recent.setChecked(int(self.userPrefDict['projectFilectButtonChecked'][1]))
+
+        self.pushButton_complete.setChecked(int(self.userPrefDict['projectFilectButtonChecked'][2]))
+
+        self.progressType = self.userPrefDict['self.progressType']
+        print 'self.progressType,check setPushButton_a01',self.progressType
+        
+        self.selectProjectFromTactic()
+
+        
             
     def click_pushButton_inProgress(self):
         print "set to in Progress"
@@ -2367,10 +2667,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.progressType = "inProgress"
         self.selectProjectFromTactic()
         
-        self.userPrefDict.update({'projectFilectButtonChecked':'self.click_pushButton_inProgress'})
+        self.userPrefDict.update({'projectFilectButtonChecked':['1','0','0']})
         self.userPrefDict.update({'self.progressType':'inProgress'})
         
-        
+        self.writeToUserPref()
         
     def click_pushButton_recent(self):
         print "set to recent"
@@ -2380,10 +2680,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.progressType = "recent"
         self.selectProjectFromTactic()
         
-        self.userPrefDict.update({'projectFilectButtonChecked':'self.click_pushButton_recent'})
+        self.userPrefDict.update({'projectFilectButtonChecked':['0','1','0']})
         self.userPrefDict.update({'self.progressType':'recent'})
         
-        
+        self.writeToUserPref()
         
         
     def click_pushButton_complete(self):
@@ -2394,10 +2694,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.progressType = "complete"
         self.selectProjectFromTactic()
         
-        self.userPrefDict.update({'projectFilectButtonChecked':'self.click_pushButton_complete'})
+        self.userPrefDict.update({'projectFilectButtonChecked':['0','0','1']})
         self.userPrefDict.update({'self.progressType':'complete'})
         
-        
+        self.writeToUserPref()
     #-----------------------------------------------------------------------------------------------------------------------
 
 
@@ -2411,8 +2711,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print 'run selectProjectFromTactic'
         
-        #self.getDataFromTactic()
-        
+        #self.getDataFromTactic() projectsInTactic
+        # input self.progressType
         
         #self.projectsInTactic , all projects in Tactics
         tempProjList = []
@@ -2446,8 +2746,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.projectFilter.append(i['name'])
                 
         self.buildProjectComboBox()
-        self.writeToUserPref()
-        
+        #self.writeToUserPref()
         #self.comboBox_selectProj.setCurrentIndex(33)
         #self.comboBox_selectProj.
 
@@ -2457,14 +2756,76 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             
     #----------------------------------------selectWorkingProjectInGlobalFromTactic----------------------------------------------------
+    def setWorkingProjFromUserPref(self):
+        print "setWorkingProjFromUserPref start"
+        
+        
+        
+        
+        #print 'self.comboBox_selectProj.setCurrentIndex' , self.userPrefDict['itemSelectIndexInComboBox']
+        
+       # print 'self.comboBox_selectProj.itemName',self.userPrefDict['itemSelectNameInComboBox']
+        self.comboBox_selectProj.setCurrentIndex(int(self.userPrefDict['itemSelectIndexInComboBox']))
+        
+        self.assetsSelectInfoFromTactic = []
+        self.shotsSelectInfoFromTactic = []
+        
+        # get project info from select item on comboBox ,date in tactic  , export self.projectSelectInfoFromTactic,self.project,self.projectCode
+                
+        for i in self.projectsInTactic:
+            if i['name'] == self.project:
+                self.projectSelectInfoFromTactic = i
+                self.project = i['name']
+                self.projectCode = i['code']
+                
+       # print self.projectCode
+       # print self.assetsInTactic
+       # print self.shotsInTactic
+        
+                
+        # get assets info from select item on comboBox ,date in tactic
+        for i in self.assetsInTactic:
+            if i['game_code'] == self.projectCode:
+                if i['asset_type_code'] == 'ASSET_TYPE00002' :
+                    i['asset_type_code'] = 'character'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00003' :
+                    i['asset_type_code'] = 'vehicle'
             
+                elif i['asset_type_code'] == 'ASSET_TYPE00004' :
+                    i['asset_type_code'] = 'set'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00005' :
+                    i['asset_type_code'] = 'prop'
+                    
+                elif i['asset_type_code'] == 'ASSET_TYPE00006' :
+                    i['asset_type_code'] = 'other'
+                    
+                    
+                   # selectWorkingProjectInGlobalFromTactic
+                self.assetsSelectInfoFromTactic.append(i)
+
+                
+        for i in self.shotsInTactic:
+            if i['game_code'] == self.projectCode:
+                self.shotsSelectInfoFromTactic.append(i)
+        
+        self.defineWorkingProjectAssembleFromTactic()
+        
+        self.listWidget_assetProj.clear()
+        self.clickAssetShotSelectButton()
+        #self.clickAllButton()
+        
+        print "setWorkingProjFromUserPref end"
+
+        
     def selectWorkingProjectInGlobalFromTactic(self):
         #1. input self.project from select combobox item
         #2. output self.project           , item Name in comboBox
-        #3. output self.currentProjectComboBoxIndex, item index in comboBox
+        #3. output self.currentProjectComboBoxIndex, item index in comboBox selectWorkingProjectInGlobalFromTactic
         #4. output 
 
-        
+     
         print "run selectWorkingProjectInGlobalFromTactic moudle start"
         print "choose a project and list all data from select in Tactic"
         self.project = self.comboBox_selectProj.currentText()  #1. input self.project from select combobox item
@@ -2473,9 +2834,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.userPrefDict.update({'itemSelectNameInComboBox':self.project})
         self.userPrefDict.update({'itemSelectIndexInComboBox':self.currentProjectComboBoxIndex})
-        
-        
-        
+        self.userPrefDict.update({'self.project':self.project})
+        #print 'self.userPrefDict',self.userPrefDict
+      
+        self.writeToUserPref()
 
         self.assetsSelectInfoFromTactic = []
         self.shotsSelectInfoFromTactic = []
@@ -2512,7 +2874,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     i['asset_type_code'] = 'other'
                     
                     
-                    
+                   # selectWorkingProjectInGlobalFromTactic
                 self.assetsSelectInfoFromTactic.append(i)
         # character, ASSET_TYPE00002 
         # vehicle, ASSET_TYPE00003 
@@ -2538,6 +2900,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.listWidget_assetProj.clear()
         self.clickAssetShotSelectButton()
+        self.clickAllButton()
         
 
         print "run selectWorkingProjectInGlobalFromTactic moudle End"
@@ -2880,7 +3243,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
-
+        self.userPrefDict.update({'self.projectAssembleDescriptionFile':self.projectAssembleDescriptionFile})
+        self.writeToUserPref
         print 'self.projectAssembleDescription',self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
@@ -3084,6 +3448,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
         self.assetClass = "character"
         self.isAsset = True
+        
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['1','0','0','0','0','0','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
         self.clickAssetShotSelectButton()
        
         
@@ -3097,10 +3465,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         
         self.assetClass = "vehicle"
         self.isAsset = True
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','1','0','0','0','0','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
         self.clickAssetShotSelectButton()
         
 
         self.pushButton_vehicle.setChecked(True)
+
         self.buildAssetsList()
 
 
@@ -3110,11 +3482,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         
         self.assetClass = "set"
         self.isAsset = True
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','0','1','0','0','0','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
         self.clickAssetShotSelectButton()
                 
         
 
         self.pushButton_set.setChecked(True)
+
         self.buildAssetsList()
 
 
@@ -3124,12 +3500,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.assetClass = "prop"
         self.isAsset = True
+        
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','0','0','1','0','0','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
         self.clickAssetShotSelectButton()
                 
                 
         
 
         self.pushButton_props.setChecked(True)
+
+        
         self.buildAssetsList()
         
         
@@ -3140,12 +3522,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.assetClass = "other"
         self.isAsset = True
+        
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','0','0','0','1','0','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
         self.clickAssetShotSelectButton()
                         
         
         
 
         self.pushButton_others.setChecked(True)
+        
+
 
         self.buildAssetsList()
 
@@ -3154,11 +3542,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def clickAllButton(self):
         "print select assetType , all"
 
-        self.pushButton_all.setChecked(True)
         
         self.assetClass = "all"
         self.isAsset = True
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','0','0','0','0','1','0']})
+        self.userPrefDict.update({'self.isAsset':'True'})
+
         self.clickAssetShotSelectButton()
+        self.pushButton_all.setChecked(True)
+
+
 
         self.buildAssetsList()
         
@@ -3168,6 +3562,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.assetClass = "shot"
         self.isAsset = False
+        self.userPrefDict.update({'self.assetClass':self.assetClass})
+        self.userPrefDict.update({'assetsOnOffTable': ['0','0','0','0','0','0','1']})
+        self.userPrefDict.update({'self.isAsset':'False'})
         self.clickAssetShotSelectButton()
                         
         
@@ -3175,12 +3572,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.pushButton_shot.setChecked(True)
 
+
         self.buildAssetsList()
        
         
     def clickAssetShotSelectButton(self):
-        
+        self.writeToUserPref()
+
         #self.assetsOnOffTable read on off
+
+
+        
         self.pushButton_character.setChecked(False)
         self.pushButton_vehicle.setChecked(False)
         self.pushButton_set.setChecked(False)
@@ -3222,15 +3624,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "select one asset/shot"
         self.treeWidget_branches.clear()
         # get self.assetNow
+       # self.userPrefDict.update({'self.assetName':self.assetName})
+
         self.assetNow = self.listWidget_assetProj.currentItem().text()
-        print self.assetNow
+        self.assetListItemRow = self.listWidget_assetProj.currentRow()
+        print 'self.assetNow',self.assetNow
+        print 'self.assetListItemRow',self.assetListItemRow
+        self.userPrefDict.update({'self.assetNow':self.assetNow})
+        self.userPrefDict.update({'self.assetListItemRow':self.assetListItemRow})
+        #self.userPrefDict.update({'self.self.assetListItemIndex':self.assetListItemIndex})
+
         #print self.allAssetTempList
         for i in self.allAssetTempList:
             if i.split('.')[0] == self.assetNow:
                 self.assetClass = i.split('.')[1]
             
-        print self.assetClass
+        self.writeToUserPref()
+       # print self.assetClass
         self.clickProcessTypeSelectButton()
+
+        
 
 
 
@@ -3240,6 +3653,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         #self.root + '/' + self.project + '/' + 'assets' +
         self.processNow = 'concept'
+        
+        self.isAsset = True
+
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['1','0','0','0','0','0','0','0','0','0']})
+
+
+        
+        
         self.processTypeSelectedRun()
         
         
@@ -3250,6 +3673,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processModeling.setChecked(True)
         self.processNow = 'model'
+        
+        self.isAsset = True
+        
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','1','0','0','0','0','0','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3260,6 +3690,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processTexture.setChecked(True)
         
         self.processNow = 'texture'
+        self.isAsset = True
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','1','0','0','0','0','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3268,6 +3703,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processRigging.setChecked(True)
         self.processNow = 'rigging'
+        self.isAsset = True
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','1','0','0','0','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3277,6 +3717,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processLayout.setChecked(True)
 
         self.processNow = 'layout'
+        self.isAsset = False
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','1','0','0','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3285,6 +3730,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processAnimation.setChecked(True)
         self.processNow = 'animation'
+        self.isAsset = False        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','1','0','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3295,6 +3744,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processLighting.setChecked(True)
         self.processNow = 'lighting'
+        self.isAsset = False        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','1','0','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3306,6 +3759,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processEffects.setChecked(True)
         
         self.processNow = 'effects'
+        self.isAsset = False        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','1','0','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3316,6 +3773,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processSimulation.setChecked(True)
         self.processNow = 'simulation'
+        self.isAsset = False        
+        
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','0','1','0']})
+
 
         self.processTypeSelectedRun()
 
@@ -3329,6 +3791,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.clickProcessTypeSelectButton()
         self.pushButton_processComp.setChecked(True)
         self.processNow = 'comp'
+        self.isAsset = False
+
+        self.userPrefDict.update({'self.processNow':self.processNow})
+        self.userPrefDict.update({'self.processOnOffTable':['0','0','0','0','0','0','0','0','0','1']})
+
 
         self.processTypeSelectedRun()
 
@@ -3338,7 +3805,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def clickProcessTypeSelectButton(self):
         
-        print "all process type button Off"
+        
+        print "clickProcessTypeSelectButton start"
+        print 'self.isAsset',self.isAsset ,'type is' ,type(self.isAsset)
+
         self.pushButton_processConcept.setChecked(False)
         self.pushButton_processModeling.setChecked(False)
         self.pushButton_processTexture.setChecked(False)
@@ -3350,12 +3820,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_processSimulation.setChecked(False)
         self.pushButton_processComp.setChecked(False)
         
+        print "clickProcessTypeSelectButton end"
+        
         
     def processTypeSelectedRun(self):
         # after click process button , run this to proces via module
         # 點選流程分類按鈕後執行此一模組,以呼叫數個模組
-        print "run processType button was clicked"
+        print "run processTypeSelectedRun start"
         
+        self.writeIsAssetToUserPref()
+     
+        
+        #self.writeToUserPref()
         #self.printOutProjectInfo()
         self.currentUser = getpass.getuser()
 
@@ -3370,7 +3846,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         
-        
+        print "run processTypeSelectedRun end"
+   
         
         
     def clear(self):
@@ -3410,47 +3887,78 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # print "Export brancg File Dir",self.branchFileStore
         
         self.checkMasterExist()
-
+    def checkIsAssetValue(self):
+        
+        if self.userPrefDict['self.isAsset'] == 'True':
+            self.isAsset = True
+        else:
+            self.isAsset = False
+    
+    def writeIsAssetToUserPref(self):
+        
+        if self.isAsset == True :
+            self.userPrefDict['self.isAsset'] == 'True'
+        else:
+            self.userPrefDict['self.isAsset'] == 'False'
+            
+        self.writeToUserPref()
+        
+    
+    
+        
    
     def projectDescription(self):
         
-        print "check, run projectDescription Start"
+       # self.assetNow = self.userPrefDict['self.assetNow']
+        print "projectDescription Start    p01"
                 
-        print "self.root" ,self.root
+        print "self.root",self.root 
         print "self.project" ,self.project
         print "self.assetClass", self.assetClass
         print "self.assetNow", self.assetNow   # if select assets
         print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset
+        print "self.isAsset", self.isAsset ,type(self.isAsset)
+        
+        #self.checkIsAssetValue()
 
-
-        self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
-        print "self.assetName", self.assetName
+        try:
+            self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
+            print "self.assetName", self.assetName
+        except:
+            pass
+        try:
+            self.shotName = "shot"+"/"+ self.assetNow
         
-        self.shotName = "shot"+"/"+ self.assetNow
-        
-        print "self.shotName" , self.shotName
-        
+            print "self.shotName" , self.shotName
+        except:
+            pass
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
         print "self.projectGlobal", self.projectGlobal
-        
         #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
         
         print "self.projectStructureName", self.projectStructureName
-        
-        
+        self.userPrefDict.update({'self.assetName':self.assetName})
+        self.userPrefDict.update({'self.shotName':self.shotName})
+        self.userPrefDict.update({'self.projectGlobal':self.projectGlobal})
+        self.userPrefDict.update({'self.projectStructureName':self.projectStructureName})
+        print 'self.processNow',self.processNow
+       
+        print "projectDescription check point 01"
         if self.isAsset == True:
         #assetBranchFileInfo.json  -- assetName_process.json
             self.assetBranchFileName = self.assetNow + "_" + self.processNow +".json"       #assetBranchFileStore FileName
+            print "projectDescription check point 02"
+
             self.assetRootDir = self.projectGlobal + "/" + "assets"
             self.assetClassDir = self.assetRootDir + "/" + self.assetClass
             self.assetBranchFileDir = self.assetClassDir + "/"+ self.assetNow #assetBranchFileStore Folder
             self.assetBranchFileStore = self.assetBranchFileDir + "/" + self.assetBranchFileName    #export Path + fileName
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
             self.assetDir = self.root + "/" + self.project + "/" + self.assetName
+            
             print "self.assetBranchFileDir",self.assetBranchFileDir
 
             if os.path.isdir(self.assetDir) == True:
@@ -3467,23 +3975,34 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                 
             self.branchFileStore = self.assetBranchFileStore
-            print "self.assetBranchFileDir",self.assetBranchFileDir
-            print "self.assetBranchFileStore", self.assetBranchFileStore
-            print "self.workProject", self.workProject
+           # print "self.assetBranchFileDir",self.assetBranchFileDir
+           # print "self.assetBranchFileStore", self.assetBranchFileStore
+          #  print "self.workProject", self.workProject
+            self.userPrefDict.update({'self.assetBranchFileDir':self.assetBranchFileDir})
+            self.userPrefDict.update({'self.assetBranchFileStore':self.assetBranchFileStore})
+            self.userPrefDict.update({'self.workProject':self.workProject})
+            self.userPrefDict.update({'self.branchFileStore':self.branchFileStore})
 
-       
             
         else:
         #shotBranchFileInfo.json  -- shotName_process.json
+            print "projectDescription check point 03"
+
             self.shotBranchFileName = self.assetNow + "_" + self.processNow +".json"        #shotBranchFileStore FileName
+            print 'self.shotBranchFileName ',self.shotBranchFileName 
             self.shotRootDir = self.projectGlobal + "/" + "shot"
+            print 'self.shotRootDir',self.shotRootDir
             self.shotBranchFileDir = self.shotRootDir + "/"+ self.assetNow # shotBranchFileStore Folder
+            print 'self.shotBranchFileDir',self.shotBranchFileDir
             self.shotBranchFileStore = self.shotBranchFileDir + "/" + self.shotBranchFileName    #export Path + fileName
+            print 'self.shotBranchFileStore',self.shotBranchFileStore
             self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
+            print 'self.workProject',self.workProject
             self.shotDir = self.root + "/" + self.project + "/" + self.shotName 
+            print 'self.shotDir',self.shotDir
           #  
           
- 
+            print "projectDescription check point 04"
             if os.path.isdir(self.shotDir) == True:
                 pass
             else:
@@ -3495,11 +4014,28 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pass
             else:
                 os.mkdir(self.shotBranchFileDir)
-                
+            print "projectDescription check point 05"
+        
             self.branchFileStore = self.shotBranchFileStore
-            print "self.shotBranchFileDir", self.shotBranchFileDir
-            print "self.shotBranchFileStore",self.shotBranchFileStore
-            print "self.workProject", self.workProject    
+           # print "self.shotBranchFileDir", self.shotBranchFileDir
+           # print "self.shotBranchFileStore",self.shotBranchFileStore
+           # print "self.workProject", self.workProject    
+           # print "projectDescription check point 05.1"
+
+           # self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
+             
+           # print "projectDescription check point 05.2"
+
+           # self.userPrefDict.update({'self.shotBranchFileStore',self.shotBranchFileStore})
+           # print "projectDescription check point 05.3"
+
+            #self.userPrefDict.update({'self.workProject',self.workProject})
+           # print "projectDescription check point 05.4"
+
+            #self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
+
+           # print "projectDescription check point 06"
+
                 
        # try:
           #  os.mkdir(self.projectGlobal + "/" + self.assetNow)
@@ -3508,8 +4044,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plainTextEdit_optionPage_projDescription.setPlainText(self.projectStructureName)
         self.plainTextEdit_optionPage_workProj.setPlainText(self.workProject)
         self.plainTextEdit_optionPage_branchInfoPos.setPlainText(self.branchFileStore)
-        
+        print 'self.branchFileStore',self.branchFileStore
 
+        self.writeToUserPref()
         print "check, run projectDescription End"
 
         
@@ -3521,10 +4058,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "run checkMasterExist start"
         print "check /scenes/master exist"
         print "check branchInfoFile exist"
+        print 'checkMasterExist checkpoint a01'
+
         #get self.workProject, check master /scenes/master folder exist
         #get self.branchFileStore ,check the branchInfoFile ,json file exist
         print "self.workProject............:" , self.workProject 
-        print "self.branchInfoFile.........:",self.branchFileStore
+        print 'checkMasterExist checkpoint a02'
+
+        print "self.branchFileStore.........:",self.branchFileStore
+       # self.branchInfoFile = self.userPrefDict['self.branchFileStore']
+        print 'checkMasterExist checkpoint a03'
+        
         self.workProjectScenesFolder = self.workProject +'/'+'scenes'
         self.workProjectData = self.workProject +'/'+'data'
         self.workProjectDataCache = self.workProject +'/'+'data' +'/' +'cache'
@@ -3567,6 +4111,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if os.path.isfile(self.branchFileStore) == True:
             print "the branch Info File exist already"
+
            # branchInfoFileBuild = open(self.branchFileStore,'a')
            # branchInfoFileBuild.write("\n"+"#"+"update Time:"+"    "+ "%s"%timeNow)
            # branchInfoFileBuild.close
@@ -3579,6 +4124,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print "the branch Info File was built"
             except:
                 pass
+        self.userPrefDict.update({'self.branchFileStore':self.branchFileStore})
 
         print "run checkMasterExist END"
         
@@ -3593,11 +4139,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #update the json file begining
     
 
-        
+        #branchFileStore
         #currentProject = "//mcd-server/art_3d_project/3d_pipeline_test/shot/shot_02/lighting/"    #test project
-        print "self.workProject",self.workProject
+        #print "self.workProject",self.workProject
         topLevelDirFileSearch = self.workProjectScenesFolder
-        print 'topLevelDirFileSearch' ,topLevelDirFileSearch
+        #print 'topLevelDirFileSearch' ,topLevelDirFileSearch
         
         topLevelDirList = ['master']
         branchPreDict = {"0":{"master":{}}}        
@@ -3618,7 +4164,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 else:
                     
                     topLevelDirList.append(allDir.split("\\")[1])
-                    print allDir.split("\\")[1]
+                 #   print allDir.split("\\")[1]
                 
             except:
                 pass
@@ -3678,14 +4224,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.branchPreDict = branchPreDict
         exportDate = json.dumps(self.branchPreDict, sort_keys=True , indent =4)
         #export json file
-        print exportDate 
-        print "--------------",self.branchFileStore
-
+       # print exportDate 
+       # print "--------------",self.branchFileStore
+        self.userPrefDict.update({'self.branchFileStore':self.branchFileStore})
         with open(self.branchFileStore, 'w') as f:
             f.write(exportDate)
                 
         
-        
+        self.writeToUserPref()
         
         print "run buildExistFileInfoTree process         ------------End" 
 
@@ -3694,21 +4240,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def initialItemBuild(self):
         
         print "run initialItemBuild start"
-        
+
+        self.currentUser = getpass.getuser()
+        self.checkUserPrefFileExist()
+        #self.setFromUserPref()
         self.branchDict={"0":{"master":{}}}    #default Master Item
         self.branch_index = 0
+        #self.isAsset = True
         
-        
-        self.runUserPref()
         #self.test_processProjectGlobal()
         #self.getDataFromTacticFile()
-        
-        self.getDataFromTactic()
+        #runUserPref
+        #self.setFromUserPref()
+        #print 'self.userPrefFile',self.userPrefFile
 
+       # print self.projectsInTactic 
+        #print self.assetsInTactic 
+       # print self.shotsInTactic
         print "run initialItemBuild End"
-   
-    
-    
+
     
     
 
@@ -3732,9 +4282,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
     
+    def setTreeFromUserPref(self):
+        self.treeWidget_branches.clear()
+
     
-    
-    
+        QtWidgets.QTreeWidgetItem(self.treeWidget_branches).setForeground(0,self.brushLevelOne)  #create contain master ,and define font color
+        
+        #1.default exist , master should exist in top of treeWidget
+        self.treeWidget_branches.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
+        self.treeWidget_branches.topLevelItem(0).setFont(0,self.fontLevelOne)#define font size
+
     
     
     
@@ -3915,7 +4472,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # with open('data.json') as data_file:    
         #data = json.load(data_file)
        # self.getFilesInfoFromJson()
-       # print 'self.self.branchDict',self.branchDict
+        print 'self.branchDict',self.branchDict
         #tableWidget_FileList
         self.tableWidget_FileList.clear()
 
@@ -3924,6 +4481,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     #def asss(self):
         print" run createFileTable function start..................."
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        print 'self.itemSelect',self.itemSelect
+        
+        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+        
+ 
         # self.buildExistFileInfoTree()
         self.getFilesInfoFromJson()
 
@@ -3951,7 +4513,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                     
                     itemUser = self.fileInfoDict[str(verIndex[i])][1]
-                    print 'itemUser',itemUser
+                   # print 'itemUser',itemUser
                     itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
                     itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
                     itemFileName = self.fileInfoDict[str(verIndex[i])][0]
@@ -3964,13 +4526,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                    # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
 
                   #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
-                    print itemFileName
+                   # print itemFileName
             else:
                 pass
                 
             self.currentSelectedFile = itemFileName
         except:
             pass
+         
         print" run createFileTable function End..................."
 
     #--------------------------get linking fileInfo json----------------------------start----------------------------
@@ -4113,7 +4676,19 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
             #print currentBranchFolder
 
+    def openSelectFile(self):
+        print "openSelectFile start"
+        #print 'self.filesStoreBranchFolder',self.filesStoreBranchFolder
+        #print 'self.fileInfoDict',self.fileInfoDict
+        fileName = self.lineEdit_currentFileName.text()
+        fullFileName = self.filesStoreBranchFolder +'/' +fileName
+        cmds.file( fullFileName, open=True,f=True )
         
+        print '%s'%fileName + ' was opened'
+        print "openSelectFile end"
+
+        
+            
 
 
 
@@ -4425,6 +5000,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.getThumbnail()
         
+        print 'self.branchDict',self.branchDict
         
     
 
@@ -4531,23 +5107,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         ##finding top Level Item topLevelItem(topItemLayerIndex)
         if self.depth == 0:
-          #  print "top level item"
+            print "top level item"
+
             topLevelItemIndex = self.topLayerItemDict[selectItem]
-            
-           # print "selectItem          :",selectItem
-           # print "topLevelItem  :",selectItem
-          #  print "topLevelItemIndex   :",topLevelItemIndex  
-            
+        
+       # print "selectItem          :",selectItem
+       # print "topLevelItem  :",selectItem
+      #  print "topLevelItemIndex   :",topLevelItemIndex  
             self.fullItemIndex = [topLevelItemIndex]
 
+            self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'none','none']})
 
-           
-           
+            
         #finding 2nd level item topLevelItemIndex and childIndex ,     topLevelItem(topLevelItemIndex).child(secLevelItemIndex)
         elif self.depth == 1 :
             print "2nd level item"
             
-            
+
             topLayerItem = self.treeWidget_branches.currentItem().parent().text(0)
             
             topLevelItemIndex = self.topLayerItemDict[topLayerItem]
@@ -4561,7 +5137,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
           #  print "secLevelItemIndex   :",secLevelItemIndex
             
             self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex]
-            
+            self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'none']})
+
 
         #finding 3rd level item topLevelItemIndex and childIndex ,     topLevelItem(topLevelItemIndex).child(secLevelItemIndex).chile(thirdLevelItemIndex)            
         else:
@@ -4593,10 +5170,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # print "thirdLevelItemIndex :",thirdLevelItemIndex fullItemIndex
             
             self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex,thirdLevelItemIndex]
-            
+            #self.fullItemIndexStore = [str(topLevelItemIndex),str(secLevelItemIndex),str(thirdLevelItemIndex)]
+            #'%s'%str(topLevelItemIndex),'%s'%str(secLevelItemIndex),'%s'%str(thirdLevelItemIndex)
+
+    
+            self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex]})
+
+        self.writeToUserPref()
         print 'self.fullItemIndex',self.fullItemIndex
-            
+
         print 'run findParentTopLevelItem End'
+
+
+    
+
 
 
         
@@ -4632,8 +5219,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.getSelectItemLevel()
                 self.createNewBranchChildLevel()
             
-
-                        
+            self.checkMasterExist()  
+            self.buildExistFileInfoTree()     
+            self.buildTreeFromExistFileData()
                         
         except:
             pass
@@ -5010,7 +5598,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.thirdLayerItemList = [] 
         
-        print self.branchDict
+        #print self.branchDict
 
         
         for itemCount in range(1,self.topLayerCount):
