@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:/Users/alpha/Documents/GitHub/mayaTool/publishTool/exportTool_UI_a01.ui'
 #
-# Created: Sat Jun 10 23:03:59 2017
+# Created: Tue Jun 13 22:36:24 2017
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
@@ -234,7 +234,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
         self.treeWidget.setTextElideMode(QtCore.Qt.ElideRight)
         self.treeWidget.setIndentation(20)
-        self.treeWidget.setRootIsDecorated(False)
+        self.treeWidget.setRootIsDecorated(True)
         self.treeWidget.setUniformRowHeights(False)
         self.treeWidget.setItemsExpandable(True)
         self.treeWidget.setAllColumnsShowFocus(False)
@@ -243,6 +243,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setColumnCount(2)
         self.treeWidget.setObjectName("treeWidget")
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
@@ -265,6 +266,12 @@ class Ui_MainWindow(object):
         self.lineEdit.setGeometry(QtCore.QRect(50, 500, 701, 241))
         self.lineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.lineEdit.setObjectName("lineEdit")
+        self.pushButton_testA = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_testA.setGeometry(QtCore.QRect(270, 450, 191, 41))
+        self.pushButton_testA.setObjectName("pushButton_testA")
+        self.pushButton_testB = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_testB.setGeometry(QtCore.QRect(520, 450, 191, 41))
+        self.pushButton_testB.setObjectName("pushButton_testB")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -298,6 +305,8 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.treeWidget.isSortingEnabled()
         self.treeWidget.setSortingEnabled(False)
         self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanTextures", None, -1))
+        self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "file", None, -1))
+        self.treeWidget.topLevelItem(0).child(0).setText(1, QtWidgets.QApplication.translate("MainWindow", "c:\\temp", None, -1))
         self.treeWidget.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaTextures", None, -1))
         self.treeWidget.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "gpuCaches", None, -1))
         self.treeWidget.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArhives", None, -1))
@@ -310,6 +319,8 @@ class Ui_MainWindow(object):
         self.treeWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_newWindow.setText(QtWidgets.QApplication.translate("MainWindow", "new window", None, -1))
         self.lineEdit.setText(QtWidgets.QApplication.translate("MainWindow", "# total polygons", None, -1))
+        self.pushButton_testA.setText(QtWidgets.QApplication.translate("MainWindow", "testA", None, -1))
+        self.pushButton_testB.setText(QtWidgets.QApplication.translate("MainWindow", "testB", None, -1))
 
 
 

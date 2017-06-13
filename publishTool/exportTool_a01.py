@@ -9,6 +9,7 @@
 
 from PySide2 import QtCore, QtGui, QtWidgets
 import maya.cmds as cmds
+import os , sys
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -235,7 +236,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
         self.treeWidget.setTextElideMode(QtCore.Qt.ElideRight)
         self.treeWidget.setIndentation(20)
-        self.treeWidget.setRootIsDecorated(False)
+        self.treeWidget.setRootIsDecorated(True)
         self.treeWidget.setUniformRowHeights(False)
         self.treeWidget.setItemsExpandable(True)
         self.treeWidget.setAllColumnsShowFocus(False)
@@ -243,8 +244,17 @@ class Ui_MainWindow(object):
         self.treeWidget.setExpandsOnDoubleClick(True)
         self.treeWidget.setColumnCount(2)
         self.treeWidget.setObjectName("treeWidget")
-   
-
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(300)
@@ -258,6 +268,12 @@ class Ui_MainWindow(object):
         self.lineEdit.setGeometry(QtCore.QRect(50, 500, 701, 241))
         self.lineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.lineEdit.setObjectName("lineEdit")
+        self.pushButton_testA = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_testA.setGeometry(QtCore.QRect(270, 450, 191, 41))
+        self.pushButton_testA.setObjectName("pushButton_testA")
+        self.pushButton_testB = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_testB.setGeometry(QtCore.QRect(520, 450, 191, 41))
+        self.pushButton_testB.setObjectName("pushButton_testB")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -290,10 +306,23 @@ class Ui_MainWindow(object):
         self.treeWidget.headerItem().setText(1, QtWidgets.QApplication.translate("MainWindow", "location", None, -1))
         __sortingEnabled = self.treeWidget.isSortingEnabled()
         self.treeWidget.setSortingEnabled(False)
-
+        self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanTextures", None, -1))
+        self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "file", None, -1))
+        self.treeWidget.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaTextures", None, -1))
+        self.treeWidget.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "gpuCaches", None, -1))
+        self.treeWidget.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArhives", None, -1))
+        self.treeWidget.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow", "alembics", None, -1))
+        self.treeWidget.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow", "cameras", None, -1))
+        self.treeWidget.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanLights", None, -1))
+        self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaLights", None, -1))
+        self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow", "fluidCaches", None, -1))
+        self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow", "particleCaches", None, -1))
         self.treeWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_newWindow.setText(QtWidgets.QApplication.translate("MainWindow", "new window", None, -1))
         self.lineEdit.setText(QtWidgets.QApplication.translate("MainWindow", "# total polygons", None, -1))
+        self.pushButton_testA.setText(QtWidgets.QApplication.translate("MainWindow", "testA", None, -1))
+        self.pushButton_testB.setText(QtWidgets.QApplication.translate("MainWindow", "testB", None, -1))
+
 
 
 
@@ -305,7 +334,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
     #def self.MODDEF(self):
-    
+        self.defineFont()
+        self.pushButton_newWindow.clicked.connect(self.test)
+        self.pushButton_testA.clicked.connect(self.findPrmanTexture)
+        
+        self.treeWidget.doubleClicked.connect(self.replaceFile)
+
         self.countN1 = 0
         self.countN2 = 0
         self.countN3 = 0
@@ -318,9 +352,104 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.countN10 = 0
 
         self.buildItemTree()
+        
+        #self.createNewItem()
+        
+    def replaceFile(self):
+        print "replaceFile start"
+        
+        
+        
+    def createNewItem(self,index,nodeName,linkingFile,fontColor):
+        #fontColor = self.fontColor
+        #print index,nodeName,linkingFile,self.fontColor
+        
+        textColor = (int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))
+        
+        #        QtWidgets.QTreeWidgetItem(self.treeWidget).setForeground(0,self.brushLevelOne)  #create contain master ,and define font color
+      #  QtWidgets.QTreeWidgetItem(self.treeWidget).setForeground(0,QtGui.QBrush(QtGui.QColor(247, 126, 128)))  #create contain master ,and define font color
+        
+       # #1.default exist , master should exist in top of treeWidget
+       # self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
+      #  self.treeWidget.topLevelItem(0)#.setFont(0,self.fontLevelOne)#define font size
+        QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(0))#.setForeground(0,self.brushLevelThree)  #build new item from index
 
-    
-    
+        self.treeWidget.topLevelItem(0).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+        self.treeWidget.topLevelItem(0).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+        self.treeWidget.topLevelItem(0).child(index).setText(0,nodeName)
+        self.treeWidget.topLevelItem(0).child(index).setCheckState(0, QtCore.Qt.Checked)
+        self.treeWidget.topLevelItem(0).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+
+        self.treeWidget.topLevelItem(0).child(index).setText(1, QtWidgets.QApplication.translate("MainWindow", 'linkingFileLocation', None, -1))
+        self.treeWidget.topLevelItem(0).child(index).setText(1,linkingFile)
+  
+    def checkFileExist(self,linkingFile,checkMode):
+        print 'check file is existed'
+        if os.path.isfile(linkingFile) == True:
+            if checkMode == 'pxrTexture':
+                if linkingFile.split('.')[-1] == 'tex':
+                    self.fontColor = (0,255,0)
+
+                else:
+                    self.fontColor =(255,255,0)
+            else:
+                pass
+                
+           # self.setCheck = 0
+        else:
+            self.fontColor =(255,0,0)
+            self.setCheck = 1
+            
+
+            
+            
+        #self.fontColor = fontColor
+        
+
+
+        
+    def defineFont(self):
+                
+        fontSizeAdj = 8
+        self.fontLevelOne = QtGui.QFont()
+        self.fontLevelOne.setPointSize((fontSizeAdj+2))
+        self.fontLevelOne.setWeight(75)
+        self.fontLevelOne.setBold(True)
+        self.fontLevelOne.setUnderline(True)
+
+
+        self.brushLevelOne = QtGui.QBrush(QtGui.QColor(247, 126, 128))
+        self.brushLevelOne.setStyle(QtCore.Qt.NoBrush)
+        
+
+        self.fontLevelTwo = QtGui.QFont()
+        self.fontLevelTwo.setPointSize(fontSizeAdj+2)
+        self.fontLevelTwo.setWeight(75)
+        self.fontLevelTwo.setBold(0)
+        #self.fontLevelTwo.setItalic(True)
+        
+        self.brushLevelTwo = QtGui.QBrush(QtGui.QColor(170, 170, 255))
+        self.brushLevelTwo.setStyle(QtCore.Qt.NoBrush)
+
+        self.fontLevelThree = QtGui.QFont()
+        self.fontLevelThree.setPointSize(fontSizeAdj+1)
+        self.fontLevelThree.setWeight(75)
+        self.fontLevelThree.setBold(True)
+
+        self.fontLevelThree.setItalic(True)
+        self.brushLevelThree = QtGui.QBrush(QtGui.QColor(100, 200, 100))
+        self.brushLevelThree.setStyle(QtCore.Qt.NoBrush)
+       # item_0.setForeground(0, brush)
+
+        self.fontLevelFour = QtGui.QFont()
+        self.fontLevelFour.setPointSize(fontSizeAdj+1)
+        self.fontLevelFour.setWeight(75)
+        self.fontLevelFour.setBold(0)
+
+        self.fontLevelFour.setItalic(True)
+        self.brushLevelFour = QtGui.QBrush(QtGui.QColor(200, 200, 200))
+        self.brushLevelFour.setStyle(QtCore.Qt.NoBrush)
+
     
             
     def buildItemTree(self):
@@ -332,6 +461,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0.setCheckState(0, QtCore.Qt.Checked)
+      #  item1 = QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(0).child(0))
 
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0.setCheckState(0, QtCore.Qt.Checked)
@@ -357,11 +487,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-       # item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        #item_0.setCheckState(0, QtCore.Qt.Checked)
-        
+       # item_1 = QtWidgets.QTreeWidgetItem(item_0)
+       # item_0.setCheckState(0, QtCore.Qt.Checked)
+                                
+       # item1= self.treeWidget.topLevelItem(0).child(0)#.setForeground(0)
+       # secLevelItemIndex = self.secLayerItemDict[secLayerItem]
 
-        
+       # self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "A1_1", None, -1))
+
         self.itemName_prmanTextures = "PrmanTextures"+'__('+'%03d'%self.countN1+')'
         self.itemName_mayaTextures = "mayaTextures"+'__('+'%03d'%self.countN2+')'
         self.itemName_gpuCaches = "gpuCaches"+'__('+'%03d'%self.countN3+')'
@@ -386,6 +519,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
         self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_nParticleCaches, None, -1))
        # self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
+       # self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "A1_1", None, -1))
+
+        
+
+        
         
         '''
          linkingSearchDict = {
@@ -397,11 +535,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                               
         '''   
         
-        self.pushButton_newWindow.clicked.connect(self.test)
         
     def test(self):
         self.findPrmanTexture()
         #self.findMayaTextures()
+        '''
         self.findGpuCaches()
         self.findRibArchives()
         self.findAlembics()
@@ -410,7 +548,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.mayaFluidCache()
         self.mayanParticleCache()
         self.buildItemTree()
-        
+        '''
 #cmds.nodeType('nParticleShape1Cache1')
 
     def findPrmanLights(self): # store PrmanLights NodeName and location 
@@ -641,12 +779,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         pxrTexturePath = {}
         for i in pxrNodes:
             path = cmds.getAttr('%s.filename'%i)
-            pxrTexturePath.update({i:path})
-            
+            pxrTexturePath.update({i:{'linkingFile':path}})
+           
         self.countN1 = len(pxrNodes)
             
-        print pxrTexturePath
+        #print pxrTexturePath
         print self.countN1
+        for index in range(0,len(pxrTexturePath.keys())):
+           # print index, pxrTexturePath.keys()[index]
+            nodeName = pxrTexturePath.keys()[index]
+            linkingFile = pxrTexturePath[nodeName]['linkingFile']
+          #  print index, nodeName,linkingFile
+            #checkMode = 'pxrTexture'
+
+            self.checkFileExist(linkingFile,'pxrTexture')
+            #fontColor= self.fontColor fontColor
+           # print self.fontColor
+            self.createNewItem(index,nodeName,linkingFile,self.fontColor)
         
 #cmds.listConnections('nParticleShape1')        
     def mayaFluidCache(self): # store mayaTextures NodeName and location 

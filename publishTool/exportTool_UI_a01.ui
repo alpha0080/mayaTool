@@ -751,7 +751,7 @@
      <number>20</number>
     </property>
     <property name="rootIsDecorated">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="uniformRowHeights">
      <bool>false</bool>
@@ -809,6 +809,14 @@
      <property name="text">
       <string/>
      </property>
+     <item>
+      <property name="text">
+       <string>file</string>
+      </property>
+      <property name="text">
+       <string>c:\temp</string>
+      </property>
+     </item>
     </item>
     <item>
      <property name="text">
@@ -895,6 +903,32 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_testA">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>450</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>testA</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_testB">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>450</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>testB</string>
     </property>
    </widget>
   </widget>
