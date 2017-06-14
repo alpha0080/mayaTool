@@ -333,6 +333,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(mod_MainWindow, self).__init__(parent)
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
+        self.proj = cmds.workspace(rd=True,q=True)
+
     #def self.MODDEF(self):
         self.defineFont()
         self.pushButton_newWindow.clicked.connect(self.test)
@@ -385,7 +387,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       #  self.treeWidget.topLevelItem(0)#.setFont(0,self.fontLevelOne)#define font size
       
         QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(topLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
-
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0,nodeName)
@@ -397,9 +398,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
   
   
   
-  
-    def checkFileExist(self,linkingFile,checkMode):  #checkMode = pxrTexture,mayaTexture,gpuCache,ribArchive,alembic
+    def checkFileExist(self,linkingFile,checkMode):  #checkMode = pxrTexture,mayaTexture,gpuCache,ribArchive,alembic,pxrLight,mayaFluid,mayanParticle
         print 'check file is existed'
+
         if os.path.isfile(linkingFile) == True:
             if checkMode == 'pxrTexture':
                 print 'check the file is pxr texture'
@@ -408,12 +409,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                 else:
                     self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
+                    
             elif checkMode == 'mayaTexture':
                 print 'check the file is surport maya image format'
                 if linkingFile.split('.')[-1] in ['jpg','tif','png','exr','tga','iff','bmp','psd','dds','hdr']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
                     
             elif checkMode == 'gpuCache':
                 print 'check the file is surport gpuCache format'
@@ -421,35 +425,86 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
                                  
             elif checkMode == 'ribArchive':
-                print 'check the file is surport gpuCache format'
+                print 'check the file is surport ribArchive format'
                 if linkingFile.split('.')[-1] in ['rib','zip','7z','gz']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
                                  
             elif checkMode == 'alembic':
-                print 'check the file is surport gpuCache format'
+                print 'check the file is surport alembic format'
                 if linkingFile.split('.')[-1] in ['abc']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
                                  
-                                                                                
+            elif checkMode == 'pxrLight':
+                print 'check the file is surport pxrLight format'
+                if linkingFile.split('.')[-1] in ['tex','exr','tex']:
+                    self.fontColor = (0,255,0)
+                else:
+                    self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
+                                 
+                                                                                                                                      
+            elif checkMode == 'mayaFluid':
+                print 'check the file is surport mayaFluid format'
+                if linkingFile.split('.')[-1] in ['xml']:
+                    self.fontColor = (0,255,0)
+                else:
+                    self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
+                                                     
                     
-                    
-                    
+                                                                                                                                      
+            elif checkMode == 'mayanParticle':
+                print 'check the file is surport mayanParticle format'
+                if linkingFile.split('.')[-1] in ['xml']:
+                    self.fontColor = (0,255,0)
+                else:
+                    self.fontColor =(255,255,0)
+                    self.yellowCount = self.yellowCount +1
+                                                     
+                                        
                     
                     
              
             else:
                 pass
                 
-           # self.setCheck = 0
+           # self.setCheck = 0 
         else:
             self.fontColor =(255,0,0)
             self.setCheck = 1
+            self.redCount = self.redCount +1
+        
+
+            
+        '''
+        if redCount > 0:
+
+            self.topLayerColor = (255,0,0)
+        
+        else:
+            
+            if yellowCount >0 :
+                self.topLayerColor = (255,255,0)
+                
+            else:
+                self.topLayerColor = (255,255,255)
+                
+        '''
+
+
+            
+            
+
+                
             
 
             
@@ -597,95 +652,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.findAlembics()
       #  self.findCameras()
-      #  self.findPrmanLights()
-      #  self.mayaFluidCache()
-      #  self.mayanParticleCache()
+        self.findPrmanLights()
+        self.mayaFluidCache()
+        self.mayanParticleCache()
       #  self.buildItemTree()
 
 #cmds.nodeType('nParticleShape1Cache1')
 
-    def findPrmanLights(self): # store PrmanLights NodeName and location 
-        
-        prmanLightType =['PxrRectLight','PxrDiskLight','PxrDistantLight','PxrSphereLight','PxrDomeLight','PxrEnvDayLight','PxrMeshLight']
-        prmanLightNodes = []
-        prmanLightInfo = {}
-        for prmanNodeType in prmanLightType:
-            prmanLightNodes = prmanLightNodes + cmds.ls( typ =prmanNodeType)
-            
-        print prmanLightNodes 
-       
-        for i in prmanLightNodes:
-            intensity = cmds.getAttr('%s.intensity'%i)
-            exposure = cmds.getAttr('%s.exposure'%i)
-            if cmds.nodeType(i) == 'PxrEnvDayLight' :  
-                lightColor = 'none'
-            else :
-                lightColor = cmds.getAttr('%s.lightColor'%i)  
-                
-                                     
-            if cmds.nodeType(i) == 'PxrRectLight' :           
-                lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
-            else:
-                lightColorMap = 'none'
-                
-            if cmds.nodeType(i) == 'PxrDomeLight' :           
-                lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
-            else:
-                lightColorMap = 'none'
-                
-                             
-            if cmds.nodeType(i) == 'PxrMeshLight' :           
-                textureColor = cmds.getAttr('%s.textureColor'%i)
-            else:
-                textureColor = 'none' 
-                
-                
-            if cmds.nodeType(i) == 'PxrDistantLight' :           
-                angleExtent = cmds.getAttr('%s.angleExtent'%i)
-            else:
-                angleExtent = 'none'
-            
-            prmanLightInfo.update({i:{'intensity':intensity,
-                                      'exposure':exposure,
-                                      'lightColor':lightColor,
-                                      'lightColorMap':lightColorMap,
-                                      'angleExtent':angleExtent,
-                                      'textureColor':textureColor,
-                                      
-                                      }})
-
-        self.countN7 = len(prmanLightInfo.keys())
-        print prmanLightInfo
-        print self.countN7
-       
-            
-        '''
-        cameraNodes = cmds.ls( typ ='camera')
-        realCameraList = []
-        for i in cameraNodes:
-            if i in exceptCameraList:
-                pass
-            else:
-                realCameraList.append(i)
-                
-        camerasInfo = {}
-        for i in realCameraList:
-
-            fov = cmds.getAttr('%s.focalLength'%i)
-            nearClip = cmds.getAttr('%s.nearClipPlane'%i)
-            farClip = cmds.getAttr('%s.farClipPlane'%i)
-            
-            camerasInfo.update({i:{'fov':fov,'nearClip':nearClip,'farClip':farClip}})
-            #camerasInfo.update({i+'nearClip':nearClip})
-            #camerasInfo.update({i+'farClip':farClip})
 
             
-        self.countN6 = len(realCameraList)
-            
-        print camerasInfo
-        print self.countN6        
-        
-    '''
+
 
         
     def findCameras(self): # store cameras NodeName and location 
@@ -721,82 +697,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
 
-
-
-        
-    def findNParticleCache(self): # store nParticles NodeName and location 
-#cmds.listConnections('nParticleShape1Cache1',t='playFromCache')
-        nParticleNode = cmds.ls( typ ='cacheFile')
-        nParticleCachePath = {}
-        for i in alembicNodes:
-            baseDirectory = cmds.getAttr('%s.cachePath'%i)
-            baseName = cmds.getAttr('%s.cacheName'%i)
-            isEnable = cmds.getAttr('%s.isEnable'%i)
-            startFrame = cmds.getAttr('%s.startFrame'%i)
-            scale = cmds.getAttr('%s.scale'%i)
-            hold = cmds.getAttr('%s.hold'%i)
-            preCycle = cmds.getAttr('%s.preCycle'%i)
-            postCycle = cmds.getAttr('%s.postCycle'%i)
-            sourceStart = cmds.getAttr('%s.sourceStart'%i)
-            sourceEnd = cmds.getAttr('%s.sourceEnd'%i)
-            originalStart = cmds.getAttr('%s.originalStart'%i)
-            originalEnd= cmds.getAttr('%s.originalEnd'%i)
-            
-            
-            
-
-            
-            alembicPath.update({i:path})
-            
-        self.countN5 = len(alembicNodes)
-            
-        print alembicPath
-        print self.countN5
-        
-       # cmds.nodeType('nParticleShape1')
-    def mayanParticleCache(self): # store mayanParticle NodeName and location fluidCache
-      
-        mayanParticleCacheInfo = {}
-        
-        mayanParticleNodes = cmds.ls( typ ='nParticle')
-        for nParticleShape in mayanParticleNodes:
-            for nParticleCache in cmds.listConnections(nParticleShape):
-                if cmds.nodeType(nParticleCache) == 'cacheFile':
-                    baseDirectory = cmds.getAttr('%s.cachePath'%nParticleCache)
-                    baseName = cmds.getAttr('%s.cacheName'%nParticleCache)
-                    isEnable = cmds.getAttr('%s.enable'%nParticleCache)
-                    startFrame = cmds.getAttr('%s.startFrame'%nParticleCache)
-                    scale = cmds.getAttr('%s.scale'%nParticleCache)
-                    hold = cmds.getAttr('%s.hold'%nParticleCache)
-                    preCycle = cmds.getAttr('%s.preCycle'%nParticleCache)
-                    postCycle = cmds.getAttr('%s.postCycle'%nParticleCache)
-                    sourceStart = cmds.getAttr('%s.sourceStart'%nParticleCache)
-                    sourceEnd = cmds.getAttr('%s.sourceEnd'%nParticleCache)
-                    originalStart = cmds.getAttr('%s.originalStart'%nParticleCache)
-                    originalEnd= cmds.getAttr('%s.originalEnd'%nParticleCache)
-                  
-                    mayanParticleCacheInfo.update({nParticleShape:[nParticleCache,
-                                                           baseDirectory,
-                                                           baseName,
-                                                           isEnable,
-                                                           startFrame,
-                                                           scale,
-                                                           hold,
-                                                           preCycle,
-                                                           postCycle,
-                                                           sourceStart,
-                                                           sourceEnd,
-                                                           originalStart,
-                                                           originalEnd]})
-          
-        self.countN10 = len(mayanParticleCacheInfo.keys())
-            
-        print mayanParticleCacheInfo
-        print self.countN10
-            
-
-        
-        
         
         
             
@@ -811,13 +711,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.countN1 = len(pxrNodes)
             
         print self.countN1
+        self.yellowCount = 0
+        self.redCount = 0
         for index in range(0,len(pxrTexturePath.keys())):
             nodeName = pxrTexturePath.keys()[index]
             linkingFile = pxrTexturePath[nodeName]['linkingFile']
+            
             self.checkFileExist(linkingFile,'pxrTexture')   
             topLayerIndex = 0
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
         print pxrTexturePath
+        self.setTopLayerItemColor(topLayerIndex)         
+        
+        
+        
+        
      #cmds.nodeType('file2')       
          #aa= cmds.ls(typ='file') 
         # cmds.select(aa)
@@ -830,7 +738,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             mayaTextureFilePath.update({i:{'linkingFile':path}})
            
         self.countN2 = len(mayaTextureFileNode)
-            
+        self.yellowCount = 0
+        self.redCount = 0            
         print self.countN2
         for index in range(0,len(mayaTextureFilePath.keys())):
             nodeName = mayaTextureFilePath.keys()[index]
@@ -844,6 +753,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
             
+        self.setTopLayerItemColor(topLayerIndex)         
             
             
             
@@ -855,6 +765,144 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             
         
+
+
+
+#cmds.nodeType('pCone1RibArchiveGPUCacheShape')
+    def findGpuCaches(self): # store mayaTextures NodeName and location  
+      #  pxrFilePath = 'file.fileTextureName'
+        
+        gpuCacheNodes = cmds.ls( typ ='gpuCache')
+        gpuCachePath = {}
+        for i in gpuCacheNodes:
+            path = cmds.getAttr('%s.cacheFileName'%i)
+            gpuCachePath.update({i:{'linkingFile':path}})
+            
+        self.countN3 = len(gpuCacheNodes)
+        self.yellowCount = 0
+        self.redCount = 0              
+
+        for index in range(0,len(gpuCachePath.keys())):
+            nodeName = gpuCachePath.keys()[index]
+            linkingFile = gpuCachePath[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'gpuCache')   
+            #print 'index',index
+           # print 'nodeName',nodeName
+            #print 'linkingFile',linkingFile
+            #print 'self.fontColor',self.fontColor
+            topLayerIndex = 2
+
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+        self.setTopLayerItemColor(topLayerIndex)         
+
+
+
+
+            
+    def findRibArchives(self): # store RibArchives NodeName and location 
+        
+        RibArchivesNodes = cmds.ls( typ ='RenderManArchive')
+        RibArchivesPath = {}
+        for i in RibArchivesNodes:
+            path = self.proj +cmds.getAttr('%s.filename'%i)
+            RibArchivesPath.update({i:{'linkingFile':path}})
+            
+        self.countN4 = len(RibArchivesNodes)
+        self.yellowCount = 0
+        self.redCount = 0              
+        for index in range(0,len(RibArchivesPath.keys())):
+            nodeName = RibArchivesPath.keys()[index]
+            linkingFile = RibArchivesPath[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'ribArchive')   
+            topLayerIndex = 3
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+        self.setTopLayerItemColor(topLayerIndex)         
+        
+        
+    def findAlembics(self): # store alembics NodeName and location 
+        
+        alembicNodes = cmds.ls( typ ='AlembicNode')
+        alembicPath = {}
+        for i in alembicNodes:
+            path = cmds.getAttr('%s.abc_File'%i)
+            alembicPath.update({i:{'linkingFile':path}})
+            
+        self.countN5 = len(alembicNodes)
+        self.yellowCount = 0
+        self.redCount = 0              
+        for index in range(0,len(alembicPath.keys())):
+            nodeName = alembicPath.keys()[index]
+            linkingFile = alembicPath[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'alembic')   
+            topLayerIndex = 4
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            
+        self.setTopLayerItemColor(topLayerIndex)         
+            
+            
+        
+    def findPrmanLights(self): # store PrmanLights NodeName and location 
+        
+        prmanLightType =['PxrRectLight','PxrDiskLight','PxrDistantLight','PxrSphereLight','PxrDomeLight','PxrEnvDayLight','PxrMeshLight']
+        prmanLightNodes = []
+        prmanLightInfo = {}
+        for prmanNodeType in prmanLightType:
+            prmanLightNodes = prmanLightNodes + cmds.ls( typ =prmanNodeType)
+            
+        print prmanLightNodes 
+        self.yellowCount = 0
+        self.redCount = 0         
+        for i in prmanLightNodes:
+            intensity = cmds.getAttr('%s.intensity'%i)
+            exposure = cmds.getAttr('%s.exposure'%i)
+            if cmds.nodeType(i) == 'PxrEnvDayLight' :  
+                lightColor = 'N/A'
+            else :
+                lightColor = cmds.getAttr('%s.lightColor'%i)  
+                
+                                     
+            if cmds.nodeType(i) == 'PxrRectLight' :           
+                lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
+            else:
+                lightColorMap = 'N/A'
+                
+            if cmds.nodeType(i) == 'PxrDomeLight' :           
+                lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
+            else:
+                lightColorMap = 'N/A'
+                
+                             
+            if cmds.nodeType(i) == 'PxrMeshLight' :           
+                textureColor = cmds.getAttr('%s.textureColor'%i)
+            else:
+                textureColor = 'N/A' 
+                
+                
+            if cmds.nodeType(i) == 'PxrDistantLight' :           
+                angleExtent = cmds.getAttr('%s.angleExtent'%i)
+            else:
+                angleExtent = 'N/A'
+            
+            prmanLightInfo.update({i:{'intensity':intensity,
+                                      'exposure':exposure,
+                                      'lightColor':lightColor,
+                                      'linkingFile':lightColorMap, #lightColorMap
+                                      'angleExtent':angleExtent,
+                                      'textureColor':textureColor,
+                                      
+                                      }})
+
+        self.countN7 = len(prmanLightInfo.keys())
+        
+        for index in range(0,len(prmanLightInfo.keys())):
+            nodeName = prmanLightInfo.keys()[index]
+            linkingFile = prmanLightInfo[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'pxrLight')   
+            topLayerIndex = 6
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+        self.setTopLayerItemColor(topLayerIndex)         
+
+
 #cmds.listConnections('nParticleShape1')        
     def mayaFluidCache(self): # store mayaTextures NodeName and location 
       #  pxrFilePath = 'file.fileTextureName'
@@ -862,8 +910,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         mayaFluidCacheInfo = {}
         
         mayaFileNodes = cmds.ls( typ ='fluidShape')
-        for fluidShape in mayaFileNodes:
-            for fluidCache in cmds.listConnections(fluidShape):
+        
+        for i in mayaFileNodes:
+            for fluidCache in cmds.listConnections(i):
                 if cmds.nodeType(fluidCache) == 'cacheFile':
                    # print fluidShape
                     baseDirectory = cmds.getAttr('%s.cachePath'%fluidCache)
@@ -878,95 +927,101 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     sourceEnd = cmds.getAttr('%s.sourceEnd'%fluidCache)
                     originalStart = cmds.getAttr('%s.originalStart'%fluidCache)
                     originalEnd= cmds.getAttr('%s.originalEnd'%fluidCache)
-                  
-                    mayaFluidCacheInfo.update({fluidShape:[fluidCache,
-                                                           baseDirectory,
-                                                           baseName,
-                                                           isEnable,
-                                                           startFrame,
-                                                           scale,
-                                                           hold,
-                                                           preCycle,
-                                                           postCycle,
-                                                           sourceStart,
-                                                           sourceEnd,
-                                                           originalStart,
-                                                           originalEnd]})
+                    path = baseDirectory + baseName +'.xml'
+                    mayaFluidCacheInfo.update({i:{'baseDirectory':baseDirectory,
+                                                  'baseName':baseName,
+                                                  'isEnable':isEnable,
+                                                  'startFrame':startFrame,
+                                                  'scale':scale,
+                                                  'hold':hold,
+                                                  'preCycle':preCycle,
+                                                  'postCycle':postCycle,
+                                                  'sourceStart':sourceStart,
+                                                  'sourceEnd':sourceEnd,
+                                                  'originalStart':originalStart,
+                                                  'originalEnd':originalEnd,
+                                                  'linkingFile':path}})
           
         self.countN9 = len(mayaFluidCacheInfo.keys())
-            
-        print mayaFluidCacheInfo
-        print self.countN9
-        
-
-
-#cmds.nodeType('pCone1RibArchiveGPUCacheShape')
-    def findGpuCaches(self): # store mayaTextures NodeName and location  
-      #  pxrFilePath = 'file.fileTextureName'
-        
-        gpuCacheNodes = cmds.ls( typ ='gpuCache')
-        gpuCachePath = {}
-        for i in gpuCacheNodes:
-            path = cmds.getAttr('%s.cacheFileName'%i)
-            gpuCachePath.update({i:{'linkingFile':path}})
-            
-        self.countN3 = len(gpuCacheNodes)
-            
-
-        for index in range(0,len(gpuCachePath.keys())):
-            nodeName = gpuCachePath.keys()[index]
-            linkingFile = gpuCachePath[nodeName]['linkingFile']
-            self.checkFileExist(linkingFile,'gpuCache')   
-            #print 'index',index
-           # print 'nodeName',nodeName
-            #print 'linkingFile',linkingFile
-            #print 'self.fontColor',self.fontColor
-            topLayerIndex = 2
-
+        self.yellowCount = 0
+        self.redCount = 0              
+        for index in range(0,len(mayaFluidCacheInfo.keys())):
+            nodeName = mayaFluidCacheInfo.keys()[index]
+            linkingFile = mayaFluidCacheInfo[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'mayaFluid')   
+            topLayerIndex = 7
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-            
-    def findRibArchives(self): # store RibArchives NodeName and location 
+        self.setTopLayerItemColor(topLayerIndex)         
+
+       # print 'mayaFluidCacheInfo',mayaFluidCacheInfo
+    def mayanParticleCache(self): # store mayanParticle NodeName and location fluidCache
+      
+        mayanParticleCacheInfo = {}
         
-        RibArchivesNodes = cmds.ls( typ ='RenderManArchive')
-        RibArchivesPath = {}
-        for i in RibArchivesNodes:
-            proj = cmds.workspace(rd=True,q=True)
-            path = proj +cmds.getAttr('%s.filename'%i)
-            RibArchivesPath.update({i:{'linkingFile':path}})
-            
-        self.countN4 = len(RibArchivesNodes)
-            
-        for index in range(0,len(RibArchivesPath.keys())):
-            nodeName = RibArchivesPath.keys()[index]
-            linkingFile = RibArchivesPath[nodeName]['linkingFile']
-            self.checkFileExist(linkingFile,'ribArchive')   
-            topLayerIndex = 3
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-        
-        
-    def findAlembics(self): # store alembics NodeName and location 
-        
-        alembicNodes = cmds.ls( typ ='AlembicNode')
-        alembicPath = {}
-        for i in alembicNodes:
-            path = cmds.getAttr('%s.abc_File'%i)
-            alembicPath.update({i:{'linkingFile':path}})
-            
-        self.countN5 = len(alembicNodes)
-            
-        for index in range(0,len(alembicPath.keys())):
-            nodeName = alembicPath.keys()[index]
-            linkingFile = alembicPath[nodeName]['linkingFile']
-            self.checkFileExist(linkingFile,'alembic')   
-            topLayerIndex = 4
+        mayanParticleNodes = cmds.ls( typ ='nParticle')
+        for nParticleShape in mayanParticleNodes:
+            for i in cmds.listConnections(nParticleShape):
+                if cmds.nodeType(i) == 'cacheFile':
+                    baseDirectory = cmds.getAttr('%s.cachePath'%i)
+                    baseName = cmds.getAttr('%s.cacheName'%i)
+                    isEnable = cmds.getAttr('%s.enable'%i)
+                    startFrame = cmds.getAttr('%s.startFrame'%i)
+                    scale = cmds.getAttr('%s.scale'%i)
+                    hold = cmds.getAttr('%s.hold'%i)
+                    preCycle = cmds.getAttr('%s.preCycle'%i)
+                    postCycle = cmds.getAttr('%s.postCycle'%i)
+                    sourceStart = cmds.getAttr('%s.sourceStart'%i)
+                    sourceEnd = cmds.getAttr('%s.sourceEnd'%i)
+                    originalStart = cmds.getAttr('%s.originalStart'%i)
+                    originalEnd= cmds.getAttr('%s.originalEnd'%i)
+                    path = baseDirectory + baseName +'.xml'
+
+                    mayanParticleCacheInfo.update({i:{'baseDirectory':baseDirectory,
+                                                  'baseName':baseName,
+                                                  'isEnable':isEnable,
+                                                  'startFrame':startFrame,
+                                                  'scale':scale,
+                                                  'hold':hold,
+                                                  'preCycle':preCycle,
+                                                  'postCycle':postCycle,
+                                                  'sourceStart':sourceStart,
+                                                  'sourceEnd':sourceEnd,
+                                                  'originalStart':originalStart,
+                                                  'originalEnd':originalEnd,
+                                                  'linkingFile':path}})                    
+        self.yellowCount = 0
+        self.redCount = 0                      
+        for index in range(0,len(mayanParticleCacheInfo.keys())):
+            nodeName = mayanParticleCacheInfo.keys()[index]
+            linkingFile = mayanParticleCacheInfo[nodeName]['linkingFile']
+            self.checkFileExist(linkingFile,'mayanParticle')   
+            topLayerIndex = 8
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
         
         
+        self.setTopLayerItemColor(topLayerIndex)         
+          
+        self.countN10 = len(mayanParticleCacheInfo.keys())
             
+        print mayanParticleCacheInfo
+        print self.countN10
             
         
+    def setTopLayerItemColor(self,topLayerIndex):
+        if self.redCount > 0:
+
+            self.topLayerColor = (255,0,0)
         
-        
+        else:
+            
+            if self.yellowCount >0 :
+                self.topLayerColor = (255,255,0)
+                
+            else:
+                self.topLayerColor = (255,255,255)
+                
+        self.treeWidget.topLevelItem(topLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
+
         
         
 
