@@ -359,6 +359,39 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def replaceFile(self):
         print "replaceFile start"
+ 
+ 
+ 
+ 
+    def copyFilesFromFileTable(self,sourceTable,dest):
+        
+        
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
         
         
         
@@ -395,6 +428,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(1, QtWidgets.QApplication.translate("MainWindow", 'linkingFileLocation', None, -1))
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(1,linkingFile)
+  
+  
+  
+  
+  
   
   
   

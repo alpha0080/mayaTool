@@ -9,18 +9,21 @@
 #C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/
 from PySide2 import QtCore, QtGui, QtWidgets
 import maya.cmds as cmds
-import json , os , getpass,socket ,ctypes.wintypes
-import datetime
+import json , os , getpass,socket ,ctypes.wintypes 
+from pprint import pprint
 
+import datetime
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        self.setFontSize=8
+        self.setFontSize=5
         #setPointSize(self.setFontSize) = setPointSize(self.setFontSize +3)
         #setPointSize(self.setFontSize +3) = setPointSize(self.setFontSize +2)
         #setPointSize(8 ) = setPointSize(self.setFontSize) 
 
-        MainWindow.resize(846, 708)
+
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(560, 775)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -47,7 +50,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget_branch = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget_branch.setGeometry(QtCore.QRect(0, 0, 841, 681))
+        self.tabWidget_branch.setGeometry(QtCore.QRect(0, 0, 551, 751))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -79,6 +82,1386 @@ class Ui_MainWindow(object):
         self.tabWidget_branch.setPalette(palette)
         self.tabWidget_branch.setAutoFillBackground(True)
         self.tabWidget_branch.setObjectName("tabWidget_branch")
+        self.tab_branch = QtWidgets.QWidget()
+        self.tab_branch.setObjectName("tab_branch")
+        self.listWidget_assetProj = QtWidgets.QListWidget(self.tab_branch)
+        self.listWidget_assetProj.setGeometry(QtCore.QRect(30, 69, 168, 371))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.listWidget_assetProj.setPalette(palette)
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize) 
+        self.listWidget_assetProj.setFont(font)
+        self.listWidget_assetProj.setObjectName("listWidget_assetProj")
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
+        self.comboBox_selectProj = QtWidgets.QComboBox(self.tab_branch)
+        self.comboBox_selectProj.setGeometry(QtCore.QRect(320, 10, 171, 22))
+        self.comboBox_selectProj.setObjectName("comboBox_selectProj")
+        self.comboBox_selectProj.addItem("")
+        self.pushButton_inProgress = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_inProgress.setEnabled(True)
+        self.pushButton_inProgress.setGeometry(QtCore.QRect(217, 5, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_inProgress.setPalette(palette)
+        self.pushButton_inProgress.setAutoFillBackground(False)
+        self.pushButton_inProgress.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_inProgress.setIcon(icon)
+        self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_inProgress.setCheckable(True)
+        self.pushButton_inProgress.setChecked(False)
+        self.pushButton_inProgress.setAutoRepeat(False)
+        self.pushButton_inProgress.setAutoExclusive(False)
+        self.pushButton_inProgress.setAutoDefault(False)
+        self.pushButton_inProgress.setDefault(False)
+        self.pushButton_inProgress.setFlat(True)
+        self.pushButton_inProgress.setObjectName("pushButton_inProgress")
+        self.pushButton_recent = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_recent.setEnabled(True)
+        self.pushButton_recent.setGeometry(QtCore.QRect(248, 5, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_recent.setPalette(palette)
+        self.pushButton_recent.setAutoFillBackground(False)
+        self.pushButton_recent.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButton_recent.setIcon(icon1)
+        self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_recent.setCheckable(True)
+        self.pushButton_recent.setChecked(False)
+        self.pushButton_recent.setAutoRepeat(False)
+        self.pushButton_recent.setAutoExclusive(False)
+        self.pushButton_recent.setAutoDefault(False)
+        self.pushButton_recent.setDefault(False)
+        self.pushButton_recent.setFlat(True)
+        self.pushButton_recent.setObjectName("pushButton_recent")
+        self.pushButton_complete = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_complete.setEnabled(True)
+        self.pushButton_complete.setGeometry(QtCore.QRect(280, 5, 30, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_complete.setPalette(palette)
+        self.pushButton_complete.setAutoFillBackground(False)
+        self.pushButton_complete.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.pushButton_complete.setIcon(icon2)
+        self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_complete.setCheckable(True)
+        self.pushButton_complete.setChecked(False)
+        self.pushButton_complete.setAutoRepeat(False)
+        self.pushButton_complete.setAutoExclusive(False)
+        self.pushButton_complete.setAutoDefault(False)
+        self.pushButton_complete.setDefault(False)
+        self.pushButton_complete.setFlat(True)
+        self.pushButton_complete.setObjectName("pushButton_complete")
+        self.treeWidget_branches = QtWidgets.QTreeWidget(self.tab_branch)
+        self.treeWidget_branches.setGeometry(QtCore.QRect(200, 100, 291, 171))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.treeWidget_branches.setPalette(palette)
+        self.treeWidget_branches.setAlternatingRowColors(False)
+        self.treeWidget_branches.setAutoExpandDelay(1)
+        self.treeWidget_branches.setAllColumnsShowFocus(True)
+        self.treeWidget_branches.setHeaderHidden(True)
+        self.treeWidget_branches.setExpandsOnDoubleClick(True)
+        self.treeWidget_branches.setObjectName("treeWidget_branches")
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize+3) 
+        font.setWeight(75)
+        font.setBold(True)
+        brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        item_0.setForeground(0, brush)
+        self.treeWidget_branches.header().setVisible(False)
+        self.treeWidget_branches.header().setCascadingSectionResizes(False)
+        self.treeWidget_branches.header().setDefaultSectionSize(311)
+        self.treeWidget_branches.header().setMinimumSectionSize(4)
+        self.treeWidget_branches.header().setSortIndicatorShown(False)
+        self.treeWidget_branches.header().setStretchLastSection(False)
+        self.tableWidget_FileList = QtWidgets.QTableWidget(self.tab_branch)
+        self.tableWidget_FileList.setGeometry(QtCore.QRect(200, 270, 291, 141))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.tableWidget_FileList.setPalette(palette)
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize) 
+        self.tableWidget_FileList.setFont(font)
+        self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.tableWidget_FileList.setAutoScrollMargin(16)
+        self.tableWidget_FileList.setAlternatingRowColors(True)
+        self.tableWidget_FileList.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidget_FileList.setObjectName("tableWidget_FileList")
+        self.tableWidget_FileList.setColumnCount(3)
+        self.tableWidget_FileList.setRowCount(15)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(8, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(9, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(10, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(11, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(12, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(13, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setVerticalHeaderItem(14, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setHorizontalHeaderItem(2, item)
+        brush = QtGui.QBrush(QtGui.QColor(192, 231, 248))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        item = QtWidgets.QTableWidgetItem()
+        item.setForeground(brush)
+        self.tableWidget_FileList.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(2, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(2, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(2, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(3, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(3, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(3, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(4, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(4, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(4, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(5, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(5, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(5, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(6, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(6, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(6, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(7, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(7, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(7, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(8, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(8, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(8, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(9, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(9, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_FileList.setItem(10, 1, item)
+        self.tableWidget_FileList.horizontalHeader().setVisible(False)
+        self.tableWidget_FileList.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_FileList.horizontalHeader().setDefaultSectionSize(60)
+        self.tableWidget_FileList.horizontalHeader().setSortIndicatorShown(True)
+        self.tableWidget_FileList.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_FileList.verticalHeader().setVisible(False)
+        self.tableWidget_FileList.verticalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_FileList.verticalHeader().setDefaultSectionSize(21)
+        self.lineEdit_currentFileName = QtWidgets.QLineEdit(self.tab_branch)
+        self.lineEdit_currentFileName.setGeometry(QtCore.QRect(200, 410, 291, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.lineEdit_currentFileName.setPalette(palette)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.lineEdit_currentFileName.setFont(font)
+        self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
+        self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
+        self.plainTextEdit_BranchFileInfo.setGeometry(QtCore.QRect(200, 441, 291, 161))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.plainTextEdit_BranchFileInfo.setPalette(palette)
+        self.plainTextEdit_BranchFileInfo.setObjectName("plainTextEdit_BranchFileInfo")
+        self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_createNewBranch.setGeometry(QtCore.QRect(495, 69, 40, 40))
+        self.pushButton_createNewBranch.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_createNewBranch.setIcon(icon3)
+        self.pushButton_createNewBranch.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_createNewBranch.setAutoDefault(False)
+        self.pushButton_createNewBranch.setDefault(False)
+        self.pushButton_createNewBranch.setFlat(True)
+        self.pushButton_createNewBranch.setObjectName("pushButton_createNewBranch")
+        self.pushButton_openBranchJson = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_openBranchJson.setGeometry(QtCore.QRect(495, 120, 40, 40))
+        self.pushButton_openBranchJson.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_openBranchJson.setIcon(icon4)
+        self.pushButton_openBranchJson.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_openBranchJson.setAutoDefault(False)
+        self.pushButton_openBranchJson.setDefault(False)
+        self.pushButton_openBranchJson.setFlat(True)
+        self.pushButton_openBranchJson.setObjectName("pushButton_openBranchJson")
+        self.plainTextEdit_metaData = QtWidgets.QPlainTextEdit(self.tab_branch)
+        self.plainTextEdit_metaData.setGeometry(QtCore.QRect(200, 603, 291, 105))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.plainTextEdit_metaData.setPalette(palette)
+        self.plainTextEdit_metaData.setObjectName("plainTextEdit_metaData")
+        self.label_showImage = QtWidgets.QLabel(self.tab_branch)
+        self.label_showImage.setGeometry(QtCore.QRect(40, 445, 150, 150))
+        self.label_showImage.setText("")
+        self.label_showImage.setPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/picture-01-150.png"))
+        self.label_showImage.setObjectName("label_showImage")
+        self.pushButton_loadFile = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_loadFile.setGeometry(QtCore.QRect(495, 320, 40, 40))
+        self.pushButton_loadFile.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_loadFile.setIcon(icon5)
+        self.pushButton_loadFile.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_loadFile.setAutoDefault(False)
+        self.pushButton_loadFile.setDefault(False)
+        self.pushButton_loadFile.setFlat(True)
+        self.pushButton_loadFile.setObjectName("pushButton_loadFile")
+        self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_saveFile.setGeometry(QtCore.QRect(495, 270, 40, 40))
+        self.pushButton_saveFile.setToolTip("")
+        self.pushButton_saveFile.setWhatsThis("")
+        self.pushButton_saveFile.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_saveFile.setIcon(icon6)
+        self.pushButton_saveFile.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_saveFile.setAutoDefault(False)
+        self.pushButton_saveFile.setDefault(False)
+        self.pushButton_saveFile.setFlat(True)
+        self.pushButton_saveFile.setObjectName("pushButton_saveFile")
+        self.pushButton_editFileInfo = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_editFileInfo.setGeometry(QtCore.QRect(495, 440, 40, 40))
+        self.pushButton_editFileInfo.setText("")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_editFileInfo.setIcon(icon7)
+        self.pushButton_editFileInfo.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_editFileInfo.setAutoDefault(False)
+        self.pushButton_editFileInfo.setDefault(False)
+        self.pushButton_editFileInfo.setFlat(True)
+        self.pushButton_editFileInfo.setObjectName("pushButton_editFileInfo")
+        self.pushButton_openFolder = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_openFolder.setGeometry(QtCore.QRect(495, 490, 40, 40))
+        self.pushButton_openFolder.setText("")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_openFolder.setIcon(icon8)
+        self.pushButton_openFolder.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_openFolder.setAutoDefault(False)
+        self.pushButton_openFolder.setDefault(False)
+        self.pushButton_openFolder.setFlat(True)
+        self.pushButton_openFolder.setObjectName("pushButton_openFolder")
+        self.pushButton_reNewBranchDict = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(150, 670, 31, 31))
+        self.pushButton_reNewBranchDict.setText("")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_reNewBranchDict.setIcon(icon9)
+        self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_reNewBranchDict.setAutoDefault(False)
+        self.pushButton_reNewBranchDict.setDefault(False)
+        self.pushButton_reNewBranchDict.setFlat(True)
+        self.pushButton_reNewBranchDict.setObjectName("pushButton_reNewBranchDict")
+        self.pushButton_publish = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_publish.setGeometry(QtCore.QRect(30, 670, 31, 31))
+        self.pushButton_publish.setText("")
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_publish.setIcon(icon10)
+        self.pushButton_publish.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_publish.setAutoDefault(False)
+        self.pushButton_publish.setDefault(False)
+        self.pushButton_publish.setFlat(True)
+        self.pushButton_publish.setObjectName("pushButton_publish")
+        self.pushButton_syncFile = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_syncFile.setGeometry(QtCore.QRect(60, 670, 31, 31))
+        self.pushButton_syncFile.setText("")
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_syncFile.setIcon(icon11)
+        self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_syncFile.setAutoDefault(False)
+        self.pushButton_syncFile.setDefault(False)
+        self.pushButton_syncFile.setFlat(True)
+        self.pushButton_syncFile.setObjectName("pushButton_syncFile")
+        self.pushButton_setting = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_setting.setGeometry(QtCore.QRect(120, 670, 31, 31))
+        self.pushButton_setting.setText("")
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_setting.setIcon(icon12)
+        self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_setting.setAutoDefault(False)
+        self.pushButton_setting.setDefault(False)
+        self.pushButton_setting.setFlat(True)
+        self.pushButton_setting.setObjectName("pushButton_setting")
+        self.pushButton_character = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_character.setEnabled(True)
+        self.pushButton_character.setGeometry(QtCore.QRect(30, 40, 25, 25))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.pushButton_character.setPalette(palette)
+        self.pushButton_character.setAutoFillBackground(False)
+        self.pushButton_character.setText("")
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_character.setIcon(icon13)
+        self.pushButton_character.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_character.setCheckable(True)
+        self.pushButton_character.setChecked(False)
+        self.pushButton_character.setAutoRepeat(False)
+        self.pushButton_character.setAutoExclusive(False)
+        self.pushButton_character.setAutoDefault(False)
+        self.pushButton_character.setDefault(False)
+        self.pushButton_character.setFlat(True)
+        self.pushButton_character.setObjectName("pushButton_character")
+        self.pushButton_vehicle = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_vehicle.setEnabled(True)
+        self.pushButton_vehicle.setGeometry(QtCore.QRect(60, 40, 25, 25))
+        self.pushButton_vehicle.setText("")
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_vehicle.setIcon(icon14)
+        self.pushButton_vehicle.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_vehicle.setCheckable(True)
+        self.pushButton_vehicle.setAutoDefault(False)
+        self.pushButton_vehicle.setDefault(False)
+        self.pushButton_vehicle.setFlat(True)
+        self.pushButton_vehicle.setObjectName("pushButton_vehicle")
+        self.pushButton_set = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_set.setEnabled(True)
+        self.pushButton_set.setGeometry(QtCore.QRect(90, 40, 25, 25))
+        self.pushButton_set.setText("")
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_set.setIcon(icon15)
+        self.pushButton_set.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_set.setCheckable(True)
+        self.pushButton_set.setAutoDefault(False)
+        self.pushButton_set.setDefault(False)
+        self.pushButton_set.setFlat(True)
+        self.pushButton_set.setObjectName("pushButton_set")
+        self.pushButton_props = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_props.setEnabled(True)
+        self.pushButton_props.setGeometry(QtCore.QRect(120, 40, 25, 25))
+        self.pushButton_props.setText("")
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_props.setIcon(icon16)
+        self.pushButton_props.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_props.setCheckable(True)
+        self.pushButton_props.setAutoDefault(False)
+        self.pushButton_props.setDefault(False)
+        self.pushButton_props.setFlat(True)
+        self.pushButton_props.setObjectName("pushButton_props")
+        self.pushButton_others = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_others.setEnabled(True)
+        self.pushButton_others.setGeometry(QtCore.QRect(150, 40, 25, 25))
+        self.pushButton_others.setText("")
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_others.setIcon(icon17)
+        self.pushButton_others.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_others.setCheckable(True)
+        self.pushButton_others.setAutoDefault(False)
+        self.pushButton_others.setDefault(False)
+        self.pushButton_others.setFlat(True)
+        self.pushButton_others.setObjectName("pushButton_others")
+        self.pushButton_processConcept = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processConcept.setGeometry(QtCore.QRect(200, 40, 25, 25))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_processConcept.sizePolicy().hasHeightForWidth())
+        self.pushButton_processConcept.setSizePolicy(sizePolicy)
+        self.pushButton_processConcept.setText("")
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processConcept.setIcon(icon18)
+        self.pushButton_processConcept.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processConcept.setCheckable(True)
+        self.pushButton_processConcept.setAutoDefault(False)
+        self.pushButton_processConcept.setDefault(False)
+        self.pushButton_processConcept.setFlat(True)
+        self.pushButton_processConcept.setObjectName("pushButton_processConcept")
+        self.pushButton_processModeling = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processModeling.setEnabled(True)
+        self.pushButton_processModeling.setGeometry(QtCore.QRect(225, 40, 25, 25))
+        self.pushButton_processModeling.setText("")
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processModeling.setIcon(icon19)
+        self.pushButton_processModeling.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processModeling.setCheckable(True)
+        self.pushButton_processModeling.setAutoDefault(False)
+        self.pushButton_processModeling.setDefault(False)
+        self.pushButton_processModeling.setFlat(True)
+        self.pushButton_processModeling.setObjectName("pushButton_processModeling")
+        self.pushButton_processRigging = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processRigging.setEnabled(True)
+        self.pushButton_processRigging.setGeometry(QtCore.QRect(275, 40, 25, 25))
+        self.pushButton_processRigging.setText("")
+        icon20 = QtGui.QIcon()
+        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processRigging.setIcon(icon20)
+        self.pushButton_processRigging.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processRigging.setCheckable(True)
+        self.pushButton_processRigging.setAutoDefault(False)
+        self.pushButton_processRigging.setDefault(False)
+        self.pushButton_processRigging.setFlat(True)
+        self.pushButton_processRigging.setObjectName("pushButton_processRigging")
+        self.pushButton_processTexture = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processTexture.setEnabled(True)
+        self.pushButton_processTexture.setGeometry(QtCore.QRect(250, 40, 25, 25))
+        self.pushButton_processTexture.setText("")
+        icon21 = QtGui.QIcon()
+        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processTexture.setIcon(icon21)
+        self.pushButton_processTexture.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processTexture.setCheckable(True)
+        self.pushButton_processTexture.setAutoDefault(False)
+        self.pushButton_processTexture.setDefault(False)
+        self.pushButton_processTexture.setFlat(True)
+        self.pushButton_processTexture.setObjectName("pushButton_processTexture")
+        self.pushButton_processLayout = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processLayout.setEnabled(True)
+        self.pushButton_processLayout.setGeometry(QtCore.QRect(340, 40, 25, 25))
+        self.pushButton_processLayout.setText("")
+        icon22 = QtGui.QIcon()
+        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processLayout.setIcon(icon22)
+        self.pushButton_processLayout.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processLayout.setCheckable(True)
+        self.pushButton_processLayout.setAutoDefault(False)
+        self.pushButton_processLayout.setDefault(False)
+        self.pushButton_processLayout.setFlat(True)
+        self.pushButton_processLayout.setObjectName("pushButton_processLayout")
+        self.pushButton_processAnimation = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processAnimation.setEnabled(True)
+        self.pushButton_processAnimation.setGeometry(QtCore.QRect(370, 40, 25, 25))
+        self.pushButton_processAnimation.setText("")
+        icon23 = QtGui.QIcon()
+        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processAnimation.setIcon(icon23)
+        self.pushButton_processAnimation.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processAnimation.setCheckable(True)
+        self.pushButton_processAnimation.setAutoDefault(False)
+        self.pushButton_processAnimation.setDefault(False)
+        self.pushButton_processAnimation.setFlat(True)
+        self.pushButton_processAnimation.setObjectName("pushButton_processAnimation")
+        self.pushButton_processLighting = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processLighting.setEnabled(True)
+        self.pushButton_processLighting.setGeometry(QtCore.QRect(390, 40, 25, 25))
+        self.pushButton_processLighting.setText("")
+        icon24 = QtGui.QIcon()
+        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processLighting.setIcon(icon24)
+        self.pushButton_processLighting.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processLighting.setCheckable(True)
+        self.pushButton_processLighting.setAutoDefault(False)
+        self.pushButton_processLighting.setDefault(False)
+        self.pushButton_processLighting.setFlat(True)
+        self.pushButton_processLighting.setObjectName("pushButton_processLighting")
+        self.pushButton_processEffects = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processEffects.setEnabled(True)
+        self.pushButton_processEffects.setGeometry(QtCore.QRect(410, 40, 25, 25))
+        self.pushButton_processEffects.setText("")
+        icon25 = QtGui.QIcon()
+        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processEffects.setIcon(icon25)
+        self.pushButton_processEffects.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processEffects.setCheckable(True)
+        self.pushButton_processEffects.setAutoDefault(False)
+        self.pushButton_processEffects.setDefault(False)
+        self.pushButton_processEffects.setFlat(True)
+        self.pushButton_processEffects.setObjectName("pushButton_processEffects")
+        self.pushButton_processSimulation = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_processSimulation.setEnabled(True)
+        self.pushButton_processSimulation.setGeometry(QtCore.QRect(430, 40, 25, 25))
+        self.pushButton_processSimulation.setText("")
+        icon26 = QtGui.QIcon()
+        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processSimulation.setIcon(icon26)
+        self.pushButton_processSimulation.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_processSimulation.setCheckable(True)
+        self.pushButton_processSimulation.setAutoDefault(False)
+        self.pushButton_processSimulation.setDefault(False)
+        self.pushButton_processSimulation.setFlat(True)
+        self.pushButton_processSimulation.setObjectName("pushButton_processSimulation")
+        self.pushButton_all = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_all.setEnabled(True)
+        self.pushButton_all.setGeometry(QtCore.QRect(5, 70, 25, 25))
+        self.pushButton_all.setText("")
+        icon27 = QtGui.QIcon()
+        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_all.setIcon(icon27)
+        self.pushButton_all.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_all.setCheckable(True)
+        self.pushButton_all.setAutoDefault(False)
+        self.pushButton_all.setDefault(False)
+        self.pushButton_all.setFlat(True)
+        self.pushButton_all.setObjectName("pushButton_all")
+        self.pushButton_shot = QtWidgets.QPushButton(self.tab_branch)
+        self.pushButton_shot.setEnabled(True)
+        self.pushButton_shot.setGeometry(QtCore.QRect(5, 100, 25, 25))
+        self.pushButton_shot.setText("")
+        icon28 = QtGui.QIcon()
+        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_shot.setIcon(icon28)
+        self.pushButton_shot.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_shot.setCheckable(True)
+        self.pushButton_shot.setAutoDefault(False)
+        self.pushButton_shot.setDefault(False)
+        self.pushButton_shot.setFlat(True)
+        self.pushButton_shot.setObjectName("pushButton_shot")
+        self.checkBox_collectFile = QtWidgets.QCheckBox(self.tab_branch)
+        self.checkBox_collectFile.setGeometry(QtCore.QRect(10, 630, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.checkBox_collectFile.setFont(font)
+        self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.checkBox_collectFile.setObjectName("checkBox_collectFile")
+        self.checkBox_errorCheck = QtWidgets.QCheckBox(self.tab_branch)
+        self.checkBox_errorCheck.setGeometry(QtCore.QRect(10, 610, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.checkBox_errorCheck.setFont(font)
+        self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
+        self.lineEdit_branchName = QtWidgets.QLineEdit(self.tab_branch)
+        self.lineEdit_branchName.setGeometry(QtCore.QRect(200, 70, 291, 30))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        self.lineEdit_branchName.setPalette(palette)
+        self.lineEdit_branchName.setText("")
+        self.lineEdit_branchName.setObjectName("lineEdit_branchName")
+        self.line = QtWidgets.QFrame(self.tab_branch)
+        self.line.setGeometry(QtCore.QRect(30, 600, 168, 3))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.line.setPalette(palette)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.line_2 = QtWidgets.QFrame(self.tab_branch)
+        self.line_2.setGeometry(QtCore.QRect(30, 440, 168, 3))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.line_2.setPalette(palette)
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.line_3 = QtWidgets.QFrame(self.tab_branch)
+        self.line_3.setGeometry(QtCore.QRect(30, 440, 3, 163))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.line_3.setPalette(palette)
+        self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.line_4 = QtWidgets.QFrame(self.tab_branch)
+        self.line_4.setGeometry(QtCore.QRect(194, 440, 3, 163))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(124, 134, 134))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(103, 111, 111))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 59, 59))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(41, 44, 44))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(83, 89, 89))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.line_4.setPalette(palette)
+        self.line_4.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_4.setObjectName("line_4")
+        self.tabWidget_branch.addTab(self.tab_branch, "")
         self.tab_job_assemble = QtWidgets.QWidget()
         self.tab_job_assemble.setObjectName("tab_job_assemble")
         self.label_2 = QtWidgets.QLabel(self.tab_job_assemble)
@@ -105,7 +1488,7 @@ class Ui_MainWindow(object):
         self.label_2.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(self.tab_job_assemble)
@@ -252,7 +1635,7 @@ class Ui_MainWindow(object):
         self.pushButton.setGeometry(QtCore.QRect(220, 30, 80, 12))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        font.setPointSize(self.setFontSize)
+        font.setPointSize(self.setFontSize) 
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.listWidget = QtWidgets.QListWidget(self.tab_job_assemble)
@@ -290,7 +1673,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setGeometry(QtCore.QRect(140, 70, 80, 20))
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab_job_assemble)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(750, 80, 81, 112))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(750, 80, 82, 112))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -309,7 +1692,7 @@ class Ui_MainWindow(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.verticalLayout.addWidget(self.pushButton_7)
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.tab_job_assemble)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(750, 240, 81, 170))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(750, 240, 82, 170))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -364,786 +1747,139 @@ class Ui_MainWindow(object):
         QtWidgets.QListWidgetItem(self.listWidget_3)
         QtWidgets.QListWidgetItem(self.listWidget_3)
         self.tabWidget_branch.addTab(self.tab_job_assemble, "")
-        self.tab_branch = QtWidgets.QWidget()
-        self.tab_branch.setObjectName("tab_branch")
-        self.lineEdit_branchName = QtWidgets.QLineEdit(self.tab_branch)
-        self.lineEdit_branchName.setGeometry(QtCore.QRect(250, 401, 171, 40))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.lineEdit_branchName.setPalette(palette)
-        self.lineEdit_branchName.setText("")
-        self.lineEdit_branchName.setObjectName("lineEdit_branchName")
-        self.pushButton_editFileInfo = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_editFileInfo.setGeometry(QtCore.QRect(790, 270, 31, 31))
-        self.pushButton_editFileInfo.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/edit2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_editFileInfo.setIcon(icon)
-        self.pushButton_editFileInfo.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_editFileInfo.setAutoDefault(False)
-        self.pushButton_editFileInfo.setDefault(False)
-        self.pushButton_editFileInfo.setFlat(True)
-        self.pushButton_editFileInfo.setObjectName("pushButton_editFileInfo")
-        self.label = QtWidgets.QLabel(self.tab_branch)
-        self.label.setGeometry(QtCore.QRect(250, 380, 161, 21))
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.label_optionPage_projDescription = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_projDescription.setGeometry(QtCore.QRect(30, 40, 130, 16))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_projDescription.setFont(font)
+        self.label_optionPage_projDescription.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_projDescription.setObjectName("label_optionPage_projDescription")
+        self.label_optionPage_showFileType = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_showFileType.setGeometry(QtCore.QRect(30, 340, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_showFileType.setFont(font)
+        self.label_optionPage_showFileType.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_showFileType.setObjectName("label_optionPage_showFileType")
+        self.label_optionPage_tempB = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_tempB.setGeometry(QtCore.QRect(30, 390, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_tempB.setFont(font)
+        self.label_optionPage_tempB.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_tempB.setObjectName("label_optionPage_tempB")
+        self.label_optionPage_userPref = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_userPref.setGeometry(QtCore.QRect(30, 280, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_userPref.setFont(font)
+        self.label_optionPage_userPref.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_userPref.setObjectName("label_optionPage_userPref")
+        self.label_optionPage_User = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_User.setGeometry(QtCore.QRect(30, 230, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_User.setFont(font)
+        self.label_optionPage_User.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_User.setObjectName("label_optionPage_User")
+        self.label_optionPage_workProj = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_workProj.setGeometry(QtCore.QRect(30, 100, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_workProj.setFont(font)
+        self.label_optionPage_workProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_workProj.setObjectName("label_optionPage_workProj")
+        self.label_optionPage_branchFileInfo = QtWidgets.QLabel(self.tab_2)
+        self.label_optionPage_branchFileInfo.setGeometry(QtCore.QRect(30, 160, 130, 16))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.label_optionPage_branchFileInfo.setFont(font)
+        self.label_optionPage_branchFileInfo.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_optionPage_branchFileInfo.setObjectName("label_optionPage_branchFileInfo")
+        self.plainTextEdit_optionPage_projDescription = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_projDescription.setGeometry(QtCore.QRect(170, 40, 351, 50))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_projDescription.setFont(font)
+        self.plainTextEdit_optionPage_projDescription.setReadOnly(True)
+        self.plainTextEdit_optionPage_projDescription.setPlainText("")
+        self.plainTextEdit_optionPage_projDescription.setObjectName("plainTextEdit_optionPage_projDescription")
+        self.plainTextEdit_optionPage_workProj = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_workProj.setGeometry(QtCore.QRect(170, 100, 351, 50))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_workProj.setFont(font)
+        self.plainTextEdit_optionPage_workProj.setReadOnly(True)
+        self.plainTextEdit_optionPage_workProj.setObjectName("plainTextEdit_optionPage_workProj")
+        self.plainTextEdit_optionPage_branchInfoPos = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_branchInfoPos.setGeometry(QtCore.QRect(170, 160, 351, 50))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_branchInfoPos.setFont(font)
+        self.plainTextEdit_optionPage_branchInfoPos.setReadOnly(True)
+        self.plainTextEdit_optionPage_branchInfoPos.setObjectName("plainTextEdit_optionPage_branchInfoPos")
+        self.plainTextEdit_optionPage_currentUser = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_currentUser.setGeometry(QtCore.QRect(170, 230, 351, 40))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_currentUser.setFont(font)
+        self.plainTextEdit_optionPage_currentUser.setReadOnly(True)
+        self.plainTextEdit_optionPage_currentUser.setObjectName("plainTextEdit_optionPage_currentUser")
+        self.plainTextEdit_optionPage_userPref = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_userPref.setGeometry(QtCore.QRect(170, 280, 351, 50))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_userPref.setFont(font)
+        self.plainTextEdit_optionPage_userPref.setReadOnly(True)
+        self.plainTextEdit_optionPage_userPref.setObjectName("plainTextEdit_optionPage_userPref")
+        self.plainTextEdit_optionPage_showFileType = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_showFileType.setGeometry(QtCore.QRect(170, 340, 351, 40))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_showFileType.setFont(font)
+        self.plainTextEdit_optionPage_showFileType.setReadOnly(False)
+        self.plainTextEdit_optionPage_showFileType.setObjectName("plainTextEdit_optionPage_showFileType")
+        self.plainTextEdit_optionPage_tempB = QtWidgets.QPlainTextEdit(self.tab_2)
+        self.plainTextEdit_optionPage_tempB.setGeometry(QtCore.QRect(170, 390, 351, 40))
+        font = QtGui.QFont()
+        font.setPointSize(self.setFontSize-2) 
+
+        self.plainTextEdit_optionPage_tempB.setFont(font)
+        self.plainTextEdit_optionPage_tempB.setReadOnly(True)
+        self.plainTextEdit_optionPage_tempB.setObjectName("plainTextEdit_optionPage_tempB")
+        self.tabWidget_branch.addTab(self.tab_2, "")
+        self.label_fileData = QtWidgets.QLabel(self.centralwidget)
+        self.label_fileData.setGeometry(QtCore.QRect(1130, 90, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.treeWidget_branches = QtWidgets.QTreeWidget(self.tab_branch)
-        self.treeWidget_branches.setGeometry(QtCore.QRect(250, 70, 171, 311))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.treeWidget_branches.setPalette(palette)
-        self.treeWidget_branches.setAlternatingRowColors(False)
-        self.treeWidget_branches.setAutoExpandDelay(1)
-        self.treeWidget_branches.setAllColumnsShowFocus(True)
-        self.treeWidget_branches.setHeaderHidden(True)
-        self.treeWidget_branches.setExpandsOnDoubleClick(True)
-        self.treeWidget_branches.setObjectName("treeWidget_branches")
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_branches)
-        font = QtGui.QFont()
-        font.setPointSize(self.setFontSize+3)
-        font.setWeight(75)
-        font.setBold(True)
-        brush = QtGui.QBrush(QtGui.QColor(247, 126, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        item_0.setForeground(0, brush)
-        self.treeWidget_branches.header().setVisible(False)
-        self.treeWidget_branches.header().setCascadingSectionResizes(False)
-        self.treeWidget_branches.header().setDefaultSectionSize(311)
-        self.treeWidget_branches.header().setMinimumSectionSize(4)
-        self.treeWidget_branches.header().setSortIndicatorShown(False)
-        self.treeWidget_branches.header().setStretchLastSection(False)
-        self.tableWidget_FileList = QtWidgets.QTableWidget(self.tab_branch)
-        self.tableWidget_FileList.setGeometry(QtCore.QRect(440, 70, 351, 151))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.tableWidget_FileList.setPalette(palette)
-        font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
-        self.tableWidget_FileList.setFont(font)
-        self.tableWidget_FileList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
-        self.tableWidget_FileList.setAutoScrollMargin(16)
-        self.tableWidget_FileList.setAlternatingRowColors(True)
-        self.tableWidget_FileList.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableWidget_FileList.setObjectName("tableWidget_FileList")
-        self.tableWidget_FileList.setColumnCount(3)
-        self.tableWidget_FileList.setRowCount(15)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(7, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(8, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(9, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(10, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(11, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(12, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(13, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setVerticalHeaderItem(14, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setHorizontalHeaderItem(2, item)
-        brush = QtGui.QBrush(QtGui.QColor(192, 231, 248))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        item = QtWidgets.QTableWidgetItem()
-        item.setForeground(brush)
-        self.tableWidget_FileList.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(0, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(1, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(1, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(2, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(2, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(2, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(3, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(3, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(3, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(4, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(4, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(4, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(5, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(5, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(5, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(6, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(6, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(6, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(7, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(7, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(7, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(8, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(8, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(8, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(9, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(9, 2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_FileList.setItem(10, 1, item)
-        self.tableWidget_FileList.horizontalHeader().setVisible(False)
-        self.tableWidget_FileList.horizontalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_FileList.horizontalHeader().setDefaultSectionSize(60)
-        self.tableWidget_FileList.horizontalHeader().setSortIndicatorShown(True)
-        self.tableWidget_FileList.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget_FileList.verticalHeader().setVisible(False)
-        self.tableWidget_FileList.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_FileList.verticalHeader().setDefaultSectionSize(21)
-        self.lineEdit_currentFileName = QtWidgets.QLineEdit(self.tab_branch)
-        self.lineEdit_currentFileName.setGeometry(QtCore.QRect(440, 220, 351, 27))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.lineEdit_currentFileName.setPalette(palette)
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.lineEdit_currentFileName.setFont(font)
-        self.lineEdit_currentFileName.setObjectName("lineEdit_currentFileName")
-        self.pushButton_saveFile = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_saveFile.setGeometry(QtCore.QRect(790, 70, 31, 31))
-        self.pushButton_saveFile.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_saveFile.setIcon(icon1)
-        self.pushButton_saveFile.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_saveFile.setAutoDefault(False)
-        self.pushButton_saveFile.setDefault(False)
-        self.pushButton_saveFile.setFlat(True)
-        self.pushButton_saveFile.setObjectName("pushButton_saveFile")
-        self.pushButton_loadFile = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_loadFile.setGeometry(QtCore.QRect(790, 100, 31, 31))
-        self.pushButton_loadFile.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_loadFile.setIcon(icon2)
-        self.pushButton_loadFile.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_loadFile.setAutoDefault(False)
-        self.pushButton_loadFile.setDefault(False)
-        self.pushButton_loadFile.setFlat(True)
-        self.pushButton_loadFile.setObjectName("pushButton_loadFile")
-        self.pushButton_openFolder = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_openFolder.setGeometry(QtCore.QRect(790, 300, 31, 31))
-        self.pushButton_openFolder.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/openFolder2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_openFolder.setIcon(icon3)
-        self.pushButton_openFolder.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_openFolder.setAutoDefault(False)
-        self.pushButton_openFolder.setDefault(False)
-        self.pushButton_openFolder.setFlat(True)
-        self.pushButton_openFolder.setObjectName("pushButton_openFolder")
-        self.label_fileDescription = QtWidgets.QLabel(self.tab_branch)
-        self.label_fileDescription.setGeometry(QtCore.QRect(440, 250, 131, 16))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.label_fileDescription.setFont(font)
-        self.label_fileDescription.setObjectName("label_fileDescription")
-        self.pushButton_createNewBranch = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_createNewBranch.setGeometry(QtCore.QRect(250, 440, 31, 31))
-        self.pushButton_createNewBranch.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_createNewBranch.setIcon(icon4)
-        self.pushButton_createNewBranch.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_createNewBranch.setAutoDefault(False)
-        self.pushButton_createNewBranch.setDefault(False)
-        self.pushButton_createNewBranch.setFlat(True)
-        self.pushButton_createNewBranch.setObjectName("pushButton_createNewBranch")
-        self.pushButton_mergeToMaster = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(280, 440, 31, 31))
-        self.pushButton_mergeToMaster.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_mergeToMaster.setIcon(icon5)
-        self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_mergeToMaster.setAutoDefault(False)
-        self.pushButton_mergeToMaster.setDefault(False)
-        self.pushButton_mergeToMaster.setFlat(True)
-        self.pushButton_mergeToMaster.setObjectName("pushButton_mergeToMaster")
-        self.pushButton_closeBranch = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_closeBranch.setGeometry(QtCore.QRect(790, 160, 31, 31))
-        self.pushButton_closeBranch.setText("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_closeBranch.setIcon(icon6)
-        self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_closeBranch.setAutoDefault(False)
-        self.pushButton_closeBranch.setDefault(False)
-        self.pushButton_closeBranch.setFlat(True)
-        self.pushButton_closeBranch.setObjectName("pushButton_closeBranch")
-        self.pushButton_openFileJson = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_openFileJson.setGeometry(QtCore.QRect(790, 130, 31, 31))
-        self.pushButton_openFileJson.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_openFileJson.setIcon(icon7)
-        self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_openFileJson.setAutoDefault(False)
-        self.pushButton_openFileJson.setDefault(False)
-        self.pushButton_openFileJson.setFlat(True)
-        self.pushButton_openFileJson.setObjectName("pushButton_openFileJson")
-        self.pushButton_openBranchJson = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_openBranchJson.setGeometry(QtCore.QRect(390, 440, 31, 31))
-        self.pushButton_openBranchJson.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_openBranchJson.setIcon(icon8)
-        self.pushButton_openBranchJson.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_openBranchJson.setAutoDefault(False)
-        self.pushButton_openBranchJson.setDefault(False)
-        self.pushButton_openBranchJson.setFlat(True)
-        self.pushButton_openBranchJson.setObjectName("pushButton_openBranchJson")
-        self.label_fileData = QtWidgets.QLabel(self.tab_branch)
-        self.label_fileData.setGeometry(QtCore.QRect(440, 50, 161, 21))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(self.setFontSize+2) 
         self.label_fileData.setFont(font)
         self.label_fileData.setObjectName("label_fileData")
-        self.plainTextEdit_BranchFileInfo = QtWidgets.QPlainTextEdit(self.tab_branch)
-        self.plainTextEdit_BranchFileInfo.setGeometry(QtCore.QRect(440, 270, 351, 171))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.plainTextEdit_BranchFileInfo.setPalette(palette)
-        self.plainTextEdit_BranchFileInfo.setObjectName("plainTextEdit_BranchFileInfo")
-        self.plainTextEdit_metaData = QtWidgets.QPlainTextEdit(self.tab_branch)
-        self.plainTextEdit_metaData.setGeometry(QtCore.QRect(440, 467, 351, 61))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.plainTextEdit_metaData.setPalette(palette)
-        self.plainTextEdit_metaData.setObjectName("plainTextEdit_metaData")
-        self.pushButton_character = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_character.setEnabled(True)
-        self.pushButton_character.setGeometry(QtCore.QRect(40, 70, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_character.setPalette(palette)
-        self.pushButton_character.setAutoFillBackground(False)
-        self.pushButton_character.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon9.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_character.setIcon(icon9)
-        self.pushButton_character.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_character.setCheckable(True)
-        self.pushButton_character.setChecked(False)
-        self.pushButton_character.setAutoRepeat(False)
-        self.pushButton_character.setAutoExclusive(False)
-        self.pushButton_character.setAutoDefault(False)
-        self.pushButton_character.setDefault(False)
-        self.pushButton_character.setFlat(True)
-        self.pushButton_character.setObjectName("pushButton_character")
-        self.listWidget_assetProj = QtWidgets.QListWidget(self.tab_branch)
-        self.listWidget_assetProj.setGeometry(QtCore.QRect(70, 70, 151, 371))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.listWidget_assetProj.setPalette(palette)
-        font = QtGui.QFont()
-        font.setPointSize(self.setFontSize)
-        self.listWidget_assetProj.setFont(font)
-        self.listWidget_assetProj.setObjectName("listWidget_assetProj")
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        QtWidgets.QListWidgetItem(self.listWidget_assetProj)
-        self.pushButton_setting = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_setting.setGeometry(QtCore.QRect(40, 600, 31, 31))
-        self.pushButton_setting.setText("")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_setting.setIcon(icon10)
-        self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_setting.setAutoDefault(False)
-        self.pushButton_setting.setDefault(False)
-        self.pushButton_setting.setFlat(True)
-        self.pushButton_setting.setObjectName("pushButton_setting")
-        self.pushButton_publish = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_publish.setGeometry(QtCore.QRect(40, 560, 31, 31))
-        self.pushButton_publish.setText("")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_publish.setIcon(icon11)
-        self.pushButton_publish.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_publish.setAutoDefault(False)
-        self.pushButton_publish.setDefault(False)
-        self.pushButton_publish.setFlat(True)
-        self.pushButton_publish.setObjectName("pushButton_publish")
-        self.pushButton_syncFile = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_syncFile.setGeometry(QtCore.QRect(70, 560, 31, 31))
-        self.pushButton_syncFile.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_syncFile.setIcon(icon12)
-        self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_syncFile.setAutoDefault(False)
-        self.pushButton_syncFile.setDefault(False)
-        self.pushButton_syncFile.setFlat(True)
-        self.pushButton_syncFile.setObjectName("pushButton_syncFile")
-        self.pushButton_reNewBranchDict = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(70, 600, 31, 31))
-        self.pushButton_reNewBranchDict.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_reNewBranchDict.setIcon(icon13)
-        self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_reNewBranchDict.setAutoDefault(False)
-        self.pushButton_reNewBranchDict.setDefault(False)
-        self.pushButton_reNewBranchDict.setFlat(True)
-        self.pushButton_reNewBranchDict.setObjectName("pushButton_reNewBranchDict")
-        self.checkBox_collectFile = QtWidgets.QCheckBox(self.tab_branch)
-        self.checkBox_collectFile.setGeometry(QtCore.QRect(10, 530, 101, 20))
+        self.label_fileDescription = QtWidgets.QLabel(self.centralwidget)
+        self.label_fileDescription.setGeometry(QtCore.QRect(1170, 240, 131, 16))
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.checkBox_collectFile.setFont(font)
-        self.checkBox_collectFile.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.checkBox_collectFile.setObjectName("checkBox_collectFile")
-        self.checkBox_errorCheck = QtWidgets.QCheckBox(self.tab_branch)
-        self.checkBox_errorCheck.setGeometry(QtCore.QRect(10, 510, 101, 20))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.checkBox_errorCheck.setFont(font)
-        self.checkBox_errorCheck.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.checkBox_errorCheck.setObjectName("checkBox_errorCheck")
-        self.label_metaData = QtWidgets.QLabel(self.tab_branch)
-        self.label_metaData.setGeometry(QtCore.QRect(440, 450, 131, 16))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.label_metaData.setFont(font)
-        self.label_metaData.setObjectName("label_metaData")
-        self.pushButton_vehicle = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_vehicle.setEnabled(True)
-        self.pushButton_vehicle.setGeometry(QtCore.QRect(40, 100, 30, 30))
-        self.pushButton_vehicle.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_vehicle.setIcon(icon14)
-        self.pushButton_vehicle.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_vehicle.setCheckable(True)
-        self.pushButton_vehicle.setAutoDefault(False)
-        self.pushButton_vehicle.setDefault(False)
-        self.pushButton_vehicle.setFlat(True)
-        self.pushButton_vehicle.setObjectName("pushButton_vehicle")
-        self.pushButton_set = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_set.setEnabled(True)
-        self.pushButton_set.setGeometry(QtCore.QRect(40, 130, 30, 30))
-        self.pushButton_set.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_set.setIcon(icon15)
-        self.pushButton_set.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_set.setCheckable(True)
-        self.pushButton_set.setAutoDefault(False)
-        self.pushButton_set.setDefault(False)
-        self.pushButton_set.setFlat(True)
-        self.pushButton_set.setObjectName("pushButton_set")
-        self.pushButton_props = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_props.setEnabled(True)
-        self.pushButton_props.setGeometry(QtCore.QRect(40, 160, 30, 30))
-        self.pushButton_props.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_props.setIcon(icon16)
-        self.pushButton_props.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_props.setCheckable(True)
-        self.pushButton_props.setAutoDefault(False)
-        self.pushButton_props.setDefault(False)
-        self.pushButton_props.setFlat(True)
-        self.pushButton_props.setObjectName("pushButton_props")
-        self.pushButton_others = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_others.setEnabled(True)
-        self.pushButton_others.setGeometry(QtCore.QRect(40, 190, 30, 30))
-        self.pushButton_others.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_others.setIcon(icon17)
-        self.pushButton_others.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_others.setCheckable(True)
-        self.pushButton_others.setAutoDefault(False)
-        self.pushButton_others.setDefault(False)
-        self.pushButton_others.setFlat(True)
-        self.pushButton_others.setObjectName("pushButton_others")
-        self.pushButton_all = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_all.setEnabled(True)
-        self.pushButton_all.setGeometry(QtCore.QRect(40, 250, 30, 30))
-        self.pushButton_all.setText("")
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_all.setIcon(icon18)
-        self.pushButton_all.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_all.setCheckable(True)
-        self.pushButton_all.setAutoDefault(False)
-        self.pushButton_all.setDefault(False)
-        self.pushButton_all.setFlat(True)
-        self.pushButton_all.setObjectName("pushButton_all")
-        self.pushButton_shot = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_shot.setEnabled(True)
-        self.pushButton_shot.setGeometry(QtCore.QRect(40, 300, 30, 30))
-        self.pushButton_shot.setText("")
-        icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_shot.setIcon(icon19)
-        self.pushButton_shot.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_shot.setCheckable(True)
-        self.pushButton_shot.setAutoDefault(False)
-        self.pushButton_shot.setDefault(False)
-        self.pushButton_shot.setFlat(True)
-        self.pushButton_shot.setObjectName("pushButton_shot")
-        self.pushButton_processConcept = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processConcept.setGeometry(QtCore.QRect(220, 70, 30, 30))
-        self.pushButton_processConcept.setText("")
-        icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon20.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processConcept.setIcon(icon20)
-        self.pushButton_processConcept.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processConcept.setCheckable(True)
-        self.pushButton_processConcept.setAutoDefault(False)
-        self.pushButton_processConcept.setDefault(False)
-        self.pushButton_processConcept.setFlat(True)
-        self.pushButton_processConcept.setObjectName("pushButton_processConcept")
-        self.pushButton_processModeling = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processModeling.setEnabled(True)
-        self.pushButton_processModeling.setGeometry(QtCore.QRect(220, 100, 30, 30))
-        self.pushButton_processModeling.setText("")
-        icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processModeling.setIcon(icon21)
-        self.pushButton_processModeling.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processModeling.setCheckable(True)
-        self.pushButton_processModeling.setAutoDefault(False)
-        self.pushButton_processModeling.setDefault(False)
-        self.pushButton_processModeling.setFlat(True)
-        self.pushButton_processModeling.setObjectName("pushButton_processModeling")
-        self.pushButton_processTexture = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processTexture.setEnabled(True)
-        self.pushButton_processTexture.setGeometry(QtCore.QRect(220, 130, 30, 30))
-        self.pushButton_processTexture.setText("")
-        icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processTexture.setIcon(icon22)
-        self.pushButton_processTexture.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processTexture.setCheckable(True)
-        self.pushButton_processTexture.setAutoDefault(False)
-        self.pushButton_processTexture.setDefault(False)
-        self.pushButton_processTexture.setFlat(True)
-        self.pushButton_processTexture.setObjectName("pushButton_processTexture")
-        self.pushButton_processRigging = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processRigging.setEnabled(True)
-        self.pushButton_processRigging.setGeometry(QtCore.QRect(220, 160, 30, 30))
-        self.pushButton_processRigging.setText("")
-        icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processRigging.setIcon(icon23)
-        self.pushButton_processRigging.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processRigging.setCheckable(True)
-        self.pushButton_processRigging.setAutoDefault(False)
-        self.pushButton_processRigging.setDefault(False)
-        self.pushButton_processRigging.setFlat(True)
-        self.pushButton_processRigging.setObjectName("pushButton_processRigging")
-        self.pushButton_processLayout = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processLayout.setEnabled(True)
-        self.pushButton_processLayout.setGeometry(QtCore.QRect(220, 200, 30, 30))
-        self.pushButton_processLayout.setText("")
-        icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processLayout.setIcon(icon24)
-        self.pushButton_processLayout.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processLayout.setCheckable(True)
-        self.pushButton_processLayout.setAutoDefault(False)
-        self.pushButton_processLayout.setDefault(False)
-        self.pushButton_processLayout.setFlat(True)
-        self.pushButton_processLayout.setObjectName("pushButton_processLayout")
-        self.pushButton_processAnimation = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processAnimation.setEnabled(True)
-        self.pushButton_processAnimation.setGeometry(QtCore.QRect(220, 230, 30, 30))
-        self.pushButton_processAnimation.setText("")
-        icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processAnimation.setIcon(icon25)
-        self.pushButton_processAnimation.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processAnimation.setCheckable(True)
-        self.pushButton_processAnimation.setAutoDefault(False)
-        self.pushButton_processAnimation.setDefault(False)
-        self.pushButton_processAnimation.setFlat(True)
-        self.pushButton_processAnimation.setObjectName("pushButton_processAnimation")
-        self.pushButton_processLighting = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processLighting.setEnabled(True)
-        self.pushButton_processLighting.setGeometry(QtCore.QRect(220, 260, 30, 30))
-        self.pushButton_processLighting.setText("")
-        icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon26.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processLighting.setIcon(icon26)
-        self.pushButton_processLighting.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processLighting.setCheckable(True)
-        self.pushButton_processLighting.setAutoDefault(False)
-        self.pushButton_processLighting.setDefault(False)
-        self.pushButton_processLighting.setFlat(True)
-        self.pushButton_processLighting.setObjectName("pushButton_processLighting")
-        self.pushButton_processEffects = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processEffects.setEnabled(True)
-        self.pushButton_processEffects.setGeometry(QtCore.QRect(220, 290, 30, 30))
-        self.pushButton_processEffects.setText("")
-        icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon27.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processEffects.setIcon(icon27)
-        self.pushButton_processEffects.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processEffects.setCheckable(True)
-        self.pushButton_processEffects.setAutoDefault(False)
-        self.pushButton_processEffects.setDefault(False)
-        self.pushButton_processEffects.setFlat(True)
-        self.pushButton_processEffects.setObjectName("pushButton_processEffects")
-        self.pushButton_processSimulation = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processSimulation.setEnabled(True)
-        self.pushButton_processSimulation.setGeometry(QtCore.QRect(220, 320, 30, 30))
-        self.pushButton_processSimulation.setText("")
-        icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon28.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processSimulation.setIcon(icon28)
-        self.pushButton_processSimulation.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processSimulation.setCheckable(True)
-        self.pushButton_processSimulation.setAutoDefault(False)
-        self.pushButton_processSimulation.setDefault(False)
-        self.pushButton_processSimulation.setFlat(True)
-        self.pushButton_processSimulation.setObjectName("pushButton_processSimulation")
-        self.pushButton_processComp = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_processComp.setEnabled(True)
-        self.pushButton_processComp.setGeometry(QtCore.QRect(220, 350, 30, 30))
-        self.pushButton_processComp.setText("")
-        icon29 = QtGui.QIcon()
-        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processComp.setIcon(icon29)
-        self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_processComp.setCheckable(True)
-        self.pushButton_processComp.setAutoDefault(False)
-        self.pushButton_processComp.setDefault(False)
-        self.pushButton_processComp.setFlat(True)
-        self.pushButton_processComp.setObjectName("pushButton_processComp")
-        self.label_currentProj = QtWidgets.QLabel(self.tab_branch)
-        self.label_currentProj.setGeometry(QtCore.QRect(450, 10, 61, 20))
-        font = QtGui.QFont()
-        font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
-        self.label_currentProj.setFont(font)
-        self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_currentProj.setObjectName("label_currentProj")
-        self.lineEdit_currentProj = QtWidgets.QLineEdit(self.tab_branch)
-        self.lineEdit_currentProj.setGeometry(QtCore.QRect(520, 10, 251, 31))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 247))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 247))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(14, 21, 19))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(41, 61, 55))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        self.lineEdit_currentProj.setPalette(palette)
-        self.lineEdit_currentProj.setReadOnly(True)
-        self.lineEdit_currentProj.setObjectName("lineEdit_currentProj")
-        self.comboBox_selectProj = QtWidgets.QComboBox(self.tab_branch)
-        self.comboBox_selectProj.setGeometry(QtCore.QRect(70, 40, 241, 22))
-        self.comboBox_selectProj.setObjectName("comboBox_selectProj")
-        self.comboBox_selectProj.addItem("")
-        self.comboBox_selectProj.addItem("")
-        self.comboBox_selectProj.addItem("")
-        self.label_selectProject = QtWidgets.QLabel(self.tab_branch)
-        self.label_selectProject.setGeometry(QtCore.QRect(70, 16, 141, 20))
+        font.setPointSize(self.setFontSize+2) 
+        self.label_fileDescription.setFont(font)
+        self.label_fileDescription.setObjectName("label_fileDescription")
+        self.label_selectProject = QtWidgets.QLabel(self.centralwidget)
+        self.label_selectProject.setGeometry(QtCore.QRect(1160, 620, 141, 20))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1166,294 +1902,107 @@ class Ui_MainWindow(object):
         self.label_selectProject.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Calibri")
-        font.setPointSize(self.setFontSize+2)
+        font.setPointSize(self.setFontSize+2) 
         self.label_selectProject.setFont(font)
         self.label_selectProject.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_selectProject.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_selectProject.setObjectName("label_selectProject")
-        self.pushButton_inProgress = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_inProgress.setEnabled(True)
-        self.pushButton_inProgress.setGeometry(QtCore.QRect(319, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_inProgress.setPalette(palette)
-        self.pushButton_inProgress.setAutoFillBackground(False)
-        self.pushButton_inProgress.setText("")
+        self.label_currentProj = QtWidgets.QLabel(self.centralwidget)
+        self.label_currentProj.setGeometry(QtCore.QRect(1100, 20, 151, 20))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.label_currentProj.setFont(font)
+        self.label_currentProj.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_currentProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_currentProj.setObjectName("label_currentProj")
+        self.pushButton_closeBranch = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_closeBranch.setGeometry(QtCore.QRect(1130, 380, 31, 31))
+        self.pushButton_closeBranch.setText("")
+        icon29 = QtGui.QIcon()
+        icon29.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_closeBranch.setIcon(icon29)
+        self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_closeBranch.setAutoDefault(False)
+        self.pushButton_closeBranch.setDefault(False)
+        self.pushButton_closeBranch.setFlat(True)
+        self.pushButton_closeBranch.setObjectName("pushButton_closeBranch")
+        self.pushButton_openFileJson = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_openFileJson.setGeometry(QtCore.QRect(1130, 350, 31, 31))
+        self.pushButton_openFileJson.setText("")
         icon30 = QtGui.QIcon()
-        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_inProgress.setIcon(icon30)
-        self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_inProgress.setCheckable(True)
-        self.pushButton_inProgress.setChecked(False)
-        self.pushButton_inProgress.setAutoRepeat(False)
-        self.pushButton_inProgress.setAutoExclusive(False)
-        self.pushButton_inProgress.setAutoDefault(False)
-        self.pushButton_inProgress.setDefault(False)
-        self.pushButton_inProgress.setFlat(True)
-        self.pushButton_inProgress.setObjectName("pushButton_inProgress")
-        self.pushButton_recent = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_recent.setEnabled(True)
-        self.pushButton_recent.setGeometry(QtCore.QRect(350, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_recent.setPalette(palette)
-        self.pushButton_recent.setAutoFillBackground(False)
-        self.pushButton_recent.setText("")
+        icon30.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_openFileJson.setIcon(icon30)
+        self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_openFileJson.setAutoDefault(False)
+        self.pushButton_openFileJson.setDefault(False)
+        self.pushButton_openFileJson.setFlat(True)
+        self.pushButton_openFileJson.setObjectName("pushButton_openFileJson")
+        self.label_metaData = QtWidgets.QLabel(self.centralwidget)
+        self.label_metaData.setGeometry(QtCore.QRect(1140, 705, 131, 16))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.label_metaData.setFont(font)
+        self.label_metaData.setObjectName("label_metaData")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(1190, 430, 161, 21))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(self.setFontSize+2) 
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.pushButton_mergeToMaster = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(1250, 770, 25, 25))
+        self.pushButton_mergeToMaster.setText("")
         icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_recent.setIcon(icon31)
-        self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_recent.setCheckable(True)
-        self.pushButton_recent.setChecked(False)
-        self.pushButton_recent.setAutoRepeat(False)
-        self.pushButton_recent.setAutoExclusive(False)
-        self.pushButton_recent.setAutoDefault(False)
-        self.pushButton_recent.setDefault(False)
-        self.pushButton_recent.setFlat(True)
-        self.pushButton_recent.setObjectName("pushButton_recent")
-        self.pushButton_complete = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_complete.setEnabled(True)
-        self.pushButton_complete.setGeometry(QtCore.QRect(382, 35, 30, 30))
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        self.pushButton_complete.setPalette(palette)
-        self.pushButton_complete.setAutoFillBackground(False)
-        self.pushButton_complete.setText("")
+        icon31.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_mergeToMaster.setIcon(icon31)
+        self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_mergeToMaster.setAutoDefault(False)
+        self.pushButton_mergeToMaster.setDefault(False)
+        self.pushButton_mergeToMaster.setFlat(True)
+        self.pushButton_mergeToMaster.setObjectName("pushButton_mergeToMaster")
+        self.pushButton_processComp = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_processComp.setEnabled(True)
+        self.pushButton_processComp.setGeometry(QtCore.QRect(1200, 570, 29, 29))
+        self.pushButton_processComp.setText("")
         icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.pushButton_complete.setIcon(icon32)
-        self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
-        self.pushButton_complete.setCheckable(True)
-        self.pushButton_complete.setChecked(False)
-        self.pushButton_complete.setAutoRepeat(False)
-        self.pushButton_complete.setAutoExclusive(False)
-        self.pushButton_complete.setAutoDefault(False)
-        self.pushButton_complete.setDefault(False)
-        self.pushButton_complete.setFlat(True)
-        self.pushButton_complete.setObjectName("pushButton_complete")
-        self.tabWidget_branch.addTab(self.tab_branch, "")
-        self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.label_optionPage_projDescription = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_projDescription.setGeometry(QtCore.QRect(30, 40, 130, 16))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(6)
-        self.label_optionPage_projDescription.setFont(font)
-        self.label_optionPage_projDescription.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_projDescription.setObjectName("label_optionPage_projDescription")
-        self.label_optionPage_showFileType = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_showFileType.setGeometry(QtCore.QRect(30, 340, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_showFileType.setFont(font)
-        self.label_optionPage_showFileType.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_showFileType.setObjectName("label_optionPage_showFileType")
-        self.label_optionPage_tempB = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_tempB.setGeometry(QtCore.QRect(30, 390, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_tempB.setFont(font)
-        self.label_optionPage_tempB.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_tempB.setObjectName("label_optionPage_tempB")
-        self.label_optionPage_userPref = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_userPref.setGeometry(QtCore.QRect(30, 280, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_userPref.setFont(font)
-        self.label_optionPage_userPref.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_userPref.setObjectName("label_optionPage_userPref")
-        self.label_optionPage_User = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_User.setGeometry(QtCore.QRect(30, 230, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_User.setFont(font)
-        self.label_optionPage_User.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_User.setObjectName("label_optionPage_User")
-        self.label_optionPage_workProj = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_workProj.setGeometry(QtCore.QRect(30, 100, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_workProj.setFont(font)
-        self.label_optionPage_workProj.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_workProj.setObjectName("label_optionPage_workProj")
-        self.label_optionPage_branchFileInfo = QtWidgets.QLabel(self.tab_2)
-        self.label_optionPage_branchFileInfo.setGeometry(QtCore.QRect(30, 160, 130, 16))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.label_optionPage_branchFileInfo.setFont(font)
-        self.label_optionPage_branchFileInfo.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_optionPage_branchFileInfo.setObjectName("label_optionPage_branchFileInfo")
-        self.plainTextEdit_optionPage_projDescription = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_projDescription.setGeometry(QtCore.QRect(170, 40, 351, 50))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_projDescription.setFont(font)
-        self.plainTextEdit_optionPage_projDescription.setReadOnly(True)
-        self.plainTextEdit_optionPage_projDescription.setPlainText("")
-        self.plainTextEdit_optionPage_projDescription.setObjectName("plainTextEdit_optionPage_projDescription")
-        self.plainTextEdit_optionPage_workProj = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_workProj.setGeometry(QtCore.QRect(170, 100, 351, 50))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_workProj.setFont(font)
-        self.plainTextEdit_optionPage_workProj.setReadOnly(True)
-        self.plainTextEdit_optionPage_workProj.setObjectName("plainTextEdit_optionPage_workProj")
-        self.plainTextEdit_optionPage_branchInfoPos = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_branchInfoPos.setGeometry(QtCore.QRect(170, 160, 351, 50))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_branchInfoPos.setFont(font)
-        self.plainTextEdit_optionPage_branchInfoPos.setReadOnly(True)
-        self.plainTextEdit_optionPage_branchInfoPos.setObjectName("plainTextEdit_optionPage_branchInfoPos")
-        self.plainTextEdit_optionPage_currentUser = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_currentUser.setGeometry(QtCore.QRect(170, 230, 351, 40))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_currentUser.setFont(font)
-        self.plainTextEdit_optionPage_currentUser.setReadOnly(True)
-        self.plainTextEdit_optionPage_currentUser.setObjectName("plainTextEdit_optionPage_currentUser")
-        self.plainTextEdit_optionPage_userPref = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_userPref.setGeometry(QtCore.QRect(170, 280, 351, 50))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_userPref.setFont(font)
-        self.plainTextEdit_optionPage_userPref.setReadOnly(True)
-        self.plainTextEdit_optionPage_userPref.setObjectName("plainTextEdit_optionPage_userPref")
-        self.plainTextEdit_optionPage_showFileType = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_showFileType.setGeometry(QtCore.QRect(170, 340, 351, 40))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_showFileType.setFont(font)
-        self.plainTextEdit_optionPage_showFileType.setReadOnly(False)
-        self.plainTextEdit_optionPage_showFileType.setObjectName("plainTextEdit_optionPage_showFileType")
-        self.plainTextEdit_optionPage_tempB = QtWidgets.QPlainTextEdit(self.tab_2)
-        self.plainTextEdit_optionPage_tempB.setGeometry(QtCore.QRect(170, 390, 351, 40))
-        font = QtGui.QFont()
-        font.setPointSize(6)
-        self.plainTextEdit_optionPage_tempB.setFont(font)
-        self.plainTextEdit_optionPage_tempB.setReadOnly(True)
-        self.plainTextEdit_optionPage_tempB.setObjectName("plainTextEdit_optionPage_tempB")
-        self.tabWidget_branch.addTab(self.tab_2, "")
+        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processComp.setIcon(icon32)
+        self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_processComp.setCheckable(True)
+        self.pushButton_processComp.setAutoDefault(False)
+        self.pushButton_processComp.setDefault(False)
+        self.pushButton_processComp.setFlat(True)
+        self.pushButton_processComp.setObjectName("pushButton_processComp")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget_branch.setCurrentIndex(1)
+        self.tabWidget_branch.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
-        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "project Name :", None, -1))
-        self.pushButton.setText(QtWidgets.QApplication.translate("MainWindow", "getProject", None, -1))
-        __sortingEnabled = self.listWidget.isSortingEnabled()
-        self.listWidget.setSortingEnabled(False)
-        self.listWidget.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "jack", None, -1))
-        self.listWidget.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "anna", None, -1))
-        self.listWidget.setSortingEnabled(__sortingEnabled)
-        self.pushButton_2.setText(QtWidgets.QApplication.translate("MainWindow", "assets", None, -1))
-        self.pushButton_3.setText(QtWidgets.QApplication.translate("MainWindow", "shot", None, -1))
-        self.pushButton_6.setText(QtWidgets.QApplication.translate("MainWindow", "concept", None, -1))
-        self.pushButton_4.setText(QtWidgets.QApplication.translate("MainWindow", "model", None, -1))
-        self.pushButton_8.setText(QtWidgets.QApplication.translate("MainWindow", "texture", None, -1))
-        self.pushButton_7.setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
-        self.pushButton_9.setText(QtWidgets.QApplication.translate("MainWindow", "layout", None, -1))
-        self.pushButton_10.setText(QtWidgets.QApplication.translate("MainWindow", "animation", None, -1))
-        self.pushButton_11.setText(QtWidgets.QApplication.translate("MainWindow", "lighting", None, -1))
-        self.pushButton_25.setText(QtWidgets.QApplication.translate("MainWindow", "effect", None, -1))
-        self.pushButton_24.setText(QtWidgets.QApplication.translate("MainWindow", "simulation", None, -1))
-        self.pushButton_12.setText(QtWidgets.QApplication.translate("MainWindow", "comp", None, -1))
-        self.pushButton_26.setText(QtWidgets.QApplication.translate("MainWindow", "add", None, -1))
-        __sortingEnabled = self.listWidget_3.isSortingEnabled()
-        self.listWidget_3.setSortingEnabled(False)
-        self.listWidget_3.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "jack", None, -1))
-        self.listWidget_3.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "anna", None, -1))
-        self.listWidget_3.setSortingEnabled(__sortingEnabled)
-        self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_job_assemble), QtWidgets.QApplication.translate("MainWindow", "job Assemble", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Branch Name", None, -1))
+        __sortingEnabled = self.listWidget_assetProj.isSortingEnabled()
+        self.listWidget_assetProj.setSortingEnabled(False)
+        self.listWidget_assetProj.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "concept", None, -1))
+        self.listWidget_assetProj.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "modeling", None, -1))
+        self.listWidget_assetProj.item(2).setText(QtWidgets.QApplication.translate("MainWindow", "texture", None, -1))
+        self.listWidget_assetProj.item(3).setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
+        self.listWidget_assetProj.item(4).setText(QtWidgets.QApplication.translate("MainWindow", "animatic", None, -1))
+        self.listWidget_assetProj.item(5).setText(QtWidgets.QApplication.translate("MainWindow", "layout", None, -1))
+        self.listWidget_assetProj.item(6).setText(QtWidgets.QApplication.translate("MainWindow", "animation", None, -1))
+        self.listWidget_assetProj.item(7).setText(QtWidgets.QApplication.translate("MainWindow", "effect", None, -1))
+        self.listWidget_assetProj.item(8).setText(QtWidgets.QApplication.translate("MainWindow", "simulation", None, -1))
+        self.listWidget_assetProj.item(9).setText(QtWidgets.QApplication.translate("MainWindow", "lighting", None, -1))
+        self.listWidget_assetProj.setSortingEnabled(__sortingEnabled)
+        self.comboBox_selectProj.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "select project", None, -1))
         self.treeWidget_branches.headerItem().setText(0, QtWidgets.QApplication.translate("MainWindow", "branch Info", None, -1))
         __sortingEnabled = self.treeWidget_branches.isSortingEnabled()
         self.treeWidget_branches.setSortingEnabled(False)
@@ -1508,30 +2057,35 @@ class Ui_MainWindow(object):
         self.tableWidget_FileList.item(8, 2).setText(QtWidgets.QApplication.translate("MainWindow", "2017.03/28 10:00", None, -1))
         self.tableWidget_FileList.setSortingEnabled(__sortingEnabled)
         self.lineEdit_currentFileName.setText(QtWidgets.QApplication.translate("MainWindow", "SelectFile:", None, -1))
-        self.label_fileDescription.setText(QtWidgets.QApplication.translate("MainWindow", "File description:", None, -1))
-        self.label_fileData.setText(QtWidgets.QApplication.translate("MainWindow", "File Data", None, -1))
-        __sortingEnabled = self.listWidget_assetProj.isSortingEnabled()
-        self.listWidget_assetProj.setSortingEnabled(False)
-        self.listWidget_assetProj.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "concept", None, -1))
-        self.listWidget_assetProj.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "modeling", None, -1))
-        self.listWidget_assetProj.item(2).setText(QtWidgets.QApplication.translate("MainWindow", "texture", None, -1))
-        self.listWidget_assetProj.item(3).setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
-        self.listWidget_assetProj.item(4).setText(QtWidgets.QApplication.translate("MainWindow", "animatic", None, -1))
-        self.listWidget_assetProj.item(5).setText(QtWidgets.QApplication.translate("MainWindow", "layout", None, -1))
-        self.listWidget_assetProj.item(6).setText(QtWidgets.QApplication.translate("MainWindow", "animation", None, -1))
-        self.listWidget_assetProj.item(7).setText(QtWidgets.QApplication.translate("MainWindow", "effect", None, -1))
-        self.listWidget_assetProj.item(8).setText(QtWidgets.QApplication.translate("MainWindow", "simulation", None, -1))
-        self.listWidget_assetProj.item(9).setText(QtWidgets.QApplication.translate("MainWindow", "lighting", None, -1))
-        self.listWidget_assetProj.setSortingEnabled(__sortingEnabled)
         self.checkBox_collectFile.setText(QtWidgets.QApplication.translate("MainWindow", "Collect File", None, -1))
         self.checkBox_errorCheck.setText(QtWidgets.QApplication.translate("MainWindow", "Error Check", None, -1))
-        self.label_metaData.setText(QtWidgets.QApplication.translate("MainWindow", "Meta Data", None, -1))
-        self.label_currentProj.setText(QtWidgets.QApplication.translate("MainWindow", "current WorkSpace", None, -1))
-        self.comboBox_selectProj.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "a1", None, -1))
-        self.comboBox_selectProj.setItemText(1, QtWidgets.QApplication.translate("MainWindow", "a2", None, -1))
-        self.comboBox_selectProj.setItemText(2, QtWidgets.QApplication.translate("MainWindow", "a3", None, -1))
-        self.label_selectProject.setText(QtWidgets.QApplication.translate("MainWindow", "select Project", None, -1))
         self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_branch), QtWidgets.QApplication.translate("MainWindow", "branch Edit", None, -1))
+        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "project Name :", None, -1))
+        self.pushButton.setText(QtWidgets.QApplication.translate("MainWindow", "getProject", None, -1))
+        __sortingEnabled = self.listWidget.isSortingEnabled()
+        self.listWidget.setSortingEnabled(False)
+        self.listWidget.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "jack", None, -1))
+        self.listWidget.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "anna", None, -1))
+        self.listWidget.setSortingEnabled(__sortingEnabled)
+        self.pushButton_2.setText(QtWidgets.QApplication.translate("MainWindow", "assets", None, -1))
+        self.pushButton_3.setText(QtWidgets.QApplication.translate("MainWindow", "shot", None, -1))
+        self.pushButton_6.setText(QtWidgets.QApplication.translate("MainWindow", "concept", None, -1))
+        self.pushButton_4.setText(QtWidgets.QApplication.translate("MainWindow", "model", None, -1))
+        self.pushButton_8.setText(QtWidgets.QApplication.translate("MainWindow", "texture", None, -1))
+        self.pushButton_7.setText(QtWidgets.QApplication.translate("MainWindow", "rigging", None, -1))
+        self.pushButton_9.setText(QtWidgets.QApplication.translate("MainWindow", "layout", None, -1))
+        self.pushButton_10.setText(QtWidgets.QApplication.translate("MainWindow", "animation", None, -1))
+        self.pushButton_11.setText(QtWidgets.QApplication.translate("MainWindow", "lighting", None, -1))
+        self.pushButton_25.setText(QtWidgets.QApplication.translate("MainWindow", "effect", None, -1))
+        self.pushButton_24.setText(QtWidgets.QApplication.translate("MainWindow", "simulation", None, -1))
+        self.pushButton_12.setText(QtWidgets.QApplication.translate("MainWindow", "comp", None, -1))
+        self.pushButton_26.setText(QtWidgets.QApplication.translate("MainWindow", "add", None, -1))
+        __sortingEnabled = self.listWidget_3.isSortingEnabled()
+        self.listWidget_3.setSortingEnabled(False)
+        self.listWidget_3.item(0).setText(QtWidgets.QApplication.translate("MainWindow", "jack", None, -1))
+        self.listWidget_3.item(1).setText(QtWidgets.QApplication.translate("MainWindow", "anna", None, -1))
+        self.listWidget_3.setSortingEnabled(__sortingEnabled)
+        self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_job_assemble), QtWidgets.QApplication.translate("MainWindow", "job Assemble", None, -1))
         self.label_optionPage_projDescription.setText(QtWidgets.QApplication.translate("MainWindow", "project Description:", None, -1))
         self.label_optionPage_showFileType.setText(QtWidgets.QApplication.translate("MainWindow", "show File Type:", None, -1))
         self.label_optionPage_tempB.setText(QtWidgets.QApplication.translate("MainWindow", "temp_B:", None, -1))
@@ -1541,7 +2095,18 @@ class Ui_MainWindow(object):
         self.label_optionPage_branchFileInfo.setText(QtWidgets.QApplication.translate("MainWindow", "branch File Info position:", None, -1))
         self.plainTextEdit_optionPage_showFileType.setPlainText(QtWidgets.QApplication.translate("MainWindow", "ma,mb,rib,ass,zip", None, -1))
         self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_2), QtWidgets.QApplication.translate("MainWindow", "option Edit", None, -1))
+        self.label_fileData.setText(QtWidgets.QApplication.translate("MainWindow", "File Data", None, -1))
+        self.label_fileDescription.setText(QtWidgets.QApplication.translate("MainWindow", "File description:", None, -1))
+        self.label_selectProject.setText(QtWidgets.QApplication.translate("MainWindow", "select Project", None, -1))
+        self.label_currentProj.setText(QtWidgets.QApplication.translate("MainWindow", "current WorkSpace", None, -1))
+        self.label_metaData.setText(QtWidgets.QApplication.translate("MainWindow", "Meta Data", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Create New Branch", None, -1))
 
+
+
+
+
+        #self.pushButton_saveFile.whatsThis.showText()
 
 
 
@@ -1552,8 +2117,56 @@ class Ui_MainWindow(object):
        ## self.tableWidget_FileList.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)   #add more control
 
 
+        #setToolTips for all button
+        #self.pushButton_inProgress.setToolTip("show the project in progress")
+        #self.pushButton_recent.setToolTip("show the project recently, recent 20")
+        #self.pushButton_complete.setToolTip("show the project, completed")
+        
+        self.pushButton_inProgress.setToolTip(u"顯示正在執行中的專案")
+        self.pushButton_recent.setToolTip(u"顯示最近20個專案")
+        self.pushButton_complete.setToolTip(u"顯示已完成的專案")
 
- 
+
+        self.pushButton_character.setToolTip(u"角色")   
+        self.pushButton_vehicle.setToolTip(u"交通工具")   
+        self.pushButton_set.setToolTip(u"場景")   
+        self.pushButton_props.setToolTip(u"道具")   
+        self.pushButton_others.setToolTip(u"其他")   
+        self.pushButton_all.setToolTip(u"全部")   
+        self.pushButton_shot.setToolTip(u"shots")   
+        
+        self.pushButton_processConcept.setToolTip(u"concept")   
+        self.pushButton_processModeling.setToolTip(u"modeling")   
+        self.pushButton_processTexture.setToolTip(u"texture")   
+        self.pushButton_processRigging.setToolTip(u"rigging")   
+        self.pushButton_processLayout.setToolTip(u"layout")   
+        self.pushButton_processAnimation.setToolTip(u"animation")   
+        self.pushButton_processLighting.setToolTip(u"lighting")   
+        self.pushButton_processEffects.setToolTip(u"effect")   
+        self.pushButton_processSimulation.setToolTip(u"simulation")   
+        self.pushButton_processComp.setToolTip(u"comp")   
+        
+        
+        self.pushButton_createNewBranch.setToolTip(u"創建新的分支，需填入分支名稱")   
+        #self.pushButton_mergeToMaster.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_openBranchJson.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        self.pushButton_saveFile.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        self.pushButton_loadFile.setToolTip(u"讀取檔案")   
+        #self.pushButton_openFileJson.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_closeBranch.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        self.pushButton_editFileInfo.setToolTip(u"寫入註解")   
+        #self.pushButton_openFolder.setToolTip(u"儲存檔案到所選的分支，或master中")  
+         
+        #self.pushButton_publish.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_syncFile.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_setting.setToolTip(u"儲存檔案到所選的分支，或master中")   
+        #self.pushButton_reNewBranchDict.setToolTip(u"儲存檔案到所選的分支，或master中")   
+
+
+
+
 
         
 
@@ -1566,8 +2179,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #define project root
-        #self.root = "C:/mayaProjs" #test in home
-        self.root = "//mcd-server/art_3d_project"   # projects root in company
+        self.root = "C:/mayaProjs" #test in home
+        #self.root = "//mcd-server/art_3d_project"   # projects root in company
         #self.doFromAdmin()
         
         #creat projects Info in self.root
@@ -1679,7 +2292,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         from tactic_client_lib import TacticServerStub
 
         server = TacticServerStub(setup=False)
-        tactic_server_ip = socket.gethostbyname("vg.com")
+       # tactic_server_ip = socket.gethostbyname("vg.com")
+        
+        
+        try:
+            tactic_server_ip = socket.gethostbyname("vg.com")
+        except:
+            tactic_server_ip = "192.168.163.60"
+
 
         server.set_server(tactic_server_ip)
         server.set_project("simpleslot")
@@ -1781,7 +2401,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 tempProjList.append({i['timestamp']:i['name']})
                 
                
-            for i in tempProjList[-10:]:
+            for i in tempProjList[-20:]:
                 self.projectFilter.append(i[i.keys()[0]])
             
             
@@ -1792,7 +2412,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #print i['name']
                     self.projectFilter.append(i['name'])
                 
-        print self.projectFilter
+        #print self.projectFilter
         self.buildProjectComboBox()
 
         
@@ -1839,7 +2459,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.project = i['name']
                 self.projectCode = i['code']
                 
-        print self.projectCode
+        #print self.projectCode
        # print self.assetsInTactic
        # print self.shotsInTactic
         
@@ -1880,11 +2500,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        
         #     
         
-        print "self.projectSelectInfoFromTactic", self.projectSelectInfoFromTactic
-        print "self.project", self.project
-        print "self.projectCode",self.projectCode
-        print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
-        print "self.shotsSelectInfoFromTactic", self.shotsSelectInfoFromTactic
+        #print "self.projectSelectInfoFromTactic", self.projectSelectInfoFromTactic
+        #print "self.project", self.project
+       # print "self.projectCode",self.projectCode
+        #print "self.assetsSelectInfoFromTactic", self.assetsSelectInfoFromTactic
+       # print "self.shotsSelectInfoFromTactic", self.shotsSelectInfoFromTactic
         self.defineWorkingProjectAssembleFromTactic()
         
         self.listWidget_assetProj.clear()
@@ -2029,7 +2649,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
     def doFromAdmin(self):
-        print self.root
+        #print self.root
         self.selectProj()
         self.saveProjectsInGlobalFile()        
         
@@ -2115,7 +2735,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #2. 建立 comboBox
         #self.projectFilter
 
-        items = self.projectFilter
+        items = sorted(self.projectFilter)
         itemsTotalIndexNum = len(items)
         self.comboBox_selectProj.clear()
         for i in range(0,itemsTotalIndexNum):
@@ -2198,15 +2818,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 #print shotItem
             self.projectAssembleDescription['shot'].update({shotItem:{}})
             self.allAssetTempList.append('%s.shot'%shotItem)
-        print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
+        ###print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
+       # print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
         f = open(self.projectAssembleDescriptionFile,'w')
         data = json.dumps(self.projectAssembleDescription, sort_keys=True , indent =4) 
         f.write(data)
         f.close
 
-        print 'self.projectAssembleDescription',self.projectAssembleDescription
+        #print 'self.projectAssembleDescription',self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
 
@@ -2302,7 +2922,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         except:
             pass
                 
-        print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
+        #print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
 
         f = open(self.projectAssembleDescriptionFile,'w')
@@ -2347,7 +2967,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             os.mkdir(tempPath)
             print "created the publishTempPath"
-            print "folder: %s"%tempPath
+            #print "folder: %s"%tempPath
         self.publishTempPath = ""
         for cha in tempPath:
             if cha == "\\" :
@@ -2393,36 +3013,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 self.userPrefFileName= self.userPrefFileName + cha
                 
-        print self.userPrefFileName 
+        #print self.userPrefFileName 
         fileOpen = open(self.userPrefFileName,'w')
         fileOpen.write
         
-        print "created %s"%self.userPrefFileName 
+       # print "created %s"%self.userPrefFileName 
     
 ######-------------------------------store userPref End-------------------------------------------------------------------        
     
                 
     def clickCharacterButton(self):
         "print select assetType , character"
-        self.clickAssetShotSelectButton()
         #self.assetsOnOffTable = [1,0,0,0,0,0,0]
         
                 
         self.assetClass = "character"
         self.isAsset = True
-        
+        self.clickAssetShotSelectButton()
+       
         
         self.pushButton_character.setChecked(True)
         
         self.buildAssetsList()
     def clickVehicleButton(self):
         "print select assetType , vehicle"
-        self.clickAssetShotSelectButton()
         
         
                         
         self.assetClass = "vehicle"
         self.isAsset = True
+        self.clickAssetShotSelectButton()
         
 
         self.pushButton_vehicle.setChecked(True)
@@ -2431,11 +3051,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clickSetButton(self):
         "print select assetType , set"
-        self.clickAssetShotSelectButton()
         
                         
         self.assetClass = "set"
         self.isAsset = True
+        self.clickAssetShotSelectButton()
                 
         
 
@@ -2446,10 +3066,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clickPropsButton(self):
         "print select assetType , prop"
-        self.clickAssetShotSelectButton()
         
         self.assetClass = "prop"
         self.isAsset = True
+        self.clickAssetShotSelectButton()
                 
                 
         
@@ -2462,10 +3082,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clickOthersButton(self):
         "print select assetType , other"
-        self.clickAssetShotSelectButton()
         
         self.assetClass = "other"
         self.isAsset = True
+        self.clickAssetShotSelectButton()
                         
         
         
@@ -2478,22 +3098,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def clickAllButton(self):
         "print select assetType , all"
-        self.clickAssetShotSelectButton()
 
         self.pushButton_all.setChecked(True)
         
         self.assetClass = "all"
         self.isAsset = True
+        self.clickAssetShotSelectButton()
 
         self.buildAssetsList()
         
         
     def clickShotButton(self):
         "print select assetType , shot"
-        self.clickAssetShotSelectButton()
 
         self.assetClass = "shot"
         self.isAsset = False
+        self.clickAssetShotSelectButton()
                         
         
 
@@ -2513,19 +3133,48 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_others.setChecked(False)
         self.pushButton_all.setChecked(False)
         self.pushButton_shot.setChecked(False)
+        #print 'self.isAsset',self.isAsset
+        
+        if  self.isAsset == True:
+            self.pushButton_processConcept.setEnabled(True)
+            self.pushButton_processModeling.setEnabled(True)
+            self.pushButton_processTexture.setEnabled(True)
+            self.pushButton_processRigging.setEnabled(True)
+            self.pushButton_processLayout.setEnabled(False)
+            self.pushButton_processAnimation.setEnabled(False)
+            self.pushButton_processLighting.setEnabled(False)
+            self.pushButton_processEffects.setEnabled(False)
+            self.pushButton_processSimulation.setEnabled(False)
+            self. pushButton_processComp.setEnabled(False)
+            
+        else:
+            self.pushButton_processConcept.setEnabled(False)
+            self.pushButton_processModeling.setEnabled(False)
+            self.pushButton_processTexture.setEnabled(False)
+            self.pushButton_processRigging.setEnabled(False)
+            self.pushButton_processLayout.setEnabled(True)
+            self.pushButton_processAnimation.setEnabled(True)
+            self.pushButton_processLighting.setEnabled(True)
+            self.pushButton_processEffects.setEnabled(True)
+            self.pushButton_processSimulation.setEnabled(True)
+            self. pushButton_processComp.setEnabled(True)
+            
+        
+        
+        
         
     def click_assetProjListWidget(self):
         print "select one asset/shot"
         self.treeWidget_branches.clear()
         # get self.assetNow
         self.assetNow = self.listWidget_assetProj.currentItem().text()
-        print self.assetNow
+        #print self.assetNow
         #print self.allAssetTempList
         for i in self.allAssetTempList:
             if i.split('.')[0] == self.assetNow:
                 self.assetClass = i.split('.')[1]
             
-        print self.assetClass
+       # print self.assetClass
         self.clickProcessTypeSelectButton()
 
 
@@ -2662,6 +3311,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.buildExistFileInfoTree()    
         self.buildTreeFromExistFileData()	
+        self.tableWidget_FileList.clear()
+
 
         
         
@@ -2685,12 +3336,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.hostName = socket.gethostname()
         
-        print "self.root" ,self.root
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset
+        #print "self.root" ,self.root
+       # print "self.project" ,self.project
+       # print "self.assetClass", self.assetClass
+       # print "self.assetNow", self.assetNow   # if select assets
+       # print "self.processNow", self.processNow
+       # print "self.isAsset", self.isAsset
         
         
 
@@ -2710,30 +3361,30 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         print "check, run projectDescription Start"
                 
-        print "self.root" ,self.root
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset
+        #print "self.root" ,self.root
+       ## print "self.project" ,self.project
+       # print "self.assetClass", self.assetClass
+      #  print "self.assetNow", self.assetNow   # if select assets
+       # print "self.processNow", self.processNow
+       # print "self.isAsset", self.isAsset
 
 
         self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
-        print "self.assetName", self.assetName
+       # print "self.assetName", self.assetName
         
         self.shotName = "shot"+"/"+ self.assetNow
         
-        print "self.shotName" , self.shotName
+        #print "self.shotName" , self.shotName
         
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
-        print "self.projectGlobal", self.projectGlobal
+        #print "self.projectGlobal", self.projectGlobal
         
         #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
         
-        print "self.projectStructureName", self.projectStructureName
+        #print "self.projectStructureName", self.projectStructureName
         
         
         if self.isAsset == True:
@@ -2744,19 +3395,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.assetBranchFileDir = self.assetClassDir + "/"+ self.assetNow #assetBranchFileStore Folder
             self.assetBranchFileStore = self.assetBranchFileDir + "/" + self.assetBranchFileName    #export Path + fileName
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
-            
-            print "self.assetBranchFileDir",self.assetBranchFileDir
-            
+            self.assetDir = self.root + "/" + self.project + "/" + self.assetName
+            #print "self.assetBranchFileDir",self.assetBranchFileDir
+
+            if os.path.isdir(self.assetDir) == True:
+                pass
+            else:
+                os.mkdir(self.assetDir)            
 
             if os.path.isdir(self.assetBranchFileDir) == True:
                 pass
             else:
                 os.mkdir(self.assetBranchFileDir)
                 
+                
+
+                
             self.branchFileStore = self.assetBranchFileStore
-            print "self.assetBranchFileDir",self.assetBranchFileDir
-            print "self.assetBranchFileStore", self.assetBranchFileStore
-            print "self.workProject", self.workProject
+            #print "self.assetBranchFileDir",self.assetBranchFileDir
+            #print "self.assetBranchFileStore", self.assetBranchFileStore
+            #print "self.workProject", self.workProject
 
        
             
@@ -2767,17 +3425,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.shotBranchFileDir = self.shotRootDir + "/"+ self.assetNow # shotBranchFileStore Folder
             self.shotBranchFileStore = self.shotBranchFileDir + "/" + self.shotBranchFileName    #export Path + fileName
             self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
-
+            self.shotDir = self.root + "/" + self.project + "/" + self.shotName 
           #  
+          
+ 
+            if os.path.isdir(self.shotDir) == True:
+                pass
+            else:
+                os.mkdir(self.shotDir)
+                 
+          
+          
             if os.path.isdir(self.shotBranchFileDir) == True:
                 pass
             else:
                 os.mkdir(self.shotBranchFileDir)
                 
             self.branchFileStore = self.shotBranchFileStore
-            print "self.shotBranchFileDir", self.shotBranchFileDir
-            print "self.shotBranchFileStore",self.shotBranchFileStore
-            print "self.workProject", self.workProject    
+           # print "self.shotBranchFileDir", self.shotBranchFileDir
+           # print "self.shotBranchFileStore",self.shotBranchFileStore
+           # print "self.workProject", self.workProject    
                 
        # try:
           #  os.mkdir(self.projectGlobal + "/" + self.assetNow)
@@ -2801,8 +3468,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "check branchInfoFile exist"
         #get self.workProject, check master /scenes/master folder exist
         #get self.branchFileStore ,check the branchInfoFile ,json file exist
-        print "self.workProject............:" , self.workProject 
-        print "self.branchInfoFile.........:",self.branchFileStore
+       # print "self.workProject............:" , self.workProject 
+       # print "self.branchInfoFile.........:",self.branchFileStore
         self.workProjectScenesFolder = self.workProject +'/'+'scenes'
         self.workProjectData = self.workProject +'/'+'data'
         self.workProjectDataCache = self.workProject +'/'+'data' +'/' +'cache'
@@ -2814,9 +3481,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.workProjectImages =self.workProject +'/'+'images' 
         self.workProjectSourceimages =self.workProject +'/'+'sourceimages' 
         self.masterFolder = self.workProject +'/'+'scenes'+ '/' + 'master'
-        print "masterFolder",self.masterFolder
-        print "master folder exist....:" ,os.path.isdir(self.masterFolder)
-        print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
+        #print "masterFolder",self.masterFolder
+        #print "master folder exist....:" ,os.path.isdir(self.masterFolder)
+        #print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
         #timeNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         # .......1. check /scenes/master exist
         
@@ -2836,11 +3503,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         for i in preBuildWorkProjectFolders:
             if os.path.isdir(i) == True:
-                print  "folder, %s, was existed"%i
+               # print  "folder, %s, was existed"%i
                 pass
             else:
                 os.mkdir(i)
-                print "build %s"%i
+               # print "build %s"%i
                                       
 
         if os.path.isfile(self.branchFileStore) == True:
@@ -2873,9 +3540,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         #currentProject = "//mcd-server/art_3d_project/3d_pipeline_test/shot/shot_02/lighting/"    #test project
-        print "self.workProject",self.workProject
+       # print "self.workProject",self.workProject
         topLevelDirFileSearch = self.workProjectScenesFolder
-        print 'topLevelDirFileSearch' ,topLevelDirFileSearch
+       # print 'topLevelDirFileSearch' ,topLevelDirFileSearch
         
         topLevelDirList = ['master']
         branchPreDict = {"0":{"master":{}}}        
@@ -2891,8 +3558,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                 if allDir.split("\\")[1] in topLevelDirList:
                     pass
+                elif allDir.split("\\")[1] == '.mayaSwatches':
+                    pass
                 else:
+                    
                     topLevelDirList.append(allDir.split("\\")[1])
+                   # print allDir.split("\\")[1]
                 
             except:
                 pass
@@ -2900,11 +3571,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         for i in range(0,len(topLevelDirList)):
-            if topLevelDirList[i] == '.mayaSwatches':
-                pass
-            else:
-           # print i
-                branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
+
+            branchPreDict.update({str(i):{topLevelDirList[i]:{}}})
 
         #------analyze 2nd level dir and files-------------------
         #----------1.for i in branchPreDict.keys(): get search folder from branchPreDict dictionary, make sure index and branch name match
@@ -2955,7 +3623,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.branchPreDict = branchPreDict
         exportDate = json.dumps(self.branchPreDict, sort_keys=True , indent =4)
         #export json file
-        print "--------------",self.branchFileStore
+        #print exportDate 
+        #print "--------------",self.branchFileStore
 
         with open(self.branchFileStore, 'w') as f:
             f.write(exportDate)
@@ -2977,9 +3646,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         #self.test_processProjectGlobal()
-        #self.getDataFromTacticFile()
+        self.getDataFromTacticFile()
         
-        self.getDataFromTactic()
+        #self.getDataFromTactic()
 
         print "run initialItemBuild End"
    
@@ -3046,34 +3715,40 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         topLevelIndexCount = len(topLevelIndexStringList) #get topLevelIndex 
         
         #3.for topLevelIndex in range(1,topLevelIndexCount): build top Level items 
-        for topLevelIndex in range(1,topLevelIndexCount):
-            QtWidgets.QTreeWidgetItem(self.treeWidget_branches).setForeground(0,self.brushLevelTwo)
-            self.treeWidget_branches.topLevelItem(topLevelIndex).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
-            self.treeWidget_branches.topLevelItem(topLevelIndex).setText(0,self.branchPreDict[str(topLevelIndex)].keys()[0])
-            self.treeWidget_branches.topLevelItem(topLevelIndex).setFont(0,self.fontLevelTwo)
+        try:
+            for topLevelIndex in range(1,topLevelIndexCount):
+                QtWidgets.QTreeWidgetItem(self.treeWidget_branches).setForeground(0,self.brushLevelTwo)
+                self.treeWidget_branches.topLevelItem(topLevelIndex).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
+                self.treeWidget_branches.topLevelItem(topLevelIndex).setText(0,self.branchPreDict[str(topLevelIndex)].keys()[0])
+                self.treeWidget_branches.topLevelItem(topLevelIndex).setFont(0,self.fontLevelTwo)      #set font
+        except:
+            pass
 
         #4.for topLevelIndex in range(0,topLevelIndexCount): build sec Level items 
-        for topLevelIndex in range(0,topLevelIndexCount):
-            topLevelDirDict = self.branchPreDict[str(topLevelIndex)][self.branchPreDict[str(topLevelIndex)].keys()[0]]
-            secLevelDirList = topLevelDirDict['folder'].keys()
-            secLevelDirCount = len(secLevelDirList)
+        try:
+            for topLevelIndex in range(0,topLevelIndexCount):
+                topLevelDirDict = self.branchPreDict[str(topLevelIndex)][self.branchPreDict[str(topLevelIndex)].keys()[0]]
+                secLevelDirList = topLevelDirDict['folder'].keys()
+                secLevelDirCount = len(secLevelDirList)
 
 
-        #5. build 2nd level item in treeWidget    
-            for secLevelItemIndex in range(0,secLevelDirCount):
-                QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex)).setForeground(0,self.brushLevelThree)  #build new item from index
+            #5. build 2nd level item in treeWidget    
+                for secLevelItemIndex in range(0,secLevelDirCount):
+                    QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex)).setForeground(0,self.brushLevelThree)  #build new item from index
 
-                self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).setFont(0,self.fontLevelThree)
-                self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).setText(0,secLevelDirList[secLevelItemIndex])
+                    self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).setFont(0,self.fontLevelThree)
+                    self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).setText(0,secLevelDirList[secLevelItemIndex])
 
-                thirdLevelDirList = topLevelDirDict['folder'][secLevelDirList[secLevelItemIndex]]['folder'].keys()
-                thirdLevelDirCount = len(thirdLevelDirList)
-                #6. build 3rd level item in treeWidget   
-                
-                for thirdLevelItemIndex in range(0,thirdLevelDirCount):
-                    QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex)).setForeground(0,self.brushLevelFour)  #set 4rd level brush
-                    self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setFont(0,self.fontLevelFour)  #set 4rd level font
-                    self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setText(0,thirdLevelDirList[thirdLevelItemIndex])   #named the newItem , from typeIn line edit
+                    thirdLevelDirList = topLevelDirDict['folder'][secLevelDirList[secLevelItemIndex]]['folder'].keys()
+                    thirdLevelDirCount = len(thirdLevelDirList)
+                    #6. build 3rd level item in treeWidget   
+                    
+                    for thirdLevelItemIndex in range(0,thirdLevelDirCount):
+                        QtWidgets.QTreeWidgetItem(self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex)).setForeground(0,self.brushLevelFour)  #set 4rd level brush
+                        self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setFont(0,self.fontLevelFour)  #set 4rd level font
+                        self.treeWidget_branches.topLevelItem(topLevelIndex).child(secLevelItemIndex).child(thirdLevelItemIndex).setText(0,thirdLevelDirList[thirdLevelItemIndex])   #named the newItem , from typeIn line edit
+        except:
+            pass
         print "run buildTreeFromExistFileData END"
 
     #---------------Load Exist Branch Data From Dictionary End-------------------------------------------------------------------------------------------------------
@@ -3179,75 +3854,105 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def createFileTable(self):
-        print" run createFileTable function start..................."
-        self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-
-        self.getFilesInfoFromJson()
+        #self.getSaveingBranchFolder()
+      #  self.readBranchJsonFile()
+        
+       # with open('data.json') as data_file:    
+        #data = json.load(data_file)
+       # self.getFilesInfoFromJson()
+       # print 'self.self.branchDict',self.branchDict
+        #tableWidget_FileList
         self.tableWidget_FileList.clear()
 
-                             
-        tableIndex = sorted(self.fileInfoDict.keys())  #string
+        #pprint(data)
         
-        verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
-        print "verIndex",verIndex
-        print "createFileTable check point 01"
-        if len(tableIndex) > 0:
-            for i in range(0,len(tableIndex)):
-               # print i,verIndex[i],self.fileInfoDict[str(verIndex[i])]  #i indexNum,verIndex[i]--->version,self.fileInfoDict[str(verIndex[i])--->fileName
-                itemVer = "v"+verIndex[i]
-                #print itemVer
+    #def asss(self):
+        print" run createFileTable function start..................."
+        self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        # self.buildExistFileInfoTree()
+        self.getFilesInfoFromJson()
 
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 0, self.tableItem)
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 1, self.tableItem)
-                self.tableItem = QtWidgets.QTableWidgetItem()
-                self.tableWidget_FileList.setItem(i, 2, self.tableItem)
-               # self.tableWidget_FileList.setItem(i, 3, self.tableItem)
-               # print self.fileInfoDict[str(verIndex[i])]# ,type(self.tableWidget_FileList.setItem(i, 0, self.tableItem)[2])
-
-                
-                itemUser = self.currentUser
-                itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
-                itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
-                itemFileName = self.fileInfoDict[str(verIndex[i])][0]
-                self.tableWidget_FileList.item(i, 0).setText(QtWidgets.QApplication.translate("MainWindow", itemVer, None, -1))
-
-
-                self.tableWidget_FileList.item(i, 1).setText(QtWidgets.QApplication.translate("MainWindow", itemUser, None, -1))
-                self.tableWidget_FileList.item(i, 2).setText(QtWidgets.QApplication.translate("MainWindow", itemDate, None, -1))
-               # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
-
-              #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
-                print itemFileName
-        else:
-            pass
+        try:                   
+            tableIndex = sorted(self.fileInfoDict.keys())  #string
             
-        self.currentSelectedFile = itemFileName
+            verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
+           # print "verIndex",verIndex
+            print "createFileTable check point 01"
+            #print 
+            if len(tableIndex) > 0:
+                for i in range(0,len(tableIndex)):
+                   # print i,verIndex[i],self.fileInfoDict[str(verIndex[i])]  #i indexNum,verIndex[i]--->version,self.fileInfoDict[str(verIndex[i])--->fileName
+                    itemVer = "v"+verIndex[i]
+                    #print itemVer
+
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 0, self.tableItem)
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 1, self.tableItem)
+                    self.tableItem = QtWidgets.QTableWidgetItem()
+                    self.tableWidget_FileList.setItem(i, 2, self.tableItem)
+                   # self.tableWidget_FileList.setItem(i, 3, self.tableItem)
+                   # print self.fileInfoDict[str(verIndex[i])]# ,type(self.tableWidget_FileList.setItem(i, 0, self.tableItem)[2])
+
+                    
+                    itemUser = self.currentUser
+                    itemDateTemp = datetime.datetime.fromtimestamp(float(self.fileInfoDict[str(verIndex[i])][2]))
+                    itemDate = str(itemDateTemp.date())+' '+(str(itemDateTemp.time())).split('.')[0]
+                    itemFileName = self.fileInfoDict[str(verIndex[i])][0]
+                    self.tableWidget_FileList.item(i, 0).setText(QtWidgets.QApplication.translate("MainWindow", itemVer, None, -1))
+
+
+                    self.tableWidget_FileList.item(i, 1).setText(QtWidgets.QApplication.translate("MainWindow", itemUser, None, -1))
+                    self.tableWidget_FileList.item(i, 2).setText(QtWidgets.QApplication.translate("MainWindow", itemDate, None, -1))
+                   # self.tableWidget_FileList.item(i, 3).setText(QtWidgets.QApplication.translate("MainWindow", itemFileName, None, -1))
+
+                  #  self.textBrowser_BranchFileInfo.setText("sssssssssssss")
+                   # print itemFileName
+            else:
+                pass
+                
+            self.currentSelectedFile = itemFileName
+        except:
+            pass
         print" run createFileTable function End..................."
 
     #--------------------------get linking fileInfo json----------------------------start----------------------------
+    
+    def getGlobalFolderLocation(self):
+        if self.isAsset == True:
+            self.fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetClass + '/'+ self.assetNow 
+            
+        else:
+            self.fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
+       # print 'self.fileInfoLocation',self.fileInfoLocation
+            
+    
+    
     
     def getLinkingFileInfoText(self):
         # 1. define asset/shot description file location.
         # 2. create an empty text file in folder
         
-        print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
-        if self.isAsset == True:
-            fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetNow 
+        #print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
+        self.getGlobalFolderLocation()
+       # if self.isAsset == True:
+        #    fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetClass + '/'+ self.assetNow 
             
-        else:
-            fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
+       # else:
+        #    fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
             
     
         fileInfoName = self.lineEdit_currentFileName.text().split('.')[0] +'.txt'  #define the file description Text file name
+        #thumbFileName = self.lineEdit_currentFileName.text().split('.')[0]
 
-        if os.path.isdir(fileInfoLocation) == False:
-            os.mkdir(fileInfoLocation)
+        if os.path.isdir(self.fileInfoLocation) == False:
+            os.mkdir(self.fileInfoLocation)
         else:
             pass
-            
-        self.fullFileInfoName = fileInfoLocation + '/' + fileInfoName
+        #thumbFileName = self.lineEdit_currentFileName.text().split('.')[0]
+    
+        self.fullFileInfoName = self.fileInfoLocation + '/' + fileInfoName
+        #self.fullFileThumbName = fileInfoLocation + '/' + thumbFileName
         
 
         
@@ -3276,11 +3981,80 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def addDescriptionToTextFile(self):
         #add more description when push edit button
-        f = open(self.fullFileInfoName,'r+')
-        dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText()
+        f = open(self.fullFileInfoName,'w')
+        dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText().encode('utf-8')
+       # print dataEdit
         f.write(dataEdit)
         f.close
         
+        #self.makeThumbnail()
+        
+        
+    def makeThumbnail(self):
+        #filename = self.fullFileThumbName
+        
+
+        currentFrame = cmds.currentTime(query=True)
+       
+        cmds.select(cl=True)
+        screenShot = cmds.playblast(st=currentFrame, et=currentFrame, format="image", filename=self.fullFileThumbName, forceOverwrite=True, sequenceTime=False, clearCache=True, viewer=False, showOrnaments=False, framePadding=4, percent=100, compression="png", quality=70, width=150, height=150)
+        #print screenShot
+        
+        
+        
+        self.screenShot = screenShot.split('.')[0]+'.0001.png'
+        #print self.screenShot
+        #self.getThumbnail()
+        
+    def getThumbnail(self):
+        '''
+        try:
+            selectedFile = self.ui.file_list.currentItem().text().split("  ")[1].split(".")[0]
+            thumbPath = self.ui.save_path.text().replace("scenes/","data/others/thumbnails/")
+            imageFiles = os.listdir(thumbPath)
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+            
+            for imageFile in imageFiles:
+                if selectedFile in imageFile:
+                    image = QtGui.QImage(thumbPath + imageFile)
+                    self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+                    break
+        except:
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))    
+        '''      
+         
+        try:
+            self.label_showImage.setPixmap(QtGui.QPixmap(self.screenShot))
+        except:
+            pass
+        
+        
+        
+    def getSaveingBranchFolder(self):
+
+        """Returns Current top level item and child index.
+        If no child is selected, returns -1. 
+        """
+        
+        
+        
+        #Check if top level item is selected or child selected
+        if self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())==-1:
+            try:
+                if len(self.treeWidget_branches.currentItem().parent().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().parent().text(0) + '/' + self.treeWidget_branches.currentItem().parent().text(0) +'/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder
+            except:
+                if len(self.treeWidget_branches.currentItem().parent().text(0)) > 0 :
+                    self.currentBranchFolder = self.treeWidget_branches.currentItem().parent().text(0) + '/'+ self.treeWidget_branches.currentItem().text(0)
+                    #print currentBranchFolder           
+        else: 
+            self.currentBranchFolder =   self.treeWidget_branches.currentItem().text(0)
+            #print currentBranchFolder
 
         
 
@@ -3301,7 +4075,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         currentBranch = self.itemSelect 
-        #print currentBranch
+        #print 'currentBranch', currentBranch
         
 
         #-------------define project initial
@@ -3309,7 +4083,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for par in self.project.split('_'):
             self.projectInitial = self.projectInitial + par[0]
             
-       
+       # print 'self.projectInitial', self.projectInitial
         #-----------finding last version, illegal
         tempVerList= []
         if len(self.fileInfoDict.keys()) >0:
@@ -3332,9 +4106,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #------------define savingFileName in branch
         getSavingName = self.projectInitial + '_' + self.assetNow +'_'+ self.processNow[0:3] + '_' + currentBranch +'_'+ nextVerNum +'_'+self.currentUser +'.mb'
         
-        self.longSavingName = self.filesStoreBranchFolder + '/' +getSavingName
+        #print 'getSavingName',getSavingName
+        self.getSaveingBranchFolder()  #get saving folder
+        self.longSavingName = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder +'/'  +getSavingName
         
-        print self.longSavingName
+        #print 'self.longSavingName' ,self.longSavingName
         
         
         #cmds.file(self.longSavingName,rename=True)
@@ -3345,9 +4121,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.initialItemBuild()
         #self.getFilesInfoFromJson()
         self.buildExistFileInfoTree()
-        self.createFileTable()
+        self.createFileTable()  # create file list 
         self.getLinkingFileInfoText()   # create file description file fileName.txt in global folder
+        
+        thumbFileName = getSavingName.split('.')[0]
+        self.getGlobalFolderLocation()
+        #self.fullFileInfoName = fileInfoLocation + '/' + fileInfoName
+        self.fullFileThumbName = self.fileInfoLocation + '/' + thumbFileName
+        #print self.fullFileThumbName
+        
+
+        self.makeThumbnail()
+
         print "reNew file Table"
+        
     
 
     
@@ -3355,7 +4142,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         printText = self.plainTextEdit_BranchFileInfo.toPlainText()
         
-        print printText
+        #print printText
         
     
     
@@ -3381,37 +4168,47 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #initial all cache in dictionary
         self.branchFilesInListDict ={}
         self.fileInfoDict ={}
+        #print 'self.branchFileStore',self.branchFileStore
         
         fileTypeFillet = self.plainTextEdit_optionPage_showFileType.toPlainText().split(',')
-        print fileTypeFillet
+        #print fileTypeFillet
         print "run getFilesInfoFromJson starting......................."
         print "finding files in the branch"
-        #self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-        print self.branchFileStore
+        self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
+        #print 'self.branchFileStore',self.branchFileStore
         with open(self.branchFileStore, 'r') as f:
             self.branchPreDict = json.load(f)
+          
+
             
 
-        print "self.branchPreDict.keys()",self.branchPreDict.keys()
+        #print "self.branchPreDict.keys()",self.branchPreDict.keys()
         topLevelItemCount = len(self.branchPreDict.keys())    
 
         self.getExistBranchDict()
+        self.buildExistFileInfoTree()
+        print 'check point self.getFilesInfoFromJson A1'
+        #print 'self.branchPreDict', self.branchPreDict
+
+
+  #  def sdsafdg(self):  
 
         self.getSelectItemLevel()
-        
+        print 'check point self.getFilesInfoFromJson B1'
+
         
         tempTimeFileCompareDict = {}  # temp dictionary , that store file modify datetime and file name
         
-        print "self.branchPreDict", self.branchPreDict
+        #print "self.branchPreDict", self.branchPreDict
        # t = os.path.getmtime(fileName)
-        print "self.fullItemIndex",self.fullItemIndex
+        #print "self.fullItemIndex",self.fullItemIndex
 
     # datetime.datetime.fromtimestamp(t)
        
         if len(self.fullItemIndex) == 1:
             
 
-            print self.itemSelect
+           # print self.itemSelect
             self.branchFilesInListDict = self.branchPreDict[str(self.fullItemIndex[0])][self.itemSelect]['file']
             
             fileCount = len(self.branchPreDict[str(self.fullItemIndex[0])][self.itemSelect]['file'].keys())
@@ -3524,15 +4321,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         print "run getFilesInfoFromJson End......................."
-        print self.fileInfoDict
-        print "self.branchFilesInListDict" ,self.branchFilesInListDict
-        print tempTimeFileCompareDict
+       # print self.fileInfoDict
+       # print "self.branchFilesInListDict" ,self.branchFilesInListDict
+       # print tempTimeFileCompareDict
       
  #-----------------print out file info in textBrowser function start-------------------------------------------------------------------     
     def printOutFileInfo(self):
         # print self.fileInfoDict
         # get information form self.fileInfoDict
         # find selectItem row ,cloumn,
+        
         getFileRow =self.tableWidget_FileList.currentItem().row()
         getFileColumn= self.tableWidget_FileList.currentItem().column()
         
@@ -3547,14 +4345,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f = open(self.fullFileInfoName,'r')
         data = f.readlines()
         f.close
-        print data
+        #print data
         load = ""
         for line in data:
-            print line
             load = load + line
             
-        print load
         self.plainTextEdit_BranchFileInfo.setPlainText(load)
+        
+        self.getGlobalFolderLocation()
+
+            
+        selectScreenShotFileName = getFileName.split('.')[0] + '.0001.png'
+        self.screenShot = self.fileInfoLocation + '/' +selectScreenShotFileName
+        #print self.screenShotFileName
+        
+        self.getThumbnail()
         
         
     
@@ -3564,7 +4369,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def getChildIndexCount(self):
         
         itemSelect = self.treeWidget_branches.currentItem()
-        print itemSelect.text(0)
+        #print itemSelect.text(0)
 
        # self.treeWidget_branches.current
 
@@ -3572,14 +4377,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "create New Branch"
         #self.newBranch = self.lineEdit_branchName.text()
         self.getNewBranchName()
-        print self.newBranch
+       # print self.newBranch
         
         self.getBranchTopFromTreeList()    # ------------1
    #     print self.treeWidget_branches.currentIndex().row()
 
 
     def getBranchTopFromTreeListB(self): #---------1
-        print "ggggggggg"
         print self.treeWidget_branches.topLevelItemCount()
         #print self.treeWidget_branches.indexOfTopLevelItem(1)
 
@@ -3604,60 +4408,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print self.itemList
         
         
-    def createNewBranchB(self):
-        
-        
-        if len(self.treeWidget_branches.selectedItems()) == 0:
-            print "aa"
-            
-        else:
-            print"ggg"
-               
-
-        
-        
-        
-    def getSelectItemLevel(self):  
-        
-        itemSelect = self.treeWidget_branches.currentItem()
-
-
-        
-     #   print self.topLayerItemList
-        
-        try:
-            if len(itemSelect.parent().text(0)) >= 1:
-                self.depth = 1             
-                try:
-                    if len(itemSelect.parent().parent().text(0)) >= 1:
-
-                        self.depth = 2                   
-                except:
-                        pass               
-        except:
-            print "the Item is topLevelItem"
-            self.depth =0            
-                            
-                            
-      #  print self.depth        
-
-        self.findParentTopLevelItem(self.depth)
-        
-        
-        
-        
-        
-    #----------find the topLevelItem, with parent from selected Item, and get the all level index---------------------------------------------------------------------------------
-    #----------build all level index into self.fullItemIndex,<list>
-    
+   
     def findParentTopLevelItem(self,depth):
+        print 'run findParentTopLevelItem start'
         
 
         
         selectItem = self.treeWidget_branches.currentItem().text(0)
         
         #topLayerItemDict
-       # print selectItem
+        #print selectItem
 
         ##finding top Level Item topLevelItem(topItemLayerIndex)
         if self.depth == 0:
@@ -3720,11 +4480,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # print "parentSecLayerItem  :",secLayerItem
           #  print "topLevelItemIndex   :",topLevelItemIndex          #topLevelItem(topLevelItemIndex).child(1)
           #  print "secLevelItemIndex   :",secLevelItemIndex
-           # print "thirdLevelItemIndex :",thirdLevelItemIndex
+           # print "thirdLevelItemIndex :",thirdLevelItemIndex fullItemIndex
             
             self.fullItemIndex = [topLevelItemIndex,secLevelItemIndex,thirdLevelItemIndex]
             
-    
+        #print 'self.fullItemIndex',self.fullItemIndex
+            
+        print 'run findParentTopLevelItem End'
+
 
         
     def createNewBranchCombo(self):  # creat New Branch Test  
@@ -3765,6 +4528,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         except:
             pass
        # self.initialItemBuild()   #reNew treeWidget
+        self.lineEdit_branchName.setText('')
 
         print "run createNewBranchCombo End"
                 
@@ -3819,7 +4583,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     ##-------------------------creader folder---------------------------------------------------------  
 
         createTopLayerFoder = self.workProject + '/' +'scenes'+ '/'+ self.newBranch 
-        print os.path.isdir(createTopLayerFoder)
+       # print os.path.isdir(createTopLayerFoder)
         if os.path.isdir(createTopLayerFoder) == True:
             print "already has "+"%s"%createTopLayerFoder + " folder"
             
@@ -4102,13 +4866,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
       #  print self.branchDict['0']
         self.getExistBranchDict()
-        
+        #self.buildExistFileInfoTree()
         
         
         
 ##    build tree list , store in dictionary
         
     def getExistBranchDict(self):
+        '''finding all data, folder ,and files in the select process,lightin,animation....,
+        and export to json file'''
         
         print "run getExistBranchDict start"
         
@@ -4192,7 +4958,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
 
       #  print self.branchDict
-        self.exportBranchJsonFile()    #export dictionary to json file
+       # self.exportBranchJsonFile()    #export dictionary to json file
         
        # print self.topLayerItemList
        # print self.topLayerItemDict
@@ -4203,10 +4969,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "run getExistBranchDict End"
        
 
+    def readBranchJsonFile(self):
+        if self.isAsset == True:
+            branchDictFile = self.assetBranchFileStore
+        else:
+            branchDictFile = self.shotBranchFileStore
+            
+        with open(branchDictFile) as data_file:    
+            data = json.load(data_file)
+        print data
+       # self.getFilesInfoFromJson()
+       # print 'self.self.branchDict',self.branchDict
         
         
             
     def exportBranchJsonFile(self):  
+        '''export self.branchDict to json file '''
         
           
         formatedBranchDict = json.dumps(self.branchDict, sort_keys=True , indent =4)  
