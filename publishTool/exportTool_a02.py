@@ -10,16 +10,17 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 import maya.cmds as cmds
 import os , sys
+import pymel.core as pm
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1118, 770)
+        MainWindow.resize(1369, 770)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.groupBox_dynamicIO = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_dynamicIO.setEnabled(True)
-        self.groupBox_dynamicIO.setGeometry(QtCore.QRect(960, 50, 150, 150))
+        self.groupBox_dynamicIO.setGeometry(QtCore.QRect(1200, 110, 150, 150))
         self.groupBox_dynamicIO.setFlat(True)
         self.groupBox_dynamicIO.setCheckable(True)
         self.groupBox_dynamicIO.setObjectName("groupBox_dynamicIO")
@@ -36,7 +37,7 @@ class Ui_MainWindow(object):
         self.checkBox_7.setChecked(True)
         self.checkBox_7.setObjectName("checkBox_7")
         self.groupBox_LookIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_LookIO.setGeometry(QtCore.QRect(800, 210, 150, 150))
+        self.groupBox_LookIO.setGeometry(QtCore.QRect(1040, 270, 150, 150))
         self.groupBox_LookIO.setFlat(True)
         self.groupBox_LookIO.setCheckable(True)
         self.groupBox_LookIO.setObjectName("groupBox_LookIO")
@@ -48,7 +49,7 @@ class Ui_MainWindow(object):
         self.checkBox_8.setGeometry(QtCore.QRect(20, 60, 158, 18))
         self.checkBox_8.setObjectName("checkBox_8")
         self.groupBox_proxy_IO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_proxy_IO.setGeometry(QtCore.QRect(960, 210, 150, 150))
+        self.groupBox_proxy_IO.setGeometry(QtCore.QRect(1200, 270, 150, 150))
         self.groupBox_proxy_IO.setFlat(True)
         self.groupBox_proxy_IO.setCheckable(True)
         self.groupBox_proxy_IO.setObjectName("groupBox_proxy_IO")
@@ -64,7 +65,7 @@ class Ui_MainWindow(object):
         self.checkBox_4.setGeometry(QtCore.QRect(20, 90, 158, 18))
         self.checkBox_4.setObjectName("checkBox_4")
         self.groupBox_lightIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_lightIO.setGeometry(QtCore.QRect(800, 50, 150, 150))
+        self.groupBox_lightIO.setGeometry(QtCore.QRect(1040, 110, 150, 150))
         self.groupBox_lightIO.setFlat(True)
         self.groupBox_lightIO.setCheckable(True)
         self.groupBox_lightIO.setObjectName("groupBox_lightIO")
@@ -81,7 +82,7 @@ class Ui_MainWindow(object):
         self.checkBox_13.setChecked(True)
         self.checkBox_13.setObjectName("checkBox_13")
         self.groupBox_renderIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_renderIO.setGeometry(QtCore.QRect(800, 370, 150, 150))
+        self.groupBox_renderIO.setGeometry(QtCore.QRect(1040, 430, 150, 150))
         self.groupBox_renderIO.setFlat(True)
         self.groupBox_renderIO.setCheckable(True)
         self.groupBox_renderIO.setObjectName("groupBox_renderIO")
@@ -231,16 +232,18 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         self.treeWidget.setPalette(palette)
+        self.treeWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.treeWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.treeWidget.setAutoScrollMargin(16)
         self.treeWidget.setAlternatingRowColors(True)
-        self.treeWidget.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.treeWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.treeWidget.setTextElideMode(QtCore.Qt.ElideRight)
         self.treeWidget.setIndentation(20)
         self.treeWidget.setRootIsDecorated(True)
         self.treeWidget.setUniformRowHeights(False)
         self.treeWidget.setItemsExpandable(True)
         self.treeWidget.setAllColumnsShowFocus(False)
-        self.treeWidget.setWordWrap(False)
+        self.treeWidget.setWordWrap(True)
         self.treeWidget.setExpandsOnDoubleClick(True)
         self.treeWidget.setColumnCount(2)
         self.treeWidget.setObjectName("treeWidget")
@@ -257,7 +260,7 @@ class Ui_MainWindow(object):
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
-        self.treeWidget.header().setDefaultSectionSize(300)
+        self.treeWidget.header().setDefaultSectionSize(200)
         self.treeWidget.header().setHighlightSections(True)
         self.treeWidget.header().setMinimumSectionSize(30)
         self.treeWidget.header().setSortIndicatorShown(False)
@@ -268,12 +271,26 @@ class Ui_MainWindow(object):
         self.lineEdit.setGeometry(QtCore.QRect(50, 500, 701, 241))
         self.lineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.lineEdit.setObjectName("lineEdit")
-        self.pushButton_testA = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_testA.setGeometry(QtCore.QRect(270, 450, 191, 41))
-        self.pushButton_testA.setObjectName("pushButton_testA")
-        self.pushButton_testB = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_testB.setGeometry(QtCore.QRect(520, 450, 191, 41))
-        self.pushButton_testB.setObjectName("pushButton_testB")
+        self.pushButton_refreshList = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_refreshList.setGeometry(QtCore.QRect(270, 450, 191, 41))
+        self.pushButton_refreshList.setObjectName("pushButton_refreshList")
+        self.pushButton_delectSelectItems = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_delectSelectItems.setGeometry(QtCore.QRect(520, 450, 191, 41))
+        self.pushButton_delectSelectItems.setObjectName("pushButton_delectSelectItems")
+        self.checkBox_11 = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_11.setGeometry(QtCore.QRect(800, 360, 111, 16))
+        self.checkBox_11.setObjectName("checkBox_11")
+        self.checkBox_12 = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_12.setGeometry(QtCore.QRect(800, 310, 111, 16))
+        self.checkBox_12.setObjectName("checkBox_12")
+        self.checkBox_14 = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_14.setGeometry(QtCore.QRect(800, 260, 111, 16))
+        self.checkBox_14.setObjectName("checkBox_14")
+        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(760, 60, 16, 381))
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setOrientation(QtCore.Qt.Vertical)
+        self.progressBar.setObjectName("progressBar")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -308,6 +325,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setSortingEnabled(False)
         self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanTextures", None, -1))
         self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "file", None, -1))
+        self.treeWidget.topLevelItem(0).child(0).setText(1, QtWidgets.QApplication.translate("MainWindow", "c:\\temp", None, -1))
         self.treeWidget.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaTextures", None, -1))
         self.treeWidget.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "gpuCaches", None, -1))
         self.treeWidget.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArhives", None, -1))
@@ -320,9 +338,11 @@ class Ui_MainWindow(object):
         self.treeWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_newWindow.setText(QtWidgets.QApplication.translate("MainWindow", "new window", None, -1))
         self.lineEdit.setText(QtWidgets.QApplication.translate("MainWindow", "# total polygons", None, -1))
-        self.pushButton_testA.setText(QtWidgets.QApplication.translate("MainWindow", "testA", None, -1))
-        self.pushButton_testB.setText(QtWidgets.QApplication.translate("MainWindow", "testB", None, -1))
-
+        self.pushButton_refreshList.setText(QtWidgets.QApplication.translate("MainWindow", "Refresh List", None, -1))
+        self.pushButton_delectSelectItems.setText(QtWidgets.QApplication.translate("MainWindow", "Delect Selected Items", None, -1))
+        self.checkBox_11.setText(QtWidgets.QApplication.translate("MainWindow", "Check file path", None, -1))
+        self.checkBox_12.setText(QtWidgets.QApplication.translate("MainWindow", "Check Asset Scal", None, -1))
+        self.checkBox_14.setText(QtWidgets.QApplication.translate("MainWindow", "collect all files", None, -1))
 
 
 
@@ -334,11 +354,24 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         self.proj = cmds.workspace(rd=True,q=True)
+        
+        try:
+            pm.mel.eval('rmanLoadPlugin')
+            rendermanPath = pm.mel.eval('getenv RMANTREE')
+            pythonScriptPath = rendermanPath + 'lib/python2.7/Lib/site-packages'
+            sys.path.append(pythonScriptPath)
+            import ice
+
+        except:
+            print 'pls import prman plugin'
+            pass
+
+        self.linkingFilePreMoveDict = {}
 
     #def self.MODDEF(self):
         self.defineFont()
-        self.pushButton_newWindow.clicked.connect(self.test)
-        self.pushButton_testA.clicked.connect(self.findGpuCaches)
+        self.pushButton_refreshList.clicked.connect(self.test)
+        self.pushButton_delectSelectItems.clicked.connect(self.delectChecked)
         
         self.treeWidget.doubleClicked.connect(self.replaceFile)
 
@@ -394,6 +427,52 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
  
         
         
+    
+    
+    def delectChecked(self):
+        delectList = self.checkNodeDict.keys()
+        
+       # deleteTable= self.checkNodeDict.keys()
+        for i in self.checkNodeDict.keys():
+            try:
+                if len(cmds.listRelatives( i, p=True )) > 0:
+                    
+                    #print cmds.listRelatives( i, p=True )
+                    delectList.append(cmds.listRelatives( i, p=True )[0])
+
+            except:
+                pass
+        
+        print delectList
+        cmds.delete(delectList)
+        self.checkNodeDict = {}
+       # cmds.relationship('PxrTexture2',q=True)
+       
+       
+        
+        
+    def checkIsChecked(self):
+        self.checkNodeDict = {}
+        topLayerCounts = self.treeWidget.topLevelItemCount()
+       # print topLayerCounts
+        for i in range( 0,topLayerCounts-1):
+            for j in range(0,self.treeWidget.topLevelItem(i).childCount()):
+
+
+                if self.treeWidget.topLevelItem(i).child(j).checkState(0) == QtCore.Qt.CheckState.Checked:
+
+                    self.checkNodeDict.update({self.treeWidget.topLevelItem(i).child(j).text(0):{}})
+
+               # else:
+                 #   pass
+        print self.checkNodeDict
+            
+        self.delectChecked()
+        self.test()
+
+
+
+
         
     def createNewItem(self,topLayerIndex,index,nodeName,linkingFile,fontColor):
         #fontColor = self.fontColor
@@ -402,16 +481,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
         else:
             linkingFile = 'N/A'
-        print 'topLayerIndex',topLayerIndex
-        print 'index',index
-        print 'nodeName',nodeName
-        print 'linkingFile',linkingFile
-        print 'self.fontColor',self.fontColor
+       # print 'topLayerIndex',topLayerIndex
+       # print 'index',index
+       # print 'nodeName',nodeName
+       # print 'linkingFile',linkingFile
+       # print 'self.fontColor',self.fontColor
         
         
 
         textColor = (int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))
-        
         #        QtWidgets.QTreeWidgetItem(self.treeWidget).setForeground(0,self.brushLevelOne)  #create contain master ,and define font color
       #  QtWidgets.QTreeWidgetItem(self.treeWidget).setForeground(0,QtGui.QBrush(QtGui.QColor(247, 126, 128)))  #create contain master ,and define font color
         
@@ -420,10 +498,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       #  self.treeWidget.topLevelItem(0)#.setFont(0,self.fontLevelOne)#define font size
       
         QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(topLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
+        
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0,nodeName)
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
+        
+        if self.checkState == 'Unchecked':
+            self.treeWidget.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Unchecked)
+        else:
+            self.treeWidget.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
+            
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
 
         self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(1, QtWidgets.QApplication.translate("MainWindow", 'linkingFileLocation', None, -1))
@@ -437,71 +521,89 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
   
   
     def checkFileExist(self,linkingFile,checkMode):  #checkMode = pxrTexture,mayaTexture,gpuCache,ribArchive,alembic,pxrLight,mayaFluid,mayanParticle
-        print 'check file is existed'
+      #  print 'check file is existed'
 
         if os.path.isfile(linkingFile) == True:
             if checkMode == 'pxrTexture':
-                print 'check the file is pxr texture'
+              #  print 'check the file is pxr texture'
                 if linkingFile.split('.')[-1] == 'tex':
                     self.fontColor = (0,255,0)
 
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
+
+
+
                     
             elif checkMode == 'mayaTexture':
-                print 'check the file is surport maya image format'
+              #  print 'check the file is surport maya image format'
                 if linkingFile.split('.')[-1] in ['jpg','tif','png','exr','tga','iff','bmp','psd','dds','hdr']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
+
+
                     
             elif checkMode == 'gpuCache':
-                print 'check the file is surport gpuCache format'
+               # print 'check the file is surport gpuCache format'
                 if linkingFile.split('.')[-1] in ['abc']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
+
+
                                  
             elif checkMode == 'ribArchive':
-                print 'check the file is surport ribArchive format'
+               # print 'check the file is surport ribArchive format'
                 if linkingFile.split('.')[-1] in ['rib','zip','7z','gz']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
+
+
                                  
             elif checkMode == 'alembic':
-                print 'check the file is surport alembic format'
+            #    print 'check the file is surport alembic format'
                 if linkingFile.split('.')[-1] in ['abc']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
+
+
                                  
             elif checkMode == 'pxrLight':
-                print 'check the file is surport pxrLight format'
+              #  print 'check the file is surport pxrLight format'
                 if linkingFile.split('.')[-1] in ['tex','exr','tex']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
+                self.checkState = 'Unchecked'
                                  
                                                                                                                                       
             elif checkMode == 'mayaFluid':
-                print 'check the file is surport mayaFluid format'
+             #   print 'check the file is surport mayaFluid format'
                 if linkingFile.split('.')[-1] in ['xml']:
                     self.fontColor = (0,255,0)
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
                                                      
+                self.checkState = 'Unchecked'
                     
                                                                                                                                       
             elif checkMode == 'mayanParticle':
-                print 'check the file is surport mayanParticle format'
+            #    print 'check the file is surport mayanParticle format'
                 if linkingFile.split('.')[-1] in ['xml']:
                     self.fontColor = (0,255,0)
                 else:
@@ -509,18 +611,23 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     self.yellowCount = self.yellowCount +1
                                                      
                                         
-                    
+                self.checkState = 'Unchecked'
+
                     
              
             else:
-                pass
+                self.checkState = 'Unchecked'
+
+               # pass
                 
+
            # self.setCheck = 0 
         else:
             self.fontColor =(255,0,0)
             self.setCheck = 1
             self.redCount = self.redCount +1
-        
+            self.checkState = 'Checked'
+
 
             
         '''
@@ -681,6 +788,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def test(self):
+        self.buildItemTree()
+
         self.findPrmanTexture()
         self.findMayaTexture()
 
@@ -693,8 +802,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.findPrmanLights()
         self.mayaFluidCache()
         self.mayanParticleCache()
+        
+        print 'self.linkingFilePreMoveDict',self.linkingFilePreMoveDict
       #  self.buildItemTree()
-
 #cmds.nodeType('nParticleShape1Cache1')
 
 
@@ -727,8 +837,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         self.countN6 = len(realCameraList)
             
-        print camerasInfo
-        print self.countN6
+       # print camerasInfo
+      #  print self.countN6
 
 
 
@@ -739,16 +849,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
             
     def findPrmanTexture(self):  # store PrmanTextures NodeName and location 
-        
+
         pxrNodes = cmds.ls( typ ='PxrTexture')
         pxrTexturePath = {}
         for i in pxrNodes:
             path = cmds.getAttr('%s.filename'%i)
             pxrTexturePath.update({i:{'linkingFile':path}})
-           
+            self.linkingFilePreMoveDict.update({'pxrTexture':{i:{path:{}}}})
         self.countN1 = len(pxrNodes)
             
-        print self.countN1
+      #  print self.countN1
         self.yellowCount = 0
         self.redCount = 0
         for index in range(0,len(pxrTexturePath.keys())):
@@ -759,9 +869,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerIndex = 0
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
         print pxrTexturePath
-        self.setTopLayerItemColor(topLayerIndex)         
+        topLayerItemName = "PrmanTextures"+'__('+'%03d'%self.countN1+')'
+
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
         
-        
+
         
         
      #cmds.nodeType('file2')       
@@ -774,11 +886,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in mayaTextureFileNode:
             path = cmds.getAttr('%s.fileTextureName'%i)
             mayaTextureFilePath.update({i:{'linkingFile':path}})
+            self.linkingFilePreMoveDict.update({'mayaTexture':{i:{path:{}}}})
            
         self.countN2 = len(mayaTextureFileNode)
         self.yellowCount = 0
         self.redCount = 0            
-        print self.countN2
+       # print self.countN2
         for index in range(0,len(mayaTextureFilePath.keys())):
             nodeName = mayaTextureFilePath.keys()[index]
             linkingFile = mayaTextureFilePath[nodeName]['linkingFile']
@@ -791,9 +904,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
             
-        self.setTopLayerItemColor(topLayerIndex)         
-            
-            
+        topLayerItemName = "mayaTextures"+'__('+'%03d'%self.countN2+')'
+
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
+        
+        
             
                         
             
@@ -815,7 +930,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in gpuCacheNodes:
             path = cmds.getAttr('%s.cacheFileName'%i)
             gpuCachePath.update({i:{'linkingFile':path}})
-            
+           # self.linkingFilePreMoveDict.update({'gpuCache':{i:{path:{}}}})
+            self.linkingFilePreMoveDict.update({'gpuCache':{i:{path:{}}}})
+
         self.countN3 = len(gpuCacheNodes)
         self.yellowCount = 0
         self.redCount = 0              
@@ -829,12 +946,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             #print 'linkingFile',linkingFile
             #print 'self.fontColor',self.fontColor
             topLayerIndex = 2
-
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-        self.setTopLayerItemColor(topLayerIndex)         
 
+        topLayerItemName = "gpuCaches"+'__('+'%03d'%self.countN3+')'
 
-
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
+        
+        
+            
+                        
+            
+            
 
             
     def findRibArchives(self): # store RibArchives NodeName and location 
@@ -844,7 +966,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in RibArchivesNodes:
             path = self.proj +cmds.getAttr('%s.filename'%i)
             RibArchivesPath.update({i:{'linkingFile':path}})
-            
+            self.linkingFilePreMoveDict.update({'ribArchive':{i:{path:{}}}})
+  
         self.countN4 = len(RibArchivesNodes)
         self.yellowCount = 0
         self.redCount = 0              
@@ -854,7 +977,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.checkFileExist(linkingFile,'ribArchive')   
             topLayerIndex = 3
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-        self.setTopLayerItemColor(topLayerIndex)         
+        topLayerItemName =  "RibArchives"+'__('+'%03d'%self.countN4+')'
+
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
         
         
     def findAlembics(self): # store alembics NodeName and location 
@@ -864,7 +989,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in alembicNodes:
             path = cmds.getAttr('%s.abc_File'%i)
             alembicPath.update({i:{'linkingFile':path}})
-            
+            self.linkingFilePreMoveDict.update({'alembic':{i:{path:{}}}})
+      
         self.countN5 = len(alembicNodes)
         self.yellowCount = 0
         self.redCount = 0              
@@ -875,9 +1001,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerIndex = 4
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
             
-        self.setTopLayerItemColor(topLayerIndex)         
-            
-            
+        topLayerItemName = "alembics"+'__('+'%03d'%self.countN5+')'
+
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)  
+        
+        
+        
         
     def findPrmanLights(self): # store PrmanLights NodeName and location 
         
@@ -886,8 +1015,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         prmanLightInfo = {}
         for prmanNodeType in prmanLightType:
             prmanLightNodes = prmanLightNodes + cmds.ls( typ =prmanNodeType)
-            
-        print prmanLightNodes 
+  
+       # print prmanLightNodes 
         self.yellowCount = 0
         self.redCount = 0         
         for i in prmanLightNodes:
@@ -929,6 +1058,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                       'textureColor':textureColor,
                                       
                                       }})
+            self.linkingFilePreMoveDict.update({'pxrLight':{i:{lightColorMap:{}}}})
 
         self.countN7 = len(prmanLightInfo.keys())
         
@@ -938,9 +1068,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.checkFileExist(linkingFile,'pxrLight')   
             topLayerIndex = 6
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-        self.setTopLayerItemColor(topLayerIndex)         
+            
+        topLayerItemName = "PrmanLights"+'__('+'%03d'%self.countN7+')'
 
-
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)  
+        
+        
+        
 #cmds.listConnections('nParticleShape1')        
     def mayaFluidCache(self): # store mayaTextures NodeName and location 
       #  pxrFilePath = 'file.fileTextureName'
@@ -980,6 +1114,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   'originalEnd':originalEnd,
                                                   'linkingFile':path}})
           
+                    self.linkingFilePreMoveDict.update({'mayaFluid':{i:{path:{}}}})
+
         self.countN9 = len(mayaFluidCacheInfo.keys())
         self.yellowCount = 0
         self.redCount = 0              
@@ -989,7 +1125,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.checkFileExist(linkingFile,'mayaFluid')   
             topLayerIndex = 7
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
-        self.setTopLayerItemColor(topLayerIndex)         
+        topLayerItemName = "fluidCaches"+'__('+'%03d'%self.countN9+')'
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)      
 
        # print 'mayaFluidCacheInfo',mayaFluidCacheInfo
     def mayanParticleCache(self): # store mayanParticle NodeName and location fluidCache
@@ -1026,7 +1163,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   'sourceEnd':sourceEnd,
                                                   'originalStart':originalStart,
                                                   'originalEnd':originalEnd,
-                                                  'linkingFile':path}})                    
+                                                  'linkingFile':path}})       
+                    
+                    self.linkingFilePreMoveDict.update({'mayanParticle':{i:{path:{}}}})
+             
         self.yellowCount = 0
         self.redCount = 0                      
         for index in range(0,len(mayanParticleCacheInfo.keys())):
@@ -1037,15 +1177,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
         
         
-        self.setTopLayerItemColor(topLayerIndex)         
-          
-        self.countN10 = len(mayanParticleCacheInfo.keys())
+        topLayerItemName ="particleCaches"+'__('+'%03d'%self.countN10+')'
+
+        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)      
+
             
-        print mayanParticleCacheInfo
-        print self.countN10
+       # print mayanParticleCacheInfo
+       # print self.countN10
             
         
-    def setTopLayerItemColor(self,topLayerIndex):
+    def setTopLayerItemColor(self,topLayerIndex,topLayerItemName):
         if self.redCount > 0:
 
             self.topLayerColor = (255,0,0)
@@ -1057,9 +1198,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
             else:
                 self.topLayerColor = (255,255,255)
-                
+        self.treeWidget.topLevelItem(topLayerIndex).setText(0, QtWidgets.QApplication.translate("MainWindow",topLayerItemName, None, -1))
+       
         self.treeWidget.topLevelItem(topLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
-
         
         
 

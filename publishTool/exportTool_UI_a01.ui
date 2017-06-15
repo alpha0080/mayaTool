@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1118</width>
+    <width>1369</width>
     <height>770</height>
    </rect>
   </property>
@@ -14,303 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox_dynamicIO">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>960</x>
-      <y>50</y>
-      <width>150</width>
-      <height>150</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Dynamic IO</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <widget class="QCheckBox" name="checkBox_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>fluid Cache</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_6">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>particle Cache</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_7">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>90</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Alembic</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_LookIO">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>210</y>
-      <width>150</width>
-      <height>150</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Look IO</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <widget class="QCheckBox" name="checkBox">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>texture</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_8">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Shading</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_proxy_IO">
-    <property name="geometry">
-     <rect>
-      <x>960</x>
-      <y>210</y>
-      <width>150</width>
-      <height>150</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Proxy IO</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <widget class="QCheckBox" name="checkBox_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>GPUCache</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RibArchive</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>90</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Alembic</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_lightIO">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>50</y>
-      <width>150</width>
-      <height>150</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Light IO</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <widget class="QCheckBox" name="checkBox_9">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Env Light</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_10">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Direct Light</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_13">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>90</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Mesh Light</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QGroupBox" name="groupBox_renderIO">
-    <property name="geometry">
-     <rect>
-      <x>800</x>
-      <y>370</y>
-      <width>150</width>
-      <height>150</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Render IO</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-    <property name="checkable">
-     <bool>true</bool>
-    </property>
-    <widget class="QCheckBox" name="checkBox_renderCam">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Render Cam</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="checkBox_renderSet">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Render Setting</string>
-     </property>
-    </widget>
-   </widget>
    <widget class="QTreeWidget" name="treeWidget">
     <property name="geometry">
      <rect>
@@ -735,6 +438,12 @@
       </disabled>
      </palette>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
     <property name="autoScrollMargin">
      <number>16</number>
     </property>
@@ -742,7 +451,7 @@
      <bool>true</bool>
     </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::MultiSelection</enum>
+     <enum>QAbstractItemView::SingleSelection</enum>
     </property>
     <property name="textElideMode">
      <enum>Qt::ElideRight</enum>
@@ -763,7 +472,7 @@
      <bool>false</bool>
     </property>
     <property name="wordWrap">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="expandsOnDoubleClick">
      <bool>true</bool>
@@ -778,7 +487,7 @@
      <bool>false</bool>
     </attribute>
     <attribute name="headerDefaultSectionSize">
-     <number>300</number>
+     <number>200</number>
     </attribute>
     <attribute name="headerHighlightSections">
      <bool>true</bool>
@@ -905,7 +614,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_testA">
+   <widget class="QPushButton" name="pushButton_refreshList">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -915,10 +624,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>testA</string>
+     <string>Refresh List</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_testB">
+   <widget class="QPushButton" name="pushButton_delectSelectItems">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -928,7 +637,224 @@
      </rect>
     </property>
     <property name="text">
-     <string>testB</string>
+     <string>Delect Selected Items</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_12">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>350</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Check Asset Util</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>60</y>
+      <width>16</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_renderIO_2">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>60</y>
+      <width>150</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Collect Files</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <widget class="QCheckBox" name="checkBox_prmanTexture">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Prman Textures</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_mayaTexture">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Maya Textures</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_gpuCache">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gpu Caches</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_ribArchive">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Rib Archives</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_alembicCache">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Alembic Caches</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_prmanLight">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Prman Lights</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_mayaFluidCache">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Maya Fluid Caches</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_mayanParticleCache">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>210</y>
+       <width>158</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Maya nParticle Caches</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_usedPlugin">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>320</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Check used Plugin</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_convertTx">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>450</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>convert Tx</string>
     </property>
    </widget>
   </widget>
