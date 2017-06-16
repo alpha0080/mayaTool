@@ -15,86 +15,98 @@ import pymel.core as pm
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1369, 770)
+        MainWindow.resize(558, 774)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.groupBox_dynamicIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_dynamicIO.setEnabled(True)
-        self.groupBox_dynamicIO.setGeometry(QtCore.QRect(1200, 110, 150, 150))
-        self.groupBox_dynamicIO.setFlat(True)
-        self.groupBox_dynamicIO.setCheckable(True)
-        self.groupBox_dynamicIO.setObjectName("groupBox_dynamicIO")
-        self.checkBox_5 = QtWidgets.QCheckBox(self.groupBox_dynamicIO)
-        self.checkBox_5.setGeometry(QtCore.QRect(20, 30, 158, 18))
-        self.checkBox_5.setChecked(True)
-        self.checkBox_5.setObjectName("checkBox_5")
-        self.checkBox_6 = QtWidgets.QCheckBox(self.groupBox_dynamicIO)
-        self.checkBox_6.setGeometry(QtCore.QRect(20, 60, 158, 18))
-        self.checkBox_6.setChecked(True)
-        self.checkBox_6.setObjectName("checkBox_6")
-        self.checkBox_7 = QtWidgets.QCheckBox(self.groupBox_dynamicIO)
-        self.checkBox_7.setGeometry(QtCore.QRect(20, 90, 158, 18))
-        self.checkBox_7.setChecked(True)
-        self.checkBox_7.setObjectName("checkBox_7")
-        self.groupBox_LookIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_LookIO.setGeometry(QtCore.QRect(1040, 270, 150, 150))
-        self.groupBox_LookIO.setFlat(True)
-        self.groupBox_LookIO.setCheckable(True)
-        self.groupBox_LookIO.setObjectName("groupBox_LookIO")
-        self.checkBox = QtWidgets.QCheckBox(self.groupBox_LookIO)
-        self.checkBox.setGeometry(QtCore.QRect(20, 30, 158, 18))
-        self.checkBox.setChecked(True)
-        self.checkBox.setObjectName("checkBox")
-        self.checkBox_8 = QtWidgets.QCheckBox(self.groupBox_LookIO)
-        self.checkBox_8.setGeometry(QtCore.QRect(20, 60, 158, 18))
-        self.checkBox_8.setObjectName("checkBox_8")
-        self.groupBox_proxy_IO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_proxy_IO.setGeometry(QtCore.QRect(1200, 270, 150, 150))
-        self.groupBox_proxy_IO.setFlat(True)
-        self.groupBox_proxy_IO.setCheckable(True)
-        self.groupBox_proxy_IO.setObjectName("groupBox_proxy_IO")
-        self.checkBox_3 = QtWidgets.QCheckBox(self.groupBox_proxy_IO)
-        self.checkBox_3.setGeometry(QtCore.QRect(20, 30, 158, 18))
-        self.checkBox_3.setChecked(True)
-        self.checkBox_3.setObjectName("checkBox_3")
-        self.checkBox_2 = QtWidgets.QCheckBox(self.groupBox_proxy_IO)
-        self.checkBox_2.setGeometry(QtCore.QRect(20, 60, 158, 18))
-        self.checkBox_2.setChecked(True)
-        self.checkBox_2.setObjectName("checkBox_2")
-        self.checkBox_4 = QtWidgets.QCheckBox(self.groupBox_proxy_IO)
-        self.checkBox_4.setGeometry(QtCore.QRect(20, 90, 158, 18))
-        self.checkBox_4.setObjectName("checkBox_4")
-        self.groupBox_lightIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_lightIO.setGeometry(QtCore.QRect(1040, 110, 150, 150))
-        self.groupBox_lightIO.setFlat(True)
-        self.groupBox_lightIO.setCheckable(True)
-        self.groupBox_lightIO.setObjectName("groupBox_lightIO")
-        self.checkBox_9 = QtWidgets.QCheckBox(self.groupBox_lightIO)
-        self.checkBox_9.setGeometry(QtCore.QRect(20, 30, 158, 18))
-        self.checkBox_9.setChecked(True)
-        self.checkBox_9.setObjectName("checkBox_9")
-        self.checkBox_10 = QtWidgets.QCheckBox(self.groupBox_lightIO)
-        self.checkBox_10.setGeometry(QtCore.QRect(20, 60, 158, 18))
-        self.checkBox_10.setChecked(True)
-        self.checkBox_10.setObjectName("checkBox_10")
-        self.checkBox_13 = QtWidgets.QCheckBox(self.groupBox_lightIO)
-        self.checkBox_13.setGeometry(QtCore.QRect(20, 90, 158, 18))
-        self.checkBox_13.setChecked(True)
-        self.checkBox_13.setObjectName("checkBox_13")
-        self.groupBox_renderIO = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_renderIO.setGeometry(QtCore.QRect(1040, 430, 150, 150))
-        self.groupBox_renderIO.setFlat(True)
-        self.groupBox_renderIO.setCheckable(True)
-        self.groupBox_renderIO.setObjectName("groupBox_renderIO")
-        self.checkBox_renderCam = QtWidgets.QCheckBox(self.groupBox_renderIO)
-        self.checkBox_renderCam.setGeometry(QtCore.QRect(20, 30, 158, 18))
-        self.checkBox_renderCam.setChecked(True)
-        self.checkBox_renderCam.setObjectName("checkBox_renderCam")
-        self.checkBox_renderSet = QtWidgets.QCheckBox(self.groupBox_renderIO)
-        self.checkBox_renderSet.setGeometry(QtCore.QRect(20, 60, 158, 18))
-        self.checkBox_renderSet.setObjectName("checkBox_renderSet")
-        self.treeWidget = QtWidgets.QTreeWidget(self.centralwidget)
-        self.treeWidget.setGeometry(QtCore.QRect(50, 40, 701, 401))
+        self.groupBox_3 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_3.setGeometry(QtCore.QRect(380, 100, 171, 651))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.groupBox_3.sizePolicy().hasHeightForWidth())
+        self.groupBox_3.setSizePolicy(sizePolicy)
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.groupBox = QtWidgets.QGroupBox(self.groupBox_3)
+        self.groupBox.setGeometry(QtCore.QRect(10, 380, 151, 271))
+        self.groupBox.setObjectName("groupBox")
+        self.pushButton_convertToTex = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton_convertToTex.setGeometry(QtCore.QRect(10, 20, 40, 40))
+        self.pushButton_convertToTex.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/TEX-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_convertToTex.setIcon(icon)
+        self.pushButton_convertToTex.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_convertToTex.setFlat(True)
+        self.pushButton_convertToTex.setObjectName("pushButton_convertToTex")
+        self.pushButton_convertToExr = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton_convertToExr.setGeometry(QtCore.QRect(10, 70, 40, 40))
+        self.pushButton_convertToExr.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/EXR-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_convertToExr.setIcon(icon1)
+        self.pushButton_convertToExr.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_convertToExr.setFlat(True)
+        self.pushButton_convertToExr.setObjectName("pushButton_convertToExr")
+        self.pushButton_convertToPng = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton_convertToPng.setGeometry(QtCore.QRect(50, 70, 40, 40))
+        self.pushButton_convertToPng.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/PNG-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_convertToPng.setIcon(icon2)
+        self.pushButton_convertToPng.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_convertToPng.setFlat(True)
+        self.pushButton_convertToPng.setObjectName("pushButton_convertToPng")
+        self.pushButton_convertToJpg = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton_convertToJpg.setGeometry(QtCore.QRect(90, 70, 40, 40))
+        self.pushButton_convertToJpg.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/jpgs-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_convertToJpg.setIcon(icon3)
+        self.pushButton_convertToJpg.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_convertToJpg.setFlat(True)
+        self.pushButton_convertToJpg.setObjectName("pushButton_convertToJpg")
+        self.groupBox_2 = QtWidgets.QGroupBox(self.groupBox)
+        self.groupBox_2.setGeometry(QtCore.QRect(10, 120, 141, 151))
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.radioButton_Original = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_Original.setGeometry(QtCore.QRect(10, 20, 83, 16))
+        self.radioButton_Original.setChecked(True)
+        self.radioButton_Original.setObjectName("radioButton_Original")
+        self.radioButton_Half = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_Half.setGeometry(QtCore.QRect(10, 40, 83, 16))
+        self.radioButton_Half.setChecked(False)
+        self.radioButton_Half.setObjectName("radioButton_Half")
+        self.radioButton_Quarter = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_Quarter.setGeometry(QtCore.QRect(10, 60, 83, 16))
+        self.radioButton_Quarter.setChecked(False)
+        self.radioButton_Quarter.setObjectName("radioButton_Quarter")
+        self.lineEdit_reduceSizeCustomer = QtWidgets.QLineEdit(self.groupBox_2)
+        self.lineEdit_reduceSizeCustomer.setEnabled(False)
+        self.lineEdit_reduceSizeCustomer.setGeometry(QtCore.QRect(30, 100, 61, 21))
+        self.lineEdit_reduceSizeCustomer.setObjectName("lineEdit_reduceSizeCustomer")
+        self.radioButton_customer = QtWidgets.QRadioButton(self.groupBox_2)
+        self.radioButton_customer.setGeometry(QtCore.QRect(10, 80, 111, 16))
+        self.radioButton_customer.setChecked(False)
+        self.radioButton_customer.setObjectName("radioButton_customer")
+        self.groupBox_4 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_4.setGeometry(QtCore.QRect(10, 10, 371, 741))
+        self.groupBox_4.setObjectName("groupBox_4")
+        self.lineEdit_showFileName = QtWidgets.QLineEdit(self.groupBox_4)
+        self.lineEdit_showFileName.setGeometry(QtCore.QRect(20, 19, 341, 21))
+        self.lineEdit_showFileName.setObjectName("lineEdit_showFileName")
+        self.progressBar = QtWidgets.QProgressBar(self.groupBox_4)
+        self.progressBar.setGeometry(QtCore.QRect(20, 40, 341, 5))
+        self.progressBar.setProperty("value", 0)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setOrientation(QtCore.Qt.Horizontal)
+        self.progressBar.setObjectName("progressBar")
+        self.treeWidget_filesList = QtWidgets.QTreeWidget(self.groupBox_4)
+        self.treeWidget_filesList.setGeometry(QtCore.QRect(20, 46, 341, 411))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.treeWidget_filesList.sizePolicy().hasHeightForWidth())
+        self.treeWidget_filesList.setSizePolicy(sizePolicy)
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -231,66 +243,187 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
-        self.treeWidget.setPalette(palette)
-        self.treeWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
-        self.treeWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
-        self.treeWidget.setAutoScrollMargin(16)
-        self.treeWidget.setAlternatingRowColors(True)
-        self.treeWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.treeWidget.setTextElideMode(QtCore.Qt.ElideRight)
-        self.treeWidget.setIndentation(20)
-        self.treeWidget.setRootIsDecorated(True)
-        self.treeWidget.setUniformRowHeights(False)
-        self.treeWidget.setItemsExpandable(True)
-        self.treeWidget.setAllColumnsShowFocus(False)
-        self.treeWidget.setWordWrap(True)
-        self.treeWidget.setExpandsOnDoubleClick(True)
-        self.treeWidget.setColumnCount(2)
-        self.treeWidget.setObjectName("treeWidget")
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        self.treeWidget_filesList.setPalette(palette)
+        self.treeWidget_filesList.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.treeWidget_filesList.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.treeWidget_filesList.setAutoScrollMargin(16)
+        self.treeWidget_filesList.setAlternatingRowColors(True)
+        self.treeWidget_filesList.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.treeWidget_filesList.setTextElideMode(QtCore.Qt.ElideRight)
+        self.treeWidget_filesList.setIndentation(20)
+        self.treeWidget_filesList.setRootIsDecorated(True)
+        self.treeWidget_filesList.setUniformRowHeights(False)
+        self.treeWidget_filesList.setItemsExpandable(True)
+        self.treeWidget_filesList.setAllColumnsShowFocus(False)
+        self.treeWidget_filesList.setWordWrap(True)
+        self.treeWidget_filesList.setExpandsOnDoubleClick(True)
+        self.treeWidget_filesList.setColumnCount(2)
+        self.treeWidget_filesList.setObjectName("treeWidget_filesList")
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_1 = QtWidgets.QTreeWidgetItem(item_0)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        self.treeWidget.header().setVisible(True)
-        self.treeWidget.header().setCascadingSectionResizes(False)
-        self.treeWidget.header().setDefaultSectionSize(200)
-        self.treeWidget.header().setHighlightSections(True)
-        self.treeWidget.header().setMinimumSectionSize(30)
-        self.treeWidget.header().setSortIndicatorShown(False)
-        self.pushButton_newWindow = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_newWindow.setGeometry(QtCore.QRect(40, 450, 191, 41))
-        self.pushButton_newWindow.setObjectName("pushButton_newWindow")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(50, 500, 701, 241))
-        self.lineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
-        self.lineEdit.setObjectName("lineEdit")
-        self.pushButton_refreshList = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_refreshList.setGeometry(QtCore.QRect(270, 450, 191, 41))
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        self.treeWidget_filesList.header().setVisible(True)
+        self.treeWidget_filesList.header().setCascadingSectionResizes(False)
+        self.treeWidget_filesList.header().setDefaultSectionSize(150)
+        self.treeWidget_filesList.header().setHighlightSections(True)
+        self.treeWidget_filesList.header().setMinimumSectionSize(30)
+        self.treeWidget_filesList.header().setSortIndicatorShown(False)
+        self.pushButton_refreshList = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_refreshList.setGeometry(QtCore.QRect(20, 470, 40, 40))
+        self.pushButton_refreshList.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/refreshPublishA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_refreshList.setIcon(icon4)
+        self.pushButton_refreshList.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_refreshList.setFlat(True)
         self.pushButton_refreshList.setObjectName("pushButton_refreshList")
-        self.pushButton_delectSelectItems = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_delectSelectItems.setGeometry(QtCore.QRect(520, 450, 191, 41))
+        self.pushButton_delectSelectItems = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_delectSelectItems.setGeometry(QtCore.QRect(310, 470, 40, 40))
+        self.pushButton_delectSelectItems.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/deletePublishA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_delectSelectItems.setIcon(icon5)
+        self.pushButton_delectSelectItems.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_delectSelectItems.setFlat(True)
         self.pushButton_delectSelectItems.setObjectName("pushButton_delectSelectItems")
-        self.checkBox_11 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_11.setGeometry(QtCore.QRect(800, 360, 111, 16))
-        self.checkBox_11.setObjectName("checkBox_11")
-        self.checkBox_12 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_12.setGeometry(QtCore.QRect(800, 310, 111, 16))
-        self.checkBox_12.setObjectName("checkBox_12")
-        self.checkBox_14 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_14.setGeometry(QtCore.QRect(800, 260, 111, 16))
-        self.checkBox_14.setObjectName("checkBox_14")
-        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
-        self.progressBar.setGeometry(QtCore.QRect(760, 60, 16, 381))
-        self.progressBar.setProperty("value", 0)
-        self.progressBar.setOrientation(QtCore.Qt.Vertical)
-        self.progressBar.setObjectName("progressBar")
+        self.lineEdit_metaDataA = QtWidgets.QLineEdit(self.groupBox_4)
+        self.lineEdit_metaDataA.setGeometry(QtCore.QRect(20, 520, 341, 211))
+        self.lineEdit_metaDataA.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.lineEdit_metaDataA.setObjectName("lineEdit_metaDataA")
+        self.pushButton_getSelectedNode = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_getSelectedNode.setGeometry(QtCore.QRect(70, 470, 40, 40))
+        self.pushButton_getSelectedNode.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/getSelectItemPublishA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_getSelectedNode.setIcon(icon6)
+        self.pushButton_getSelectedNode.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_getSelectedNode.setFlat(True)
+        self.pushButton_getSelectedNode.setObjectName("pushButton_getSelectedNode")
+        self.groupBox_5 = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_5.setGeometry(QtCore.QRect(380, 20, 171, 81))
+        self.groupBox_5.setObjectName("groupBox_5")
+        self.radioButton_syncMode = QtWidgets.QRadioButton(self.groupBox_5)
+        self.radioButton_syncMode.setGeometry(QtCore.QRect(80, 50, 141, 16))
+        self.radioButton_syncMode.setObjectName("radioButton_syncMode")
+        self.radioButton_publishMode = QtWidgets.QRadioButton(self.groupBox_5)
+        self.radioButton_publishMode.setGeometry(QtCore.QRect(80, 20, 83, 16))
+        self.radioButton_publishMode.setChecked(True)
+        self.radioButton_publishMode.setObjectName("radioButton_publishMode")
+        self.pushButton_publishAll = QtWidgets.QPushButton(self.groupBox_5)
+        self.pushButton_publishAll.setGeometry(QtCore.QRect(10, 18, 50, 50))
+        self.pushButton_publishAll.setText("")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/icons/publishToolIcon/uploadPublish.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_publishAll.setIcon(icon7)
+        self.pushButton_publishAll.setIconSize(QtCore.QSize(50, 50))
+        self.pushButton_publishAll.setFlat(True)
+        self.pushButton_publishAll.setObjectName("pushButton_publishAll")
+        self.pushButton_newWindow = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_newWindow.setGeometry(QtCore.QRect(670, 580, 51, 41))
+        self.pushButton_newWindow.setObjectName("pushButton_newWindow")
+        self.treeWidget_FiletOption = QtWidgets.QTreeWidget(self.centralwidget)
+        self.treeWidget_FiletOption.setGeometry(QtCore.QRect(400, 120, 141, 341))
+        self.treeWidget_FiletOption.setAutoFillBackground(True)
+        self.treeWidget_FiletOption.setAutoExpandDelay(-1)
+        self.treeWidget_FiletOption.setItemsExpandable(True)
+        self.treeWidget_FiletOption.setAllColumnsShowFocus(False)
+        self.treeWidget_FiletOption.setExpandsOnDoubleClick(True)
+        self.treeWidget_FiletOption.setObjectName("treeWidget_FiletOption")
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_FiletOption)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_FiletOption)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_FiletOption)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        item_1 = QtWidgets.QTreeWidgetItem(item_0)
+        self.treeWidget_FiletOption.header().setVisible(False)
+        self.groupBox_CheckAssetUtli = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_CheckAssetUtli.setGeometry(QtCore.QRect(750, 710, 151, 111))
+        self.groupBox_CheckAssetUtli.setFlat(True)
+        self.groupBox_CheckAssetUtli.setCheckable(True)
+        self.groupBox_CheckAssetUtli.setObjectName("groupBox_CheckAssetUtli")
+        self.checkBox_CheckBB = QtWidgets.QCheckBox(self.groupBox_CheckAssetUtli)
+        self.checkBox_CheckBB.setGeometry(QtCore.QRect(20, 20, 158, 18))
+        self.checkBox_CheckBB.setChecked(True)
+        self.checkBox_CheckBB.setObjectName("checkBox_CheckBB")
+        self.checkBox_CheckPosition = QtWidgets.QCheckBox(self.groupBox_CheckAssetUtli)
+        self.checkBox_CheckPosition.setGeometry(QtCore.QRect(20, 40, 158, 18))
+        self.checkBox_CheckPosition.setChecked(True)
+        self.checkBox_CheckPosition.setObjectName("checkBox_CheckPosition")
+        self.checkBox_CheckReNameSG = QtWidgets.QCheckBox(self.groupBox_CheckAssetUtli)
+        self.checkBox_CheckReNameSG.setGeometry(QtCore.QRect(20, 60, 158, 18))
+        self.checkBox_CheckReNameSG.setChecked(True)
+        self.checkBox_CheckReNameSG.setObjectName("checkBox_CheckReNameSG")
+        self.checkBox_CheckReNameSG_2 = QtWidgets.QCheckBox(self.groupBox_CheckAssetUtli)
+        self.checkBox_CheckReNameSG_2.setGeometry(QtCore.QRect(20, 80, 101, 18))
+        self.checkBox_CheckReNameSG_2.setChecked(True)
+        self.checkBox_CheckReNameSG_2.setObjectName("checkBox_CheckReNameSG_2")
+        self.groupBox_CheckPlugin = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_CheckPlugin.setGeometry(QtCore.QRect(750, 660, 150, 51))
+        self.groupBox_CheckPlugin.setFlat(True)
+        self.groupBox_CheckPlugin.setCheckable(True)
+        self.groupBox_CheckPlugin.setObjectName("groupBox_CheckPlugin")
+        self.checkBox_DeleteUnusedPlugin = QtWidgets.QCheckBox(self.groupBox_CheckPlugin)
+        self.checkBox_DeleteUnusedPlugin.setGeometry(QtCore.QRect(20, 20, 158, 18))
+        self.checkBox_DeleteUnusedPlugin.setChecked(True)
+        self.checkBox_DeleteUnusedPlugin.setObjectName("checkBox_DeleteUnusedPlugin")
+        self.groupBox_CollectFile = QtWidgets.QGroupBox(self.centralwidget)
+        self.groupBox_CollectFile.setGeometry(QtCore.QRect(750, 470, 150, 181))
+        self.groupBox_CollectFile.setFlat(True)
+        self.groupBox_CollectFile.setCheckable(True)
+        self.groupBox_CollectFile.setObjectName("groupBox_CollectFile")
+        self.checkBox_prmanTexture = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_prmanTexture.setGeometry(QtCore.QRect(20, 20, 158, 18))
+        self.checkBox_prmanTexture.setChecked(True)
+        self.checkBox_prmanTexture.setObjectName("checkBox_prmanTexture")
+        self.checkBox_mayaTexture = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_mayaTexture.setGeometry(QtCore.QRect(20, 40, 158, 18))
+        self.checkBox_mayaTexture.setChecked(True)
+        self.checkBox_mayaTexture.setObjectName("checkBox_mayaTexture")
+        self.checkBox_gpuCache = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_gpuCache.setGeometry(QtCore.QRect(20, 60, 158, 18))
+        self.checkBox_gpuCache.setChecked(True)
+        self.checkBox_gpuCache.setObjectName("checkBox_gpuCache")
+        self.checkBox_ribArchive = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_ribArchive.setGeometry(QtCore.QRect(20, 80, 158, 18))
+        self.checkBox_ribArchive.setChecked(True)
+        self.checkBox_ribArchive.setObjectName("checkBox_ribArchive")
+        self.checkBox_alembicCache = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_alembicCache.setGeometry(QtCore.QRect(20, 100, 158, 18))
+        self.checkBox_alembicCache.setChecked(True)
+        self.checkBox_alembicCache.setObjectName("checkBox_alembicCache")
+        self.checkBox_prmanLight = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_prmanLight.setGeometry(QtCore.QRect(20, 120, 158, 18))
+        self.checkBox_prmanLight.setCheckable(False)
+        self.checkBox_prmanLight.setChecked(False)
+        self.checkBox_prmanLight.setObjectName("checkBox_prmanLight")
+        self.checkBox_mayaFluidCache = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_mayaFluidCache.setGeometry(QtCore.QRect(20, 140, 158, 18))
+        self.checkBox_mayaFluidCache.setCheckable(False)
+        self.checkBox_mayaFluidCache.setChecked(False)
+        self.checkBox_mayaFluidCache.setObjectName("checkBox_mayaFluidCache")
+        self.checkBox_mayanParticleCache = QtWidgets.QCheckBox(self.groupBox_CollectFile)
+        self.checkBox_mayanParticleCache.setGeometry(QtCore.QRect(20, 160, 158, 18))
+        self.checkBox_mayanParticleCache.setCheckable(False)
+        self.checkBox_mayanParticleCache.setChecked(False)
+        self.checkBox_mayanParticleCache.setObjectName("checkBox_mayanParticleCache")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -301,50 +434,72 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
-        self.groupBox_dynamicIO.setTitle(QtWidgets.QApplication.translate("MainWindow", "Dynamic IO", None, -1))
-        self.checkBox_5.setText(QtWidgets.QApplication.translate("MainWindow", "fluid Cache", None, -1))
-        self.checkBox_6.setText(QtWidgets.QApplication.translate("MainWindow", "particle Cache", None, -1))
-        self.checkBox_7.setText(QtWidgets.QApplication.translate("MainWindow", "Alembic", None, -1))
-        self.groupBox_LookIO.setTitle(QtWidgets.QApplication.translate("MainWindow", "Look IO", None, -1))
-        self.checkBox.setText(QtWidgets.QApplication.translate("MainWindow", "texture", None, -1))
-        self.checkBox_8.setText(QtWidgets.QApplication.translate("MainWindow", "Shading", None, -1))
-        self.groupBox_proxy_IO.setTitle(QtWidgets.QApplication.translate("MainWindow", "Proxy IO", None, -1))
-        self.checkBox_3.setText(QtWidgets.QApplication.translate("MainWindow", "GPUCache", None, -1))
-        self.checkBox_2.setText(QtWidgets.QApplication.translate("MainWindow", "RibArchive", None, -1))
-        self.checkBox_4.setText(QtWidgets.QApplication.translate("MainWindow", "Alembic", None, -1))
-        self.groupBox_lightIO.setTitle(QtWidgets.QApplication.translate("MainWindow", "Light IO", None, -1))
-        self.checkBox_9.setText(QtWidgets.QApplication.translate("MainWindow", "Env Light", None, -1))
-        self.checkBox_10.setText(QtWidgets.QApplication.translate("MainWindow", "Direct Light", None, -1))
-        self.checkBox_13.setText(QtWidgets.QApplication.translate("MainWindow", "Mesh Light", None, -1))
-        self.groupBox_renderIO.setTitle(QtWidgets.QApplication.translate("MainWindow", "Render IO", None, -1))
-        self.checkBox_renderCam.setText(QtWidgets.QApplication.translate("MainWindow", "Render Cam", None, -1))
-        self.checkBox_renderSet.setText(QtWidgets.QApplication.translate("MainWindow", "Render Setting", None, -1))
-        self.treeWidget.headerItem().setText(0, QtWidgets.QApplication.translate("MainWindow", "items", None, -1))
-        self.treeWidget.headerItem().setText(1, QtWidgets.QApplication.translate("MainWindow", "location", None, -1))
-        __sortingEnabled = self.treeWidget.isSortingEnabled()
-        self.treeWidget.setSortingEnabled(False)
-        self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanTextures", None, -1))
-        self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "file", None, -1))
-        self.treeWidget.topLevelItem(0).child(0).setText(1, QtWidgets.QApplication.translate("MainWindow", "c:\\temp", None, -1))
-        self.treeWidget.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaTextures", None, -1))
-        self.treeWidget.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "gpuCaches", None, -1))
-        self.treeWidget.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArhives", None, -1))
-        self.treeWidget.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow", "alembics", None, -1))
-        self.treeWidget.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow", "cameras", None, -1))
-        self.treeWidget.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanLights", None, -1))
-        self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaLights", None, -1))
-        self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow", "fluidCaches", None, -1))
-        self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow", "particleCaches", None, -1))
-        self.treeWidget.setSortingEnabled(__sortingEnabled)
+        self.groupBox_3.setTitle(QtWidgets.QApplication.translate("MainWindow", "Option", None, -1))
+        self.groupBox.setTitle(QtWidgets.QApplication.translate("MainWindow", "Convert Texture Format", None, -1))
+        self.groupBox_2.setTitle(QtWidgets.QApplication.translate("MainWindow", "Reduce Texture Size", None, -1))
+        self.radioButton_Original.setText(QtWidgets.QApplication.translate("MainWindow", "Original Size", None, -1))
+        self.radioButton_Half.setText(QtWidgets.QApplication.translate("MainWindow", "Half Size", None, -1))
+        self.radioButton_Quarter.setText(QtWidgets.QApplication.translate("MainWindow", "Quarter Size", None, -1))
+        self.radioButton_customer.setText(QtWidgets.QApplication.translate("MainWindow", "Customer Size", None, -1))
+        self.groupBox_4.setTitle(QtWidgets.QApplication.translate("MainWindow", "Items", None, -1))
+        self.treeWidget_filesList.headerItem().setText(0, QtWidgets.QApplication.translate("MainWindow", "items", None, -1))
+        self.treeWidget_filesList.headerItem().setText(1, QtWidgets.QApplication.translate("MainWindow", "location                                                                                                                                                                                                                                                             ", None, -1))
+        __sortingEnabled = self.treeWidget_filesList.isSortingEnabled()
+        self.treeWidget_filesList.setSortingEnabled(False)
+        self.treeWidget_filesList.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanTextures", None, -1))
+        self.treeWidget_filesList.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "file", None, -1))
+        self.treeWidget_filesList.topLevelItem(0).child(0).setText(1, QtWidgets.QApplication.translate("MainWindow", "c:\\temp", None, -1))
+        self.treeWidget_filesList.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaTextures", None, -1))
+        self.treeWidget_filesList.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "gpuCaches", None, -1))
+        self.treeWidget_filesList.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArhives", None, -1))
+        self.treeWidget_filesList.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow", "alembics", None, -1))
+        self.treeWidget_filesList.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow", "cameras", None, -1))
+        self.treeWidget_filesList.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow", "PrmanLights", None, -1))
+        self.treeWidget_filesList.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow", "mayaLights", None, -1))
+        self.treeWidget_filesList.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow", "fluidCaches", None, -1))
+        self.treeWidget_filesList.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow", "particleCaches", None, -1))
+        self.treeWidget_filesList.setSortingEnabled(__sortingEnabled)
+        self.lineEdit_metaDataA.setText(QtWidgets.QApplication.translate("MainWindow", "# total polygons", None, -1))
+        self.groupBox_5.setTitle(QtWidgets.QApplication.translate("MainWindow", "Publish Mode", None, -1))
+        self.radioButton_syncMode.setText(QtWidgets.QApplication.translate("MainWindow", "Synchronous", None, -1))
+        self.radioButton_publishMode.setText(QtWidgets.QApplication.translate("MainWindow", "Publish", None, -1))
         self.pushButton_newWindow.setText(QtWidgets.QApplication.translate("MainWindow", "new window", None, -1))
-        self.lineEdit.setText(QtWidgets.QApplication.translate("MainWindow", "# total polygons", None, -1))
-        self.pushButton_refreshList.setText(QtWidgets.QApplication.translate("MainWindow", "Refresh List", None, -1))
-        self.pushButton_delectSelectItems.setText(QtWidgets.QApplication.translate("MainWindow", "Delect Selected Items", None, -1))
-        self.checkBox_11.setText(QtWidgets.QApplication.translate("MainWindow", "Check file path", None, -1))
-        self.checkBox_12.setText(QtWidgets.QApplication.translate("MainWindow", "Check Asset Scal", None, -1))
-        self.checkBox_14.setText(QtWidgets.QApplication.translate("MainWindow", "collect all files", None, -1))
-
-
+        self.treeWidget_FiletOption.headerItem().setText(0, QtWidgets.QApplication.translate("MainWindow", "Filter Option", None, -1))
+        __sortingEnabled = self.treeWidget_FiletOption.isSortingEnabled()
+        self.treeWidget_FiletOption.setSortingEnabled(False)
+        self.treeWidget_FiletOption.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "Collect Files", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "Prman Texture", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "Maya Texture", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "GpuCache", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "RibArchive", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(4).setText(0, QtWidgets.QApplication.translate("MainWindow", "Alembic Cache", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(5).setText(0, QtWidgets.QApplication.translate("MainWindow", "Prman Light", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(6).setText(0, QtWidgets.QApplication.translate("MainWindow", "Maya Fluid", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(0).child(7).setText(0, QtWidgets.QApplication.translate("MainWindow", "Maya nParticle Cache", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "Check Plugin", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(1).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "Delete Unused Plugin", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "Check Asset Unit", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(2).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "Check BB", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(2).child(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "Check Position", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(2).child(2).setText(0, QtWidgets.QApplication.translate("MainWindow", "Check Repeat", None, -1))
+        self.treeWidget_FiletOption.topLevelItem(2).child(3).setText(0, QtWidgets.QApplication.translate("MainWindow", "ReName SG", None, -1))
+        self.treeWidget_FiletOption.setSortingEnabled(__sortingEnabled)
+        self.groupBox_CheckAssetUtli.setTitle(QtWidgets.QApplication.translate("MainWindow", "Check AssetUtli", None, -1))
+        self.checkBox_CheckBB.setText(QtWidgets.QApplication.translate("MainWindow", "Check BB", None, -1))
+        self.checkBox_CheckPosition.setText(QtWidgets.QApplication.translate("MainWindow", "Check Position", None, -1))
+        self.checkBox_CheckReNameSG.setText(QtWidgets.QApplication.translate("MainWindow", "ReName SG", None, -1))
+        self.checkBox_CheckReNameSG_2.setText(QtWidgets.QApplication.translate("MainWindow", "Check Repeat", None, -1))
+        self.groupBox_CheckPlugin.setTitle(QtWidgets.QApplication.translate("MainWindow", "Check Plugin", None, -1))
+        self.checkBox_DeleteUnusedPlugin.setText(QtWidgets.QApplication.translate("MainWindow", "Delete Unused Plugin", None, -1))
+        self.groupBox_CollectFile.setTitle(QtWidgets.QApplication.translate("MainWindow", "Collect Files", None, -1))
+        self.checkBox_prmanTexture.setText(QtWidgets.QApplication.translate("MainWindow", "Prman Textures", None, -1))
+        self.checkBox_mayaTexture.setText(QtWidgets.QApplication.translate("MainWindow", "Maya Textures", None, -1))
+        self.checkBox_gpuCache.setText(QtWidgets.QApplication.translate("MainWindow", "Gpu Caches", None, -1))
+        self.checkBox_ribArchive.setText(QtWidgets.QApplication.translate("MainWindow", "Rib Archives", None, -1))
+        self.checkBox_alembicCache.setText(QtWidgets.QApplication.translate("MainWindow", "Alembic Caches", None, -1))
+        self.checkBox_prmanLight.setText(QtWidgets.QApplication.translate("MainWindow", "Prman Lights", None, -1))
+        self.checkBox_mayaFluidCache.setText(QtWidgets.QApplication.translate("MainWindow", "Maya Fluid Caches", None, -1))
+        self.checkBox_mayanParticleCache.setText(QtWidgets.QApplication.translate("MainWindow", "Maya nParticle Caches", None, -1))
 
 
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -353,8 +508,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(mod_MainWindow, self).__init__(parent)
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
-        self.proj = cmds.workspace(rd=True,q=True)
-        
+        #self.proj = cmds.workspace(rd=True,q=True)
+        #self.workProject
         try:
             pm.mel.eval('rmanLoadPlugin')
             rendermanPath = pm.mel.eval('getenv RMANTREE')
@@ -366,14 +521,59 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print 'pls import prman plugin'
             pass
 
+        
+        
+        
+        ####initial UI#########
+       # self.treeWidget_FiletOption.setExpanded   #自動展開 .setCheckState(0, QtCore.Qt.Checked) #設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).setExpanded(1)#自動展開
+        self.treeWidget_FiletOption.topLevelItem(1).setExpanded(1)#自動展開
+        self.treeWidget_FiletOption.topLevelItem(2).setExpanded(1)#自動展開
+        
+        self.treeWidget_FiletOption.topLevelItem(0).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(0).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(1).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(2).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(3).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(4).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(5).setCheckState(0, QtCore.Qt.Unchecked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(6).setCheckState(0, QtCore.Qt.Unchecked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(0).child(7).setCheckState(0, QtCore.Qt.Unchecked)#設定勾選
+      #  self.treeWidget_FiletOption.topLevelItem(0).child(8).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+       # self.treeWidget_FiletOption.topLevelItem(0).child(9).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+    
+        self.treeWidget_FiletOption.topLevelItem(1).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(1).child(0).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+       # self.treeWidget_FiletOption.topLevelItem(1).child(9).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        
+        
+        
+        self.treeWidget_FiletOption.topLevelItem(2).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(2).child(0).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(2).child(1).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(2).child(2).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        self.treeWidget_FiletOption.topLevelItem(2).child(3).setCheckState(0, QtCore.Qt.Checked)#設定勾選
+        
+        
+        
+        ###define modify
+        
+
+        self.treeWidget_filesList.clicked.connect(self.showFileName)
+        self.pushButton_getSelectedNode.clicked.connect(self.getSelectedNode)
+        
+        
+        self.pushButton_refreshList.clicked.connect(self.reflashTree)
+        self.pushButton_delectSelectItems.clicked.connect(self.searchIsChecked)
+        
+        self.treeWidget_filesList.doubleClicked.connect(self.replaceFile)
+        
+        
+        
+        
         self.linkingFilePreMoveDict = {}
 
-    #def self.MODDEF(self):
         self.defineFont()
-        self.pushButton_refreshList.clicked.connect(self.test)
-        self.pushButton_delectSelectItems.clicked.connect(self.delectChecked)
-        
-        self.treeWidget.doubleClicked.connect(self.replaceFile)
 
         self.countN1 = 0
         self.countN2 = 0
@@ -382,13 +582,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.countN5 = 0
         self.countN6 = 0
         self.countN7 = 0
-        #countN8 = 0
+        #countN8 = 0 
         self.countN9 = 0
         self.countN10 = 0
 
         self.buildItemTree()
-        
-        #self.createNewItem()
+         
+        #self.createNewItem() 
         
     def replaceFile(self):
         print "replaceFile start"
@@ -426,13 +626,31 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
  
  
         
+        #cmds.setAttr('PxrTexture9.filename','C:/Users/alpha.DESKTOP-1S1STEK/Pictures/IMG_1483.PNG',typ = "string")
+        newFileLocation = cmds.fileDialog2(fm=1,rf=True)[0]
+        print newFileLocation
+        #C:/Users/alpha.DESKTOP-1S1STEK/Pictures/IMG_1485.PNG
+        cmds.setAttr('%s%s'%(self.treeWidget_filesList.currentItem().text(0),self.treeWidget_filesList.currentItem().text(3)),newFileLocation,typ="string")
+        #print self.treeWidget.currentItem().text(0) +self.treeWidget.currentItem().text(3),newFileLocation
+        self.treeWidget_filesList.topLevelItem(int(self.treeWidget_filesList.currentItem().text(4))).child(int(self.treeWidget_filesList.currentItem().text(5))).setText(1,newFileLocation.split('/')[-1])
         
-    
+    def getSelectedNode(self):
+        cmds.select(self.treeWidget_filesList.currentItem().text(0))
+        
+        
+        
+    def showFileName(self):
+        print self.treeWidget_filesList.currentItem().text(2)
+        self.lineEdit_showFileName.setText(self.treeWidget_filesList.currentItem().text(2))
+        
+        
+        
     
     def delectChecked(self):
+        sefl.searchIsChecked()
         delectList = self.checkNodeDict.keys()
         
-       # deleteTable= self.checkNodeDict.keys()
+       # deleteTable= self.checkNodeDict.keys() treeWidget
         for i in self.checkNodeDict.keys():
             try:
                 if len(cmds.listRelatives( i, p=True )) > 0:
@@ -451,36 +669,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        
         
         
-    def checkIsChecked(self):
+    def searchIsChecked(self):
         self.checkNodeDict = {}
-        topLayerCounts = self.treeWidget.topLevelItemCount()
+        topLayerCounts = self.treeWidget_filesList.topLevelItemCount()
        # print topLayerCounts
         for i in range( 0,topLayerCounts-1):
-            for j in range(0,self.treeWidget.topLevelItem(i).childCount()):
+            for j in range(0,self.treeWidget_filesList.topLevelItem(i).childCount()):
 
 
-                if self.treeWidget.topLevelItem(i).child(j).checkState(0) == QtCore.Qt.CheckState.Checked:
+                if self.treeWidget_filesList.topLevelItem(i).child(j).checkState(0) == QtCore.Qt.CheckState.Checked:
 
-                    self.checkNodeDict.update({self.treeWidget.topLevelItem(i).child(j).text(0):{}})
+                    self.checkNodeDict.update({self.treeWidget_filesList.topLevelItem(i).child(j).text(0):{}})
 
                # else:
                  #   pass
         print self.checkNodeDict
             
-        self.delectChecked()
-        self.test()
+        #self.delectChecked()
+        self.reflashTree()
 
 
 
 
         
-    def createNewItem(self,topLayerIndex,index,nodeName,linkingFile,fontColor):
+    def createNewItem(self,topLayerIndex,index,nodeName,linkingFile,fontColor,attrKey):
         #fontColor = self.fontColor
         #print index,nodeName,linkingFile,self.fontColor
         if len(linkingFile) > 0:
             pass
         else:
-            linkingFile = 'N/A'
+            linkingFile = 'None'
        # print 'topLayerIndex',topLayerIndex
        # print 'index',index
        # print 'nodeName',nodeName
@@ -497,21 +715,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
       #  self.treeWidget.topLevelItem(0)#.setFont(0,self.fontLevelOne)#define font size
       
-        QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(topLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
+        QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(topLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
         
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(0,nodeName)
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(0,nodeName)
         
         if self.checkState == 'Unchecked':
-            self.treeWidget.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Unchecked)
+            self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Unchecked)
         else:
-            self.treeWidget.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
+            self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
             
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
 
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(1, QtWidgets.QApplication.translate("MainWindow", 'linkingFileLocation', None, -1))
-        self.treeWidget.topLevelItem(topLayerIndex).child(index).setText(1,linkingFile)
+       
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(1,linkingFile.split('/')[-1])  #add shot Name into treeWidget in column 2
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(2,linkingFile) #add fullName into treeWidget in column 3
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(3,attrKey) #add nodePath into treeWidget in column 3
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(4,str(topLayerIndex))
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(5,str(index))
   
   
   
@@ -705,37 +927,37 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
     def buildItemTree(self):
         
-        self.treeWidget.clear()
+        self.treeWidget_filesList.clear()
     
     
     
     
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
       #  item1 = QtWidgets.QTreeWidgetItem(self.treeWidget.topLevelItem(0).child(0))
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
        # item_1 = QtWidgets.QTreeWidgetItem(item_0)
@@ -760,15 +982,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
         
-        self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_prmanTextures, None, -1))
-        self.treeWidget.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_mayaTextures, None, -1))
-        self.treeWidget.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_gpuCaches, None, -1))
-        self.treeWidget.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_RibArchives, None, -1))
-        self.treeWidget.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_alembics, None, -1))
-        self.treeWidget.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_cameras, None, -1))
-        self.treeWidget.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_PrmanLights, None, -1))
-        self.treeWidget.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
-        self.treeWidget.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_nParticleCaches, None, -1))
+        self.treeWidget_filesList.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_prmanTextures, None, -1))
+        self.treeWidget_filesList.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_mayaTextures, None, -1))
+        self.treeWidget_filesList.topLevelItem(2).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_gpuCaches, None, -1))
+        self.treeWidget_filesList.topLevelItem(3).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_RibArchives, None, -1))
+        self.treeWidget_filesList.topLevelItem(4).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_alembics, None, -1))
+        self.treeWidget_filesList.topLevelItem(5).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_cameras, None, -1))
+        self.treeWidget_filesList.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_PrmanLights, None, -1))
+        self.treeWidget_filesList.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
+        self.treeWidget_filesList.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_nParticleCaches, None, -1))
        # self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
        # self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "A1_1", None, -1))
 
@@ -787,7 +1009,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         '''   
         
         
-    def test(self):
+    def reflashTree(self):
         self.buildItemTree()
 
         self.findPrmanTexture()
@@ -861,13 +1083,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       #  print self.countN1
         self.yellowCount = 0
         self.redCount = 0
+        attrKey = '.filename'
         for index in range(0,len(pxrTexturePath.keys())):
             nodeName = pxrTexturePath.keys()[index]
             linkingFile = pxrTexturePath[nodeName]['linkingFile']
             
             self.checkFileExist(linkingFile,'pxrTexture')   
             topLayerIndex = 0
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         print pxrTexturePath
         topLayerItemName = "PrmanTextures"+'__('+'%03d'%self.countN1+')'
 
@@ -887,7 +1110,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             path = cmds.getAttr('%s.fileTextureName'%i)
             mayaTextureFilePath.update({i:{'linkingFile':path}})
             self.linkingFilePreMoveDict.update({'mayaTexture':{i:{path:{}}}})
-           
+
+        attrKey = '.fileTextureName'
+      
         self.countN2 = len(mayaTextureFileNode)
         self.yellowCount = 0
         self.redCount = 0            
@@ -902,7 +1127,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             #print 'self.fontColor',self.fontColor
             topLayerIndex = 1
 
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "mayaTextures"+'__('+'%03d'%self.countN2+')'
 
@@ -937,6 +1162,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.yellowCount = 0
         self.redCount = 0              
 
+        attrKey = '.cacheFileName'
+        
         for index in range(0,len(gpuCachePath.keys())):
             nodeName = gpuCachePath.keys()[index]
             linkingFile = gpuCachePath[nodeName]['linkingFile']
@@ -946,7 +1173,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             #print 'linkingFile',linkingFile
             #print 'self.fontColor',self.fontColor
             topLayerIndex = 2
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
 
         topLayerItemName = "gpuCaches"+'__('+'%03d'%self.countN3+')'
 
@@ -964,19 +1191,22 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         RibArchivesNodes = cmds.ls( typ ='RenderManArchive')
         RibArchivesPath = {}
         for i in RibArchivesNodes:
-            path = self.proj +cmds.getAttr('%s.filename'%i)
+            path = self.workProject +cmds.getAttr('%s.filename'%i)
             RibArchivesPath.update({i:{'linkingFile':path}})
             self.linkingFilePreMoveDict.update({'ribArchive':{i:{path:{}}}})
   
         self.countN4 = len(RibArchivesNodes)
         self.yellowCount = 0
-        self.redCount = 0              
+        self.redCount = 0   
+
+        attrKey = '.filename'
+                    
         for index in range(0,len(RibArchivesPath.keys())):
             nodeName = RibArchivesPath.keys()[index]
             linkingFile = RibArchivesPath[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'ribArchive')   
             topLayerIndex = 3
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         topLayerItemName =  "RibArchives"+'__('+'%03d'%self.countN4+')'
 
         self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
@@ -993,13 +1223,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       
         self.countN5 = len(alembicNodes)
         self.yellowCount = 0
-        self.redCount = 0              
+        self.redCount = 0         
+        attrKey = '.abc_File'
+    
         for index in range(0,len(alembicPath.keys())):
             nodeName = alembicPath.keys()[index]
             linkingFile = alembicPath[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'alembic')   
             topLayerIndex = 4
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "alembics"+'__('+'%03d'%self.countN5+')'
 
@@ -1018,12 +1250,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
   
        # print prmanLightNodes 
         self.yellowCount = 0
-        self.redCount = 0         
+        self.redCount = 0      
+        attrKey = '.lightColorMap'
+   
         for i in prmanLightNodes:
             intensity = cmds.getAttr('%s.intensity'%i)
             exposure = cmds.getAttr('%s.exposure'%i)
             if cmds.nodeType(i) == 'PxrEnvDayLight' :  
-                lightColor = 'N/A'
+                lightColor = 'None'
             else :
                 lightColor = cmds.getAttr('%s.lightColor'%i)  
                 
@@ -1031,24 +1265,24 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             if cmds.nodeType(i) == 'PxrRectLight' :           
                 lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
             else:
-                lightColorMap = 'N/A'
+                lightColorMap = 'None'
                 
             if cmds.nodeType(i) == 'PxrDomeLight' :           
                 lightColorMap = cmds.getAttr('%s.lightColorMap'%i)
             else:
-                lightColorMap = 'N/A'
+                lightColorMap = 'None'
                 
                              
             if cmds.nodeType(i) == 'PxrMeshLight' :           
                 textureColor = cmds.getAttr('%s.textureColor'%i)
             else:
-                textureColor = 'N/A' 
+                textureColor = 'None' 
                 
                 
             if cmds.nodeType(i) == 'PxrDistantLight' :           
                 angleExtent = cmds.getAttr('%s.angleExtent'%i)
             else:
-                angleExtent = 'N/A'
+                angleExtent = 'None'
             
             prmanLightInfo.update({i:{'intensity':intensity,
                                       'exposure':exposure,
@@ -1067,7 +1301,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             linkingFile = prmanLightInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'pxrLight')   
             topLayerIndex = 6
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "PrmanLights"+'__('+'%03d'%self.countN7+')'
 
@@ -1082,6 +1316,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         mayaFluidCacheInfo = {}
         
         mayaFileNodes = cmds.ls( typ ='fluidShape')
+        attrKey = '.cacheName'
         
         for i in mayaFileNodes:
             for fluidCache in cmds.listConnections(i):
@@ -1124,7 +1359,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             linkingFile = mayaFluidCacheInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'mayaFluid')   
             topLayerIndex = 7
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         topLayerItemName = "fluidCaches"+'__('+'%03d'%self.countN9+')'
         self.setTopLayerItemColor(topLayerIndex,topLayerItemName)      
 
@@ -1166,6 +1401,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                   'linkingFile':path}})       
                     
                     self.linkingFilePreMoveDict.update({'mayanParticle':{i:{path:{}}}})
+        attrKey = '.cacheName'
              
         self.yellowCount = 0
         self.redCount = 0                      
@@ -1174,7 +1410,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             linkingFile = mayanParticleCacheInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'mayanParticle')   
             topLayerIndex = 8
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor)
+            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         
         
         topLayerItemName ="particleCaches"+'__('+'%03d'%self.countN10+')'
@@ -1198,9 +1434,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
             else:
                 self.topLayerColor = (255,255,255)
-        self.treeWidget.topLevelItem(topLayerIndex).setText(0, QtWidgets.QApplication.translate("MainWindow",topLayerItemName, None, -1))
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).setText(0, QtWidgets.QApplication.translate("MainWindow",topLayerItemName, None, -1))
        
-        self.treeWidget.topLevelItem(topLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
+        self.treeWidget_filesList.topLevelItem(topLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
         
         
 
