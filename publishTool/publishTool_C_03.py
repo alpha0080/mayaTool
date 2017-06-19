@@ -5760,26 +5760,35 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        
         cmds.select(cl=True)
         screenShot = cmds.playblast(st=currentFrame, et=currentFrame, format="image", filename=self.fullFileThumbName, forceOverwrite=True, sequenceTime=False, clearCache=True, viewer=False, showOrnaments=False, framePadding=4, percent=100, compression="png", quality=70, width=150, height=150)
-        print 'screenShotAAA',screenShot
+        #print screenShot
         
-        thumbNameCheckKey = self.fullFileThumbName.split('/')[-1]
-        print 'thumbNameCheckKey',thumbNameCheckKey
-        for i in os.listdir(self.fileInfoLocation):
-            
-            if i.split('.')[-1] == 'png':
-                if i.split('.')[0] == thumbNameCheckKey:
-                    reNameThumbFileName = self.fullFileThumbName +'.0001.png'
-                    srcName = self.fileInfoLocation +'/'+ i
-                    os.rename( srcName, reNameThumbFileName)
-                    print 'srcName',srcName
-                    print 'reNameThumbFileName',reNameThumbFileName    
+        
         
         self.screenShot = screenShot.split('.')[0]+'.0001.png'
         print self.screenShot
         #self.getThumbnail()
         
     def getThumbnail(self):
-
+        '''
+        try:
+            selectedFile = self.ui.file_list.currentItem().text().split("  ")[1].split(".")[0]
+            thumbPath = self.ui.save_path.text().replace("scenes/","data/others/thumbnails/")
+            imageFiles = os.listdir(thumbPath)
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+            
+            for imageFile in imageFiles:
+                if selectedFile in imageFile:
+                    image = QtGui.QImage(thumbPath + imageFile)
+                    self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))
+                    break
+        except:
+            defaultImage = "//Art-1405260002/d/assets/scripts/maya_scripts/C:/Program Files/Autodesk/Maya2017/C:/Program Files/Autodesk/Maya2017/icons/default-placeholder.png"
+            image = QtGui.QImage(defaultImage)
+            self.ui.file_thumbnail.setPixmap(QtGui.QPixmap.fromImage(image))    
+        '''      
+         
         try:
             self.label_showImage.setPixmap(QtGui.QPixmap(self.screenShot))
         except:
@@ -6203,7 +6212,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.getThumbnail()
         
         print 'self.branchDict',self.branchDict
-        print 'self.screenShot',self.screenShot
+        
     
 
  #-----------------print out file info in textBrowser function End-------------------------------------------------------------------     
@@ -7255,9 +7264,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                  
             elif checkMode == 'ribArchive':
                # print 'check the file is surport ribArchive format'
-                if linkingFile.split('.')[-1] in ['zip']:   #['rib','zip','zip','7z','gz']:
+                if linkingFile.split('.')[-1] in ['rib','zip','7z','gz']:
                     self.fontColor = (0,255,0)
-                   # print linkingFile
                 else:
                     self.fontColor =(255,255,0)
                     self.yellowCount = self.yellowCount +1
@@ -7552,7 +7560,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pxrTexturePath.update({i:{'linkingFile':path}})
             self.linkingFilePreMoveDict.update({'pxrTexture':{i:{path:{}}}})
         self.countN1 = len(pxrNodes)
-        
+            
       #  print self.countN1
         self.yellowCount = 0
         self.redCount = 0
@@ -7667,7 +7675,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             path = self.workProject +cmds.getAttr('%s.filename'%i)
             RibArchivesPath.update({i:{'linkingFile':path}})
             self.linkingFilePreMoveDict.update({'ribArchive':{i:{path:{}}}})
-           # print i
+  
         self.countN4 = len(RibArchivesNodes)
         self.yellowCount = 0
         self.redCount = 0   

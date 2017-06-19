@@ -513,10 +513,10 @@ class Ui_MainWindow(object):
         self.label_showImage.setPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/picture-01-150.png"))
         self.label_showImage.setObjectName("label_showImage")
         self.pushButton_loadFile = QtWidgets.QPushButton(self.tab_branch)
-        self.pushButton_loadFile.setGeometry(QtCore.QRect(495, 320, 40, 40))
+        self.pushButton_loadFile.setGeometry(QtCore.QRect(495, 313, 40, 40))
         self.pushButton_loadFile.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/download2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/load60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_loadFile.setIcon(icon5)
         self.pushButton_loadFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_loadFile.setAutoDefault(False)
@@ -529,7 +529,7 @@ class Ui_MainWindow(object):
         self.pushButton_saveFile.setWhatsThis("")
         self.pushButton_saveFile.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/upload2-512 C.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/save60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_saveFile.setIcon(icon6)
         self.pushButton_saveFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_saveFile.setAutoDefault(False)
@@ -2405,6 +2405,24 @@ class Ui_MainWindow(object):
         self.radioButton_publishMode.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.radioButton_publishMode.setChecked(False)
         self.radioButton_publishMode.setObjectName("radioButton_publishMode")
+        self.pushButton_unCheckAll = QtWidgets.QPushButton(self.tab)
+        self.pushButton_unCheckAll.setGeometry(QtCore.QRect(130, 30, 30, 30))
+        self.pushButton_unCheckAll.setText("")
+        icon37 = QtGui.QIcon()
+        icon37.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/unCheck.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_unCheckAll.setIcon(icon37)
+        self.pushButton_unCheckAll.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_unCheckAll.setFlat(True)
+        self.pushButton_unCheckAll.setObjectName("pushButton_unCheckAll")
+        self.pushButton_reName = QtWidgets.QPushButton(self.tab)
+        self.pushButton_reName.setGeometry(QtCore.QRect(170, 30, 30, 30))
+        self.pushButton_reName.setText("")
+        icon38 = QtGui.QIcon()
+        icon38.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/reName.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_reName.setIcon(icon38)
+        self.pushButton_reName.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_reName.setFlat(True)
+        self.pushButton_reName.setObjectName("pushButton_reName")
         self.tabWidget_branch.addTab(self.tab, "")
         self.tab_job_assemble = QtWidgets.QWidget()
         self.tab_job_assemble.setObjectName("tab_job_assemble")
@@ -2849,9 +2867,9 @@ class Ui_MainWindow(object):
         self.pushButton_closeBranch = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_closeBranch.setGeometry(QtCore.QRect(1130, 380, 31, 31))
         self.pushButton_closeBranch.setText("")
-        icon37 = QtGui.QIcon()
-        icon37.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_closeBranch.setIcon(icon37)
+        icon39 = QtGui.QIcon()
+        icon39.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_closeBranch.setIcon(icon39)
         self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_closeBranch.setAutoDefault(False)
         self.pushButton_closeBranch.setDefault(False)
@@ -2860,9 +2878,9 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_openFileJson.setGeometry(QtCore.QRect(1130, 350, 31, 31))
         self.pushButton_openFileJson.setText("")
-        icon38 = QtGui.QIcon()
-        icon38.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_openFileJson.setIcon(icon38)
+        icon40 = QtGui.QIcon()
+        icon40.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_openFileJson.setIcon(icon40)
         self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFileJson.setAutoDefault(False)
         self.pushButton_openFileJson.setDefault(False)
@@ -2886,9 +2904,9 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(1250, 770, 25, 25))
         self.pushButton_mergeToMaster.setText("")
-        icon39 = QtGui.QIcon()
-        icon39.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_mergeToMaster.setIcon(icon39)
+        icon41 = QtGui.QIcon()
+        icon41.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_mergeToMaster.setIcon(icon41)
         self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_mergeToMaster.setAutoDefault(False)
         self.pushButton_mergeToMaster.setDefault(False)
@@ -2898,10 +2916,10 @@ class Ui_MainWindow(object):
         self.pushButton_processComp.setEnabled(True)
         self.pushButton_processComp.setGeometry(QtCore.QRect(1200, 570, 29, 29))
         self.pushButton_processComp.setText("")
-        icon40 = QtGui.QIcon()
-        icon40.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon40.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_processComp.setIcon(icon40)
+        icon42 = QtGui.QIcon()
+        icon42.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon42.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_processComp.setIcon(icon42)
         self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processComp.setCheckable(True)
         self.pushButton_processComp.setAutoDefault(False)
@@ -3320,6 +3338,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         self.linkingFilePreMoveDict = {}
+        
+        
+        #define allDuplicateShapeNameDict,
+        self.allDuplicateShapeNameDict ={'pxrTexture':{},
+                                         'mayaTexture':{},
+                                         'gpuCache':{},
+                                         'ribArchive':{},
+                                         'alembic':{},
+                                         'pxrLight':{},
+                                         'mayaFluid':{},
+                                         'mayanParticle':{}
+                                         }
 
         self.defineFont()
 
@@ -3333,6 +3363,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #countN8 = 0 
         self.countN9 = 0
         self.countN10 = 0
+        self.countN11 = 0
 
         self.buildItemTree()
          
@@ -7094,6 +7125,55 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         }
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 ####################page publishTool
 
 
@@ -7103,7 +7183,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         #cmds.setAttr('PxrTexture9.filename','C:/Users/alpha.DESKTOP-1S1STEK/Pictures/IMG_1483.PNG',typ = "string")
         newFileLocation = cmds.fileDialog2(fm=1,rf=True)[0]
-        print newFileLocation
+       # print newFileLocation
         #C:/Users/alpha.DESKTOP-1S1STEK/Pictures/IMG_1485.PNG
         cmds.setAttr('%s%s'%(self.treeWidget_filesList.currentItem().text(0),self.treeWidget_filesList.currentItem().text(3)),newFileLocation,typ="string")
         #print self.treeWidget.currentItem().text(0) +self.treeWidget.currentItem().text(3),newFileLocation
@@ -7115,7 +7195,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def showFileName(self):
-        print self.treeWidget_filesList.currentItem().text(2)
+        #print self.treeWidget_filesList.currentItem().text(2)
         self.lineEdit_showFileName.setText(self.treeWidget_filesList.currentItem().text(2))
         
         
@@ -7139,11 +7219,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print delectList
         cmds.delete(delectList)
         self.checkNodeDict = {}
+        self.delectBadPlugin()  # delect checked Plugin
         self.reflashTree()
 
        # cmds.relationship('PxrTexture2',q=True)
-       
-       
+    def delectBadPlugin(self):
+        for plugin in self.badPluginNodeList.keys():
+            try:
+                cmds.unknownPlugin(plugin,r=True)
+            except:
+                pass   
+               
         
         
     def searchIsChecked(self):
@@ -7157,10 +7243,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 if self.treeWidget_filesList.topLevelItem(i).child(j).checkState(0) == QtCore.Qt.CheckState.Checked:
 
                     self.checkNodeDict.update({self.treeWidget_filesList.topLevelItem(i).child(j).text(0):{}})
+    def searchPluginIsChecked(self):
+        self.badPluginNodeList = {}
+        topLayerCounts = self.treeWidget_filesList.topLevelItemCount()
+       # print topLayerCounts
 
+        for i in range(0,self.treeWidget_filesList.topLevelItem(9).childCount()):
+
+
+            if self.treeWidget_filesList.topLevelItem(9).child(i).checkState(0) == QtCore.Qt.CheckState.Checked:
+
+                    self.badPluginNodeList.update({self.treeWidget_filesList.topLevelItem(9).child(i).text(0):{}})
                # else:
                  #   pass
-        print self.checkNodeDict
+       # print self.checkNodeDict
             
        # self.delectChecked()
        # self.reflashTree()
@@ -7169,7 +7265,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         
-    def createNewItem(self,topLayerIndex,index,nodeName,linkingFile,fontColor,attrKey):
+    def createNewItem(self,checkItemTopLayerIndex,index,nodeName,linkingFile,fontColor,attrKey):
         #fontColor = self.fontColor
         #print index,nodeName,linkingFile,self.fontColor
         if len(linkingFile) > 0:
@@ -7192,32 +7288,69 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.treeWidget.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "master", None, -1))
       #  self.treeWidget.topLevelItem(0)#.setFont(0,self.fontLevelOne)#define font size
       
-        QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(topLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
+        QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
         
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(0,nodeName)
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(0,nodeName)
         
         if self.checkState == 'Unchecked':
-            self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Unchecked)
+            self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setCheckState(0, QtCore.Qt.Unchecked)
         else:
-            self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
+            self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setCheckState(0, QtCore.Qt.Checked)
             
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setForeground(1,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
 
        
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(1,linkingFile.split('/')[-1])  #add shot Name into treeWidget in column 2
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(2,linkingFile) #add fullName into treeWidget in column 3
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(3,attrKey) #add nodePath into treeWidget in column 3
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(4,str(topLayerIndex))
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).child(index).setText(5,str(index))
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(1,linkingFile.split('/')[-1])  #add shot Name into treeWidget in column 2
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(2,linkingFile) #add fullName into treeWidget in column 3
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(3,attrKey) #add nodePath into treeWidget in column 3
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(4,str(checkItemTopLayerIndex))
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(5,str(index))
   
   
+  #topLayerIndex
+    def checkDuplicateName(self,checkMode,shapeName,checkItemTopLayerIndex,index):  # call from self.findRibArchives()
+        #print 'checkDuplicateName start'
+        #print shapeName, len(shapeName.split('|'))
+        if len(shapeName.split('|')) >= 4: 
+            self.shapeCheckDict.update({shapeName.split('|')[-3]:{shapeName.split('|')[-2]:{shapeName.split('|')[-1]:{}}}})
+        elif len(shapeName.split('|')) == 3 : 
+            
+            self.shapeCheckDict.update({shapeName.split('|')[-3]:{shapeName.split('|')[-2]:{shapeName.split('|')[-1]:{}}}})
+            
+        elif len(shapeName.split('|')) == 2 : 
+            
+            self.shapeCheckDict.update({'none':{shapeName.split('|')[-2]:{shapeName.split('|')[-1]:{}}}})
+            
+        elif len(shapeName.split('|')) == 1 : 
+            
+            self.shapeCheckDict.update({'none':{'none':{shapeName.split('|')[-1]:{}}}})
+        else:
+            pass
+            
+        if shapeName.split('|')[-1] in self.shapeLastParName:
+           # print "got duplicate shpae Name"
+            self.fontColor =(180,180,255)
+           # print 'shapeName ',shapeName
+            #self.allDuplicateShapeNameDict.update({'ribArchive':{shapeName:{'itemLevelIndex':[checkItemTopLayerIndex,index]}}})
+            self.allDuplicateShapeNameDict[checkMode].update({shapeName:{'itemLevelIndex':[checkItemTopLayerIndex,index,'duplicateName']}})
+        else:
+            self.shapeLastParName.append(shapeName.split('|')[-1])
+            self.allDuplicateShapeNameDict[checkMode].update({shapeName:{'itemLevelIndex':[checkItemTopLayerIndex,index,'noneDuplicateName']}})
+
+        
+
+        #print shapeName
+        
+
   
     def checkFileExist(self,linkingFile,checkMode):  #checkMode = pxrTexture,mayaTexture,gpuCache,ribArchive,alembic,pxrLight,mayaFluid,mayanParticle
-      #  print 'check file is existed'
-
+       # print 'check file is existed'
+        #print 'linkingFile,checkMode', linkingFile,checkMode
+        #print os.path.isfile(linkingFile)
         if os.path.isfile(linkingFile) == True:
+            #print os.path.isfile(linkingFile)
             if checkMode == 'pxrTexture':
               #  print 'check the file is pxr texture'
                 if linkingFile.split('.')[-1] == 'tex':
@@ -7255,12 +7388,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                  
             elif checkMode == 'ribArchive':
                # print 'check the file is surport ribArchive format'
-                if linkingFile.split('.')[-1] in ['zip']:   #['rib','zip','zip','7z','gz']:
+                if linkingFile.split('.')[-1] in ['rib','zip','zip','7z','gz']:
                     self.fontColor = (0,255,0)
-                   # print linkingFile
+                 #   print "aaaaaaaaaaa"
                 else:
                     self.fontColor =(255,255,0)
-                    self.yellowCount = self.yellowCount +1
+                    self.yellowCount = self.yellowCount +1      
+                  #  print "bbbbbbbbbb"
                 self.checkState = 'Unchecked'
 
 
@@ -7318,10 +7452,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
            # self.setCheck = 0 
         else:
-            self.fontColor =(255,0,0)
-            self.setCheck = 1
-            self.redCount = self.redCount +1
-            self.checkState = 'Checked'
+            if checkMode == 'pxrLight':
+                self.checkState = 'Unchecked'
+
+            else:
+                self.fontColor =(255,0,0)
+                self.setCheck = 1
+                self.redCount = self.redCount +1
+                self.checkState = 'Checked'
+          #  print "cccccccc"
 
 
             
@@ -7433,6 +7572,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
         item_0.setCheckState(0, QtCore.Qt.Checked)
 
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_filesList)
+        item_0.setCheckState(0, QtCore.Qt.Checked)
        # item_1 = QtWidgets.QTreeWidgetItem(item_0)
        # item_0.setCheckState(0, QtCore.Qt.Checked)
                                 
@@ -7451,6 +7592,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.itemName_mayaLights = "mayaLights"+'__('+'%03d'%countN8+')'
         self.itemName_fluidCaches = "fluidCaches"+'__('+'%03d'%self.countN9+')'
         self.itemName_nParticleCaches = "particleCaches"+'__('+'%03d'%self.countN10+')'
+        self.itemName_plugin = "plungin"+'__('+'%03d'%self.countN11+')'
+        
 
         
 
@@ -7464,7 +7607,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.treeWidget_filesList.topLevelItem(6).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_PrmanLights, None, -1))
         self.treeWidget_filesList.topLevelItem(7).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
         self.treeWidget_filesList.topLevelItem(8).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_nParticleCaches, None, -1))
-       # self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
+        self.treeWidget_filesList.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_plugin, None, -1))
+
+        #self.treeWidget.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_fluidCaches, None, -1))
        # self.treeWidget.topLevelItem(0).child(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "A1_1", None, -1))
 
         
@@ -7483,23 +7628,57 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def reflashTree(self):
+
         self.buildItemTree()
 
-        self.findPrmanTexture()
-        self.findMayaTexture()
-
-        self.findGpuCaches()
-
-        self.findRibArchives()
-
-        self.findAlembics()
-      #  self.findCameras()
-        self.findPrmanLights()
-        self.mayaFluidCache()
-        self.mayanParticleCache()
+        try:
+            self.findPrmanTexture()
+        except:
+            pass
+            
+        try:
+            self.findMayaTexture()
+        except:
+            pass
+        try:
+            self.findGpuCaches()
+        except:
+            pass
+            
         
-        print 'self.linkingFilePreMoveDict',self.linkingFilePreMoveDict
-      #  self.buildItemTree()
+        try:
+            self.findRibArchives()
+        except:
+            pass
+  
+        try:
+            self.findAlembics()
+        except:
+            pass            
+            
+        try:
+            self.findPrmanLights()
+        except:
+            pass            
+             
+        try:
+            self.mayaFluidCache()
+        except:
+            pass            
+             
+        try:
+            self.mayanParticleCache()
+        except:
+            pass       
+        try:
+            self.findPlugin()  
+        except:
+             pass   
+             
+ #
+        #print self.allDuplicateShapeNameDict
+        #print 'self.linkingFilePreMoveDict',self.linkingFilePreMoveDict
+        #self.buildItemTree()
 #cmds.nodeType('nParticleShape1Cache1')
 
 
@@ -7557,22 +7736,27 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.yellowCount = 0
         self.redCount = 0
         attrKey = '.filename'
+        self.shapeCheckDict ={}     #new
+        self.shapeLastParName = [] #new
+        
         for index in range(0,len(pxrTexturePath.keys())):
             nodeName = pxrTexturePath.keys()[index]
             linkingFile = pxrTexturePath[nodeName]['linkingFile']
             
             self.checkFileExist(linkingFile,'pxrTexture')   
-            topLayerIndex = 0
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
-        print pxrTexturePath
+            checkItemTopLayerIndex = 0
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            self.checkDuplicateName('pxrTexture',nodeName,checkItemTopLayerIndex,index) #new
+
+       # print pxrTexturePath
         topLayerItemName = "PrmanTextures"+'__('+'%03d'%self.countN1+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)         
         
 
         
         
-     #cmds.nodeType('file2')       
+     #cmds.nodeType('file2')   topLayerIndex     
          #aa= cmds.ls(typ='file') 
         # cmds.select(aa)
     def findMayaTexture(self):  # store mayaNodeName and location 
@@ -7588,7 +7772,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       
         self.countN2 = len(mayaTextureFileNode)
         self.yellowCount = 0
-        self.redCount = 0            
+        self.redCount = 0    
+        self.shapeCheckDict ={}    
+        self.shapeLastParName = [] 
        # print self.countN2
         for index in range(0,len(mayaTextureFilePath.keys())):
             nodeName = mayaTextureFilePath.keys()[index]
@@ -7598,13 +7784,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # print 'nodeName',nodeName
             #print 'linkingFile',linkingFile
             #print 'self.fontColor',self.fontColor
-            topLayerIndex = 1
-
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 1
+            self.checkDuplicateName('mayaTexture',nodeName,checkItemTopLayerIndex,index) #new
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "mayaTextures"+'__('+'%03d'%self.countN2+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)         
         
         
             
@@ -7626,31 +7812,41 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         gpuCacheNodes = cmds.ls( typ ='gpuCache')
         gpuCachePath = {}
         for i in gpuCacheNodes:
-            path = cmds.getAttr('%s.cacheFileName'%i)
-            gpuCachePath.update({i:{'linkingFile':path}})
-           # self.linkingFilePreMoveDict.update({'gpuCache':{i:{path:{}}}})
-            self.linkingFilePreMoveDict.update({'gpuCache':{i:{path:{}}}})
+            if cmds.getAttr('%s.cacheFileName'%i).split('/')[0] == 'renderman':
+                path = self.workProject +'/'+cmds.getAttr('%s.cacheFileName'%i)
+                gpuCachePath.update({i:{'linkingFile':path}})
+
+            else:
+                path = cmds.getAttr('%s.cacheFileName'%i)
+                gpuCachePath.update({i:{'linkingFile':path}})
+                
+
 
         self.countN3 = len(gpuCacheNodes)
         self.yellowCount = 0
         self.redCount = 0              
 
         attrKey = '.cacheFileName'
+        self.shapeCheckDict ={}   
+        self.shapeLastParName = [] 
+        
         
         for index in range(0,len(gpuCachePath.keys())):
             nodeName = gpuCachePath.keys()[index]
             linkingFile = gpuCachePath[nodeName]['linkingFile']
-            self.checkFileExist(linkingFile,'gpuCache')   
+            self.checkFileExist(linkingFile,'gpuCache')
             #print 'index',index
            # print 'nodeName',nodeName
             #print 'linkingFile',linkingFile
             #print 'self.fontColor',self.fontColor
-            topLayerIndex = 2
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 2
+            self.checkDuplicateName('gpuCache',nodeName,checkItemTopLayerIndex,index) #new   
+
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
 
         topLayerItemName = "gpuCaches"+'__('+'%03d'%self.countN3+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)         
         
         
             
@@ -7660,30 +7856,47 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             
     def findRibArchives(self): # store RibArchives NodeName and location 
-        
+        print 'findRibArchives start'
         RibArchivesNodes = cmds.ls( typ ='RenderManArchive')
         RibArchivesPath = {}
         for i in RibArchivesNodes:
-            path = self.workProject +cmds.getAttr('%s.filename'%i)
-            RibArchivesPath.update({i:{'linkingFile':path}})
-            self.linkingFilePreMoveDict.update({'ribArchive':{i:{path:{}}}})
-           # print i
+           # print 'adsd',cmds.getAttr('%s.filename'%i).split('/')
+            if cmds.getAttr('%s.filename'%i).split('/')[0] == 'renderman':
+                path = self.workProject +'/'+cmds.getAttr('%s.filename'%i)
+                RibArchivesPath.update({i:{'linkingFile':path}})
+
+                #print path
+            else:
+                path = cmds.getAttr('%s.filename'%i)
+                RibArchivesPath.update({i:{'linkingFile':path}})
+                self.linkingFilePreMoveDict.update({'ribArchive':{i:{path:{}}}})
+        #print 'RibArchivesPath',RibArchivesPath
         self.countN4 = len(RibArchivesNodes)
+       # print' self.countN4',self.countN4
         self.yellowCount = 0
         self.redCount = 0   
 
         attrKey = '.filename'
-                    
+       # checkMode = 'ribArchive'  
+        self.shapeCheckDict ={}
+        self.shapeLastParName = []
         for index in range(0,len(RibArchivesPath.keys())):
+           # print index
             nodeName = RibArchivesPath.keys()[index]
             linkingFile = RibArchivesPath[nodeName]['linkingFile']
+          #  print 'linkingFile',linkingFile
             self.checkFileExist(linkingFile,'ribArchive')   
-            topLayerIndex = 3
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 3
+            self.checkDuplicateName('ribArchive',nodeName,checkItemTopLayerIndex,index)
+
+
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+        #print 'self.shapeCheckDict',self.shapeCheckDict
+        #print 'self.shapeLastParName',self.shapeLastParName
+        #print 'self.allDuplicateShapeNameDict',self.allDuplicateShapeNameDict
         topLayerItemName =  "RibArchives"+'__('+'%03d'%self.countN4+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)         
-        
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)         
         
     def findAlembics(self): # store alembics NodeName and location 
         
@@ -7698,22 +7911,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.yellowCount = 0
         self.redCount = 0         
         attrKey = '.abc_File'
+        self.shapeCheckDict ={}     
+        self.shapeLastParName = [] 
     
         for index in range(0,len(alembicPath.keys())):
             nodeName = alembicPath.keys()[index]
             linkingFile = alembicPath[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'alembic')   
-            topLayerIndex = 4
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 4
+            self.checkDuplicateName('alembic',nodeName,checkItemTopLayerIndex,index)
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "alembics"+'__('+'%03d'%self.countN5+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)  
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)  
         
         
         
         
     def findPrmanLights(self): # store PrmanLights NodeName and location 
+        print 'findPrmanLights start'
         
         prmanLightType =['PxrRectLight','PxrDiskLight','PxrDistantLight','PxrSphereLight','PxrDomeLight','PxrEnvDayLight','PxrMeshLight']
         prmanLightNodes = []
@@ -7725,7 +7942,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.yellowCount = 0
         self.redCount = 0      
         attrKey = '.lightColorMap'
-   
+        self.shapeCheckDict ={}     
+        self.shapeLastParName = [] 
         for i in prmanLightNodes:
             intensity = cmds.getAttr('%s.intensity'%i)
             exposure = cmds.getAttr('%s.exposure'%i)
@@ -7773,12 +7991,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             nodeName = prmanLightInfo.keys()[index]
             linkingFile = prmanLightInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'pxrLight')   
-            topLayerIndex = 6
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 6
+
+            self.checkDuplicateName('pxrLight',nodeName,checkItemTopLayerIndex,index)
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
             
         topLayerItemName = "PrmanLights"+'__('+'%03d'%self.countN7+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)  
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)  
         
         
         
@@ -7831,10 +8051,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             nodeName = mayaFluidCacheInfo.keys()[index]
             linkingFile = mayaFluidCacheInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'mayaFluid')   
-            topLayerIndex = 7
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 7
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         topLayerItemName = "fluidCaches"+'__('+'%03d'%self.countN9+')'
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)      
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)      
 
        # print 'mayaFluidCacheInfo',mayaFluidCacheInfo
     def mayanParticleCache(self): # store mayanParticle NodeName and location fluidCache
@@ -7882,20 +8102,104 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             nodeName = mayanParticleCacheInfo.keys()[index]
             linkingFile = mayanParticleCacheInfo[nodeName]['linkingFile']
             self.checkFileExist(linkingFile,'mayanParticle')   
-            topLayerIndex = 8
-            self.createNewItem(topLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
+            checkItemTopLayerIndex = 8
+            self.createNewItem(checkItemTopLayerIndex,index,nodeName,linkingFile,self.fontColor,attrKey)
         
         
         topLayerItemName ="particleCaches"+'__('+'%03d'%self.countN10+')'
 
-        self.setTopLayerItemColor(topLayerIndex,topLayerItemName)      
+        self.setTopLayerItemColor(checkItemTopLayerIndex,topLayerItemName)      
 
             
        # print mayanParticleCacheInfo
        # print self.countN10
-            
+
+
+    def findPlugin(self): # store plugin NodeName and location 
+        print 'findPlugin start'
         
-    def setTopLayerItemColor(self,topLayerIndex,topLayerItemName):
+  # for i in cmds.pluginInfo( q=True, listPlugins=True, av=True ):
+  #  print i
+     
+        
+        
+        
+        
+        pluginNode = cmds.pluginInfo( q=True, listPlugins=True, av=True )
+        allPlugInNode = {}
+        for i in pluginNode:
+            allPlugInNode.update({i:{}})
+            
+        badplugins = cmds.unknownPlugin(q=True, l=True)
+
+                
+       # print 'allPlugInNode',allPlugInNode
+        #print 'badplugins',badplugins
+        loadCound = len(pluginNode)
+        try: 
+            if len(badplugins) > 0:
+                #print 'aaaa'
+                badCount = len(badplugins)
+        except:
+            
+            badCount = 0
+            
+        print badCount
+        print 'badCount',badCount
+        self.countN11 = badCount + loadCound
+
+        print self.countN11 ,badCount,loadCound
+
+        
+        for index in range(0,badCount):
+            nodeName = badplugins[index]
+
+            QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(9))
+            self.treeWidget_filesList.topLevelItem(9).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(255,0,0)))
+
+            self.treeWidget_filesList.topLevelItem(9).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+            self.treeWidget_filesList.topLevelItem(9).child(index).setText(0,nodeName)
+            self.treeWidget_filesList.topLevelItem(9).child(index).setCheckState(0, QtCore.Qt.Checked)
+           # print index
+        #print 'break'
+        for index in range(badCount,self.countN11) :
+            #print index
+           # for i in range(0,loadCound):
+                 
+            nodeName = allPlugInNode.keys()[index-badCount]
+           # print nodeName
+            
+            QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(9))
+            self.treeWidget_filesList.topLevelItem(9).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(0,255,0)))
+
+            self.treeWidget_filesList.topLevelItem(9).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+            self.treeWidget_filesList.topLevelItem(9).child(index).setText(0,nodeName)
+            self.treeWidget_filesList.topLevelItem(9).child(index).setCheckState(0, QtCore.Qt.Unchecked)
+        self.searchPluginIsChecked()   
+        self.itemName_plugin = "plungin"+'__('+'%03d'%self.countN11+')' 
+        if badCount > 0:
+
+        
+
+            self.treeWidget_filesList.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_plugin, None, -1))
+       
+            self.treeWidget_filesList.topLevelItem(9).setForeground(0,QtGui.QBrush(QtGui.QColor(255,0,0)))
+      
+        
+        else:
+            
+               
+
+            self.treeWidget_filesList.topLevelItem(9).setText(0, QtWidgets.QApplication.translate("MainWindow",self.itemName_plugin, None, -1))
+           
+            self.treeWidget_filesList.topLevelItem(9).setForeground(0,QtGui.QBrush(QtGui.QColor(255,255,255)))
+          
+          
+  
+
+       # print 'self.badPluginNodeList',self.badPluginNodeList
+        
+    def setTopLayerItemColor(self,checkItemTopLayerIndex,topLayerItemName):
         if self.redCount > 0:
 
             self.topLayerColor = (255,0,0)
@@ -7907,9 +8211,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
             else:
                 self.topLayerColor = (255,255,255)
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).setText(0, QtWidgets.QApplication.translate("MainWindow",topLayerItemName, None, -1))
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).setText(0, QtWidgets.QApplication.translate("MainWindow",topLayerItemName, None, -1))
        
-        self.treeWidget_filesList.topLevelItem(topLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
+        self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.topLayerColor[0]), int(self.topLayerColor[1]), int(self.topLayerColor[2]))))
                 
 
 
