@@ -36,3 +36,64 @@ for i in os.listdir(imageFolder):
       #  image = ice.Load(fileName)
         #print imageLoad.DataBox()
         
+import rfm.rlf2maya as rlf2maya
+
+s = rlf2maya.GetActiveScope()
+
+print type(rlf2maya.GetActiveScope())
+
+dir(rlf2maya.GetActiveScope())
+
+
+# modify s in someway (see rlf.py)
+s.AddRule(rule)
+
+# replace the current scene's active scope
+rlf2maya.SetActiveScope(s)
+
+
+rlf2maya.GetScopeNames()
+
+rlf2maya.GetScope('untitled')
+
+
+
+
+
+
+
+import rfm.rlf as rlf
+
+scope = rlf.RLFScope()
+scope.LoadRlf("perspShape_Final.rlf")
+
+dir( rlf.RLFScope())
+
+dynRules = scope.GetRules()
+
+newscope = rlf.RLFScope()
+for rule in dynRules:
+    print "processing rule " + rule.GetRuleString()
+    if "Sphere" in rule.GetRuleString():
+       newscope.AddRule(rule)
+
+serial = newscope.Serialize()
+f = open("perspShape_Final.0001.rlf", "w")
+f.write(serial)
+f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
