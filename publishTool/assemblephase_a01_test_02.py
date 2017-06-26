@@ -127,8 +127,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     def setTableItemSize(self,size):
        # self.tableWidget.horizontalHeader().setDefaultSectionSize(size)
-        self.tableWidget.horizontalHeader(3).setDefaultSectionSize(size)
-
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(size)
+       # self.tableWidget.horizontalHeader()
         self.tableWidget.horizontalHeader().setMinimumSectionSize(size)
         self.tableWidget.verticalHeader().setDefaultSectionSize(size)
         self.tableWidget.verticalHeader().setMinimumSectionSize(size)
