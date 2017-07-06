@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>960</width>
+    <height>718</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>35</y>
+      <width>311</width>
+      <height>476</height>
+     </rect>
+    </property>
+    <attribute name="headerDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="headerMinimumSectionSize">
+     <number>50</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </column>
+    <item>
+     <property name="text">
+      <string>a</string>
+     </property>
+     <property name="text">
+      <string>aa</string>
+     </property>
+     <property name="text">
+      <string>aaa</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>b</string>
+     </property>
+     <property name="text">
+      <string>bb</string>
+     </property>
+     <property name="text">
+      <string>bbb</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>c</string>
+     </property>
+     <property name="text">
+      <string>cc</string>
+     </property>
+     <property name="text">
+      <string>ccc</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>d</string>
+     </property>
+     <property name="text">
+      <string>dd</string>
+     </property>
+     <property name="text">
+      <string>ddd</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

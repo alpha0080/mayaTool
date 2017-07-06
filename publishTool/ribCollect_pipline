@@ -1,0 +1,53 @@
+create Geo
+
+assign Shader
+
+	export rib
+	check rif
+	#move texture file in ribArchive folder
+	#fix rif texture file path
+
+
+publish rib
+	duplicate all ribArchive to publish folder
+	collect texture file in ribarchive folder
+	fix rif texture file path
+
+	link original maya file
+	link file information
+			bb
+			size
+			creator
+			
+
+
+
+
+
+
+publish folder:
+
+self.project \publish\assets\character\assetName\model\soursceimages
+						      	      \data\alembicCache\
+						                   \mayaFluidcache\
+					                                \nParticleCache\
+						    	      \scenes\assetName_assetClass_ProcessType_master.mb #and ma is necessary
+							      \renderman\ribarchives\        objectNameFolder\cache\objectName.abc #gpuCache
+										        \shaders
+									                     \objectName.job.rlf*  # shader Description file by frame
+										        \objectName.Zip  #ribArchive zip file
+
+						        \texture\
+						        \rigging\
+
+
+				\vehicle
+				\set
+				\prop
+				\other
+			shot\shot01\layout
+					\animation
+					\lighting
+					\effect
+					\simulation
+

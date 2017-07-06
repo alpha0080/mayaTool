@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1041</width>
+    <height>895</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>5</y>
+      <width>291</width>
+      <height>546</height>
+     </rect>
+    </property>
+    <property name="dragEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="dragDropMode">
+     <enum>QAbstractItemView::InternalMove</enum>
+    </property>
+    <property name="columnCount">
+     <number>2</number>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="headerCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="headerDefaultSectionSize">
+     <number>150</number>
+    </attribute>
+    <attribute name="headerHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="headerMinimumSectionSize">
+     <number>25</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>assetName</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>assetProcess</string>
+     </property>
+    </column>
+    <item>
+     <property name="text">
+      <string>Character</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <item>
+      <property name="text">
+       <string>anna</string>
+      </property>
+      <property name="text">
+       <string>model</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>tiger</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>joey</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>Vehicle</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Set</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Prop</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Other</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Effect</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>15</y>
+      <width>321</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="dragEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="dragDropMode">
+     <enum>QAbstractItemView::DragOnly</enum>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>60</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="rowCount">
+     <number>5</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>60</number>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>25</number>
+    </attribute>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>60</number>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderMinimumSectionSize">
+     <number>25</number>
+    </attribute>
+    <row>
+     <property name="text">
+      <string>新增列</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>1a</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>2a</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>3a</string>
+     </property>
+    </row>
+    <row/>
+    <column>
+     <property name="text">
+      <string>ItemName</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignLeading|AlignVCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ItemIcon</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>MayaPath</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>RibArchive</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>GpuCache</string>
+     </property>
+    </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>ItemName</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>ItemIcon</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignHCenter|AlignBottom</set>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>FileName</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>ItemName2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>560</y>
+      <width>321</width>
+      <height>281</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -3228,7 +3228,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #define project root
         #self.root = "C:/mayaProjs" #test in home
-        self.root = "//mcd-server/art_3d_project"   # projects root in company
+        #self.root = "//mcd-server/art_3d_project"   # projects root in company
+        self.root = "//mcd-3d/art_3d_project"
         #self.doFromAdmin()
         
         self.getDataFromTactic()
@@ -7223,6 +7224,58 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
 ####################page publishTool
+    def reflashTree(self):
+
+        self.buildItemTree()
+        self.createCopyFileInfoDictInit()
+        try:
+            self.findPrmanTexture()
+        except:
+            pass
+            
+        try:
+            self.findMayaTexture()
+        except:
+            pass
+        try:
+            self.findGpuCaches()
+        except:
+            pass
+            
+        
+        try:
+            self.findRibArchives()
+        except:
+            pass
+  
+        try:
+            self.findAlembics()
+        except:
+            pass            
+            
+        try:
+            self.findPrmanLights()
+        except:
+            pass            
+             
+        try:
+            self.mayaFluidCache()
+        except:
+            pass            
+             
+        try:
+            self.mayanParticleCache()
+        except:
+            pass       
+        try:
+            self.findPlugin()  
+        except:
+             pass   
+        try:
+            self.storeDuplicateNameDictToJson()
+        except:
+            pass
+ #
 
 
 
@@ -7347,23 +7400,28 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 for i in mariUdimFormat:
                    # print linkingFile.split('.tex')[0][0:-8]+'_'+i+'.tex'
                     #os.path.isfile(linkingFile.split('.tex')[0][0:-8] +'_'+i)
-                    checkFileName = linkingFile.split('.tex')[0][0:-8] +'_'+i+'.tex'
-                    if os.path.isfile(checkFileName) == True :
-                        udimFileNameList.append(checkFileName)
+                    udimFileName = linkingFile.split('.tex')[0][0:-8] +'_'+i+'.tex'
+                    if os.path.isfile(udimFileName) == True :
+                        #udimFileNameList.append(udimFileName)
+                        #print udimFileName
+                        self.checkFileSize(udimFileName)
+                        print udimFileName,fileSize
+       
         #print udimFileNameList
           # print linkingFile.split('/')[-1]
-        '''
-        fileSizeBt = os.stat(linkingFile).st_size /1024
+    def checkFileSize(self,fileName):
+        
+        fileSizeBt = os.stat(fileName).st_size /1024
         if fileSizeBt < 1024:
-            fileSize = str(fileSize) +'KB'
+            fileSize = str(fileSizeBt) +'KB'
         elif fileSizeBt <1024*1024:
             fileSize = '%.3f'%(fileSizeBt/1024.0) +'MB'
             
         else:
             
             fileSize='%.3f'%(fileSizeBt/1024.0/1024.0) +'GB'
-        '''    
 
+        '''
             
         
        # image = ice.Load(linkingFile)
@@ -7376,7 +7434,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # fileSize = imageMetaData['File Size']
             #fileInfo = [{'linkingFile':linkingFile},{'fileState':self.fileState},{'Original Size':originalSize},{'Original File Format':originalFileFormat},{'Original Bits Per Sample':originalBitsPerSample},{'File Size':fileSize},{'checkState':self.checkState},{'duplicateShapeNameState': self.duplicateShapeNameState}]
             #self.allCopyFileInfoDict[checkMode].update({nodeName:fileInfo})
-        '''
+        
         if checkMode == 'mayaTexture':
             self.allCopyFileInfoDict[checkMode].update({nodeName:[{'linkingFile':udimFileNameList},{'fileState':self.fileState},{'Original Size':originalSize},{'Original File Format':originalFileFormat},{'Original Bits Per Sample':originalBitsPerSample},{'File Size':fileSize},{'checkState':self.checkState},{'duplicateShapeNameState': self.duplicateShapeNameState}]})
         else: 
@@ -7753,65 +7811,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         '''   
         
         
-    def reflashTree(self):
 
-        self.buildItemTree()
-        self.createCopyFileInfoDictInit()
-        try:
-            self.findPrmanTexture()
-        except:
-            pass
-            
-        try:
-            self.findMayaTexture()
-        except:
-            pass
-        try:
-            self.findGpuCaches()
-        except:
-            pass
-            
-        
-        try:
-            self.findRibArchives()
-        except:
-            pass
-  
-        try:
-            self.findAlembics()
-        except:
-            pass            
-            
-        try:
-            self.findPrmanLights()
-        except:
-            pass            
-             
-        try:
-            self.mayaFluidCache()
-        except:
-            pass            
-             
-        try:
-            self.mayanParticleCache()
-        except:
-            pass       
-        try:
-            self.findPlugin()  
-        except:
-             pass   
-        try:
-            self.storeDuplicateNameDictToJson()
-        except:
-            pass
- #
-        #print self.allDuplicateShapeNameDict
-        #print 'self.linkingFilePreMoveDict',self.linkingFilePreMoveDict
-        #self.buildItemTree()
-#cmds.nodeType('nParticleShape1Cache1')
-
-
-            
 
 
         
@@ -8437,8 +8437,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             showText = showText +  str(image.GetMetaData().keys()[i]) +"  :  " +str(image.GetMetaData()[image.GetMetaData().keys()[i]]) +"\n"
         self.plainTextEdit.setPlainText(showText)
 
-#def main():
-def publishToolMain():
+def main():
+#def publishToolMain():
     global ui
     app = QtWidgets.QApplication.instance()
     if app == None: app = QtWidgets.QApplication(sys.argv)
@@ -8450,8 +8450,8 @@ def publishToolMain():
     
     ui.show()
  
-#if __name__ == '__main__':
-#    main()
+if __name__ == '__main__':
+    main()
 
 
  
