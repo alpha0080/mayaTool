@@ -1,0 +1,331 @@
+{
+    "assets": {
+        "character": {
+            "bear.character": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/bear/rigging/scenes/ap_v01_cf_c_rig_bear_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/bear/rigging/scenes/ap_v01_cf_c_rig_bear_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "bear_facial.character": {}, 
+            "chicken.character": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/chicken/rigging/scenes/ap_v01_cf_c_rig_chicken_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/chicken/rigging/scenes/ap_v01_cf_c_rig_chicken_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "chicken_facial.character": {}, 
+            "chicken_head.character": {}, 
+            "chicken_head_facial.character": {}, 
+            "color_owl.character": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/color_owl/rigging/scenes/ap_v01_cf_c_rig_color_owl_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/color_owl/rigging/scenes/ap_v01_cf_c_rig_color_owl_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "color_owl_facial.character": {}, 
+            "fox.character": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/fox/rigging/scenes/ap_v01_cf_c_rig_fox_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/fox/rigging/scenes/ap_v01_cf_c_rig_fox_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "fox_facial.character": {}, 
+            "frog.character": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/frog/rigging/scenes/ap_v01_cf_c_rig_frog_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/character/frog/rigging/scenes/ap_v01_cf_c_rig_frog_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "frog_facial.character": {}, 
+            "hippo.character": {}, 
+            "hippo_facial.character": {}, 
+            "owl.character": {}, 
+            "owl_facial.character": {}, 
+            "rabbit.character": {}, 
+            "rabbit_facial.character": {}, 
+            "snow_head.character": {}, 
+            "snow_head_facial.character": {}, 
+            "snow_men.character": {}, 
+            "snow_men_facial.character": {}
+        }, 
+        "other": {
+            "global.other": {}, 
+            "hexagonal.other": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/other/hexagonal/rigging/scenes/ap_v01_cf_o_rig_hexagonal_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/other/hexagonal/rigging/scenes/ap_v01_cf_o_rig_hexagonal_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "snoe_tree.other": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/other/snoe_tree/rigging/scenes/ap_v01_cf_o_rig_snoe_tree_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/other/snoe_tree/rigging/scenes/ap_v01_cf_o_rig_snoe_tree_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "square.other": {}
+        }, 
+        "prop": {
+            "anipop_logo.prop": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/anipop_logo/rigging/scenes/ap_v01_cf_p_rig_anipop_logo_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/anipop_logo/rigging/scenes/ap_v01_cf_p_rig_anipop_logo_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "coin.prop": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/coin/rigging/scenes/ap_v01_cf_p_rig_coin_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/coin/rigging/scenes/ap_v01_cf_p_rig_coin_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }, 
+            "diamond.prop": {}, 
+            "end_logo.prop": {
+                "rigging": {
+                    "state": {
+                        "fileIcon": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/end_logo/rigging/scenes/ap_v01_cf_p_rig_end_logo_master.png", 
+                        "fileName": "//mcd-server/art_3d_project/ani_pop_v01_cf/publish/assets/prop/end_logo/rigging/scenes/ap_v01_cf_p_rig_end_logo_master.mb", 
+                        "gpuCache": "gpuCachePath", 
+                        "metaData": {}, 
+                        "projectWorkSpace": "workSpace", 
+                        "publishTime": "time", 
+                        "ribArchive": {
+                            "endFrame": {}, 
+                            "frameRate": {}, 
+                            "isMotionBlur": {}, 
+                            "parentGPUCache": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "ribArchivePath": {
+                                "high": {}, 
+                                "low": {}, 
+                                "mid": {}
+                            }, 
+                            "startFrame": {}
+                        }, 
+                        "user": "alpha"
+                    }
+                }
+            }
+        }, 
+        "set": {
+            "bg_cloud.set": {}, 
+            "bg_snow.set": {}
+        }, 
+        "vehicle": {}
+    }, 
+    "shot": {
+        "shot01": {}, 
+        "shot02": {}, 
+        "shot03": {}, 
+        "shot04": {}
+    }
+}
