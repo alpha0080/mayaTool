@@ -467,7 +467,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tableWidget_AssetItemList.itemClicked.connect(self.showAssetMetaDataFromSelect)
         self.itemDict ={}
 
-        self.loadPublishedData('character','rigging')
+        self.loadPublishedData('character','texture')
        # self.itemDict = {'item01':'a1','item02':'b1','item03':'c1','item04':'D1','item05':'E1','item06':'f1','item07':'g1','item08':'h1','item09':'i9'}
         
         self.totalItemCount = len(self.itemDict)
@@ -482,8 +482,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def loadPublishedData(self,assetClass,processType):
         
 
-        file = '//mcd-server/art_3d_project/ani_pop_v01_cf/publish/global/ani_pop_v01_cf_publishAnnonce.json'
-
+       # file = '//mcd-server/art_3d_project/ani_pop_v01_cf/publish/global/ani_pop_v01_cf_publishAnnonce.json'
+        
+        file = '//mcd-server/art_3d_project/ocean_world_2016_cf/publish/global/ocean_world_2016_cf_publishAnnonce.json'
         with open(file) as data_file:    
             data = json.load(data_file)
             
@@ -527,7 +528,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else: 
             setRow = ((self.totalItemCount / 2) *2) +2
             
-       # print setRow
+        print setRow
         
         #setRow = self.totalItemCount / 2 *2 +2
         
@@ -556,44 +557,37 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def storeItemDateInDict(self,cloumnCount):
         infoSearchList = ['fileName','fileIcon','gpuCache','ribArchive','user','publishTime','metaData']
         rowCount = 0
-        tableItemListInfoDict= {}
+        self.tableItemListInfoDict= {}
         for i in range(0,self.totalItemCount ):
-            tempInfoDictPreItem = {}
-           # tempInfoListPreItem = []
-           
-            column = i % cloumnCount
-            row = i/cloumnCount *2
-          #  print column, row
-            self.tableItemListInfoDict.update( {str(column) +'.'+ str(row):self.itemDict.keys()[i]})
-            '''
-            try:
-                for j in infoSearchList:
-                    if os.path.isfile(self.itemDict[self.itemDict.keys()[i]][j]) == True :
-                        try:
-                            tempInfoDictPreItem.update({j:self.itemDict[self.itemDict.keys()[i]][j]})
-                        except:
-                            tempInfoDictPreItem.update({j:'not available'})
-                    print tempInfoDictPreItem
-   
+            self.tempInfoDictPreItem = {}
 
-            except:
-                print "none"
-               # pass
-            '''
-                #print self.itemDict[self.itemDict.keys()[i]]['fileName']
-           # print os.path.isfile(self.itemDict[self.itemDict.keys()[i]]['fileName'])
-           # try:
-          #      print self.itemDict.keys()[i]#['fileName']
-         #       print self.itemDict[self.itemDict.keys()[i]]['fileName']
-         #   except:
-         #       pass
-           # print self.itemDict[self.itemDict.keys()[i]]['user']
+            if cloumnCount == 1:
+                column = 0
+                row = i
+                
+            else:
+                column = i % cloumnCount
+            
+                row = i/cloumnCount *2
+            
+            tempKey = str(column) +'_._'+ str(row)
+            item = self.itemDict.keys()[i]
+            tempItemList = {}
+            for j in infoSearchList:
+                try:
+                    secondItem = self.itemDict[self.itemDict.keys()[i]][j]
+                except:
+                    secondItem = {}
+                tempItemList.update({j:secondItem})
+                
+            self.tableItemListInfoDict.update({tempKey:{item:tempItemList}})
+
 
 
         print self.tableItemListInfoDict
         
-                                
-
+        self.setItemText(cloumnCount)
+        self.setItemIcon()
         
     def setMidAssetIcon(self):
         print 'setMidAssetIcon'
@@ -617,7 +611,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(80)
         iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
         
-        for column in range(0,3): #set icon 
+        for column in range(0,3): #set icon setItemText
             for row in range(0,setRow,2):
                 print row
                 self.createTableItem(column,row,iconFile,80)
@@ -666,30 +660,48 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_P3_MidIcon.setChecked(False) 
         self.pushButton_P3_smallIcon.setChecked(False) 
         self.pushButton_P3_text.setChecked(True) 
-        setRow = self.totalItemCount 
+        setRow = self.totalItemCount #+ 1
         self.tableWidget_AssetItemList.setColumnCount(1)
         self.tableWidget_AssetItemList.setRowCount(setRow)  
-        iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
+       # iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
 
         self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(300)
-       # self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(20) 
-        
-        #column = 2
+
         for row in range(0, setRow):
             print row
             self.setTableItemText(0,row)
-           # item = QtWidgets.QTableWidgetItem()
-       # textRow = row+1
-          #  self.tableWidget_AssetItemList.setRowHeight(row , 20) #set text row height
-           # self.tableWidget_AssetItemList.setText(row,1
-           # self.tableWidget_AssetItemList.setItem(row, 0, item)
-           # self.tableWidget_AssetItemList.item(row, 0).setText(QtWidgets.QApplication.translate("MainWindow", "ItemName", None,-1))
+        self.storeItemDateInDict (1)
+
+        
+                
         
         
         
         
         
         
+        
+    
+    def setItemText(self,cloumnCount):
+        #print self.tableItemListInfoDict.keys()
+        #print 'cloumnCount',cloumnCount
+        for i in self.tableItemListInfoDict.keys():
+            if cloumnCount == 1:
+                row = int(i.split('_._')[1])
+                column = 0
+            else:
+                row = int(i.split('_._')[1])+1
+                column = int(i.split('_._')[0])
+            itemName = str(self.tableItemListInfoDict[i].keys()[0])
+            print itemName
+            print row ,column
+
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_AssetItemList.setItem(row, column, item)
+            self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow",'aaa', None,-1))
+            self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow",itemName, None,-1))
+            
+    
         
         
         
@@ -739,7 +751,24 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #item.setTextAlignment(-20)
 
       #  self.tableWidget.setRowHeight(1 , 20)  
-        
+      
+      
+    def setItemIcon(self):
+        print 'setItemIcon start'
+        for i in self.tableItemListInfoDict.keys():
+            row = int(i.split('_._')[1])
+            column = int(i.split('_._')[0])
+           # print i
+            if len(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']) >0:
+                iconFile = QtGui.QIcon(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])#.keys()
+            else:
+                iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512.png')
+                #iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_AssetItemList.setItem(row, column, item)
+            #self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow", "ItemIcon", None,-1))
+            self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+       # self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(60,60))
 
 
 
