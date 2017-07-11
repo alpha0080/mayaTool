@@ -63,6 +63,31 @@ class editRibArchive:
         z = zipfile.ZipFile(self.ribArchiveZipName, "w")
         z.write(self.tempribArchiveRiPassJobFile,self.ribArchiveRiPassJobFile,zipfile.ZIP_DEFLATED)
         z.close
+        
+        
+    def replaceFileInZip(self):
+        zipFileName = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip'
+        extractPath = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/temp'
+
+
+            
+        your_delet_file= 'RIBManifest.json'
+        old_zipfile='C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip' #新文件
+        new_zipfile='C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT2.zip' #新文件
+        zin = zipfile.ZipFile (old_zipfile, 'r') #?取?象
+        zout = zipfile.ZipFile (new_zipfile, 'w') #被?入?象
+        for item in zin.infolist():
+            buffer = zin.read(item.filename)
+            if (item.filename!= your_delet_file):  #剔除要?除的文件
+                zout.writestr(item, buffer) #把文件?入到新?象中
+        zout.close()
+        zin.close()
+ 
+        #用新文件覆??文件
+        shutil.move(new_zipfile,old_zipfile)
+
+
+
 
         
         #f.close
