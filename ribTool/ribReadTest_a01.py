@@ -1,5 +1,7 @@
 import os
 import zipfile
+import json
+
 
 class editRibArchive:
     
@@ -65,15 +67,40 @@ class editRibArchive:
         z.close
         
         
-    def replaceFileInZip(self):
-        zipFileName = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip'
-        extractPath = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/temp'
+    def replaceFileInZip(self,ribArchiveName):
+        ##zipFileName = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip'
+        #extractPath = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/temp'
+        projectRoot = 'c:/mayaProjs/output'
+        rendermanWorkspace = 'renderman/ribarchives'
+        selectZipFileFullName = projectRoot + '/' + rendermanWorkspace +'/' +ribArchiveName +'/' +ribArchiveName+'.zip'
+        jsonFileName = 'RIBManifest.json'
+        jobRibFilePath = '/renderman/ribarchives' + '/' + ribArchiveName
+        zin = zipfile.ZipFile(selectZipFileFullName,'r')         #讀取選定的Zip File
+        jsonData = zin.read(jsonFileName)
+        data = json.dumps(jsonData, sort_keys=True)  #編譯成json 且賦予格式 控四格
+        
+        #print data
+        #print data.keys()
+        print jsonData
+        zin.close
+        print jsonData["Driver-Files" ]
+        #j
+        #with open('data.json') as data_file:    
+        #    data = json.load(data_file)
+        #print jsonData.keys()
+        
 
 
-            
-        your_delet_file= 'RIBManifest.json'
-        old_zipfile='C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip' #新文件
-        new_zipfile='C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT2.zip' #新文件
+#a = editRibArchive()
+#a.replaceFileInZip('CubeTTTBBBRibArchiveShape')
+
+
+'''
+    def ssss(self):
+        
+        your_delet_file=['RIBManifest.json','asd.txt']  #in zip file
+        old_zipfile= zipFileName #新文件
+        new_zipfile= zipFileName.split('.')[0]+'_2.zip' #新文件
         zin = zipfile.ZipFile (old_zipfile, 'r') #?取?象
         zout = zipfile.ZipFile (new_zipfile, 'w') #被?入?象
         for item in zin.infolist():
@@ -98,7 +125,6 @@ class editRibArchive:
 
 a = editRibArchive()  
 a.runEditRibArchiveMain('rrrRibArchiveShape')
-
 
 
 
@@ -143,3 +169,4 @@ f.close
 
 
 print dataList
+'''
