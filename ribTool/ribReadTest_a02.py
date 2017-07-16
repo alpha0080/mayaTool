@@ -75,24 +75,47 @@ class editRibArchive:
         selectZipFileFullName = projectRoot + '/' + rendermanWorkspace +'/' +ribArchiveName +'/' +ribArchiveName+'.zip'
         jsonFileName = 'RIBManifest.json'
         jobRibFilePath = '/renderman/ribarchives' + '/' + ribArchiveName
+        jibRibFileList = []
         zin = zipfile.ZipFile(selectZipFileFullName,'r')         #弄匡﹚Zip File
         jsonData = zin.read(jsonFileName)
-        data = json.dumps(jsonData, sort_keys=True)  #絪亩Θjson 结ぉΑ 北
-        
-        #print data
-        #print data.keys()
-        print jsonData
+        rlfFileList=[]
+       # rlfSingleFileName = projectRoot + '/' + rendermanWorkspace +'/' + ribArchiveName + countNume + '.rlf'
+        #data = json.dumps(jsonData, sort_keys=True)  #絪亩Θjson 结ぉΑ 北
+        data = json.loads(jsonData)
+
         zin.close
-        print jsonData["Driver-Files" ]
-        #j
-        #with open('data.json') as data_file:    
-        #    data = json.load(data_file)
-        #print jsonData.keys()
+       # print jsonData #the original data from zipfilelook like json format, but str
+       # print data
+        #print data.keys()
+        ##print data['Driver-Files'].keys()
+        #ribFileCount = len(data['Driver-Files'].keys())
+        #print ribFileCount
+        tempDriveFilesKeys =[]
+        if len(data['Driver-Files'].keys()) >1:
+            for i in data['Driver-Files'].keys():
+                tempDriveFilesKeys.append('%04d'%int(i))
+                
+                
+            for i in sorted(tempDriveFilesKeys):
+                rlfSingleFileName = projectRoot + '/' + rendermanWorkspace +'/' + ribArchiveName + '.%04d'%int(i) + '.rlf'
+                rlfFileList.append(rlfSingleFileName)
+                jobRibFileName = jobRibFilePath + '/' +ribArchiveName + '.%04d'%int(i) +'.rib'
+                jibRibFileList.append(jobRibFileName)
+        else:
+            rlfSingleFileName =  projectRoot + '/' + rendermanWorkspace +'/' + ribArchiveName + '.job.rlf'
+            jobRibFileName =  jobRibFilePath + '/' +ribArchiveName + '.job.rib'
+            rlfFileList.append(rlfSingleFileName)
+            jibRibFileList.append(jobRibFileName)
+
+        #    print rlfSingleFileName
+        print rlfFileList
+        print jobRibFilePath
+        print jibRibFileList
+         #  print i
+       # print '%04d'%ribFileCount
         
-
-
-#a = editRibArchive()
-#a.replaceFileInZip('CubeTTTBBBRibArchiveShape')
+a = editRibArchive()
+a.replaceFileInZip('pSphereOOORibArchiveShape')
 
 
 '''
