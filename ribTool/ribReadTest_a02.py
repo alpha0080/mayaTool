@@ -67,14 +67,14 @@ class editRibArchive:
         z.close
         
         
-    def replaceFileInZip(self,ribArchiveName):
+    def replaceFileInZip(self,ribArchiveName,newLocation):
         ##zipFileName = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/CubeTTT.zip'
         #extractPath = 'C:/mayaProjs/output/renderman/ribarchives/CubeTTTRibArchiveShape/temp'
         projectRoot = 'c:/mayaProjs/output'
         rendermanWorkspace = 'renderman/ribarchives'
         selectZipFileFullName = projectRoot + '/' + rendermanWorkspace +'/' +ribArchiveName +'/' +ribArchiveName+'.zip'
         jsonFileName = 'RIBManifest.json'
-        jobRibFilePath = '/renderman/ribarchives' + '/' + ribArchiveName
+        jobRibFilePath = 'renderman/ribarchives' + '/' + ribArchiveName
         jibRibFileList = []
         zin = zipfile.ZipFile(selectZipFileFullName,'r')         #讀取選定的Zip File
         jsonData = zin.read(jsonFileName)
@@ -83,7 +83,6 @@ class editRibArchive:
         #data = json.dumps(jsonData, sort_keys=True)  #編譯成json 且賦予格式 控四格
         data = json.loads(jsonData)
 
-        zin.close
        # print jsonData #the original data from zipfile，look like json format, but str
        # print data
         #print data.keys()
@@ -108,14 +107,42 @@ class editRibArchive:
             jibRibFileList.append(jobRibFileName)
 
         #    print rlfSingleFileName
-        print rlfFileList
-        print jobRibFilePath
-        print jibRibFileList
+       # print selectZipFileFullName
+    #    print 'jsonFileName',jsonFileName
+        if len(data['Driver-Files'].keys()) == 1:
+            readRibJobData = zin.read(jibRibFileList[0])
+            ribJobData = readRibJobData.split('\n')
+            ribJobDataLineCount = len(ribJobData)
+            for i in range(0,ribJobDataLineCount):
+               # print ribJobData[i]
+                
+                if ribJobData[i][0:16] =='##RLF ScopeBegin':
+                  #  print 'aaaaaa',i
+                  #  print 'aaaa',ribJobData[i].split('-rlffilename')
+                    newRLFScope = ribJobData[i].split(' -rlffilename ')[0] +'-rlffilename ' +newLocation +'/'+rendermanWorkspace +'/'+ribArchiveName + '/' +ribArchiveName + '.job.rlf'
+                  #  print newRLFScope 
+                    ribJobData[i] = newRLFScope
+                
+        
+        newRibJobData = ribJobData
+        zin.close
+        print newRibJobData
+        
+        newFileName = 'C:/mayaProjs/output/aaaa.txt'
+        f = open(newFileName,'w')
+        for i in newRibJobData:
+            f.write(i + '\n')
+        f.close
+        #print ribJobData
+        #print ribArchiveName
+        #print rlfFileList
+       ## print jobRibFilePath
+       # print jibRibFileList        
          #  print i
        # print '%04d'%ribFileCount
         
 a = editRibArchive()
-a.replaceFileInZip('pSphereOOORibArchiveShape')
+a.replaceFileInZip('pSphereOOORibArchiveShape','c:/mayaProj/aaa/renderman/ribarchives')
 
 
 '''
