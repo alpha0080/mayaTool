@@ -13,13 +13,14 @@ from PySide2 import QtCore, QtGui, QtWidgets
 import json
 import os
 from pprint import pprint
+import datetime
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1391, 901)
-        MainWindow.setMinimumSize(QtCore.QSize(650, 0))
+        MainWindow.resize(650, 860)
+        MainWindow.setMinimumSize(QtCore.QSize(650, 860))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -161,7 +162,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame_15 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_15.setGeometry(QtCore.QRect(5, 145, 581, 731))
+        self.frame_15.setGeometry(QtCore.QRect(5, 90, 581, 751))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -304,8 +305,152 @@ class Ui_MainWindow(object):
         self.frame_15.setLineWidth(1)
         self.frame_15.setMidLineWidth(0)
         self.frame_15.setObjectName("frame_15")
-        self.treeWidget_sceneAssembleTree = QtWidgets.QTreeWidget(self.frame_15)
-        self.treeWidget_sceneAssembleTree.setGeometry(QtCore.QRect(5, 5, 186, 526))
+        self.frame_9 = QtWidgets.QFrame(self.frame_15)
+        self.frame_9.setGeometry(QtCore.QRect(5, 5, 190, 741))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.frame_9.setPalette(palette)
+        self.frame_9.setFrameShape(QtWidgets.QFrame.Box)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setLineWidth(1)
+        self.frame_9.setMidLineWidth(0)
+        self.frame_9.setObjectName("frame_9")
+        self.treeWidget_sceneAssembleTree = QtWidgets.QTreeWidget(self.frame_9)
+        self.treeWidget_sceneAssembleTree.setGeometry(QtCore.QRect(1, 1, 186, 526))
         self.treeWidget_sceneAssembleTree.setDragEnabled(True)
         self.treeWidget_sceneAssembleTree.setDragDropMode(QtWidgets.QAbstractItemView.DragDrop)
         self.treeWidget_sceneAssembleTree.setColumnCount(2)
@@ -324,45 +469,8 @@ class Ui_MainWindow(object):
         self.treeWidget_sceneAssembleTree.header().setDefaultSectionSize(150)
         self.treeWidget_sceneAssembleTree.header().setHighlightSections(False)
         self.treeWidget_sceneAssembleTree.header().setMinimumSectionSize(25)
-        self.tableWidget_AssetItemList = QtWidgets.QTableWidget(self.frame_15)
-        self.tableWidget_AssetItemList.setGeometry(QtCore.QRect(195, 5, 380, 526))
-        self.tableWidget_AssetItemList.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.tableWidget_AssetItemList.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.tableWidget_AssetItemList.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
-        self.tableWidget_AssetItemList.setDragEnabled(True)
-        self.tableWidget_AssetItemList.setDragDropMode(QtWidgets.QAbstractItemView.DragOnly)
-        self.tableWidget_AssetItemList.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(60, 60))
-        self.tableWidget_AssetItemList.setTextElideMode(QtCore.Qt.ElideNone)
-        self.tableWidget_AssetItemList.setRowCount(2)
-        self.tableWidget_AssetItemList.setColumnCount(2)
-        self.tableWidget_AssetItemList.setObjectName("tableWidget_AssetItemList")
-        self.tableWidget_AssetItemList.setColumnCount(2)
-        self.tableWidget_AssetItemList.setRowCount(2)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_AssetItemList.setItem(0, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_AssetItemList.setItem(0, 1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_AssetItemList.setItem(1, 0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_AssetItemList.setItem(1, 1, item)
-        self.tableWidget_AssetItemList.horizontalHeader().setVisible(False)
-        self.tableWidget_AssetItemList.horizontalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(120)
-        self.tableWidget_AssetItemList.horizontalHeader().setMinimumSectionSize(25)
-        self.tableWidget_AssetItemList.horizontalHeader().setSortIndicatorShown(False)
-        self.tableWidget_AssetItemList.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget_AssetItemList.verticalHeader().setVisible(False)
-        self.tableWidget_AssetItemList.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(120)
-        self.tableWidget_AssetItemList.verticalHeader().setHighlightSections(True)
-        self.tableWidget_AssetItemList.verticalHeader().setMinimumSectionSize(25)
-        self.plainTextEdit_assetMetaData = QtWidgets.QPlainTextEdit(self.frame_15)
-        self.plainTextEdit_assetMetaData.setGeometry(QtCore.QRect(195, 540, 381, 186))
-        self.plainTextEdit_assetMetaData.setObjectName("plainTextEdit_assetMetaData")
-        self.frame_7 = QtWidgets.QFrame(self.frame_15)
-        self.frame_7.setGeometry(QtCore.QRect(5, 540, 186, 186))
+        self.frame_7 = QtWidgets.QFrame(self.frame_9)
+        self.frame_7.setGeometry(QtCore.QRect(1, 552, 186, 186))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -510,6 +618,205 @@ class Ui_MainWindow(object):
         self.label_showImage_2.setText("")
         self.label_showImage_2.setPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/picture-01-150.png"))
         self.label_showImage_2.setObjectName("label_showImage_2")
+        self.pushButton_P3addItem = QtWidgets.QPushButton(self.frame_9)
+        self.pushButton_P3addItem.setGeometry(QtCore.QRect(5, 530, 80, 20))
+        self.pushButton_P3addItem.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/addButton.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3addItem.setIcon(icon)
+        self.pushButton_P3addItem.setIconSize(QtCore.QSize(80, 40))
+        self.pushButton_P3addItem.setFlat(True)
+        self.pushButton_P3addItem.setObjectName("pushButton_P3addItem")
+        self.pushButton_P3_deleteItem = QtWidgets.QPushButton(self.frame_9)
+        self.pushButton_P3_deleteItem.setGeometry(QtCore.QRect(105, 530, 80, 20))
+        self.pushButton_P3_deleteItem.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/deleteButton.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_deleteItem.setIcon(icon1)
+        self.pushButton_P3_deleteItem.setIconSize(QtCore.QSize(80, 40))
+        self.pushButton_P3_deleteItem.setFlat(True)
+        self.pushButton_P3_deleteItem.setObjectName("pushButton_P3_deleteItem")
+        self.frame_10 = QtWidgets.QFrame(self.frame_15)
+        self.frame_10.setGeometry(QtCore.QRect(195, 5, 386, 741))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(121, 182, 164))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Light, brush)
+        brush = QtGui.QBrush(QtGui.QColor(101, 151, 136))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Midlight, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Dark, brush)
+        brush = QtGui.QBrush(QtGui.QColor(54, 80, 72))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Mid, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.BrightText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(40, 60, 54))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Shadow, brush)
+        brush = QtGui.QBrush(QtGui.QColor(81, 121, 109))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.AlternateBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 220))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipBase, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
+        self.frame_10.setPalette(palette)
+        self.frame_10.setFrameShape(QtWidgets.QFrame.Box)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setLineWidth(1)
+        self.frame_10.setMidLineWidth(0)
+        self.frame_10.setObjectName("frame_10")
+        self.tableWidget_AssetItemList = QtWidgets.QTableWidget(self.frame_10)
+        self.tableWidget_AssetItemList.setGeometry(QtCore.QRect(1, 1, 380, 526))
+        self.tableWidget_AssetItemList.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.tableWidget_AssetItemList.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.tableWidget_AssetItemList.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.tableWidget_AssetItemList.setDragEnabled(True)
+        self.tableWidget_AssetItemList.setDragDropMode(QtWidgets.QAbstractItemView.DragOnly)
+        self.tableWidget_AssetItemList.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(60, 60))
+        self.tableWidget_AssetItemList.setTextElideMode(QtCore.Qt.ElideNone)
+        self.tableWidget_AssetItemList.setRowCount(2)
+        self.tableWidget_AssetItemList.setColumnCount(2)
+        self.tableWidget_AssetItemList.setObjectName("tableWidget_AssetItemList")
+        self.tableWidget_AssetItemList.setColumnCount(2)
+        self.tableWidget_AssetItemList.setRowCount(2)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(1, 1, item)
+        self.tableWidget_AssetItemList.horizontalHeader().setVisible(False)
+        self.tableWidget_AssetItemList.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(120)
+        self.tableWidget_AssetItemList.horizontalHeader().setMinimumSectionSize(25)
+        self.tableWidget_AssetItemList.horizontalHeader().setSortIndicatorShown(False)
+        self.tableWidget_AssetItemList.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_AssetItemList.verticalHeader().setVisible(False)
+        self.tableWidget_AssetItemList.verticalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(120)
+        self.tableWidget_AssetItemList.verticalHeader().setHighlightSections(True)
+        self.tableWidget_AssetItemList.verticalHeader().setMinimumSectionSize(25)
+        self.plainTextEdit_assetMetaData = QtWidgets.QPlainTextEdit(self.frame_10)
+        self.plainTextEdit_assetMetaData.setGeometry(QtCore.QRect(1, 530, 381, 206))
+        self.plainTextEdit_assetMetaData.setObjectName("plainTextEdit_assetMetaData")
         self.frame_4 = QtWidgets.QFrame(self.centralwidget)
         self.frame_4.setGeometry(QtCore.QRect(1265, 85, 46, 56))
         palette = QtGui.QPalette()
@@ -658,10 +965,10 @@ class Ui_MainWindow(object):
         self.pushButton_shot.setEnabled(True)
         self.pushButton_shot.setGeometry(QtCore.QRect(9, 20, 31, 31))
         self.pushButton_shot.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_shot.setIcon(icon)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_shot.setIcon(icon2)
         self.pushButton_shot.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_shot.setCheckable(True)
         self.pushButton_shot.setAutoDefault(False)
@@ -710,10 +1017,10 @@ class Ui_MainWindow(object):
         self.pushButton_inProgress_3.setPalette(palette)
         self.pushButton_inProgress_3.setAutoFillBackground(False)
         self.pushButton_inProgress_3.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_inProgress_3.setIcon(icon1)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_inProgress_3.setIcon(icon3)
         self.pushButton_inProgress_3.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_inProgress_3.setCheckable(True)
         self.pushButton_inProgress_3.setChecked(False)
@@ -748,7 +1055,7 @@ class Ui_MainWindow(object):
         self.tableWidget_all_inputItemList.horizontalHeader().setVisible(True)
         self.tableWidget_all_inputItemList.horizontalHeader().setDefaultSectionSize(120)
         self.frame_21 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_21.setGeometry(QtCore.QRect(590, 25, 56, 56))
+        self.frame_21.setGeometry(QtCore.QRect(590, 31, 56, 56))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -895,9 +1202,9 @@ class Ui_MainWindow(object):
         self.pushButton_P3_changePageA.setEnabled(True)
         self.pushButton_P3_changePageA.setGeometry(QtCore.QRect(2, 3, 25, 25))
         self.pushButton_P3_changePageA.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_changePageA.setIcon(icon2)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_changePageA.setIcon(icon4)
         self.pushButton_P3_changePageA.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_P3_changePageA.setCheckable(True)
         self.pushButton_P3_changePageA.setAutoDefault(False)
@@ -908,9 +1215,9 @@ class Ui_MainWindow(object):
         self.pushButton_P3_changePageB.setEnabled(True)
         self.pushButton_P3_changePageB.setGeometry(QtCore.QRect(27, 3, 25, 25))
         self.pushButton_P3_changePageB.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_changePageB.setIcon(icon3)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_changePageB.setIcon(icon5)
         self.pushButton_P3_changePageB.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_P3_changePageB.setCheckable(True)
         self.pushButton_P3_changePageB.setAutoDefault(False)
@@ -921,9 +1228,9 @@ class Ui_MainWindow(object):
         self.pushButton_P3_changePageC.setEnabled(True)
         self.pushButton_P3_changePageC.setGeometry(QtCore.QRect(2, 28, 25, 25))
         self.pushButton_P3_changePageC.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_changePageC.setIcon(icon4)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_changePageC.setIcon(icon6)
         self.pushButton_P3_changePageC.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_P3_changePageC.setCheckable(True)
         self.pushButton_P3_changePageC.setAutoDefault(False)
@@ -934,9 +1241,9 @@ class Ui_MainWindow(object):
         self.pushButton_P3_changePageD.setEnabled(True)
         self.pushButton_P3_changePageD.setGeometry(QtCore.QRect(27, 28, 25, 25))
         self.pushButton_P3_changePageD.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerD.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_changePageD.setIcon(icon5)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerD.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_changePageD.setIcon(icon7)
         self.pushButton_P3_changePageD.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_P3_changePageD.setCheckable(True)
         self.pushButton_P3_changePageD.setAutoDefault(False)
@@ -1088,7 +1395,7 @@ class Ui_MainWindow(object):
         self.frame.setMidLineWidth(0)
         self.frame.setObjectName("frame")
         self.frame_5 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_5.setGeometry(QtCore.QRect(420, 85, 166, 56))
+        self.frame_5.setGeometry(QtCore.QRect(420, 32, 166, 56))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1297,12 +1604,12 @@ class Ui_MainWindow(object):
         self.pushButton_P3_largeIcon.setPalette(palette)
         self.pushButton_P3_largeIcon.setAutoFillBackground(False)
         self.pushButton_P3_largeIcon.setText("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Large_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        self.pushButton_P3_largeIcon.setIcon(icon6)
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Large_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseLarge.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        self.pushButton_P3_largeIcon.setIcon(icon8)
         self.pushButton_P3_largeIcon.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_largeIcon.setCheckable(True)
         self.pushButton_P3_largeIcon.setChecked(False)
@@ -1346,13 +1653,13 @@ class Ui_MainWindow(object):
         self.pushButton_P3_MidIcon.setPalette(palette)
         self.pushButton_P3_MidIcon.setAutoFillBackground(False)
         self.pushButton_P3_MidIcon.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Mid_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        self.pushButton_P3_MidIcon.setIcon(icon7)
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Mid_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseMid.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        self.pushButton_P3_MidIcon.setIcon(icon9)
         self.pushButton_P3_MidIcon.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_MidIcon.setCheckable(True)
         self.pushButton_P3_MidIcon.setChecked(False)
@@ -1396,13 +1703,13 @@ class Ui_MainWindow(object):
         self.pushButton_P3_smallIcon.setPalette(palette)
         self.pushButton_P3_smallIcon.setAutoFillBackground(False)
         self.pushButton_P3_smallIcon.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Small_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        self.pushButton_P3_smallIcon.setIcon(icon8)
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Small_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseSmall.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        self.pushButton_P3_smallIcon.setIcon(icon10)
         self.pushButton_P3_smallIcon.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_smallIcon.setCheckable(True)
         self.pushButton_P3_smallIcon.setChecked(False)
@@ -1446,12 +1753,12 @@ class Ui_MainWindow(object):
         self.pushButton_P3_text.setPalette(palette)
         self.pushButton_P3_text.setAutoFillBackground(False)
         self.pushButton_P3_text.setText("")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Text_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        self.pushButton_P3_text.setIcon(icon9)
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChoose_Text_Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/sizeChooseText.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        self.pushButton_P3_text.setIcon(icon11)
         self.pushButton_P3_text.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_text.setCheckable(True)
         self.pushButton_P3_text.setChecked(False)
@@ -1462,7 +1769,7 @@ class Ui_MainWindow(object):
         self.pushButton_P3_text.setFlat(True)
         self.pushButton_P3_text.setObjectName("pushButton_P3_text")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(200, 85, 46, 56))
+        self.frame_3.setGeometry(QtCore.QRect(202, 32, 46, 56))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1609,10 +1916,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_all.setEnabled(True)
         self.pushButton_page3_all.setGeometry(QtCore.QRect(10, 20, 25, 25))
         self.pushButton_page3_all.setText("")
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_all.setIcon(icon10)
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_all.setIcon(icon12)
         self.pushButton_page3_all.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_page3_all.setCheckable(True)
         self.pushButton_page3_all.setAutoDefault(False)
@@ -1628,7 +1935,7 @@ class Ui_MainWindow(object):
         self.label_fileData_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_fileData_10.setObjectName("label_fileData_10")
         self.frame_6 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_6.setGeometry(QtCore.QRect(10, 85, 186, 56))
+        self.frame_6.setGeometry(QtCore.QRect(5, 32, 193, 56))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -1774,18 +2081,18 @@ class Ui_MainWindow(object):
         self.pushButton_P3_deletSelectItem = QtWidgets.QPushButton(self.frame_6)
         self.pushButton_P3_deletSelectItem.setGeometry(QtCore.QRect(150, 20, 30, 30))
         self.pushButton_P3_deletSelectItem.setText("")
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/deletePublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_deletSelectItem.setIcon(icon11)
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/deletePublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_deletSelectItem.setIcon(icon13)
         self.pushButton_P3_deletSelectItem.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_deletSelectItem.setFlat(True)
         self.pushButton_P3_deletSelectItem.setObjectName("pushButton_P3_deletSelectItem")
         self.pushButton_P3_selectItem = QtWidgets.QPushButton(self.frame_6)
         self.pushButton_P3_selectItem.setGeometry(QtCore.QRect(50, 15, 35, 35))
         self.pushButton_P3_selectItem.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/getSelectItemPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_selectItem.setIcon(icon12)
+        icon14 = QtGui.QIcon()
+        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/getSelectItemPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_selectItem.setIcon(icon14)
         self.pushButton_P3_selectItem.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_P3_selectItem.setFlat(True)
         self.pushButton_P3_selectItem.setObjectName("pushButton_P3_selectItem")
@@ -1830,9 +2137,9 @@ class Ui_MainWindow(object):
         self.pushButton_P3_refreshInputItem = QtWidgets.QPushButton(self.frame_6)
         self.pushButton_P3_refreshInputItem.setGeometry(QtCore.QRect(5, 15, 35, 35))
         self.pushButton_P3_refreshInputItem.setText("")
-        icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/refreshPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_refreshInputItem.setIcon(icon13)
+        icon15 = QtGui.QIcon()
+        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/refreshPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_refreshInputItem.setIcon(icon15)
         self.pushButton_P3_refreshInputItem.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_P3_refreshInputItem.setFlat(True)
         self.pushButton_P3_refreshInputItem.setObjectName("pushButton_P3_refreshInputItem")
@@ -1856,7 +2163,7 @@ class Ui_MainWindow(object):
         self.label_fileData_39.setAlignment(QtCore.Qt.AlignCenter)
         self.label_fileData_39.setObjectName("label_fileData_39")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_2.setGeometry(QtCore.QRect(250, 85, 161, 56))
+        self.frame_2.setGeometry(QtCore.QRect(250, 32, 161, 56))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -2003,10 +2310,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_other.setEnabled(True)
         self.pushButton_page3_other.setGeometry(QtCore.QRect(130, 20, 21, 30))
         self.pushButton_page3_other.setText("")
-        icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_other.setIcon(icon14)
+        icon16 = QtGui.QIcon()
+        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_other.setIcon(icon16)
         self.pushButton_page3_other.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_page3_other.setCheckable(True)
         self.pushButton_page3_other.setAutoDefault(False)
@@ -2017,10 +2324,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_vehicle.setEnabled(True)
         self.pushButton_page3_vehicle.setGeometry(QtCore.QRect(40, 20, 30, 30))
         self.pushButton_page3_vehicle.setText("")
-        icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_vehicle.setIcon(icon15)
+        icon17 = QtGui.QIcon()
+        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_vehicle.setIcon(icon17)
         self.pushButton_page3_vehicle.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_page3_vehicle.setCheckable(True)
         self.pushButton_page3_vehicle.setAutoDefault(False)
@@ -2061,10 +2368,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_character.setPalette(palette)
         self.pushButton_page3_character.setAutoFillBackground(False)
         self.pushButton_page3_character.setText("")
-        icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_character.setIcon(icon16)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_character.setIcon(icon18)
         self.pushButton_page3_character.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_page3_character.setCheckable(True)
         self.pushButton_page3_character.setChecked(False)
@@ -2078,10 +2385,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_set.setEnabled(True)
         self.pushButton_page3_set.setGeometry(QtCore.QRect(70, 16, 30, 30))
         self.pushButton_page3_set.setText("")
-        icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_set.setIcon(icon17)
+        icon19 = QtGui.QIcon()
+        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_set.setIcon(icon19)
         self.pushButton_page3_set.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_page3_set.setCheckable(True)
         self.pushButton_page3_set.setAutoDefault(False)
@@ -2092,10 +2399,10 @@ class Ui_MainWindow(object):
         self.pushButton_page3_props.setEnabled(True)
         self.pushButton_page3_props.setGeometry(QtCore.QRect(100, 18, 30, 30))
         self.pushButton_page3_props.setText("")
-        icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_page3_props.setIcon(icon18)
+        icon20 = QtGui.QIcon()
+        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_page3_props.setIcon(icon20)
         self.pushButton_page3_props.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_page3_props.setCheckable(True)
         self.pushButton_page3_props.setAutoDefault(False)
@@ -2143,7 +2450,7 @@ class Ui_MainWindow(object):
         self.label_fileData_14.setAlignment(QtCore.Qt.AlignCenter)
         self.label_fileData_14.setObjectName("label_fileData_14")
         self.frame_8 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_8.setGeometry(QtCore.QRect(590, 85, 56, 591))
+        self.frame_8.setGeometry(QtCore.QRect(590, 90, 56, 536))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(185, 198, 185))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -2288,11 +2595,11 @@ class Ui_MainWindow(object):
         self.frame_8.setObjectName("frame_8")
         self.pushButton_P3_openBranchJson = QtWidgets.QPushButton(self.frame_8)
         self.pushButton_P3_openBranchJson.setEnabled(True)
-        self.pushButton_P3_openBranchJson.setGeometry(QtCore.QRect(7, 540, 40, 40))
+        self.pushButton_P3_openBranchJson.setGeometry(QtCore.QRect(5, 490, 40, 40))
         self.pushButton_P3_openBranchJson.setText("")
-        icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_openBranchJson.setIcon(icon19)
+        icon21 = QtGui.QIcon()
+        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_openBranchJson.setIcon(icon21)
         self.pushButton_P3_openBranchJson.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_P3_openBranchJson.setCheckable(True)
         self.pushButton_P3_openBranchJson.setAutoDefault(False)
@@ -2301,11 +2608,11 @@ class Ui_MainWindow(object):
         self.pushButton_P3_openBranchJson.setObjectName("pushButton_P3_openBranchJson")
         self.pushButton_P3_loadFile = QtWidgets.QPushButton(self.frame_8)
         self.pushButton_P3_loadFile.setEnabled(True)
-        self.pushButton_P3_loadFile.setGeometry(QtCore.QRect(7, 490, 40, 40))
+        self.pushButton_P3_loadFile.setGeometry(QtCore.QRect(5, 440, 40, 40))
         self.pushButton_P3_loadFile.setText("")
-        icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/load60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_loadFile.setIcon(icon20)
+        icon22 = QtGui.QIcon()
+        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/load60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_loadFile.setIcon(icon22)
         self.pushButton_P3_loadFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_P3_loadFile.setCheckable(True)
         self.pushButton_P3_loadFile.setAutoDefault(False)
@@ -2316,10 +2623,10 @@ class Ui_MainWindow(object):
         self.pushButton_P3_processModeling.setEnabled(True)
         self.pushButton_P3_processModeling.setGeometry(QtCore.QRect(10, 30, 30, 30))
         self.pushButton_P3_processModeling.setText("")
-        icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_P3_processModeling.setIcon(icon21)
+        icon23 = QtGui.QIcon()
+        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_P3_processModeling.setIcon(icon23)
         self.pushButton_P3_processModeling.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_processModeling.setCheckable(True)
         self.pushButton_P3_processModeling.setAutoDefault(False)
@@ -2338,10 +2645,10 @@ class Ui_MainWindow(object):
         self.pushButton_P3_processTexture.setEnabled(True)
         self.pushButton_P3_processTexture.setGeometry(QtCore.QRect(10, 90, 30, 30))
         self.pushButton_P3_processTexture.setText("")
-        icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_P3_processTexture.setIcon(icon22)
+        icon24 = QtGui.QIcon()
+        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_P3_processTexture.setIcon(icon24)
         self.pushButton_P3_processTexture.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_processTexture.setCheckable(True)
         self.pushButton_P3_processTexture.setAutoDefault(False)
@@ -2360,10 +2667,10 @@ class Ui_MainWindow(object):
         self.pushButton_P3_processRigging.setEnabled(True)
         self.pushButton_P3_processRigging.setGeometry(QtCore.QRect(10, 150, 30, 30))
         self.pushButton_P3_processRigging.setText("")
-        icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_P3_processRigging.setIcon(icon23)
+        icon25 = QtGui.QIcon()
+        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_P3_processRigging.setIcon(icon25)
         self.pushButton_P3_processRigging.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_processRigging.setCheckable(True)
         self.pushButton_P3_processRigging.setAutoDefault(False)
@@ -2380,7 +2687,7 @@ class Ui_MainWindow(object):
         self.label_fileData_4.setObjectName("label_fileData_4")
         self.pushButton_P3_inputMayaOn = QtWidgets.QPushButton(self.frame_8)
         self.pushButton_P3_inputMayaOn.setEnabled(True)
-        self.pushButton_P3_inputMayaOn.setGeometry(QtCore.QRect(5, 300, 40, 40))
+        self.pushButton_P3_inputMayaOn.setGeometry(QtCore.QRect(5, 255, 40, 40))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -2412,16 +2719,16 @@ class Ui_MainWindow(object):
         self.pushButton_P3_inputMayaOn.setPalette(palette)
         self.pushButton_P3_inputMayaOn.setAutoFillBackground(False)
         self.pushButton_P3_inputMayaOn.setText("")
-        icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_P3_inputMayaOn.setIcon(icon24)
+        icon26 = QtGui.QIcon()
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_maya_Off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Maya_ON.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_P3_inputMayaOn.setIcon(icon26)
         self.pushButton_P3_inputMayaOn.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_P3_inputMayaOn.setCheckable(True)
         self.pushButton_P3_inputMayaOn.setChecked(False)
@@ -2433,7 +2740,7 @@ class Ui_MainWindow(object):
         self.pushButton_P3_inputMayaOn.setObjectName("pushButton_P3_inputMayaOn")
         self.pushButton_P3_inputRibOn = QtWidgets.QPushButton(self.frame_8)
         self.pushButton_P3_inputRibOn.setEnabled(True)
-        self.pushButton_P3_inputRibOn.setGeometry(QtCore.QRect(5, 355, 40, 40))
+        self.pushButton_P3_inputRibOn.setGeometry(QtCore.QRect(5, 310, 40, 40))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -2465,16 +2772,16 @@ class Ui_MainWindow(object):
         self.pushButton_P3_inputRibOn.setPalette(palette)
         self.pushButton_P3_inputRibOn.setAutoFillBackground(False)
         self.pushButton_P3_inputRibOn.setText("")
-        icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        self.pushButton_P3_inputRibOn.setIcon(icon25)
+        icon27 = QtGui.QIcon()
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOption_Rib_Off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/InputOptionRIB_On.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        self.pushButton_P3_inputRibOn.setIcon(icon27)
         self.pushButton_P3_inputRibOn.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_P3_inputRibOn.setCheckable(True)
         self.pushButton_P3_inputRibOn.setChecked(False)
@@ -2488,12 +2795,12 @@ class Ui_MainWindow(object):
         self.pushButton_P3_NA.setEnabled(True)
         self.pushButton_P3_NA.setGeometry(QtCore.QRect(10, 215, 30, 30))
         self.pushButton_P3_NA.setText("")
-        icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckOff.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        self.pushButton_P3_NA.setIcon(icon26)
+        icon28 = QtGui.QIcon()
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckOff.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NACheckON.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        self.pushButton_P3_NA.setIcon(icon28)
         self.pushButton_P3_NA.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_P3_NA.setCheckable(True)
         self.pushButton_P3_NA.setAutoDefault(False)
@@ -2509,7 +2816,7 @@ class Ui_MainWindow(object):
         self.label_fileData_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_fileData_5.setObjectName("label_fileData_5")
         self.label_fileData_16 = QtWidgets.QLabel(self.centralwidget)
-        self.label_fileData_16.setGeometry(QtCore.QRect(10, 30, 76, 20))
+        self.label_fileData_16.setGeometry(QtCore.QRect(680, 895, 76, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(8)
@@ -2517,7 +2824,7 @@ class Ui_MainWindow(object):
         self.label_fileData_16.setAlignment(QtCore.Qt.AlignCenter)
         self.label_fileData_16.setObjectName("label_fileData_16")
         self.label_projInfo = QtWidgets.QLabel(self.centralwidget)
-        self.label_projInfo.setGeometry(QtCore.QRect(85, 30, 251, 20))
+        self.label_projInfo.setGeometry(QtCore.QRect(755, 895, 251, 20))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(8)
@@ -2525,14 +2832,18 @@ class Ui_MainWindow(object):
         self.label_projInfo.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_projInfo.setObjectName("label_projInfo")
         self.pushButton_P3_packageAll = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_P3_packageAll.setGeometry(QtCore.QRect(600, 830, 40, 40))
+        self.pushButton_P3_packageAll.setGeometry(QtCore.QRect(595, 795, 40, 40))
         self.pushButton_P3_packageAll.setText("")
-        icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/package.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3_packageAll.setIcon(icon27)
+        icon29 = QtGui.QIcon()
+        icon29.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/package.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_P3_packageAll.setIcon(icon29)
         self.pushButton_P3_packageAll.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_P3_packageAll.setFlat(True)
         self.pushButton_P3_packageAll.setObjectName("pushButton_P3_packageAll")
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(360, 5, 286, 22))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -2588,6 +2899,9 @@ class Ui_MainWindow(object):
         self.label_fileData_5.setText(QtWidgets.QApplication.translate("MainWindow", "N/A", None, -1))
         self.label_fileData_16.setText(QtWidgets.QApplication.translate("MainWindow", "Current Proj.", None, -1))
         self.label_projInfo.setText(QtWidgets.QApplication.translate("MainWindow", "abcd", None, -1))
+        self.comboBox.setItemText(0, QtWidgets.QApplication.translate("MainWindow", "Select Asset Pref Table", None, -1))
+
+
 
 
 
@@ -2605,14 +2919,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_P3_text.clicked.connect(self.setTextAssetMain)
         self.tableWidget_AssetItemList.itemClicked.connect(self.showAssetMetaDataFromSelect)
         self.itemDict ={}
-        self.iconFile = QtGui.QIcon("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA180.png")
+        self.iconFile = QtGui.QIcon("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120ENPTY.png")
         self.currentIconSize = 'large' #default set to large size icon
         #self.loadPublishedData()#('character','texture')
        # self.itemDict = {'item01':'a1','item02':'b1','item03':'c1','item04':'D1','item05':'E1','item06':'f1','item07':'g1','item08':'h1','item09':'i9'}
         
-       
+        
         #self.tableWidget_AssetItemList.setSortingEnabled(True)
-
+        self.tableWidget_AssetItemList.pressed.connect(self.dragTest)
+      #  drag = QtGui.QDrag(self)
+       # print 'dragTest',drag.mimeData()
+        
+        #print drag,type(drag)
         
         
         # initial button checked
@@ -2638,8 +2956,57 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_P3_processTexture.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processRigging.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_NA.clicked.connect(self.clickProcessFilletChange)
-        
-        
+            
+        ##test single 
+  
+       # QtWidgets.QPushButton
+       # QtGui.QPushButton.mousePressEvent(self, e)
+        ## self.treeWidget_sceneAssembleTree change
+  
+        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.dropTest)
+        self.treeWidget_sceneAssembleTree.clicked.connect(self.ttt)
+  
+  
+    def mousePressEvent(self, e):
+
+        QtGui.QPushButton.mousePressEvent(self, e)
+        if e.button() == QtCore.Qt.LeftButton:
+            print 'press'
+
+    def ttt(self):
+        print self.treeWidget_sceneAssembleTree.currentItem().text(1)
+        print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+        print self.treeWidget_sceneAssembleTree.currentItem().text(2)
+        print self.treeWidget_sceneAssembleTree.currentItem().icon(0).name()
+       
+
+            #    iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
+      # self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+    def dropTest(self):
+        print 'drop drop dopr'
+        #self.treeWidget_sceneAssembleTree.itemActivated()
+
+                    
+    def dragTest(self):
+        #print self.treeWidget_sceneAssembleTree.currentItem
+        #searchKey = self.tableWidget_AssetItemList.currentItem().text()
+        selectedAssetItemColumn = self.tableWidget_AssetItemList.currentColumn()
+        selectedAssetItemRow = self.tableWidget_AssetItemList.currentRow()
+        searchKey = str(selectedAssetItemColumn)+'_._'+str(selectedAssetItemRow)
+        print searchKey
+
+        data = self.tableItemListInfoDict[searchKey]
+        print data.keys()[0]
+    
+        mimeData = QtCore.QMimeData()
+       #     print mimeData.
+        drag = QtGui.QDrag(self)
+        #print drag.
+        #print drag,type(drag)
+       # drag.setMimeData(mimeData)
+       # drag.setHotSpot(e.pos() - self.rect().topLeft())
+
+       # dropAction = drag.start(QtCore.Qt.MoveAction)    
         
         
         
@@ -2737,23 +3104,53 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         selectedAssetItemRow = self.tableWidget_AssetItemList.currentRow()
         searchKey = str(selectedAssetItemColumn)+'_._'+str(selectedAssetItemRow)
         print searchKey
-        #print selectedAssetItemColumn,selectedAssetItemRow
-        data = self.tableItemListInfoDict[searchKey]
-        #data = self.itemDict[searchKey]
-        #self.plainTextEdit_assetMetaData.clear()
-        allDataShowed= ['asset name :',str(data.keys()[0])]
-       # for i in allDataShowed:
-        #    self.plainTextEdit_assetMetaData.setPlainText(i+'\n')
-        #self.plainTextEdit_assetMetaData.setPlainText('asset name :'+'\n')
-        #self.plainTextEdit_assetMetaData.setPlainText(str(data.keys()[0])+'\n')
-        #data[data.keys()[0]]['fileName']
-       # data[data.keys()[0]]['ribArchive']
-       # data[data.keys()[0]]['user']
-       # data[data.keys()[0]]['gpuCache']
-      #  data[data.keys()[0]]['publishTime']
-            #self.plainTextEdit_assetMetaData.setPlainText(i+'\n')
-        
 
+        data = self.tableItemListInfoDict[searchKey]
+        print data
+       # for i in data
+        showItemName = 'asset Name :  %s'%data.keys()[0].split('.')[0] +'\n'
+        showItemAssetType = 'asset Type : %s'%data.keys()[0].split('.')[1] +'\n'
+        showItemAssetProcessNow = 'asset Progress Now : %s'%data.keys()[0].split('.')[2] +'\n'+'\n'
+        showFileName = 'asset File Name : %s'%data[data.keys()[0]]['fileName'] +'\n'+'\n'
+        showAssetCreator = 'asset Creator :%s'%data[data.keys()[0]]['user'] +'\n'
+        filePublishTime = 'asset Publish Time :%s'%datetime.datetime.fromtimestamp(os.path.getmtime(data[data.keys()[0]]['fileName']))+'\n'
+
+        showRibArchive = 'asset RibArchive :%s'%data[data.keys()[0]]['ribArchive']['ribArchivePath'] +'\n'
+        showRibArchive = 'asset RibArchive :%s'%data[data.keys()[0]]['ribArchive']['ribArchivePath'] +'\n'
+        publishTimeFromFile = str(datetime.datetime.fromtimestamp(os.path.getmtime(data[data.keys()[0]]['fileName'])))
+        filePublishTime = 'asset Publish Time :%s'%publishTimeFromFile.split('.')[0]+'\n'
+        iconFileName = data[data.keys()[0]]['fileIcon']
+        #print filePublishTime,type(filePublishTime)
+        self.checkFileSize(data[data.keys()[0]]['fileName'])
+        print self.fileSize
+        showAssetMayaFileSize = 'asset mayaFileSize :%s'%self.fileSize +'\n'
+        
+       # self.checkFileSize(data[data.keys()[0]]['fileName'])        
+        showList = [showItemName,showItemAssetType,showItemAssetProcessNow,showFileName,showAssetCreator,filePublishTime,showAssetMayaFileSize,showRibArchive]
+        showInPlainText = ''
+        for i in showList:
+            showInPlainText = showInPlainText +i
+        print showInPlainText
+        
+        self.plainTextEdit_assetMetaData.setPlainText(showInPlainText)
+
+        self.label_showImage_2.setGeometry(QtCore.QRect(5, 5, 200, 200))
+        self.label_showImage_2.setPixmap(QtGui.QPixmap(iconFileName))
+
+
+
+    def checkFileSize(self,fileName):
+        
+        fileSizeBt = os.stat(fileName).st_size /1024
+        if fileSizeBt < 1024:
+            fileSize = str(fileSizeBt) +'KB'
+        elif fileSizeBt <1024*1024:
+            fileSize = '%.3f'%(fileSizeBt/1024.0) +'MB'
+            
+        else:
+            
+            fileSize='%.3f'%(fileSizeBt/1024.0/1024.0) +'GB'
+        self.fileSize = fileSize
                 
     def loadPublishedData(self):
         
@@ -2843,8 +3240,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.itemDict = newItemDict
         self.totalItemCount = len(self.itemDict)
-        print 'self.itemDict',self.itemDict
-        print 'newItemDict',newItemDict
+       # print 'self.itemDict',self.itemDict
+       # print 'newItemDict',newItemDict
         #print sorted(newItemDict)
 
     def storeItemDateInDict(self,cloumnCount):
@@ -2855,7 +3252,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         tempItemInDictList = []
         notAvailableItem = []
-        print 'self.itemDict.keys()',self.itemDict.keys()
+     #   print 'self.itemDict.keys()',self.itemDict.keys()
         for i in self.itemDict.keys():
             if i.split('.')[2] == 'not available':
                 notAvailableItem.append(i)
@@ -2863,7 +3260,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 tempItemInDictList.append(i)
         sortedTempItemList = sorted(tempItemInDictList) + notAvailableItem
 
-        print 'sortedTempItemList',sortedTempItemList
+       # print 'sortedTempItemList',sortedTempItemList
 
         for i in range(0,self.totalItemCount ):
             self.tempInfoDictPreItem = {}
@@ -2878,13 +3275,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 row = i/cloumnCount *2
             
             tempKey = str(column) +'_._'+ str(row)
-            print 'tempKey',tempKey
+           # print 'tempKey',tempKey
             item = sortedTempItemList[i]
-            print 'item',item
+           # print 'item',item
             tempItemList = {}
             for j in infoSearchList:
                 try:
-                    secondItem = self.itemDict[self.itemDict.keys()[i]][j]
+                    secondItem = self.itemDict[sortedTempItemList[i]][j]
                 except:
                     secondItem = {}
                 tempItemList.update({j:secondItem})
@@ -2893,7 +3290,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
 
-        print 'self.tableItemListInfoDict',self.tableItemListInfoDict
+       # print 'self.tableItemListInfoDict',self.tableItemListInfoDict
         if cloumnCount == 1:
             rowSize = 30
             columnSize =400
@@ -2923,33 +3320,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def setItemIcon(self,columnSize,rowSize):
         print 'setItemIcon start'
+        #print 'self.tableItemListInfoDict',self.tableItemListInfoDict
+        tempIconFileDict={}
         for i in self.tableItemListInfoDict.keys():
             row = int(i.split('_._')[1])
             column = int(i.split('_._')[0])
-            print i, self.tableItemListInfoDict[i].keys()[0].split('.')[2]
-            
-            if self.tableItemListInfoDict[i].keys()[0].split('.')[2] == 'not available':
-                iconFile =self.iconFile
-                pass
-            else:# len(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']) >0:
-                iconFile = self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']
-                #iconFile = QtGui.QIcon(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])#.keys()
-               # print i , self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']
-                #pass
-           # else:
-              #  iconFile =self.iconFile
-                #iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
-          # print i ,iconFile
-        
+
+            if len(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']) == 0:
+                iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
+            else:
+
+
+                iconFile = QtGui.QIcon(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])#.keys()
+
             item = QtWidgets.QTableWidgetItem()
             self.tableWidget_AssetItemList.setItem(row, column, item)
             self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(columnSize)
             self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(rowSize)
-            #self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow", "ItemIcon", None,-1))
             self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
-       # self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(60,60))
 
-        
  
     def setItemText(self,cloumnCount,columnSize,textRowSize):
         #print self.tableItemListInfoDict.keys()
@@ -2964,6 +3353,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 #print 'row',row
                 column = int(i.split('_._')[0])
             itemName = str(self.tableItemListInfoDict[i].keys()[0]).split('.')[0]
+           # print 'itemText',i,self.tableItemListInfoDict[i]
             #print itemName
             #print row ,column
 
@@ -3111,7 +3501,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         for column in range(0,6): #set icon 
             for row in range(0,setRow,2):
-                print row
                 self.createTableItem(column,row,iconFile,60)
                 
         for column in range(0,6):
@@ -3138,7 +3527,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tableWidget_AssetItemList.setColumnCount(3)
         self.tableWidget_AssetItemList.setRowCount(setRow)  
         self.storeItemDateInDict(1)
-        print 'self.tableItemListInfoDict',self.tableItemListInfoDict.keys()
+      #  print 'self.tableItemListInfoDict',self.tableItemListInfoDict.keys()
         iconFile =self.iconFile
         for row in range(0, setRow):
             item = QtWidgets.QTableWidgetItem()
@@ -3181,10 +3570,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
      
             itemIconFile = str(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])
-
+          #  itemIconFile='//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png'
             if len(itemIconFile) == 2:
                # print 'itemIconFile','not available'
-                iconFile = 'not available'
+                itemIconFile = '//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png'
+                self.tableWidget_AssetItemList.item(row, 1).setIcon(QtGui.QIcon(itemIconFile))
+                self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(size,size))
+
                 pass
             else:
                # print 'itemIconFile'itemIconFile
