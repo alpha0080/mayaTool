@@ -1,16 +1,24 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/assembleTest_B01_UI.ui'
+# Form implementation generated from reading ui file 'C:/Users/alpha.DESKTOP-1S1STEK/Documents/GitHub/mayaTool/publishTool/assembleTest_B01.ui'
 #
-# Created: Thu Jul 20 12:13:25 2017
+# Created: Thu Jul 06 16:28:26 2017
 #      by: pyside2-uic  running on PySide2 2.0.0~alpha0
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
+import maya.cmds as cmds
+
+import json
+import os
+from pprint import pprint
+import datetime
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(650, 860)
         MainWindow.setMinimumSize(QtCore.QSize(650, 860))
@@ -2752,14 +2760,978 @@ class Ui_MainWindow(object):
 
 
 
+
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
    
     def __init__(self, parent= QtWidgets.QApplication.activeWindow()):
         super(mod_MainWindow, self).__init__(parent)
-        #self.QTITEM.ACTION.connect(self.MODDEF)
-        self.setupUi(self)
-    #def self.MODDEF(self):
 
+        self.setupUi(self)
+
+        self.pushButton_P3_largeIcon.clicked.connect(self.setLargeAssetIcon)
+        self.pushButton_P3_MidIcon.clicked.connect(self.setMidAssetIcon)
+        self.pushButton_P3_smallIcon.clicked.connect(self.setSmallAssetIcon)
+        self.pushButton_P3_text.clicked.connect(self.setTextAssetMain)
+        self.tableWidget_AssetItemList.itemClicked.connect(self.showAssetMetaDataFromSelect)
+        self.itemDict ={}
+        self.iconFile = QtGui.QIcon("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120ENPTY.png")
+        self.currentIconSize = 'large' #default set to large size icon
+        #self.loadPublishedData()#('character','texture')
+       # self.itemDict = {'item01':'a1','item02':'b1','item03':'c1','item04':'D1','item05':'E1','item06':'f1','item07':'g1','item08':'h1','item09':'i9'}
+        
+        
+        #self.tableWidget_AssetItemList.setSortingEnabled(True)
+        self.tableWidget_AssetItemList.pressed.connect(self.dragTest)
+      #  drag = QtGui.QDrag(self)
+       # print 'dragTest',drag.mimeData()
+        
+        #print drag,type(drag)
+        
+        
+        # initial button checked
+        self.pushButton_page3_all.setChecked(True)
+        self.pushButton_P3_processModeling.setChecked(True)
+        self.pushButton_P3_processTexture.setChecked(True)
+        self.pushButton_P3_processRigging.setChecked(True)
+        self.pushButton_P3_inputMayaOn.setChecked(True)
+        self.pushButton_P3_NA.setChecked(False)
+        self.clickAssetFilletAll()
+       # self.allAssetClassFillet = ['character','vehicle','set','prop','other']
+        
+        #button click sing
+        self.pushButton_page3_all.clicked.connect(self.clickAssetFilletAll)
+        self.pushButton_page3_character.clicked.connect(self.clickAssetFilletCharacter)
+        self.pushButton_page3_vehicle.clicked.connect(self.clickAssetFilletVehicle)
+        self.pushButton_page3_set.clicked.connect(self.clickAssetFilletSet)
+        self.pushButton_page3_props.clicked.connect(self.clickAssetFilletProps)
+        self.pushButton_page3_other.clicked.connect(self.clickAssetFilletOther)
+        self.pushButton_P3addItem.clicked.connect(self.addOutlineGroup)
+        
+        self.pushButton_P3_processModeling.clicked.connect(self.clickProcessFilletChange)
+        self.pushButton_P3_processTexture.clicked.connect(self.clickProcessFilletChange)
+        self.pushButton_P3_processRigging.clicked.connect(self.clickProcessFilletChange)
+        self.pushButton_P3_NA.clicked.connect(self.clickProcessFilletChange)
+            
+        self.pushButton_P3addItemToLeftA_2.clicked.connect(self.checkAllLevelGroups)
+        ##test single 
+  
+       # QtWidgets.QPushButton
+       # QtGui.QPushButton.mousePressEvent(self, e)
+        ## self.treeWidget_sceneAssembleTree change
+        ##### treeWidget_sceneAssembleTree operate######
+        #self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemDropInAssembleTree)
+       # self.treeWidget_sceneAssembleTree.clicked.connect(self.ttt)
+        self.treeWidget_sceneAssembleTree.doubleClicked.connect(self.editItem)
+       # self.treeWidget_sceneAssembleTree.(self.ttttt)
+        #self.treeWidget_sceneAssembleTree.itemSelectionChanged.connect(self.testB)
+        #page3 initial
+        self.setFontC()
+        self.createAllGroupInAssembleTree()
+        #self.treeWidget_sceneAssembleTree.clear() groupExceptList
+        self.treeWidget_sceneAssembleTree.setColumnCount(1)
+        self.treeWidget_sceneAssembleTree.header().setDefaultSectionSize(350)
+
+        self.treeWidget_sceneAssembleTree.header().setMinimumSectionSize(25)
+        
+    
+    
+    def checkAllLevelGroups(self):
+        groupStructureDict ={}
+        self.createAllItemsInAssembleTree()
+        print self.allTopLayerItemsInOutline
+        for i in self.allTopLayerItemsInOutline:
+            groupStructureDict.update({i:{}})
+            
+        print groupStructureDict
+    
+        
+    def createDefaultItemAndGrop(self):
+        defaultRequestGroupList = ['character','vehicle','set','prop','other','effect']
+        
+        for i in defaultRequestGroupList:
+            if len(cmds.ls(i)) == 1:
+                pass
+                print '%s'%i+' was already exist'
+            else:
+                cmds.createNode('transform', n=i)
+        cmds.nodeType('perspShape')   
+        
+        
+             
+    def createAllItemsInAssembleTree(self):
+        self.treeWidget_sceneAssembleTree.clear()
+        self.treeWidget_sceneAssembleTree.setFont(self.fontC)
+        topLayerGroupList = ['0.global']
+        groupExceptList = []
+        for i in cmds.ls(typ= 'transform'):  # check is not camera
+            if i not in groupExceptList and cmds.listRelatives(i,p=True) == None :
+                print i
+                #for j
+                try: 
+                    for j in cmds.listRelatives(i,c=True):
+                        print cmds.listRelatives(i,c=True)
+               #     print cmds.nodeType(j)
+
+                        if cmds.nodeType(j) == 'camera':
+
+                            groupExceptList.append(i)
+                except:
+                    pass
+        print groupExceptList 
+                        
+        for i in cmds.ls(typ= 'transform'):
+            if i not in groupExceptList and cmds.listRelatives(i,p=True) == None :
+                
+                
+                topLayerGroupList.append(i)
+                
+        for i in range(0,len(topLayerGroupList)):
+            item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree) 
+            itemName =  str(topLayerGroupList[i])
+            self.treeWidget_sceneAssembleTree.topLevelItem(i).setText(0, QtWidgets.QApplication.translate("MainWindow", '%s'%itemName, None, -1))
+        
+        self.allTopLayerItemsInOutline = topLayerGroupList               
+                
+    def createAllGroupInAssembleTree(self):
+        self.createDefaultItemAndGrop()
+        self.createAllItemsInAssembleTree()
+ 
+ 
+ 
+ 
+    def ttttt(self):
+       # print 'bbbbbbbbbb'
+      #  self.treeWidget_sceneAssembleTree.setFlags(self.treeWidget_sceneAssembleTree.flags() | QtCore.Qt.ItemIsNotEditable)
+     #   print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+      #  self.treeWidget_sceneAssembleTree.clearSelection()
+        print 'cc',self.treeWidget_sceneAssembleTree.currentItem().text(0)
+        
+
+
+        #self.treeWidget_sceneAssembleTree.itemSelectionChanged()
+    def setFontC(self):
+        self.fontC = QtGui.QFont()
+        self.fontC.setFamily("Calibri")
+        self.fontC.setPointSize(10) 
+        self.brushC = QtGui.QBrush(QtGui.QColor(255, 0, 0))
+        self.brushC.setStyle(QtCore.Qt.NoBrush)
+        
+        
+  
+    def addOutlineGroup(self):
+        print 'addOutlineGroup'
+        currentSelectItem = self.treeWidget_sceneAssembleTree.currentItem()
+        newItemTheSameNameList = []
+        for i in cmds.ls(typ= 'transform'):
+            #print i[0:7]
+            if i[0:7] == 'newItem':
+                print i
+                newItemTheSameNameList.append(i)
+        print 'newItemTheSameNameList',newItemTheSameNameList
+        newItemTheSameNameCount  = len(newItemTheSameNameList)
+        newItemName = 'newItem'+'%04d'%(newItemTheSameNameCount+1)
+        print 'newItemName  '+ newItemName
+       # print 'newItemTheSameNameCount', newItemTheSameNameCount
+
+         #  cmd     
+        
+        if currentSelectItem.isSelected() == False:
+            print 'create A new Group in TopLayer'
+            allTopLayerCount = int(self.treeWidget_sceneAssembleTree.topLevelItemCount())
+            print allTopLayerCount
+            newItem = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree)
+            newItemInOutLine = self.treeWidget_sceneAssembleTree.topLevelItem(allTopLayerCount).setText(0, QtWidgets.QApplication.translate("MainWindow", newItemName, None, -1))
+            print 'newItemInOutLine', newItemInOutLine
+            #newTopLayerGroupName = self.treeWidget_sceneAssembleTree.topLevelItem(allTopLayerCount).text(0)
+           # print 'newTopLayerGroupName ',newTopLayerGroupName
+            if newItemName not in self.allTopLayerItemsInOutline:
+                cmds.createNode('transform', n=newItemName)
+                self.allTopLayerItemsInOutline.append(newItemName)
+            else:
+                pass
+            #self.allTopLayerItemsInOutline
+        else:
+            print currentSelectItem.text(0)
+            print self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(currentSelectItem)  #get selectItem topLayerIndex
+            if self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(currentSelectItem) == -1:
+                print 'currentSelectItem.parent()',currentSelectItem.parent().text(0)
+            else:
+                pass
+               # print currentSelectItem.parent()#,currentSelectItem.currentItem().parent().indexOfChild(self.treeWidget.currentItem())
+            
+            
+        #QtWidgets.QTreeWidgetItem(self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex))#.setForeground(0,self.brushLevelThree)  #build new item from index
+        
+       # self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+       # self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(0, QtWidgets.QApplication.translate("MainWindow", 'tempName', None, -1))
+       # self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(0,showName)
+       # self.treeWidget_filesList.topLevelItem(checkItemTopLayerIndex).child(index).setText(6,nodeName)
+        
+       # self.createAllItemsInAssembleTree()
+        '''    
+       # print item =currentSelectItem,currentSelectItem.text(0)
+       # item.setFlags(QtCore.Qt.ItemIsSelectable)
+        #if currentSelectItem.currentItem()QtCore.Qt.NoItemFlags
+        #print 'selected item Name' ,currentSelectItem.currentItem().text(0)
+        #print 'selected item index row',currentSelectItem.currentIndex().row()
+       # print 'selected item index column',currentSelectItem.currentIndex().column()
+       # print 'selected item is topLevelItem', currentSelectItem.indexOfTopLevelItem(currentSelectItem.currentItem())
+       # print currentSelectItem.currentItem().parent().text(0)
+       # print currentSelectItem.currentItem().parent().indexOfChild(currentSelectItem.currentItem())
+        
+        self.treeWidget_sceneAssembleTree.setFont(self.fontC)
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree)
+       # item_0.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+        self.treeWidget_sceneAssembleTree.topLevelItem(0).setText(0, QtWidgets.QApplication.translate("MainWindow", "newItem", None, -1))
+        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree)
+       # item_0.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+        self.treeWidget_sceneAssembleTree.topLevelItem(1).setText(0, QtWidgets.QApplication.translate("MainWindow", "newItem", None, -1))
+       # self.treeWidget_sceneAssembleTree.ed
+       '''
+    def changeTreeItemName(self):
+        print 'changeTreeItemName'
+
+
+    def editItem(self):
+
+        
+        
+        item = self.treeWidget_sceneAssembleTree.itemFromIndex(self.treeWidget_sceneAssembleTree.selectedIndexes()[0])  #get select Item Name
+        self.origialGroupName = item.text(0)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsEditable)
+        #newGroupName = self.treeWidget_sceneAssembleTree.currentItem()(0)
+        print self.origialGroupName
+        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
+        #print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+  
+    def itemChangedName(self):
+        print 'chaned item Name'
+        self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+        #print self.newGroupName
+        print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
+        try:
+            cmds.rename(self.origialGroupName,self.newGroupName)
+        except:
+            pass
+            
+
+    def cccc(self):
+        print 'sdfsdsff'
+       # edit.returnPressed.connect(self.changeTreeItemName)
+       # edit.returnPressed.connect(self.changeTreeItemName)
+       # self.treeWidget_sceneAssembleTree.setItemWidget(item,column,edit)
+       ## print self.project.setData(column,edit.text(),item,column,self.treeWidget_sceneAssembleTree.setFont(self.fontC))
+       # self.treeWidget_sceneAssembleTree.closeEditor()
+       # print QtWidgets.QLineEdit.text()
+        #edit.deselect()
+   
+       # self.treeWidget_sceneAssembleTree.setFlags(item.flags() | QtCore.Qt.ItemIsNotEditable)
+        
+
+    '''    
+    def mousePressEvent(self, event):
+        self.clearSelection()
+        QtGui.QTreeView.mousePressEvent(self, event)
+
+    def mousePressEvent(self, e):
+
+        QtGui.QPushButton.mousePressEvent(self, e)
+        if e.button() == QtCore.Qt.LeftButton:
+            print 'press'
+    '''
+    def ttt(self):
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(1)
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(2)
+      #  print self.treeWidget_sceneAssembleTree.currentItem().icon(0).name()
+      #  print self.treeWidget_sceneAssembleTree.currentItem().icon(0)
+        print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+
+       
+
+            #    iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
+      # self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+    def itemDropInAssembleTree(self):
+        #print 'drop drop dopr'
+        print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+        #widget = QtWidgets.QTreeWidget()
+        #slectFlag = self.treeWidget_sceneAssembleTree.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        #self.treeWidget_sceneAssembleTree.setSelection([QtWidgets.QTreeWidgetItem(self.itemDrag)],slectFlag)
+       # self.treeWidget_sceneAssembleTree.addTopLevelItems([QtWidgets.QTreeWidgetItem(self.itemDrag)])
+        #widget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+       # widget.selectAll()
+       # print self.treeWidget_sceneAssembleTree.findItems(self.itemDrag,QtCore.Qt.MatchExactly,column=0)[0]
+
+       # print self.treeWidget_sceneAssembleTree.topLevelItem(0).text(0)
+       # for i in self.treeWidget_sceneAssembleTree.findItems(self.itemDrag,QtCore.Qt.MatchExactly):
+      #   #   print i
+
+        #self.treeWidget_sceneAssembleTree.      
+    def dragTest(self):
+        #print self.treeWidget_sceneAssembleTree.currentItem
+        #searchKey = self.tableWidget_AssetItemList.currentItem().text()
+        selectedAssetItemColumn = self.tableWidget_AssetItemList.currentColumn()
+        selectedAssetItemRow = self.tableWidget_AssetItemList.currentRow()
+        searchKey = str(selectedAssetItemColumn)+'_._'+str(selectedAssetItemRow)
+       # print searchKey
+
+        data = self.tableItemListInfoDict[searchKey]
+       # print data.keys()[0]
+    
+        #mimeData = QtCore.QMimeData()
+       #     print mimeData.
+       # drag = QtGui.QDrag(self)
+        
+        self.itemDrag = self.tableWidget_AssetItemList.currentItem().text()
+        #print self.treeWidget_sceneAssembleTree.findItems(itemDrag)
+       # print itemDrag
+        #self.treeWidget_sceneAssembleTree.indexFromItem(itemDrag,0)
+      #  print self.treeWidget_sceneAssembleTree.findItems(itemDrag,QtCore.Qt.MatchExactly)
+        #self.table.findItems(
+            #self.edit.text(), QtCore.Qt.MatchExactly)
+
+
+        
+    def test(self):
+        print self.pushButton_P3_processModeling.isChecked()
+        print self.pushButton_P3_processTexture.isChecked()
+        print self.pushButton_P3_processRigging.isChecked()
+        print self.pushButton_P3_NA.isChecked()
+        
+    def clickProcessFilletChange(self):
+        self.clickAssetClass(self.assetClassSelectMode)
+        
+        
+    
+    def clickAssetFilletAll(self):
+        self.assetClassSelectMode = 'all'
+        self.clickAssetClass('all')
+        
+    def clickAssetFilletCharacter(self):
+        self.clickAssetClass('character')
+        self.assetClassSelectMode = 'character'
+
+    def clickAssetFilletVehicle(self):
+        self.clickAssetClass('vehicle')
+        self.assetClassSelectMode = 'vehicle'
+
+    def clickAssetFilletSet(self):
+        self.clickAssetClass('set')
+        self.assetClassSelectMode = 'set'
+
+    def clickAssetFilletProps(self):
+        self.clickAssetClass('props')
+        self.assetClassSelectMode = 'props'
+                         
+    def clickAssetFilletOther(self):
+        self.clickAssetClass('other')
+               
+        self.assetClassSelectMode = 'other'
+
+    def clickAssetClass(self,classMode):
+        print classMode
+        self.pushButton_page3_all.setChecked(False)
+        self.pushButton_page3_character.setChecked(False)
+        self.pushButton_page3_vehicle.setChecked(False)
+        self.pushButton_page3_set.setChecked(False)
+        self.pushButton_page3_props.setChecked(False)
+        self.pushButton_page3_other.setChecked(False)
+        
+        if classMode == 'all':
+            self.pushButton_page3_all.setChecked(True)
+            self.allAssetClassFillet = ['character','vehicle','set','prop','other']
+
+            
+        if classMode == 'character':
+            self.pushButton_page3_character.setChecked(True)    
+            self.allAssetClassFillet = ['character']
+
+
+        if classMode == 'vehicle':
+            self.pushButton_page3_vehicle.setChecked(True)
+            self.allAssetClassFillet = ['vehicle']
+
+            
+        if classMode == 'set':
+            self.pushButton_page3_set.setChecked(True)            
+            self.allAssetClassFillet = ['set']
+     
+        if classMode == 'props':
+            self.pushButton_page3_props.setChecked(True)            
+            self.allAssetClassFillet = ['prop']
+           
+        if classMode == 'other':
+            self.pushButton_page3_other.setChecked(True)            
+            self.allAssetClassFillet = ['other']
+        
+        self.loadPublishedData()    
+        
+        if self.currentIconSize == 'large':
+            self.setLargeAssetIcon()
+            
+        if self.currentIconSize == 'mid':
+            self.setMidAssetIcon()
+            
+        if self.currentIconSize == 'small':
+            self.setSmallAssetIcon()
+            
+        if self.currentIconSize == 'text':
+            self.setTextAssetMain()
+            
+    def showAssetMetaDataFromSelect(self):
+        print 'showAssetMetaDataFromSelect start'
+        #searchKey = self.tableWidget_AssetItemList.currentItem().text()
+        selectedAssetItemColumn = self.tableWidget_AssetItemList.currentColumn()
+        selectedAssetItemRow = self.tableWidget_AssetItemList.currentRow()
+        searchKey = str(selectedAssetItemColumn)+'_._'+str(selectedAssetItemRow)
+        print searchKey
+
+        data = self.tableItemListInfoDict[searchKey]
+        print data
+       # for i in data
+        showItemName = 'asset Name :  %s'%data.keys()[0].split('.')[0] +'\n'
+        showItemAssetType = 'asset Type : %s'%data.keys()[0].split('.')[1] +'\n'
+        showItemAssetProcessNow = 'asset Progress Now : %s'%data.keys()[0].split('.')[2] +'\n'+'\n'
+        showFileName = 'asset File Name : %s'%data[data.keys()[0]]['fileName'] +'\n'+'\n'
+        showAssetCreator = 'asset Creator :%s'%data[data.keys()[0]]['user'] +'\n'
+        filePublishTime = 'asset Publish Time :%s'%datetime.datetime.fromtimestamp(os.path.getmtime(data[data.keys()[0]]['fileName']))+'\n'
+
+        showRibArchive = 'asset RibArchive :%s'%data[data.keys()[0]]['ribArchive']['ribArchivePath'] +'\n'
+        showRibArchive = 'asset RibArchive :%s'%data[data.keys()[0]]['ribArchive']['ribArchivePath'] +'\n'
+        publishTimeFromFile = str(datetime.datetime.fromtimestamp(os.path.getmtime(data[data.keys()[0]]['fileName'])))
+        filePublishTime = 'asset Publish Time :%s'%publishTimeFromFile.split('.')[0]+'\n'
+        iconFileName = data[data.keys()[0]]['fileIcon']
+        #print filePublishTime,type(filePublishTime)
+        self.checkFileSize(data[data.keys()[0]]['fileName'])
+        print self.fileSize
+        showAssetMayaFileSize = 'asset mayaFileSize :%s'%self.fileSize +'\n'
+        
+       # self.checkFileSize(data[data.keys()[0]]['fileName'])        
+        showList = [showItemName,showItemAssetType,showItemAssetProcessNow,showFileName,showAssetCreator,filePublishTime,showAssetMayaFileSize,showRibArchive]
+        showInPlainText = ''
+        for i in showList:
+            showInPlainText = showInPlainText +i
+        print showInPlainText
+        
+        self.plainTextEdit_assetMetaData.setPlainText(showInPlainText)
+
+        self.label_showImage_2.setGeometry(QtCore.QRect(5, 5, 200, 200))
+        self.label_showImage_2.setPixmap(QtGui.QPixmap(iconFileName))
+
+
+
+    def checkFileSize(self,fileName):
+        
+        fileSizeBt = os.stat(fileName).st_size /1024
+        if fileSizeBt < 1024:
+            fileSize = str(fileSizeBt) +'KB'
+        elif fileSizeBt <1024*1024:
+            fileSize = '%.3f'%(fileSizeBt/1024.0) +'MB'
+            
+        else:
+            
+            fileSize='%.3f'%(fileSizeBt/1024.0/1024.0) +'GB'
+        self.fileSize = fileSize
+                
+    def loadPublishedData(self):
+        
+        file = '//mcd-server/art_3d_project/ocean_world_2016_cf/publish/global/ocean_world_2016_cf_publishAnnonce.json'
+        with open(file) as data_file:    
+            data = json.load(data_file)
+            
+       # self.allAssetClassFillet = ['character','vehicle','set','prop','other']  #allAssetClass
+       
+        allProcesType = ['layout','animation','lighting','effects','simulation']
+
+
+
+        allItemDict = {}
+        assetTempDict ={}
+        shotTempDict = {}
+
+        for i in self.allAssetClassFillet:
+            for j in data['assets'][i].keys():
+               # print 'jjjjj',j
+                if len(data['assets'][i][j]) == 0:
+                    assetTempDict.update({j+'.'+'not available':{}})
+
+                else:
+                    for k in data['assets'][i][j].keys():
+
+                        
+                        assetTempDict.update({j+'.'+k:data['assets'][i][j][k]['state']})
+
+                
+        for i in data['shot'].keys():  #shotName.shot.processType:{}
+
+            for j in allProcesType:
+                if len(data['shot'][i]) == 0:
+                    itemKey = i +'.shot.not available'
+                    shotTempDict.update({itemKey:{}})
+                else:
+                    itemKey = i + '.shot.'+ j
+
+                    if j in data['shot'][i].keys():
+
+                        shotTempDict.update({itemKey:data['shot'][i][j]['state']})
+                   
+
+        allItemDict.update(assetTempDict)
+       # allItemDict.update(shotTempDict)  #if want to show shot use this line
+        #print 'allItemDict',allItemDict
+       
+        #is 'texture','model','rigging' icon is checked
+        textureTempDict = {}
+        for i in allItemDict.keys():
+            if i.split('.')[2] == 'texture':
+                textureTempDict.update({i:allItemDict[i]})
+            
+        modelTempDict = {}    
+        for i in allItemDict.keys():
+            if i.split('.')[2] == 'model':
+                modelTempDict.update({i:allItemDict[i]})
+                
+        riggingTempDict = {}    
+        for i in allItemDict.keys():
+            if i.split('.')[2] == 'rigging':
+                riggingTempDict.update({i:allItemDict[i]})       
+          
+         
+        NATempDict = {}    
+        for i in allItemDict.keys():
+            if i.split('.')[2] == 'not available':
+                NATempDict.update({i:allItemDict[i]})       
+        #print 'hjghfjg',self.pushButton_P3_processModeling.isChecked()
+        
+       # self.pushButton_P3_processModeling
+        #print 'self.pushButton_P3_NA.isChecked()',self.pushButton_P3_NA.isChecked()
+        #self.test()
+            
+        newItemDict={}
+        if  self.pushButton_P3_processModeling.isChecked() == True:
+            newItemDict.update(modelTempDict)
+        if  self.pushButton_P3_processTexture.isChecked() == True:
+            newItemDict.update(textureTempDict)
+        if  self.pushButton_P3_processRigging.isChecked() == True:            
+            newItemDict.update(riggingTempDict)
+        if  self.pushButton_P3_NA.isChecked() == True:      
+            newItemDict.update(NATempDict)
+
+
+
+        self.itemDict = newItemDict
+        self.totalItemCount = len(self.itemDict)
+       # print 'self.itemDict',self.itemDict
+       # print 'newItemDict',newItemDict
+        #print sorted(newItemDict)
+
+    def storeItemDateInDict(self,cloumnCount):
+        print 'storeItemDateInDict start'
+        infoSearchList = ['fileName','fileIcon','gpuCache','ribArchive','user','publishTime','metaData']
+        rowCount = 0
+        self.tableItemListInfoDict= {}
+        
+        tempItemInDictList = []
+        notAvailableItem = []
+     #   print 'self.itemDict.keys()',self.itemDict.keys()
+        for i in self.itemDict.keys():
+            if i.split('.')[2] == 'not available':
+                notAvailableItem.append(i)
+            else:
+                tempItemInDictList.append(i)
+        sortedTempItemList = sorted(tempItemInDictList) + notAvailableItem
+
+       # print 'sortedTempItemList',sortedTempItemList
+
+        for i in range(0,self.totalItemCount ):
+            self.tempInfoDictPreItem = {}
+
+            if cloumnCount == 1:
+                column = 2
+                row = i
+                
+            else:
+                column = i % cloumnCount
+            
+                row = i/cloumnCount *2
+            
+            tempKey = str(column) +'_._'+ str(row)
+           # print 'tempKey',tempKey
+            item = sortedTempItemList[i]
+           # print 'item',item
+            tempItemList = {}
+            for j in infoSearchList:
+                try:
+                    secondItem = self.itemDict[sortedTempItemList[i]][j]
+                except:
+                    secondItem = {}
+                tempItemList.update({j:secondItem})
+               # print 'secondItem',secondItem
+            self.tableItemListInfoDict.update({tempKey:{item:tempItemList}})
+
+
+
+       # print 'self.tableItemListInfoDict',self.tableItemListInfoDict
+        if cloumnCount == 1:
+            rowSize = 30
+            columnSize =400
+            textRowSize =30
+
+        if cloumnCount == 3:
+            rowSize = 120
+            columnSize =120
+            textRowSize =20
+ 
+        if cloumnCount == 4:
+            rowSize = 80
+            columnSize =80
+            textRowSize =20
+
+            
+        if cloumnCount == 6:
+            rowSize = 60
+            columnSize =60
+            textRowSize =20
+                
+        #setItemText(self,cloumnCount,rowSize,columnSize)
+        self.setItemIcon(columnSize,rowSize)
+
+        self.setItemText(cloumnCount,columnSize,textRowSize)
+
+
+    def setItemIcon(self,columnSize,rowSize):
+        print 'setItemIcon start'
+        #print 'self.tableItemListInfoDict',self.tableItemListInfoDict
+        tempIconFileDict={}
+        for i in self.tableItemListInfoDict.keys():
+            row = int(i.split('_._')[1])
+            column = int(i.split('_._')[0])
+
+            if len(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon']) == 0:
+                iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
+            else:
+
+
+                iconFile = QtGui.QIcon(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])#.keys()
+            item = QtWidgets.QTableWidgetItem()
+            itemName = self.tableItemListInfoDict[i].keys()[0]
+            item.setText(itemName)
+    
+            self.tableWidget_AssetItemList.setItem(row, column, item)
+            self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(columnSize)
+            self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(rowSize)
+            self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+            
+
+
+ 
+    def setItemText(self,cloumnCount,columnSize,textRowSize):
+        #print self.tableItemListInfoDict.keys()
+        #print 'cloumnCount',cloumnCount
+        for i in self.tableItemListInfoDict.keys():
+           # print 'self.tableItemListInfoDict.keys()',self.tableItemListInfoDict.keys()
+            if cloumnCount == 1:
+                row = int(i.split('_._')[1])
+                column = 0
+            else:
+                row = int(i.split('_._')[1])+1
+                #print 'row',row
+                column = int(i.split('_._')[0])
+            itemName = str(self.tableItemListInfoDict[i].keys()[0]).split('.')[0]
+           # print 'itemText',i,self.tableItemListInfoDict[i]
+            #print itemName
+            #print row ,column
+
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_AssetItemList.setItem(row, column, item)
+           # self.tableWidget_AssetItemList.setRowHeight(100,60) #set text row height
+            # self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(40,40))
+            #self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(columnSize)
+            #self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(rowSize)
+            self.tableWidget_AssetItemList.setRowHeight(row,textRowSize) #set text row height
+
+            self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow",'aaa', None,-1))
+            self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow",itemName, None,-1))
+            
+    def setTextMode(self):
+        
+        
+        self.tableWidget_AssetItemList.clear()
+        
+        self.pushButton_P3_largeIcon.setChecked(True) 
+        self.pushButton_P3_MidIcon.setChecked(False) 
+        self.pushButton_P3_smallIcon.setChecked(False) 
+        self.pushButton_P3_text.setChecked(False) 
+        
+        setRow = self.totalItemCount +1
+        self.tableWidget_AssetItemList.setColumnCount(3)
+        self.tableWidget_AssetItemList.setRowCount(setRow)
+        
+        
+        
+     
+    def setLargeAssetIcon(self):
+        self.tableWidget_AssetItemList.clear()
+        
+        self.pushButton_P3_largeIcon.setChecked(True) 
+        self.pushButton_P3_MidIcon.setChecked(False) 
+        self.pushButton_P3_smallIcon.setChecked(False) 
+        self.pushButton_P3_text.setChecked(False) 
+        
+        
+        
+        print 'setLargeAssetIcon'
+        self.tableWidget_AssetItemList.clear()
+        
+        self.pushButton_P3_largeIcon.setChecked(True) 
+        self.pushButton_P3_MidIcon.setChecked(False) 
+        self.pushButton_P3_smallIcon.setChecked(False) 
+        self.pushButton_P3_text.setChecked(False) 
+        
+        if self.totalItemCount%3 == 0:
+            setRow = ((self.totalItemCount / 3) *2) +1
+        else: 
+            setRow = ((self.totalItemCount / 3) *2) +2
+            
+     #   print setRow
+        
+        #setRow = self.totalItemCount / 2 *2 +2
+        
+        
+        self.tableWidget_AssetItemList.setColumnCount(3)
+        self.tableWidget_AssetItemList.setRowCount(setRow)
+              
+        #self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(120)
+        #self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(120)
+        iconFile = self.iconFile
+        tableItemIndex={}
+        
+        for column in range(0,3): #set icon 
+            for row in range(0,setRow,2):
+
+                self.createTableItem(column,row,iconFile,120)
+
+                
+        for column in range(0,3):
+            for row in range(1,setRow,2):
+                self.setTableItemText(column,row)
+      
+        self.storeItemDateInDict (3)  # create Item Dict
+
+        self.currentIconSize = 'large'
+      
+
+    def setMidAssetIcon(self):
+        print 'setMidAssetIcon'
+        self.tableWidget_AssetItemList.clear()
+
+        self.pushButton_P3_largeIcon.setChecked(False) 
+        self.pushButton_P3_MidIcon.setChecked(True) 
+        self.pushButton_P3_smallIcon.setChecked(False) 
+        self.pushButton_P3_text.setChecked(False) 
+        
+        if self.totalItemCount%4 == 0:
+            setRow = ((self.totalItemCount / 4) *2) +1
+        else: 
+            setRow = ((self.totalItemCount / 4) *2) +2
+            
+     #   print setRow
+    #    
+        
+        self.tableWidget_AssetItemList.setColumnCount(4)
+        self.tableWidget_AssetItemList.setRowCount(setRow)
+              
+       # self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(80)
+       # self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(80)
+        iconFile = self.iconFile
+        
+        for column in range(0,4): #set icon setItemText
+            for row in range(0,setRow,2):
+              #  print row
+                self.createTableItem(column,row,iconFile,80)
+                
+        for column in range(0,4):
+            for row in range(1,setRow,2):
+             #   print row
+                self.setTableItemText(column,row)
+                
+        self.storeItemDateInDict (4)
+        
+        self.currentIconSize = 'mid'
+ 
+        
+        
+    def setSmallAssetIcon(self):
+        print 'setSmallAssetIcon'
+        self.tableWidget_AssetItemList.clear()
+
+        self.pushButton_P3_largeIcon.setChecked(False) 
+        self.pushButton_P3_MidIcon.setChecked(False) 
+        self.pushButton_P3_smallIcon.setChecked(True) 
+        self.pushButton_P3_text.setChecked(False)  
+        if self.totalItemCount%6 == 0:
+            setRow = ((self.totalItemCount / 6) *2) +1
+        else: 
+            setRow = ((self.totalItemCount / 6) *2) +2
+            
+      #  print setRow
+        
+        
+        self.tableWidget_AssetItemList.setColumnCount(6)
+        self.tableWidget_AssetItemList.setRowCount(setRow)
+              
+       # self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(60)
+       # self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(60)
+        iconFile = self.iconFile
+        
+        for column in range(0,6): #set icon 
+            for row in range(0,setRow,2):
+                self.createTableItem(column,row,iconFile,60)
+                
+        for column in range(0,6):
+            for row in range(1,setRow,2):
+             #   print row
+                self.setTableItemText(column,row)
+        self.storeItemDateInDict (6)
+        self.currentIconSize = 'small'
+        
+
+    def setTextAssetMain(self):
+        self.setTextAsset(30)
+                
+        
+    def setTextAsset(self,size):
+        print 'setTextAsset~~'
+        self.tableWidget_AssetItemList.clear()
+
+        self.pushButton_P3_largeIcon.setChecked(False) 
+        self.pushButton_P3_MidIcon.setChecked(False) 
+        self.pushButton_P3_smallIcon.setChecked(False) 
+        self.pushButton_P3_text.setChecked(True) 
+        setRow = self.totalItemCount #+ 1
+        self.tableWidget_AssetItemList.setColumnCount(3)
+        self.tableWidget_AssetItemList.setRowCount(setRow)  
+        self.storeItemDateInDict(1)
+      #  print 'self.tableItemListInfoDict',self.tableItemListInfoDict.keys()
+        iconFile =self.iconFile
+        for row in range(0, setRow):
+            item = QtWidgets.QTableWidgetItem()
+
+            self.tableWidget_AssetItemList.setColumnWidth(0,size)     #index ser number
+            self.tableWidget_AssetItemList.setRowHeight(row , size) #set text row height
+            self.tableWidget_AssetItemList.setItem(row, 0, item)
+            self.tableWidget_AssetItemList.item(row, 0).setText(QtWidgets.QApplication.translate("MainWindow", "serNum", None,-1))
+            self.tableWidget_AssetItemList.item(row, 0).setText(QtWidgets.QApplication.translate("MainWindow", str(row), None,-1))
+
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_AssetItemList.setColumnWidth(1,size)     #index ser number
+            
+            self.tableWidget_AssetItemList.setRowHeight(row , size) #set text row height
+            self.tableWidget_AssetItemList.setItem(row, 1, item)
+            self.tableWidget_AssetItemList.item(row, 1).setIcon(iconFile)
+             
+
+            item = QtWidgets.QTableWidgetItem()
+
+
+            self.tableWidget_AssetItemList.setColumnWidth(2,300)     #index ser number
+            
+           # self.tableWidget_AssetItemList.setRowHeight(row , size) #set text row height
+            self.tableWidget_AssetItemList.setItem(row, 2, item)
+            self.tableWidget_AssetItemList.item(row, 2).setText(QtWidgets.QApplication.translate("MainWindow", "icon", None,-1))
+
+
+        for i in self.tableItemListInfoDict.keys()  :
+            row = int(i.split('_._')[1])
+            self.tableWidget_AssetItemList.setRowHeight(row , size) #set text row height
+
+            itemName = str(self.tableItemListInfoDict[i].keys()[0])
+            
+            self.tableWidget_AssetItemList.item(row, 2).setText(QtWidgets.QApplication.translate("MainWindow", itemName, None,-1))
+
+ 
+        for i in self.tableItemListInfoDict.keys()  :
+            row = int(i.split('_._')[1])
+
+     
+            itemIconFile = str(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])
+          #  itemIconFile='//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png'
+            if len(itemIconFile) == 2:
+               # print 'itemIconFile','not available'
+                itemIconFile = '//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png'
+                self.tableWidget_AssetItemList.item(row, 1).setIcon(QtGui.QIcon(itemIconFile))
+                self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(size,size))
+
+                pass
+            else:
+               # print 'itemIconFile'itemIconFile
+               # print 'itemIconFile',itemIconFile
+                self.tableWidget_AssetItemList.item(row, 1).setIcon(QtGui.QIcon(itemIconFile))
+
+                self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(size,size))
+            
+            
+            
+       # for row in range(0, setRow):
+       #     item = QtWidgets.QTableWidgetItem()
+
+       #     self.tableWidget_AssetItemList.setColumnWidth(3,size)     #index ser number
+       #     self.tableWidget_AssetItemList.setRowHeight(row , size)
+            
+            
+        self.currentIconSize = 'text'
+
+        
+        
+        
+                                    
+        
+    def initialTableWidgetAssetList(self):
+        self.tableWidget_AssetItemList.clear()
+        #self.tableWidget_AssetItemList.setRowCount(2)
+        #self.tableWidget_AssetItemList.setColumnCount(2)
+
+        self.tableWidget_AssetItemList.setColumnCount(3)
+        self.tableWidget_AssetItemList.setRowCount(4)
+      
+        self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(60)
+        self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(60)
+
+
+    def createTableItem(self,column,row,iconFile,iconSize):
+
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(row, column, item)
+        self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow", "ItemIconHere", None,-1))
+
+        self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+        self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(iconSize,iconSize))
+
+        
+    def createItemB(self,column,row,iconFile):
+       # icon = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
+        #iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_AssetItemList.setItem(row, column, item)
+        #self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow", "ItemIcon", None,-1))
+        self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+        self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(60,60))
+       # self.tableWidget.item(1, 2).setIconText('aaa')
+       # item.
+
+        # add text Item
+    def setTableItemText(self,column,row):
+        item = QtWidgets.QTableWidgetItem()
+       # textRow = row+1
+        self.tableWidget_AssetItemList.setRowHeight(row , 20) #set text row height
+        self.tableWidget_AssetItemList.setItem(row, column, item)
+       # self.tableWidget_AssetItemList.setIconSize(QtCore.QSize(40,40))
+        self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow", "ItemName", None,-1))
+        #item.setTextAlignment(-20)
+
+      #  self.tableWidget.setRowHeight(1 , 20)  
+      
+      
 
 
 def main():
@@ -2777,4 +3749,5 @@ if __name__ == '__main__':
     main()
 
 
+ 
  

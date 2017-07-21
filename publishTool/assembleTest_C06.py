@@ -2974,10 +2974,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print 'press'
 
     def ttt(self):
-        print self.treeWidget_sceneAssembleTree.currentItem().text(1)
-        print self.treeWidget_sceneAssembleTree.currentItem().text(0)
-        print self.treeWidget_sceneAssembleTree.currentItem().text(2)
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(1)
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(0)
+       # print self.treeWidget_sceneAssembleTree.currentItem().text(2)
         print self.treeWidget_sceneAssembleTree.currentItem().icon(0).name()
+        print self.treeWidget_sceneAssembleTree.currentItem().icon(0)
+
        
 
             #    iconFile =QtGui.QIcon('//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
@@ -3332,12 +3334,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
                 iconFile = QtGui.QIcon(self.tableItemListInfoDict[i][self.tableItemListInfoDict[i].keys()[0]]['fileIcon'])#.keys()
-
             item = QtWidgets.QTableWidgetItem()
+            itemName = self.tableItemListInfoDict[i].keys()[0]
+            item.setText(itemName)
+    
             self.tableWidget_AssetItemList.setItem(row, column, item)
             self.tableWidget_AssetItemList.horizontalHeader().setDefaultSectionSize(columnSize)
             self.tableWidget_AssetItemList.verticalHeader().setDefaultSectionSize(rowSize)
             self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
+            
+
 
  
     def setItemText(self,cloumnCount,columnSize,textRowSize):
