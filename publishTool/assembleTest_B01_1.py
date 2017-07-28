@@ -523,7 +523,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_P3_text.setChecked(False) 
         
         if self.totalItemCount%2 == 0:
-            setRow = ((self.totalItemCount / 2) *2) +1
+            setRow = ((self.totalItemCount / 2) *2) +1ww
         else: 
             setRow = ((self.totalItemCount / 2) *2) +2
             
