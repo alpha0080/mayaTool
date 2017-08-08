@@ -22,8 +22,23 @@ for i in defaultRequestGroupList:
             #print grpLingName.split('|')
             #print grpLingName 
     
-print buildDefaultGrpDict
-print tempBuildDefaultGrpList
+#print buildDefaultGrpDict
+
+for i in tempBuildDefaultGrpList:
+
+    itemName = '' 
+    parCount = len(i.split('|'))
+    print 'parCount',parCount
+    
+    for j in range(0,parCount):
+        itemName = itemName  +'{'+ '}'
+        
+    print itemName
+   # print parCharacter
+   # print parCharacter[1]
+    #itemName = itemName +str(parCharacter[1])
+   # print parCharacter[parCount-1]+':'+'{}'
+    
 
 a= {'character':{'aaa':{'aaasa':{'aaasa3':{}}}}}
 buildDefaultGrpDict.update(a)

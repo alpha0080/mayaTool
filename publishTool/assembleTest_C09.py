@@ -2836,13 +2836,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
     def checkAllLevelGroups(self):
-        groupStructureDict ={}
-        self.createAllItemsInAssembleTree()
-        print self.allTopLayerItemsInOutline
-        for i in self.allTopLayerItemsInOutline:
-            groupStructureDict.update({i:{}})
+        #groupStructureDict ={}
+        #self.createAllItemsInAssembleTree()
+        #print self.allTopLayerItemsInOutline
+        #for i in self.allTopLayerItemsInOutline:
+        #    groupStructureDict.update({i:{}})
             
-        print groupStructureDict
+        print 'self.groupStructureDict',self.groupStructureDict
     
         
     def createDefaultItemAndGrop(self):
@@ -2854,9 +2854,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 print '%s'%i+' was already exist'
             else:
                 cmds.createNode('transform', n=i)
-        cmds.nodeType('perspShape')   
+       # cmds.nodeType('perspShape')   
         
-        
+        self.groupStructureDict ={}
+        for i in defaultRequestGroupList:
+            self.groupStructureDict.update({i:{}})
+            
              
     def createAllItemsInAssembleTree(self):
         self.treeWidget_sceneAssembleTree.clear()
