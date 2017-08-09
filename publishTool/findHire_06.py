@@ -21,7 +21,7 @@ def getAllGrpTransformFromOutliner(topLayerItemInOutlinear):
           #  print grpLingName
             countList.append(len(grpLingName.split('|')))
             
-   # print 'tempBuildDefaultGrpList',tempBuildDefaultGrpList
+    print 'tempBuildDefaultGrpList',tempBuildDefaultGrpList
 #
   #  print sorted(countList)
     maxDepth = sorted(countList)[-1]
@@ -40,16 +40,21 @@ def getAllGrpTransformFromOutliner(topLayerItemInOutlinear):
         #getItemHierarchy(chaList,maxDepth,elementEveryLevelCount)
         getItemHierarchyB(chaList,itemHierarchy)
   #  print 'elementEveryLevelCount',elementEveryLevelCount
-    print 'itemHierarchy',itemHierarchy
+   # print 'itemHierarchy',itemHierarchy
     
 def getItemHierarchyB(chaList,itemHierarchy):
     itemDepth = len(chaList)
+   # print chaList
     for i in range( itemDepth-1,0,-1):
        # print chaList[i]
        # print i
     #print range( itemDepth,0,-1)
-        print chaList[-1]
-    
+        print chaList[i]
+        #itemHierarchy.update({chaList[i]:{}})
+        parentItem = chaList[i-1]
+        print 'parentItem',parentItem
+        #itemHierarchy
+        
 def getItemHierarchy(chaList,maxDepth,elementEveryLevelCount):
     
     #print 'depth',depth
