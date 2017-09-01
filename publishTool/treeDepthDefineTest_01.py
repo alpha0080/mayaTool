@@ -108,7 +108,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 countList.append(len(grpLingName.split('|')))
                         
         maxDepth = sorted(countList)[-1]-1
-        print 'maxDepth',maxDepth
+       # print 'maxDepth',maxDepth
         elementEveryLevelCount = {}
         itemHierarchy = {}
         depthDict = {}
@@ -144,7 +144,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                    # print indexOfItem
                     refChildList.append(indexOfItem)
                     objNodeType = cmds.nodeType(refChild[j])
-                    print objNodeType
+                  #  print objNodeType
                     self.itemLevelDict.update({refChild[j].split('|')[-1]:[str(j),objNodeType]})
                 refChildDict.update({i.split('|')[-1]:refChildList})
             except:
@@ -161,14 +161,36 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             refChildSerNum = []
     
     
-    def getItemStructure(self):
-        print 'getItemStructure start' 
+    def getItemStructure(self,searchAsset):
+       # print 'getItemStructure start' 
+        allItemInTopLayerItem = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True,f=True)
+       # print allItemInTopLayerItem
+        for i in allItemInTopLayerItem:
+        #    print i
+            tempItemLevelList = []
+            for j in i.split('|'):
+                #print j
+                try:
+                   # print j,self.itemLevelDict[j]
+                    getPartDepthLevel = self.itemLevelDict[j][0]  #get index of each depth level
+                   # print j,getPartDepthLevel
+                    tempItemLevelList.append(str(getPartDepthLevel))
+                    #self.allAssetGrpDepthDict.update({j:self.itemLevelDict[j]})
+
+                except:
+                    pass
+                print 'tempItemLevelList',tempItemLevelList
+                
+            self.allAssetGrpDepthDict.update({i:tempItemLevelList})
+        
         
         
 
     def storeOutLineStructure(self):
-        print 'aaaa'
+       # print 'aaaa'
         self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
+        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
+        
         defaultAssetBuildList = ['character','set','prop','vehicle','other','effect']
         for i in defaultAssetBuildList:
             try:
@@ -177,6 +199,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             except:
                 pass
         print 'itemLevelDict',self.itemLevelDict
+        
+        for i in defaultAssetBuildList:
+            try:
+                self.getItemStructure(i)
+            except:
+                pass
+        print 'allAssetGrpDepthDict', self.allAssetGrpDepthDict
+                
+            
         
 def main():
     global ui
