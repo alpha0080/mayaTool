@@ -1,3 +1,4 @@
+import maya.cmds as cmds
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'C:/alphaOnly/github/mayaTool/publishTool/treeTest.ui'
@@ -82,9 +83,101 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
     #def self.MODDEF(self):
+        self.pushButton.clicked.connect(self.storeOutLineStructure)
+
+    def getOutLinerStructure(self,searchAsset):
+
+        #searchAsset = 'character'
+        tempBuildDefaultGrpList = []
+        tempBuildDefaultGrpList.append(searchAsset)
 
 
+        countList= []
+                    
+        allInTransformGrp = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True)
 
+        #print cmds.listRelatives('character|L1_1|L2_1_1|L3_2_1_1', children=True, pa=True,ad=0)
+                    #print allInTransformGrp
+        if allInTransformGrp == None:
+            pass
+        else:
+            for j in allInTransformGrp:
+                grpLingName =  cmds.ls(j,l=True)[0]
+                tempBuildDefaultGrpList.append(grpLingName)
+              #  print grpLingName
+                countList.append(len(grpLingName.split('|')))
+                        
+        maxDepth = sorted(countList)[-1]-1
+        print 'maxDepth',maxDepth
+        elementEveryLevelCount = {}
+        itemHierarchy = {}
+        depthDict = {}
+
+        for i in range(0, maxDepth):
+            depthDict.update({i:{}})
+            
+        #print depthDict
+        for i in range(1,maxDepth):
+            elementEveryLevelCount.update({i:[]})
+          
+        allItemReleationShipDist = {}  
+          
+        #for i in tempBuildDefaultGrpList:
+        #    print i 
+            
+            
+        refChildDict = {}
+        
+            
+        for i in tempBuildDefaultGrpList:
+           # print i
+            #chaList =  i.split('|')
+            refChild = cmds.listRelatives(i, children=True, pa=True,ad=0)  
+            #print 'refChild',refChild,type(refChild)
+            refChildList = []
+            try:
+                refMaxCount= len(refChild)
+               # print 'refMaxCount',refMaxCount
+                for j in range(0,refMaxCount):
+                    indexOfItem = refChild[j].split('|')[-1]+'.'+str(j)
+                    #print j ,refChild[j]
+                   # print indexOfItem
+                    refChildList.append(indexOfItem)
+                    objNodeType = cmds.nodeType(refChild[j])
+                    print objNodeType
+                    self.itemLevelDict.update({refChild[j].split('|')[-1]:[str(j),objNodeType]})
+                refChildDict.update({i.split('|')[-1]:refChildList})
+            except:
+                refMaxCount = 'none'
+                refChildDict.update({i.split('|')[-1]:'None'})
+            refParent = cmds.listRelatives(i, children=True, p=True,ad=0) 
+         #   for refParent in self.itemLevelDict.keys():
+          #      print refParent,  self.itemLevelDict[refParent]
+                
+           # print 'refParent', refParent
+           # print'totalItemCount' , len(refChildDict.keys())
+               # print refMaxCount
+           # print 'itemLevelDict',itemLevelDict
+            refChildSerNum = []
+    
+    
+    def getItemStructure(self):
+        print 'getItemStructure start' 
+        
+        
+
+    def storeOutLineStructure(self):
+        print 'aaaa'
+        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
+        defaultAssetBuildList = ['character','set','prop','vehicle','other','effect']
+        for i in defaultAssetBuildList:
+            try:
+                self.getOutLinerStructure(i)
+            #print i
+            except:
+                pass
+        print 'itemLevelDict',self.itemLevelDict
+        
 def main():
     global ui
     app = QtWidgets.QApplication.instance()
@@ -99,5 +192,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-
- 
