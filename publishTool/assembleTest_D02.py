@@ -18,7 +18,6 @@ import datetime
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(650, 860)
         MainWindow.setMinimumSize(QtCore.QSize(650, 860))
@@ -809,15 +808,15 @@ class Ui_MainWindow(object):
         self.pushButton_P3addItemToLeftA.setIconSize(QtCore.QSize(30, 120))
         self.pushButton_P3addItemToLeftA.setFlat(True)
         self.pushButton_P3addItemToLeftA.setObjectName("pushButton_P3addItemToLeftA")
-        self.pushButton_P3addItemToLeftA_2 = QtWidgets.QPushButton(self.frame_15)
-        self.pushButton_P3addItemToLeftA_2.setGeometry(QtCore.QRect(195, 112, 25, 50))
-        self.pushButton_P3addItemToLeftA_2.setText("")
+        self.pushButton_P3addItemToLeftC = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_P3addItemToLeftC.setGeometry(QtCore.QRect(195, 112, 25, 50))
+        self.pushButton_P3addItemToLeftC.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/addToLeftC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3addItemToLeftA_2.setIcon(icon1)
-        self.pushButton_P3addItemToLeftA_2.setIconSize(QtCore.QSize(25, 120))
-        self.pushButton_P3addItemToLeftA_2.setFlat(True)
-        self.pushButton_P3addItemToLeftA_2.setObjectName("pushButton_P3addItemToLeftA_2")
+        self.pushButton_P3addItemToLeftC.setIcon(icon1)
+        self.pushButton_P3addItemToLeftC.setIconSize(QtCore.QSize(25, 120))
+        self.pushButton_P3addItemToLeftC.setFlat(True)
+        self.pushButton_P3addItemToLeftC.setObjectName("pushButton_P3addItemToLeftC")
         self.pushButton_P3addItemToLeftB = QtWidgets.QPushButton(self.frame_15)
         self.pushButton_P3addItemToLeftB.setGeometry(QtCore.QRect(195, 60, 25, 50))
         self.pushButton_P3addItemToLeftB.setText("")
@@ -836,15 +835,15 @@ class Ui_MainWindow(object):
         self.pushButton_P3_deleteItem.setIconSize(QtCore.QSize(20, 80))
         self.pushButton_P3_deleteItem.setFlat(True)
         self.pushButton_P3_deleteItem.setObjectName("pushButton_P3_deleteItem")
-        self.pushButton_P3addItem = QtWidgets.QPushButton(self.frame_15)
-        self.pushButton_P3addItem.setGeometry(QtCore.QRect(198, 478, 20, 31))
-        self.pushButton_P3addItem.setText("")
+        self.pushButton_P3_addItem = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_P3_addItem.setGeometry(QtCore.QRect(198, 478, 20, 31))
+        self.pushButton_P3_addItem.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/addB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3addItem.setIcon(icon4)
-        self.pushButton_P3addItem.setIconSize(QtCore.QSize(20, 80))
-        self.pushButton_P3addItem.setFlat(True)
-        self.pushButton_P3addItem.setObjectName("pushButton_P3addItem")
+        self.pushButton_P3_addItem.setIcon(icon4)
+        self.pushButton_P3_addItem.setIconSize(QtCore.QSize(20, 80))
+        self.pushButton_P3_addItem.setFlat(True)
+        self.pushButton_P3_addItem.setObjectName("pushButton_P3_addItem")
         self.frame_4 = QtWidgets.QFrame(self.centralwidget)
         self.frame_4.setGeometry(QtCore.QRect(1265, 85, 46, 56))
         palette = QtGui.QPalette()
@@ -2760,7 +2759,6 @@ class Ui_MainWindow(object):
 
 
 
-
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
    
     def __init__(self, parent= QtWidgets.QApplication.activeWindow()):
@@ -2805,18 +2803,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_page3_set.clicked.connect(self.clickAssetFilletSet)
         self.pushButton_page3_props.clicked.connect(self.clickAssetFilletProps)
         self.pushButton_page3_other.clicked.connect(self.clickAssetFilletOther)
-        self.pushButton_P3addItem.clicked.connect(self.addOutlineGroup)
+        self.pushButton_P3_addItem.clicked.connect(self.addOutlineGroup)
         
         self.pushButton_P3_processModeling.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processTexture.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processRigging.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_NA.clicked.connect(self.clickProcessFilletChange)
             
-        self.pushButton_P3addItemToLeftA_2.clicked.connect(self.checkAllLevelGroups)
-        self.pushButton_P3addItemToLeftB.clicked.connect(self.storeOutLineStructure)
-#storeOutLineStructure
-        ##test single 
-  
+       # self.pushButton_P3addItemToLeftA.clicked.connect(self.runBuildItemLevelTree)
+       # self.pushButton_P3addItemToLeftB.clicked.connect(self.storeOutLineStructure)
+      #  self.pushButton_P3addItemToLeftC.clicked.connect(self.runBuildItemLevelTree)
+     
+#storeOutLineStructure treeWidget_sceneAssembleTree
+        ##test single pushButton_P3addItem
+  # treeWidget treeWidget_sceneAssembleTree
        # QtWidgets.QPushButton
        # QtGui.QPushButton.mousePressEvent(self, e)
         ## self.treeWidget_sceneAssembleTree change
@@ -2835,14 +2835,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.treeWidget_sceneAssembleTree.header().setMinimumSectionSize(25)
 
-
-
+        self.storeOutLineStructure()
+        self.runBuildItemLevelTree()
 
 ##------------------------------------------------------------------------------------------------------------------------------------------        
        
     def runBuildItemLevelTree(self):
         print 'start to build itemTree'
-        self.treeWidget.clear()
+        self.treeWidget_sceneAssembleTree.clear()
         self.buildDefaultTopLayerItem()
 
 
@@ -2856,7 +2856,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             eachItemFullDepth = len(eachItemDepthList) #獲得物件所在層級， 每個物件的總層級
 
             topLayerItemIndex = int(eachItemDepthList[0])
-            topLayerItemSelect = self.treeWidget.topLevelItem(topLayerItemIndex)
+            topLayerItemSelect = self.treeWidget_sceneAssembleTree.topLevelItem(topLayerItemIndex)
             parentItem = topLayerItemSelect
             parentItemForSetName = topLayerItemSelect
 
@@ -2883,20 +2883,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
     def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName):
         depthLength = len(eachItemDepthList)
-       # print depthLength
         itemSelect = parentItemForSetName
-      #  print parentItem.text(0),parentItem.child(2).text(0)
         for childIndex in range(1,depthLength):
-           # print listIndex[childIndex]
-            print childIndex
+
         
             itemSelect = itemSelect.child(int(eachItemDepthList[childIndex]))
-            print itemSelect.text(0)
-            #print listIndex[childIndex]
-       # print itemSelect.text(0)
+
         itemSelect.setText(0,eachItemShortName)
         
-      #  itemSelect.setText('0',itemName)            
             
             
 
@@ -2905,14 +2899,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         defaultTopLayerItem = ['character','vehicle','set','prop','other','effect']
         for i in defaultTopLayerItem:
             #itemName = defaultTopLayerItem[i]
-            topLayerItem = QtWidgets.QTreeWidgetItem(self.treeWidget) 
+            topLayerItem = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree) 
             topLayerItem.setText(0,'%s'%i)
     
 
 
         
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
-        print 'eachItemShortName',eachItemShortName
+      #  print 'eachItemShortName',eachItemShortName
 
 
         #self.checkItemInPosition()
@@ -2951,7 +2945,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 countList.append(len(grpLingName.split('|')))
                         
         maxDepth = sorted(countList)[-1]-1
-        print 'maxDepth',maxDepth
+      #  print 'maxDepth',maxDepth
         elementEveryLevelCount = {}
         itemHierarchy = {}
         depthDict = {}
@@ -3074,27 +3068,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
                 
     
-    def getItemStructure(self,searchAsset,assetIndex):
-       # print 'getItemStructure start' 
-        allItemInTopLayerItem = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True,f=True)
-       # print allItemInTopLayerItem
-        for i in allItemInTopLayerItem:
-        #    print i
-            tempItemLevelList = [assetIndex]
-            for j in i.split('|'):
-                #print j
-                try:
-                   # print j,self.itemLevelDict[j]
-                    getPartDepthLevel = self.itemLevelDict[j][0]  #get index of each depth level
-                   # print j,getPartDepthLevel
-                    tempItemLevelList.append(str(getPartDepthLevel))
-                    #self.allAssetGrpDepthDict.update({j:self.itemLevelDict[j]})
 
-                except:
-                    pass
-              #  print 'tempItemLevelList',tempItemLevelList
-                
-            self.allAssetGrpDepthDict.update({i:tempItemLevelList})
         
     def getOutLinerStructure(self,searchAsset):
 
@@ -3119,7 +3093,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 countList.append(len(grpLingName.split('|')))
                         
         maxDepth = sorted(countList)[-1]-1
-        print 'maxDepth',maxDepth
+       # print 'maxDepth',maxDepth
         elementEveryLevelCount = {}
         itemHierarchy = {}
         depthDict = {}
@@ -3297,7 +3271,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.allTopLayerItemsInOutline.append(newItemName)
             else:
                 pass
-            #self.allTopLayerItemsInOutline
+            #self.allTopLayerItemsInOutline 
         else:
             print currentSelectItem.text(0)
             print self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(currentSelectItem)  #get selectItem topLayerIndex

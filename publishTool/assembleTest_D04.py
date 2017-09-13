@@ -18,7 +18,6 @@ import datetime
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(650, 860)
         MainWindow.setMinimumSize(QtCore.QSize(650, 860))
@@ -809,15 +808,15 @@ class Ui_MainWindow(object):
         self.pushButton_P3addItemToLeftA.setIconSize(QtCore.QSize(30, 120))
         self.pushButton_P3addItemToLeftA.setFlat(True)
         self.pushButton_P3addItemToLeftA.setObjectName("pushButton_P3addItemToLeftA")
-        self.pushButton_P3addItemToLeftA_2 = QtWidgets.QPushButton(self.frame_15)
-        self.pushButton_P3addItemToLeftA_2.setGeometry(QtCore.QRect(195, 112, 25, 50))
-        self.pushButton_P3addItemToLeftA_2.setText("")
+        self.pushButton_P3addItemToLeftC = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_P3addItemToLeftC.setGeometry(QtCore.QRect(195, 112, 25, 50))
+        self.pushButton_P3addItemToLeftC.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/addToLeftC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3addItemToLeftA_2.setIcon(icon1)
-        self.pushButton_P3addItemToLeftA_2.setIconSize(QtCore.QSize(25, 120))
-        self.pushButton_P3addItemToLeftA_2.setFlat(True)
-        self.pushButton_P3addItemToLeftA_2.setObjectName("pushButton_P3addItemToLeftA_2")
+        self.pushButton_P3addItemToLeftC.setIcon(icon1)
+        self.pushButton_P3addItemToLeftC.setIconSize(QtCore.QSize(25, 120))
+        self.pushButton_P3addItemToLeftC.setFlat(True)
+        self.pushButton_P3addItemToLeftC.setObjectName("pushButton_P3addItemToLeftC")
         self.pushButton_P3addItemToLeftB = QtWidgets.QPushButton(self.frame_15)
         self.pushButton_P3addItemToLeftB.setGeometry(QtCore.QRect(195, 60, 25, 50))
         self.pushButton_P3addItemToLeftB.setText("")
@@ -836,15 +835,15 @@ class Ui_MainWindow(object):
         self.pushButton_P3_deleteItem.setIconSize(QtCore.QSize(20, 80))
         self.pushButton_P3_deleteItem.setFlat(True)
         self.pushButton_P3_deleteItem.setObjectName("pushButton_P3_deleteItem")
-        self.pushButton_P3addItem = QtWidgets.QPushButton(self.frame_15)
-        self.pushButton_P3addItem.setGeometry(QtCore.QRect(198, 478, 20, 31))
-        self.pushButton_P3addItem.setText("")
+        self.pushButton_P3_addItem = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_P3_addItem.setGeometry(QtCore.QRect(198, 478, 20, 31))
+        self.pushButton_P3_addItem.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/addB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_P3addItem.setIcon(icon4)
-        self.pushButton_P3addItem.setIconSize(QtCore.QSize(20, 80))
-        self.pushButton_P3addItem.setFlat(True)
-        self.pushButton_P3addItem.setObjectName("pushButton_P3addItem")
+        self.pushButton_P3_addItem.setIcon(icon4)
+        self.pushButton_P3_addItem.setIconSize(QtCore.QSize(20, 80))
+        self.pushButton_P3_addItem.setFlat(True)
+        self.pushButton_P3_addItem.setObjectName("pushButton_P3_addItem")
         self.frame_4 = QtWidgets.QFrame(self.centralwidget)
         self.frame_4.setGeometry(QtCore.QRect(1265, 85, 46, 56))
         palette = QtGui.QPalette()
@@ -2760,7 +2759,6 @@ class Ui_MainWindow(object):
 
 
 
-
 class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
    
     def __init__(self, parent= QtWidgets.QApplication.activeWindow()):
@@ -2776,9 +2774,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.itemDict ={}
         self.iconFile = QtGui.QIcon("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/NA120ENPTY.png")
         self.currentIconSize = 'large' #default set to large size icon
-        #self.loadPublishedData()#('character','texture')
-       # self.itemDict = {'item01':'a1','item02':'b1','item03':'c1','item04':'D1','item05':'E1','item06':'f1','item07':'g1','item08':'h1','item09':'i9'}
-        
+
         
         #self.tableWidget_AssetItemList.setSortingEnabled(True)
         self.tableWidget_AssetItemList.pressed.connect(self.dragTest)
@@ -2805,44 +2801,128 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_page3_set.clicked.connect(self.clickAssetFilletSet)
         self.pushButton_page3_props.clicked.connect(self.clickAssetFilletProps)
         self.pushButton_page3_other.clicked.connect(self.clickAssetFilletOther)
-        self.pushButton_P3addItem.clicked.connect(self.addOutlineGroup)
+        self.pushButton_P3_addItem.clicked.connect(self.addOutlineGroup)
         
         self.pushButton_P3_processModeling.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processTexture.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processRigging.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_NA.clicked.connect(self.clickProcessFilletChange)
             
-        self.pushButton_P3addItemToLeftA_2.clicked.connect(self.checkAllLevelGroups)
-        self.pushButton_P3addItemToLeftB.clicked.connect(self.storeOutLineStructure)
-#storeOutLineStructure
-        ##test single 
-  
-       # QtWidgets.QPushButton
-       # QtGui.QPushButton.mousePressEvent(self, e)
-        ## self.treeWidget_sceneAssembleTree change
-        ##### treeWidget_sceneAssembleTree operate######
-        #self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemDropInAssembleTree)
-       # self.treeWidget_sceneAssembleTree.clicked.connect(self.ttt)
+       # self.pushButton_P3addItemToLeftA.clicked.connect(self.runBuildItemLevelTree)
+       # self.pushButton_P3addItemToLeftB.clicked.connect(self.storeOutLineStructure)
+      #  self.pushButton_P3addItemToLeftC.clicked.connect(self.runBuildItemLevelTree)
+     
+        ## modify treeWidget_sceneAssembleTree start----------------------------------------------------
         self.treeWidget_sceneAssembleTree.doubleClicked.connect(self.editItem)
-       # self.treeWidget_sceneAssembleTree.(self.ttttt)
-        #self.treeWidget_sceneAssembleTree.itemSelectionChanged.connect(self.testB)
-        #page3 initial
-        self.setFontC()
-        self.createAllGroupInAssembleTree()
-        #self.treeWidget_sceneAssembleTree.clear() groupExceptList
+
+
+
         self.treeWidget_sceneAssembleTree.setColumnCount(1)
         self.treeWidget_sceneAssembleTree.header().setDefaultSectionSize(350)
 
         self.treeWidget_sceneAssembleTree.header().setMinimumSectionSize(25)
 
+        self.storeOutLineStructure()
+        self.runBuildItemLevelTree()
+        
+        #self.treeWidget_sceneAssembleTree.dra
+        
+        ## modify treeWidget_sceneAssembleTree end----------------------------------------------------
+        
+        self.setFontC()
+        
+        
+ ##### mouse event test start  ########################################################################   dra    
+  #  def mouseMoveEvent(self, e):
+   #     item = QtCore.QObject.connect(self.ttt)
+      #  drag = QtGui.QDrag(item)
+        #listsQModelIndex = self.selectedIndexes()
+       # print drag.text()
+ 
+    def ttt(self):
+        print 'sdsds'
+            
+            
+    def mousePressEvent(self, e):
+        QtWidgets.QAbstractButton.mousePressEvent(self, e)
+        if e.button() == QtCore.Qt.LeftButton:
+            print 'press'  
+
+            
+    def dragEnterEvent(self, e):
+        if event.source() == self:
+         #   QtGui.QAbstractItemView.dropEvent(self, event ) 
+            print'drag drag drag drag'
+        #e.accept()
+        
+        
+    def dropEvent(self, e):
+        print'drop drop drop drop'
+        
+        
+    def moveSelection(self, parent, position):
+        print 'ssss'
+        
+        
+	# save the selected items
+        selection = [QtCore.QPersistentModelIndex(i)
+                    for i in self.selectedIndexes()]
+        parent_index = self.indexFromItem(parent)
+        if parent_index in selection:
+            return False
+         # save the drop location in case it gets moved
+        target = self.model().index(position, 0, parent_index).row()
+        if target < 0:
+            target = position
+         # remove the selected items
+        taken = []
+        for index in reversed(selection):
+            item = self.itemFromIndex(QtCore.QModelIndex(index))
+            if item is None or item.parent() is None:
+                taken.append(self.takeTopLevelItem(index.row()))
+            else:
+                taken.append(item.parent().takeChild(index.row()))
+         # insert the selected items at their new positions
+        while taken:
+            if position == -1:
+                 # append the items if position not specified
+                if parent_index.isValid():
+                    parent.insertChild(
+                        parent.childCount(), taken.pop(0))
+                else:
+                    self.insertTopLevelItem(
+                        self.topLevelItemCount(), taken.pop(0))
+            else:
+        # insert the items at the specified position
+                if parent_index.isValid():
+                    parent.insertChild(min(target,
+                        parent.childCount()), taken.pop(0))
+                else:
+                    self.insertTopLevelItem(min(target,
+                        self.topLevelItemCount()), taken.pop(0))
+        return True
+        
 
 
+ ##### mouse event test end########################################################################       
+            
+            
+        
+        
+        
+        
 
-##------------------------------------------------------------------------------------------------------------------------------------------        
+##--------------get info from maya group structure start ---------------------------------------------------------------------------------------------------------------------   
+##      all group and item in groups, character, vehicle, set, prop, other, and effect      
+##         get structure info and bulid the same level in QTreeWidget,  treeWidget_sceneAssembleTree
+
+##      將 maya outline的結構 完整的複製到 QTree
+
+
        
     def runBuildItemLevelTree(self):
         print 'start to build itemTree'
-        self.treeWidget.clear()
+        self.treeWidget_sceneAssembleTree.clear()
         self.buildDefaultTopLayerItem()
 
 
@@ -2856,7 +2936,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             eachItemFullDepth = len(eachItemDepthList) #獲得物件所在層級， 每個物件的總層級
 
             topLayerItemIndex = int(eachItemDepthList[0])
-            topLayerItemSelect = self.treeWidget.topLevelItem(topLayerItemIndex)
+            topLayerItemSelect = self.treeWidget_sceneAssembleTree.topLevelItem(topLayerItemIndex)
             parentItem = topLayerItemSelect
             parentItemForSetName = topLayerItemSelect
 
@@ -2883,20 +2963,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
     def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName):
         depthLength = len(eachItemDepthList)
-       # print depthLength
         itemSelect = parentItemForSetName
-      #  print parentItem.text(0),parentItem.child(2).text(0)
         for childIndex in range(1,depthLength):
-           # print listIndex[childIndex]
-            print childIndex
+
         
             itemSelect = itemSelect.child(int(eachItemDepthList[childIndex]))
-            print itemSelect.text(0)
-            #print listIndex[childIndex]
-       # print itemSelect.text(0)
+
         itemSelect.setText(0,eachItemShortName)
         
-      #  itemSelect.setText('0',itemName)            
             
             
 
@@ -2905,14 +2979,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         defaultTopLayerItem = ['character','vehicle','set','prop','other','effect']
         for i in defaultTopLayerItem:
             #itemName = defaultTopLayerItem[i]
-            topLayerItem = QtWidgets.QTreeWidgetItem(self.treeWidget) 
+            topLayerItem = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree) 
             topLayerItem.setText(0,'%s'%i)
     
 
 
         
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
-        print 'eachItemShortName',eachItemShortName
+      #  print 'eachItemShortName',eachItemShortName
 
 
         #self.checkItemInPosition()
@@ -2922,15 +2996,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.childItem.setText(0,eachItemShortName)
 
     
-##-----------------------------------------------------------------------------------------------------------------------------------   
-        
 
     
 
 
     def getOutLinerStructure(self,searchAsset):
 
-        #searchAsset = 'character'
         tempBuildDefaultGrpList = []
         tempBuildDefaultGrpList.append(searchAsset)
 
@@ -2939,19 +3010,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
         allInTransformGrp = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True)
 
-        #print cmds.listRelatives('character|L1_1|L2_1_1|L3_2_1_1', children=True, pa=True,ad=0)
-                    #print allInTransformGrp
         if allInTransformGrp == None:
             pass
         else:
             for j in allInTransformGrp:
                 grpLingName =  cmds.ls(j,l=True)[0]
                 tempBuildDefaultGrpList.append(grpLingName)
-              #  print grpLingName
                 countList.append(len(grpLingName.split('|')))
                         
         maxDepth = sorted(countList)[-1]-1
-        print 'maxDepth',maxDepth
         elementEveryLevelCount = {}
         itemHierarchy = {}
         depthDict = {}
@@ -2959,246 +3026,178 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in range(0, maxDepth):
             depthDict.update({i:{}})
             
-        #print depthDict
         for i in range(1,maxDepth):
             elementEveryLevelCount.update({i:[]})
           
         allItemReleationShipDist = {}  
-          
-        #for i in tempBuildDefaultGrpList:
-        #    print i 
-            
+
             
         refChildDict = {}
         
             
         for i in tempBuildDefaultGrpList:
-           # print i
-            #chaList =  i.split('|')
+
             refChild = cmds.listRelatives(i, children=True, pa=True,ad=0)  
-            #print 'refChild',refChild,type(refChild)
             refChildList = []
             try:
                 refMaxCount= len(refChild)
-               # print 'refMaxCount',refMaxCount
                 for j in range(0,refMaxCount):
                     indexOfItem = refChild[j].split('|')[-1]+'.'+str(j)
-                    #print j ,refChild[j]
-                   # print indexOfItem
+
                     refChildList.append(indexOfItem)
                     objNodeType = cmds.nodeType(refChild[j])
-                  #  print objNodeType
                     self.itemLevelDict.update({refChild[j].split('|')[-1]:[str(j),objNodeType]})
                 refChildDict.update({i.split('|')[-1]:refChildList})
             except:
                 refMaxCount = 'none'
                 refChildDict.update({i.split('|')[-1]:'None'})
             refParent = cmds.listRelatives(i, children=True, p=True,ad=0) 
-         #   for refParent in self.itemLevelDict.keys():
-          #      print refParent,  self.itemLevelDict[refParent]
-                
-           # print 'refParent', refParent
-           # print'totalItemCount' , len(refChildDict.keys())
-               # print refMaxCount
-           # print 'itemLevelDict',itemLevelDict
+
             refChildSerNum = []
     
     
     def getItemStructure(self,searchAsset,assetIndex):
-       # print 'getItemStructure start' 
         allItemInTopLayerItem = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True,f=True)
-       # print allItemInTopLayerItem
         for i in allItemInTopLayerItem:
-        #    print i
             tempItemLevelList = [assetIndex]
-            for j in i.split('|'):
-                #print j
-                try:
-                   # print j,self.itemLevelDict[j]
-                    getPartDepthLevel = self.itemLevelDict[j][0]  #get index of each depth level
-                   # print j,getPartDepthLevel
-                    tempItemLevelList.append(str(getPartDepthLevel))
-                    #self.allAssetGrpDepthDict.update({j:self.itemLevelDict[j]})
-
-                except:
-                    pass
-              #  print 'tempItemLevelList',tempItemLevelList
-                
-            self.allAssetGrpDepthDict.update({i:tempItemLevelList})
-        
-        
-        
-
-    def storeOutLineStructure(self):
-       # print 'aaaa'
-        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
-        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
-        
-        self.defaultAssetBuildDict = {'character':'0','vehicle':'1','set':'2','prop':'3','other':'4','effect':'5'}
-        for i in self.defaultAssetBuildDict:
-            try:
-                self.getOutLinerStructure(i)
-            #print i
-            except:
+            #check i not in except list
+            nodeTypeExceptList= ['joint','airField','nucleus','vortexField','turbulenceField','pointEmitter','dragField','gravityField','newtonField','uniformField','volumeAxisField']
+            if i in nodeTypeExceptList:
                 pass
-        print 'itemLevelDict',self.itemLevelDict
-        
-        for i in self.defaultAssetBuildDict.keys():
-            try:
-                self.getItemStructure(i,self.defaultAssetBuildDict[i])
-            except:
-                pass
-        print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
-                
-
-
-    def storeOutLineStructure(self):
-       # print 'aaaa'
-        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
-        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
-        
-        self.defaultAssetBuildDict = {'character':'0','vehicle':'1','set':'2','prop':'3','other':'4','effect':'5'}
-        for i in self.defaultAssetBuildDict:
-            try:
-                self.getOutLinerStructure(i)
-            #print i
-            except:
-                pass
-        print 'itemLevelDict',self.itemLevelDict
-        
-        for i in self.defaultAssetBuildDict.keys():
-            try:
-                self.getItemStructure(i,self.defaultAssetBuildDict[i])
-            except:
-                pass
-        print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
-                
-    
-    def getItemStructure(self,searchAsset,assetIndex):
-       # print 'getItemStructure start' 
-        allItemInTopLayerItem = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True,f=True)
-       # print allItemInTopLayerItem
-        for i in allItemInTopLayerItem:
-        #    print i
-            tempItemLevelList = [assetIndex]
-            for j in i.split('|'):
-                #print j
-                try:
-                   # print j,self.itemLevelDict[j]
-                    getPartDepthLevel = self.itemLevelDict[j][0]  #get index of each depth level
-                   # print j,getPartDepthLevel
-                    tempItemLevelList.append(str(getPartDepthLevel))
-                    #self.allAssetGrpDepthDict.update({j:self.itemLevelDict[j]})
-
-                except:
-                    pass
-              #  print 'tempItemLevelList',tempItemLevelList
-                
-            self.allAssetGrpDepthDict.update({i:tempItemLevelList})
-        
-    def getOutLinerStructure(self,searchAsset):
-
-        #searchAsset = 'character'
-        tempBuildDefaultGrpList = []
-        tempBuildDefaultGrpList.append(searchAsset)
-
-
-        countList= []
-                    
-        allInTransformGrp = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True)
-
-        #print cmds.listRelatives('character|L1_1|L2_1_1|L3_2_1_1', children=True, pa=True,ad=0)
-                    #print allInTransformGrp
-        if allInTransformGrp == None:
-            pass
-        else:
-            for j in allInTransformGrp:
-                grpLingName =  cmds.ls(j,l=True)[0]
-                tempBuildDefaultGrpList.append(grpLingName)
-              #  print grpLingName
-                countList.append(len(grpLingName.split('|')))
-                        
-        maxDepth = sorted(countList)[-1]-1
-        print 'maxDepth',maxDepth
-        elementEveryLevelCount = {}
-        itemHierarchy = {}
-        depthDict = {}
-
-        for i in range(0, maxDepth):
-            depthDict.update({i:{}})
-            
-        #print depthDict
-        for i in range(1,maxDepth):
-            elementEveryLevelCount.update({i:[]})
-          
-        allItemReleationShipDist = {}  
-          
-        #for i in tempBuildDefaultGrpList:
-        #    print i 
-            
-            
-        refChildDict = {}
-        
-            
-        for i in tempBuildDefaultGrpList:
-           # print i
-            #chaList =  i.split('|')
-            refChild = cmds.listRelatives(i, children=True, pa=True,ad=0)  
-            #print 'refChild',refChild,type(refChild)
-            refChildList = []
-            try:
-                refMaxCount= len(refChild)
-               # print 'refMaxCount',refMaxCount
-                for j in range(0,refMaxCount):
-                    indexOfItem = refChild[j].split('|')[-1]+'.'+str(j)
-                    #print j ,refChild[j]
-                   # print indexOfItem
-                    refChildList.append(indexOfItem)
-                    objNodeType = cmds.nodeType(refChild[j])
-                  #  print objNodeType
-                    self.itemLevelDict.update({refChild[j].split('|')[-1]:[str(j),objNodeType]})
-                refChildDict.update({i.split('|')[-1]:refChildList})
-            except:
-                refMaxCount = 'none'
-                refChildDict.update({i.split('|')[-1]:'None'})
-            refParent = cmds.listRelatives(i, children=True, p=True,ad=0) 
-         #   for refParent in self.itemLevelDict.keys():
-          #      print refParent,  self.itemLevelDict[refParent]
-                
-           # print 'refParent', refParent
-           # print'totalItemCount' , len(refChildDict.keys())
-               # print refMaxCount
-           # print 'itemLevelDict',itemLevelDict
-            refChildSerNum = []
-            
-        
-    
-    
-    def checkAllLevelGroups(self):
-        #groupStructureDict ={}
-        #self.createAllItemsInAssembleTree()
-        #print self.allTopLayerItemsInOutline
-        #for i in self.allTopLayerItemsInOutline:
-        #    groupStructureDict.update({i:{}})
-            
-        print 'self.groupStructureDict',self.groupStructureDict
-    
-        
-    def createDefaultItemAndGrop(self):
-        defaultRequestGroupList = ['character','vehicle','set','prop','other','effect']
-        
-        for i in defaultRequestGroupList:
-            if len(cmds.ls(i)) == 1:
-                pass
-                print '%s'%i+' was already exist'
             else:
-                cmds.createNode('transform', n=i)
-       # cmds.nodeType('perspShape')   
-        
-        self.groupStructureDict ={}
-        for i in defaultRequestGroupList:
-            self.groupStructureDict.update({i:{}})
+                for j in i.split('|'):
+                    try:
+                        getPartDepthLevel = self.itemLevelDict[j][0]  #get index of each depth level #itemLevelDict
+                        tempItemLevelList.append(str(getPartDepthLevel))
+
+                    except:
+                        pass
+                    
+                self.allAssetGrpDepthDict.update({i:tempItemLevelList})
             
+            
+        
+
+    def storeOutLineStructure(self):
+        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
+        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
+        
+        self.defaultAssetBuildDict = {'character':'0','vehicle':'1','set':'2','prop':'3','other':'4','effect':'5'}
+        for i in self.defaultAssetBuildDict:
+            try:
+                self.getOutLinerStructure(i)
+            #print i
+            except:
+                pass
+        print 'itemLevelDict',self.itemLevelDict
+        
+        for i in self.defaultAssetBuildDict.keys():
+            try:
+                self.getItemStructure(i,self.defaultAssetBuildDict[i])
+            except:
+                pass
+        print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
+                
+
+
+    def storeOutLineStructure(self):
+       # print 'aaaa'
+        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
+        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
+        
+        self.defaultAssetBuildDict = {'character':'0','vehicle':'1','set':'2','prop':'3','other':'4','effect':'5'}
+        for i in self.defaultAssetBuildDict:
+            try:
+                self.getOutLinerStructure(i)
+            #print i
+            except:
+                pass
+        print 'itemLevelDict',self.itemLevelDict
+        
+        for i in self.defaultAssetBuildDict.keys():
+            try:
+                self.getItemStructure(i,self.defaultAssetBuildDict[i])
+            except:
+                pass
+        print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
+                
+    
+
+        
+    def getOutLinerStructure(self,searchAsset):
+
+        tempBuildDefaultGrpList = []
+        tempBuildDefaultGrpList.append(searchAsset)
+
+
+        countList= []
+                    
+        allInTransformGrp = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True)
+
+
+        if allInTransformGrp == None:
+            pass
+        else:
+            for j in allInTransformGrp:
+                grpLingName =  cmds.ls(j,l=True)[0]
+                tempBuildDefaultGrpList.append(grpLingName)
+              #  print grpLingName
+                countList.append(len(grpLingName.split('|')))
+                        
+        maxDepth = sorted(countList)[-1]-1
+       # print 'maxDepth',maxDepth
+        elementEveryLevelCount = {}
+        itemHierarchy = {}
+        depthDict = {}
+
+        for i in range(0, maxDepth):
+            depthDict.update({i:{}})
+            
+        #print depthDict
+        for i in range(1,maxDepth):
+            elementEveryLevelCount.update({i:[]})
+          
+        allItemReleationShipDist = {}  
+          
+        #for i in tempBuildDefaultGrpList:
+        #    print i 
+            
+            
+        refChildDict = {}
+        
+            
+        for i in tempBuildDefaultGrpList:
+           # print i
+            #chaList =  i.split('|')
+            refChild = cmds.listRelatives(i, children=True, pa=True,ad=0)  
+            #print 'refChild',refChild,type(refChild)
+            refChildList = []
+            try:
+                refMaxCount= len(refChild)
+               # print 'refMaxCount',refMaxCount
+                for j in range(0,refMaxCount):
+                    indexOfItem = refChild[j].split('|')[-1]+'.'+str(j)
+                    #print j ,refChild[j]
+                   # print indexOfItem
+                    refChildList.append(indexOfItem)
+                    objNodeType = cmds.nodeType(refChild[j])
+                  #  print objNodeType
+                    self.itemLevelDict.update({refChild[j].split('|')[-1]:[str(j),objNodeType]})
+                refChildDict.update({i.split('|')[-1]:refChildList})
+            except:
+                refMaxCount = 'none'
+                refChildDict.update({i.split('|')[-1]:'None'})
+            refParent = cmds.listRelatives(i, children=True, p=True,ad=0) 
+
+            refChildSerNum = []
+            
+##--------------get info from maya group structure END ---------------------------------------------------------------------------------------------------------------------   
+        
+    
+    
+
+    
+
              
     def createAllItemsInAssembleTree(self):
         self.treeWidget_sceneAssembleTree.clear()
@@ -3240,23 +3239,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.allTopLayerItemsInOutline = topLayerGroupList               
                 
-    def createAllGroupInAssembleTree(self):
-        self.createDefaultItemAndGrop()
-       # self.createAllItemsInAssembleTree()
- 
- 
- 
- 
-    def ttttt(self):
-       # print 'bbbbbbbbbb'
-      #  self.treeWidget_sceneAssembleTree.setFlags(self.treeWidget_sceneAssembleTree.flags() | QtCore.Qt.ItemIsNotEditable)
-     #   print self.treeWidget_sceneAssembleTree.currentItem().text(0)
-      #  self.treeWidget_sceneAssembleTree.clearSelection()
-        print 'cc',self.treeWidget_sceneAssembleTree.currentItem().text(0)
-        
 
+   
 
-        #self.treeWidget_sceneAssembleTree.itemSelectionChanged()
     def setFontC(self):
         self.fontC = QtGui.QFont()
         self.fontC.setFamily("Calibri")
@@ -3297,7 +3282,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.allTopLayerItemsInOutline.append(newItemName)
             else:
                 pass
-            #self.allTopLayerItemsInOutline
+            #self.allTopLayerItemsInOutline 
         else:
             print currentSelectItem.text(0)
             print self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(currentSelectItem)  #get selectItem topLayerIndex
@@ -3340,7 +3325,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print 'changeTreeItemName'
 
 
-    def editItem(self):
+    def editItem(self):  ## modify item name in tree   ，修改物件名稱
 
         
         
@@ -3363,30 +3348,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
             
 
-    def cccc(self):
-        print 'sdfsdsff'
-       # edit.returnPressed.connect(self.changeTreeItemName)
-       # edit.returnPressed.connect(self.changeTreeItemName)
-       # self.treeWidget_sceneAssembleTree.setItemWidget(item,column,edit)
-       ## print self.project.setData(column,edit.text(),item,column,self.treeWidget_sceneAssembleTree.setFont(self.fontC))
-       # self.treeWidget_sceneAssembleTree.closeEditor()
-       # print QtWidgets.QLineEdit.text()
-        #edit.deselect()
-   
-       # self.treeWidget_sceneAssembleTree.setFlags(item.flags() | QtCore.Qt.ItemIsNotEditable)
-        
-
-    '''    
-    def mousePressEvent(self, event):
-        self.clearSelection()
-        QtGui.QTreeView.mousePressEvent(self, event)
-
-    def mousePressEvent(self, e):
-
-        QtGui.QPushButton.mousePressEvent(self, e)
-        if e.button() == QtCore.Qt.LeftButton:
-            print 'press'
-    '''
     def ttt(self):
        # print self.treeWidget_sceneAssembleTree.currentItem().text(1)
        # print self.treeWidget_sceneAssembleTree.currentItem().text(0)
