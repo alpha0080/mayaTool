@@ -10,6 +10,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 import maya.cmds as cmds
+import pymel.core as pm
 
 import json
 import os
@@ -2948,27 +2949,60 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerItem.setText(0,'%s'%i)
     
 
-
-        
+#cmds.nodeType('pCube1_GpuCacheShape1')
+#cmds.ls('pSphereShape3')      
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
       #  print 'eachItemShortName',eachItemShortName
 
+        
+        
+        typeListAllowDict = {'transform':[255,255,255],     #item list could be move and edit
+                     'mesh':[100,190,70],
+                     'RenderManArchive':[200,100,100],
+                     'gpuCache':[30,230,230],
+                     'moreThanOneItemTheSameName':[255,0,0]
+                     } 
 
+#pm.select('pSphereShape5')
         #self.checkItemInPosition()
         for i in range(0,delta):
-            self.fontColor =[ 255,0,0]
+            
             self.childItem =  QtWidgets.QTreeWidgetItem(parentItem)
             self.childItem.setText(0,eachItemShortName)
-            try:
-                print 'nodeType',cmds.nodeType(eachItemShortName)
-            except:
-                pass
-            #self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
+          #  eachItemShortNameList = cmds.ls(eachItemShortName)
+         #   itemCheckIsMoreThenOne = len(eachItemShortNameList)   # check how many item got the same name
+           # if itemCheckIsMoreThenOne > 1:
+               # print itemCheckIsMoreThenOne,eachItemShortNameList
+              #  for i in eachItemShortNameList:
+                  #  if cmds.nodeType(i) == 'mesh':
+                     #   print 'ggg',i,self.childItem.parent().child(0).text(0),'parent',self.childItem.parent().text(0)
+                    #    print self.childItem.parent().childCount()
+                        
+                       
+                       # itemTypeColor = typeListAllowDict['mesh']
+                       # self.childItem.parent().setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+                      #  self.childItem.parent().child(0).setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
 
-    
+                       # cmds.select(i,tgl=True)
+          #  print 'aaaa',cmds.ls(eachItemShortName),itemCheckIsMoreThenOne
+          #  moreThanOneItemList = []
+           # if itemCheckIsMoreThenOne >1:
 
-    
+            '''
+            for i in range(0,countOfCheckParent):
+           #     print cmds.ls(checkParent)[i], cmds.nodeType(cmds.ls(checkParent)[i])
+            
+                if cmds.nodeType(cmds.ls(checkParent)[i]) == 'mesh':
+                    pass
+                else:
+                    print 'ccccc',i,self.childItem.text(0),'parent',self.childItem.parent().text(0)
+                    itemTypeColor = typeListAllowDict['mesh']
+                    self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+            '''
 
+
+ 
+ 
 
     def getOutLinerStructure(self,searchAsset):
 

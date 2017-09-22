@@ -10,6 +10,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 import maya.cmds as cmds
+import pymel.core as pm
 
 import json
 import os
@@ -2765,6 +2766,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(mod_MainWindow, self).__init__(parent)
 
         self.setupUi(self)
+        self.typeListAllowDict = {'transform':[255,255,255],     #item list could be move and edit
+        'mesh':[100,190,70],
+        'RenderManArchive':[200,100,100],
+        'gpuCache':[30,230,230],
+        'moreThanOneItemTheSameName':[255,0,0]
+        }   
+
         
         self.treeWidget_sceneAssembleTree.setDragEnabled(True)
         self.treeWidget_sceneAssembleTree.setDragDropOverwriteMode(True)
@@ -2818,13 +2826,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_P3_processTexture.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_processRigging.clicked.connect(self.clickProcessFilletChange)
         self.pushButton_P3_NA.clicked.connect(self.clickProcessFilletChange)
+         
+         
+        self.pushButton_P3_refreshInputItem.clicked.connect(self.reflashOutLinerTree)
+         
+         
             
        # self.pushButton_P3addItemToLeftA.clicked.connect(self.runBuildItemLevelTree)
        # self.pushButton_P3addItemToLeftB.clicked.connect(self.storeOutLineStructure)
         self.pushButton_P3addItemToLeftC.clicked.connect(self.ttt)
      
         ## modify treeWidget_sceneAssembleTree start----------------------------------------------------
-        self.treeWidget_sceneAssembleTree.doubleClicked.connect(self.editItem)
+        #self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
 
 
 
@@ -2835,41 +2848,91 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.storeOutLineStructure()
         self.runBuildItemLevelTree()
-        
+        self.treeWidget_sceneAssembleTree.doubleClicked.connect(self.editItem)
+        self.pushButton_P3_deletSelectItem.clicked.connect(self.deleteSelectTreeItem)
         #self.treeWidget_sceneAssembleTree.dra
         
         ## modify treeWidget_sceneAssembleTree end----------------------------------------------------
         
         self.setFontC()
         
+    def deleteSelectTreeItem(self):
         
- ##### mouse event test start  ########################################################################   dra    
-  #  def mouseMoveEvent(self, e):
-   #     item = QtCore.QObject.connect(self.ttt)
-      #  drag = QtGui.QDrag(item)
-        #listsQModelIndex = self.selectedIndexes()
-       # print drag.text()
+        selectItem = self.treeWidget_sceneAssembleTree.currentItem()
+        selectItemFullNameList = [selectItem.text(0)]
+       # selectItem.depth()
+        #checkSelectItemLen = cmds.
+       # self.getFullName(selectItem)
+        print self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(selectItem)
+        while self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(selectItem) == -1:
 
- ##### mouse event test end########################################################################       
+            print selectItem.text(0)
+            selectItem = selectItem.parent()
+            #selectItemName = 
+            selectItemFullNameList.append(selectItem.text(0).split('__')[0])
+
+        selectItemInOutLiner = '|'.join(reversed(selectItemFullNameList))
+       # print selectItemInOutLiner
+      #  cmds.select(selectItemInOutLiner)
+        cmds.delete(selectItemInOutLiner)
+        
+                
             
+
+            #print selectItem.topLevelItem().text(0)
+       # self.treeWidget_sceneAssembleTree.topLevelItem    
+        '''
+        if self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(selectItem) == -1:
+            selectItemParent = selectItem.parent()#.text(0)
+            selectItemParent.removeChild(selectItem)
+            cmds.delete(selectItem.text(0))
+            
+        else:
+            print 'can not remove topLayerItem'
+        '''
+            
+    def getFullName(self,childItem):
+        
+        print 'getFullName'
+        if self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(childItem) == -1:
+
+            parentItem = childItem.parent()
+            parentItemName = childItem.parent().text(0)
+            self.selectItemFullNameLis.append(parentItemName)
+        else:
+            pass
             
         
-        
+    def reflashOutLinerTree(self):
+        print 'reflash tree'
+        self.storeItemDateInDict (3)
+        #self.treeWidget_sceneAssembleTree.clear()
+        self.storeOutLineStructure()
+        self.runBuildItemLevelTree()
+                
+    def runChangeItemName(self):
+        print 'runChangeItemName'
+        try:
+            if self.treeWidget_sceneAssembleTree.currentItem().text(0) == self.newGroupName:
+                pass
+
+            else:
+                self.itemChangedName()
+        except:
+            pass
         
         
 
-##--------------get info from maya group structure start ---------------------------------------------------------------------------------------------------------------------   
-##      all group and item in groups, character, vehicle, set, prop, other, and effect      
-##         get structure info and bulid the same level in QTreeWidget,  treeWidget_sceneAssembleTree
-
-##      將 maya outline的結構 完整的複製到 QTree
     def treeItemClick(self):
+        print 'check 01'
         print 'treeItemClick'
         takeItem = self.treeWidget_sceneAssembleTree.currentItem()
         #print self.treeWidget_sceneAssembleTree.currentItem().text(0)
         self.getTreeLocation(takeItem)
         
     def getTreeLocation(self,takeItem):
+        print 'check 02'
+
         print 'run getTreeLocation'
         print takeItem.text(0)#.currentColumn()
         getTopLayerIndex = self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(takeItem)  # get toplayerIndex
@@ -2884,14 +2947,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 #cmds.select('aa4')
        
     def runBuildItemLevelTree(self):
+        
+        print 'check 03'
+       # self.storeOutLineStructure()
+       # self.getOutLinerStructure() 
+        
+        
+        
         print 'start to build itemTree'
+      #  self.addOutlineGroup()
+       # self.storeOutLineStructure()
         self.treeWidget_sceneAssembleTree.clear()
         self.buildDefaultTopLayerItem()
 
 
         print 'build tree'
         totalIteCount = len(self.allAssetGrpDepthDict.keys())   # get how many items in self.allAssetGrpDepthDict  ，獲得outline中所有層級的名稱總數量
+        self.errorItem = {'character':{'0':[]},'vehicle':{'1':[]},'set':{'2':[]},'prop':{'3':[]},'other':{'4':[]},'effect':{'5':[]}}
         for i in range(0,totalIteCount):
+            
            # print i
             eachItemFullName =  self.allAssetGrpDepthDict.keys()[i]        #獲得每個層級group名稱,fullName 完整名稱
             eachItemShortName = eachItemFullName.split('|')[-1]
@@ -2902,6 +2976,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerItemSelect = self.treeWidget_sceneAssembleTree.topLevelItem(topLayerItemIndex)
             parentItem = topLayerItemSelect
             parentItemForSetName = topLayerItemSelect
+            
+            
 
             for depth in range(1,eachItemFullDepth):
                # print 'depth',depth
@@ -2922,9 +2998,55 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
                 #try:
                     parentItem = self.childItem.parent().child(placeIndex)   #回傳在第幾個分支
-            self.defineItemAddress(parentItemForSetName,eachItemDepthList,eachItemShortName)
+            moreThanOne = 0
+            self.checkIsMoreThanOne(eachItemShortName)
+          #  print 'moreThanOne',self.moreThanOne
+           # 
+            self.defineItemAddress(parentItemForSetName,eachItemDepthList,eachItemShortName,topLayerItemSelect,topLayerItemIndex)
+
+        print self.errorItem
+        self.changeTopLayerItemName()
+        
+        
+        
+    def changeTopLayerItemName(self):
+        print 'check 04'
+
+        for i in range(0,len(self.errorItem.keys())):
+         
+            print self.errorItem[self.errorItem.keys()[i]]#.keys()[0]#,self.errorItem[self.errorItem.keys()[i]]
+            topLayerItem = self.treeWidget_sceneAssembleTree.topLevelItem(i)
+            errorCount = len(self.errorItem[topLayerItem.text(0)][self.errorItem[topLayerItem.text(0)].keys()[0]])
+            newTopLayerItemName = topLayerItem.text(0) +'__('+str(errorCount)+')'
+            print newTopLayerItemName
+           # print topLayerItem.text(0)
+            topLayerItem.setText(0,newTopLayerItemName)
             
-    def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName):
+        
+        
+        #self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
+
+           # print self.errorItem[topLayerItem.text(0)][self.errorItem[topLayerItem.text(0)].keys()[0]]
+        
+        
+    def checkIsMoreThanOne(self,eachItemShortName):
+        print 'check 05'
+        
+       # print 'checkIsMoreThanOne' 
+        checkList = cmds.ls(eachItemShortName)
+      #  print checkList
+        if len(checkList) >1 :
+            self.moreThanOne = 1
+        else:
+            self.moreThanOne = 0
+       # return moreThanOne
+       # print moreThanOne errorCount
+            
+
+            
+    def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName,topLayerItemSelect,topLayerItemIndex):  #定義物件的位置，如果是有重複名稱的物件會顯示紅色
+        print 'check 06'
+
         depthLength = len(eachItemDepthList)
         itemSelect = parentItemForSetName
         for childIndex in range(1,depthLength):
@@ -2933,11 +3055,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             itemSelect = itemSelect.child(int(eachItemDepthList[childIndex]))
 
         itemSelect.setText(0,eachItemShortName)
-        
+        if self.moreThanOne == 0:
+            pass
+        else:
+            itemTypeColor = self.typeListAllowDict['moreThanOneItemTheSameName']
+            itemSelect.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+           # print itemSelect.topLayerItem()
+           # print self.treeWidget_sceneAssembleTree.topLevelWidget(itemSelect)
+          #  print 'topLayerItem',topLayerItemSelect.text(0),topLayerItemIndex
+            self.errorItem[topLayerItemSelect.text(0)][self.errorItem[topLayerItemSelect.text(0)].keys()[0]].append(eachItemShortName)
             
             
-
+            
     def buildDefaultTopLayerItem(self):
+        print 'check 07'
 
         defaultTopLayerItem = ['character','vehicle','set','prop','other','effect']
         for i in defaultTopLayerItem:
@@ -2947,30 +3078,20 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             topLayerItem.setText(0,'%s'%i)
     
-
-
-        
+     
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
-      #  print 'eachItemShortName',eachItemShortName
+        print 'check 08'
 
 
-        #self.checkItemInPosition()
         for i in range(0,delta):
-            self.fontColor =[ 255,0,0]
+            
             self.childItem =  QtWidgets.QTreeWidgetItem(parentItem)
             self.childItem.setText(0,eachItemShortName)
-            try:
-                print 'nodeType',cmds.nodeType(eachItemShortName)
-            except:
-                pass
-            #self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
 
-    
-
-    
-
+ 
 
     def getOutLinerStructure(self,searchAsset):
+        print 'check 09'
 
         tempBuildDefaultGrpList = []
         tempBuildDefaultGrpList.append(searchAsset)
@@ -3027,6 +3148,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
     
     def getItemStructure(self,searchAsset,assetIndex):
+        print 'check 10'
+        
         allItemInTopLayerItem = cmds.listRelatives(searchAsset, children=True, pa=True,ad=True,f=True)
         for i in allItemInTopLayerItem:
             tempItemLevelList = [assetIndex]
@@ -3048,29 +3171,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         
 
-    def storeOutLineStructure(self):
-        self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
-        self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
-        
-        self.defaultAssetBuildDict = {'character':'0','vehicle':'1','set':'2','prop':'3','other':'4','effect':'5'}
-        for i in self.defaultAssetBuildDict:
-            try:
-                self.getOutLinerStructure(i)
-            #print i
-            except:
-                pass
-        print 'itemLevelDict',self.itemLevelDict
-        
-        for i in self.defaultAssetBuildDict.keys():
-            try:
-                self.getItemStructure(i,self.defaultAssetBuildDict[i])
-            except:
-                pass
-        print 'self.allAssetGrpDepthDict', self.allAssetGrpDepthDict
-                
+
 
 
     def storeOutLineStructure(self):
+        print 'check 12'
+        
+        
        # print 'aaaa'
         self.itemLevelDict = {}    #create empty itemLevelDict ,item dictionary
         self.allAssetGrpDepthDict = {}    #create empty dict, that reference group depth and index to each item and grp
@@ -3095,6 +3202,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
     def getOutLinerStructure(self,searchAsset):
+        print 'check 13'
 
         tempBuildDefaultGrpList = []
         tempBuildDefaultGrpList.append(searchAsset)
@@ -3169,50 +3277,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     
 
              
-    def createAllItemsInAssembleTree(self):
-        self.treeWidget_sceneAssembleTree.clear()
-        self.treeWidget_sceneAssembleTree.setFont(self.fontC)
-        topLayerGroupList = ['0.global']
-        nodeTypeExceptList= ['joint','airField','nucleus','vortexField','turbulenceField','pointEmitter','dragField','gravityField','newtonField','uniformField','volumeAxisField']
 
-        groupExceptList = []
-        for i in cmds.ls(typ= 'transform'):  # check is not camera
-            if i not in groupExceptList and cmds.listRelatives(i,p=True) == None :
-                print i
-                #for j
-                try: 
-                    for j in cmds.listRelatives(i,c=True):
-                        print cmds.listRelatives(i,c=True)
-               #     print cmds.nodeType(j)
-
-                        if cmds.nodeType(j) in ['camera','fluidShape','nParticle']:  #except camera ,particlem fluid
-
-                            groupExceptList.append(i)
-                except:
-                    pass
-            if cmds.nodeType(i) in nodeTypeExceptList:
-                groupExceptList.append(i)
-                    
-
-        print groupExceptList 
-                        
-        for i in cmds.ls(typ= 'transform'):
-            if i not in groupExceptList and cmds.listRelatives(i,p=True) == None :
-                
-                
-                topLayerGroupList.append(i)
-                
-        for i in range(0,len(topLayerGroupList)):
-            item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget_sceneAssembleTree) 
-            itemName =  str(topLayerGroupList[i])
-            self.treeWidget_sceneAssembleTree.topLevelItem(i).setText(0, QtWidgets.QApplication.translate("MainWindow", '%s'%itemName, None, -1))
-        
-        self.allTopLayerItemsInOutline = topLayerGroupList               
-                
 
    
 
     def setFontC(self):
+        print 'check 14'
+      
         self.fontC = QtGui.QFont()
         self.fontC.setFamily("Calibri")
         self.fontC.setPointSize(10) 
@@ -3222,6 +3293,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
   
     def addOutlineGroup(self):
+        print 'check 15'
+        
+        
         print 'addOutlineGroup'
         currentSelectItem = self.treeWidget_sceneAssembleTree.currentItem()
         newItemTheSameNameList = []
@@ -3292,33 +3366,78 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.treeWidget_sceneAssembleTree.ed
        '''
     def changeTreeItemName(self):
+        print 'check 16'
+        
+        
         print 'changeTreeItemName'
 
 
-    def editItem(self):  ## modify item name in tree   ，修改物件名稱
-
+    def editItem(self):  ## modify item name in tree   ，修改物件名稱 doubleClick run
+        print 'check 17'
         
         
-        item = self.treeWidget_sceneAssembleTree.itemFromIndex(self.treeWidget_sceneAssembleTree.selectedIndexes()[0])  #get select Item Name
-        self.origialGroupName = item.text(0)
-        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsEditable)
-        #newGroupName = self.treeWidget_sceneAssembleTree.currentItem()(0)
-        print self.origialGroupName
-        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
-        #print self.treeWidget_sceneAssembleTree.currentItem().text(0)
-  
-    def itemChangedName(self):
-        print 'chaned item Name'
-        self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
-        #print self.newGroupName
-        print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
-        try:
-            cmds.rename(self.origialGroupName,self.newGroupName)
-        except:
-            pass
+        checkTopLayerIndex = self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(self.treeWidget_sceneAssembleTree.currentItem())
+        if checkTopLayerIndex == -1 :  # 檢查是否為第一層物件
             
+            item = self.treeWidget_sceneAssembleTree.itemFromIndex(self.treeWidget_sceneAssembleTree.selectedIndexes()[0])  #get select Item Name
+            self.origialGroupName = item.text(0)
+            item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsEditable)
+           # self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+          #  print self.origialGroupName
+          #  self.moreThanOneList =  cmds.ls(self.newGroupName)
+          #  self.moreThanOneListCount = len(self.moreThanOneList)
+
+            
+            
+                
+
+            
+        else:
+            print 'it count not change name'
+            pass
+       # self.runBuildItemLevelTree()
+        self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+
+        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.runChangeItemName)
+
+    def itemChangedName(self):
+        print 'check 18'
+        
+        
+        
+        print 'chaned item Name'
+        
+       # self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+        self.moreThanOneList =  cmds.ls(self.newGroupName)
+        print 'self.moreThanOneList',self.moreThanOneList
+        self.moreThanOneListCount = len(self.moreThanOneList)
+
+        print 'self.moreThanOneListCount',self.moreThanOneListCount
+
+        if self.moreThanOneListCount > 1:
+            #tempName = self.newGroupName
+            tempName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+            for i in range(0,self.moreThanOneListCount): 
+                self.origialGroupName = self.moreThanOneList[i]
+                self.newGroupName = tempName + '_' +'%04d'%i
+                print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
+                cmds.rename(self.origialGroupName,self.newGroupName)
+        else:
+            
+            self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+            print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
+
+            cmds.rename(self.origialGroupName,self.newGroupName)
+           # except:
+             #   pass
+       # self.runBuildItemLevelTree()
+       # self.runBuildItemLevelTree()itemChangedName
+
 
     def ttt(self):
+        print 'check 19'
+        
+        
        # print self.treeWidget_sceneAssembleTree.currentItem().text(1)
        # print self.treeWidget_sceneAssembleTree.currentItem().text(0)
        # print self.treeWidget_sceneAssembleTree.currentItem().text(2)
@@ -3331,6 +3450,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             #    iconFile =QtGui.QIcon('//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/NA120B.png')
       # self.tableWidget_AssetItemList.item(row, column).setIcon(iconFile)
     def itemDropInAssembleTree(self):
+        print 'check 20'
+        
+        
+        
         #print 'drop drop dopr'
         print self.treeWidget_sceneAssembleTree.currentItem().text(0)
         #widget = QtWidgets.QTreeWidget()
@@ -3347,6 +3470,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #self.treeWidget_sceneAssembleTree.      
     def dragTest(self):
+        print 'check 21'
+        
         #print self.treeWidget_sceneAssembleTree.currentItem
         #searchKey = self.tableWidget_AssetItemList.currentItem().text()
         selectedAssetItemColumn = self.tableWidget_AssetItemList.currentColumn()
@@ -3372,42 +3497,60 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
     def test(self):
+        print 'check 22'
+        
         print self.pushButton_P3_processModeling.isChecked()
         print self.pushButton_P3_processTexture.isChecked()
         print self.pushButton_P3_processRigging.isChecked()
         print self.pushButton_P3_NA.isChecked()
         
     def clickProcessFilletChange(self):
+        print 'check 23_0'
+
         self.clickAssetClass(self.assetClassSelectMode)
         
         
     
     def clickAssetFilletAll(self):
+        print 'check 23_0'
+        
         self.assetClassSelectMode = 'all'
         self.clickAssetClass('all')
         
     def clickAssetFilletCharacter(self):
+        print 'check 23_0'
+        
         self.clickAssetClass('character')
         self.assetClassSelectMode = 'character'
 
     def clickAssetFilletVehicle(self):
+        print 'check 23_0'
+        
         self.clickAssetClass('vehicle')
         self.assetClassSelectMode = 'vehicle'
 
     def clickAssetFilletSet(self):
+        print 'check 23_0'
+        
         self.clickAssetClass('set')
         self.assetClassSelectMode = 'set'
 
     def clickAssetFilletProps(self):
+        print 'check 23_0'
+        
         self.clickAssetClass('props')
         self.assetClassSelectMode = 'props'
                          
     def clickAssetFilletOther(self):
+        print 'check 23_0'
+        
         self.clickAssetClass('other')
                
         self.assetClassSelectMode = 'other'
 
     def clickAssetClass(self,classMode):
+        print 'check 23'
+        
         print classMode
         self.pushButton_page3_all.setChecked(False)
         self.pushButton_page3_character.setChecked(False)
@@ -3458,6 +3601,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.setTextAssetMain()
             
     def showAssetMetaDataFromSelect(self):
+        print 'check 24'
+        
+        
         print 'showAssetMetaDataFromSelect start'
         #searchKey = self.tableWidget_AssetItemList.currentItem().text()
         selectedAssetItemColumn = self.tableWidget_AssetItemList.currentColumn()
@@ -3500,6 +3646,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def checkFileSize(self,fileName):
+        print 'check 25'
+        
         
         fileSizeBt = os.stat(fileName).st_size /1024
         if fileSizeBt < 1024:
@@ -3513,6 +3661,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.fileSize = fileSize
                 
     def loadPublishedData(self):
+        print 'check 26'
+        
         
         file = '//mcd-one/3d_project/ocean_world_2016_cf/publish/global/ocean_world_2016_cf_publishAnnonce.json'
         with open(file) as data_file:    
@@ -3605,6 +3755,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print sorted(newItemDict)
 
     def storeItemDateInDict(self,cloumnCount):
+        print 'check 27'
+        
         print 'storeItemDateInDict start'
         infoSearchList = ['fileName','fileIcon','gpuCache','ribArchive','user','publishTime','metaData']
         rowCount = 0
@@ -3679,6 +3831,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def setItemIcon(self,columnSize,rowSize):
+        print 'check 28'
+        
+        
         print 'setItemIcon start'
         #print 'self.tableItemListInfoDict',self.tableItemListInfoDict
         tempIconFileDict={}
@@ -3705,6 +3860,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
  
     def setItemText(self,cloumnCount,columnSize,textRowSize):
+        print 'check 29'
+        
         #print self.tableItemListInfoDict.keys()
         #print 'cloumnCount',cloumnCount
         for i in self.tableItemListInfoDict.keys():
@@ -3733,6 +3890,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tableWidget_AssetItemList.item(row, column).setText(QtWidgets.QApplication.translate("MainWindow",itemName, None,-1))
             
     def setTextMode(self):
+        print 'check 30'
         
         
         self.tableWidget_AssetItemList.clear()
@@ -3750,6 +3908,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
      
     def setLargeAssetIcon(self):
+        print 'check 31'
+        
         self.tableWidget_AssetItemList.clear()
         
         self.pushButton_P3_largeIcon.setChecked(True) 
@@ -3801,6 +3961,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
       
 
     def setMidAssetIcon(self):
+        print 'check 32'
+        
         print 'setMidAssetIcon'
         self.tableWidget_AssetItemList.clear()
 
@@ -3841,6 +4003,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def setSmallAssetIcon(self):
+        print 'check 33'
+        
         print 'setSmallAssetIcon'
         self.tableWidget_AssetItemList.clear()
 
@@ -3876,10 +4040,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
     def setTextAssetMain(self):
+        print 'check 34'
+        
         self.setTextAsset(30)
                 
         
     def setTextAsset(self,size):
+        print 'check 35'
+        
         print 'setTextAsset~~'
         self.tableWidget_AssetItemList.clear()
 
@@ -3966,6 +4134,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                     
         
     def initialTableWidgetAssetList(self):
+        print 'check 36'
+        
         self.tableWidget_AssetItemList.clear()
         #self.tableWidget_AssetItemList.setRowCount(2)
         #self.tableWidget_AssetItemList.setColumnCount(2)
@@ -3978,6 +4148,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def createTableItem(self,column,row,iconFile,iconSize):
+        print 'check 37'
+        
 
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_AssetItemList.setItem(row, column, item)
@@ -3988,6 +4160,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
     def createItemB(self,column,row,iconFile):
+        print 'check 38'
+        
        # icon = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
         #iconFile = QtGui.QIcon("C:/Program Files/Autodesk/Maya2017/icons/publishToolIcon/animation.png")
         item = QtWidgets.QTableWidgetItem()
@@ -4000,6 +4174,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # add text Item
     def setTableItemText(self,column,row):
+        print 'check 39'
+        
         item = QtWidgets.QTableWidgetItem()
        # textRow = row+1
         self.tableWidget_AssetItemList.setRowHeight(row , 20) #set text row height

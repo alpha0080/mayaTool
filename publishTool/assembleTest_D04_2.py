@@ -10,6 +10,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 import maya.cmds as cmds
+import pymel.core as pm
 
 import json
 import os
@@ -2948,25 +2949,93 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerItem.setText(0,'%s'%i)
     
 
-
-        
+#cmds.nodeType('pCube1_GpuCacheShape1')
+#cmds.ls('pSphereShape3')      
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
       #  print 'eachItemShortName',eachItemShortName
 
+        
+        
+        typeListAllowDict = {'transform':[255,255,255],     #item list could be move and edit
+                     'mesh':[100,190,70],
+                     'RenderManArchive':[200,100,100],
+                     'gpuCache':[30,230,230],
+                     'moreThanOneItemTheSameName':[255,0,0]
+                     } 
 
+#pm.select('pSphereShape5')
         #self.checkItemInPosition()
         for i in range(0,delta):
-            self.fontColor =[ 255,0,0]
+            
             self.childItem =  QtWidgets.QTreeWidgetItem(parentItem)
             self.childItem.setText(0,eachItemShortName)
+            
+            itemCheckIsMoreThenOne = len(cmds.ls(eachItemShortName))   # check how many item got the same name
+          #  print 'aaaa',cmds.ls(eachItemShortName),itemCheckIsMoreThenOne
+            moreThanOneItemList = []
+            if itemCheckIsMoreThenOne >1:
+                for i in cmds.ls(eachItemShortName):
+                    itemNodeType = cmds.nodeType(i)
+                   # print 'nodetype',itemNodeType
+                   # if  self.childItem.childCount() == 0 :
+                    if  itemNodeType == 'mesh':
+                       # print cmds.ls(self.childItem.parent().text(0))
+                      #  try:
+                      #      print 'ddddd',cmds.nodeType(self.childItem.parent().text(0))
+                      #  except:
+                       #     print 'no select'
+
+                        #doubleCheck
+                        checkParent = self.childItem.parent().text(0)
+                       # print checkParent
+                        
+                        countOfCheckParent = len(cmds.ls(checkParent))
+                     #   print 'countOfCheckParent',countOfCheckParent
+                        
+                        for i in range(0,countOfCheckParent):
+                       #     print cmds.ls(checkParent)[i], cmds.nodeType(cmds.ls(checkParent)[i])
+                        
+                            if cmds.nodeType(cmds.ls(checkParent)[i]) == 'mesh':
+                                pass
+                            else:
+                                print 'ccccc',i,self.childItem.text(0),'parent',self.childItem.parent().text(0)
+                                itemTypeColor = typeListAllowDict['mesh']
+                                self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+
+                     #       print 'check parent'
+                    #        pass
+                    #    else:
+                       #     print 'ccccc',i,self.childItem.text(0),'parent',self.childItem.parent().text(0)
+                    #        
+                       # print 
+                       # moreThanOneItemList.append(i)
+           # print 'moreThanOneItemList',moreThanOneItemList
+                        #print 'itemCheckName',itemCheckName
+                        #itemTypeColor = typeListAllowDict['mesh']
+                     #   self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+                      #  self.childItem.parent().setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+
+            '''
             try:
-                print 'nodeType',cmds.nodeType(eachItemShortName)
+                itemNodeType = cmds.nodeType(eachItemShortName)
+                
+                print 'nodetype',itemNodeType
+
             except:
+                print 'eachItemShortName',eachItemShortName
                 pass
-            #self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
-
-    
-
+            
+            #if self.childItem.childCount() == 0:
+            
+            if itemNodeType in typeListAllowDict.keys():
+                
+                print 'itemNodeType',itemNodeType
+                itemTypeColor = typeListAllowDict[itemNodeType]
+                print 'itemTypeColor',itemTypeColor
+                self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+               # self.childItem.parent().setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+        
+            '''
     
 
 

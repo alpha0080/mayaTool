@@ -10,6 +10,7 @@
 from PySide2 import QtCore, QtGui, QtWidgets
 
 import maya.cmds as cmds
+import pymel.core as pm
 
 import json
 import os
@@ -2765,6 +2766,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(mod_MainWindow, self).__init__(parent)
 
         self.setupUi(self)
+        self.typeListAllowDict = {'transform':[255,255,255],     #item list could be move and edit
+        'mesh':[100,190,70],
+        'RenderManArchive':[200,100,100],
+        'gpuCache':[30,230,230],
+        'moreThanOneItemTheSameName':[255,0,0]
+        }   
+
         
         self.treeWidget_sceneAssembleTree.setDragEnabled(True)
         self.treeWidget_sceneAssembleTree.setDragDropOverwriteMode(True)
@@ -2825,6 +2833,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
      
         ## modify treeWidget_sceneAssembleTree start----------------------------------------------------
         self.treeWidget_sceneAssembleTree.doubleClicked.connect(self.editItem)
+        #self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
 
 
 
@@ -2841,28 +2850,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         ## modify treeWidget_sceneAssembleTree end----------------------------------------------------
         
         self.setFontC()
-        
-        
- ##### mouse event test start  ########################################################################   dra    
-  #  def mouseMoveEvent(self, e):
-   #     item = QtCore.QObject.connect(self.ttt)
-      #  drag = QtGui.QDrag(item)
-        #listsQModelIndex = self.selectedIndexes()
-       # print drag.text()
 
- ##### mouse event test end########################################################################       
-            
-            
-        
-        
-        
-        
 
-##--------------get info from maya group structure start ---------------------------------------------------------------------------------------------------------------------   
-##      all group and item in groups, character, vehicle, set, prop, other, and effect      
-##         get structure info and bulid the same level in QTreeWidget,  treeWidget_sceneAssembleTree
-
-##      將 maya outline的結構 完整的複製到 QTree
     def treeItemClick(self):
         print 'treeItemClick'
         takeItem = self.treeWidget_sceneAssembleTree.currentItem()
@@ -2891,7 +2880,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         print 'build tree'
         totalIteCount = len(self.allAssetGrpDepthDict.keys())   # get how many items in self.allAssetGrpDepthDict  ，獲得outline中所有層級的名稱總數量
+        self.errorItem = {'character':{'0':[]},'vehicle':{'1':[]},'set':{'2':[]},'prop':{'3':[]},'other':{'4':[]},'effect':{'5':[]}}
         for i in range(0,totalIteCount):
+            
            # print i
             eachItemFullName =  self.allAssetGrpDepthDict.keys()[i]        #獲得每個層級group名稱,fullName 完整名稱
             eachItemShortName = eachItemFullName.split('|')[-1]
@@ -2902,6 +2893,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             topLayerItemSelect = self.treeWidget_sceneAssembleTree.topLevelItem(topLayerItemIndex)
             parentItem = topLayerItemSelect
             parentItemForSetName = topLayerItemSelect
+            
+            
 
             for depth in range(1,eachItemFullDepth):
                # print 'depth',depth
@@ -2922,9 +2915,50 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
                 #try:
                     parentItem = self.childItem.parent().child(placeIndex)   #回傳在第幾個分支
-            self.defineItemAddress(parentItemForSetName,eachItemDepthList,eachItemShortName)
+            moreThanOne = 0
+            self.checkIsMoreThanOne(eachItemShortName)
+          #  print 'moreThanOne',self.moreThanOne
+           # 
+            self.defineItemAddress(parentItemForSetName,eachItemDepthList,eachItemShortName,topLayerItemSelect,topLayerItemIndex)
+
+        print self.errorItem
+        self.changeTopLayerItemName()
+        
+        
+        
+    def changeTopLayerItemName(self):
+        for i in range(0,len(self.errorItem.keys())):
+         
+            print self.errorItem[self.errorItem.keys()[i]]#.keys()[0]#,self.errorItem[self.errorItem.keys()[i]]
+            topLayerItem = self.treeWidget_sceneAssembleTree.topLevelItem(i)
+            errorCount = len(self.errorItem[topLayerItem.text(0)][self.errorItem[topLayerItem.text(0)].keys()[0]])
+            newTopLayerItemName = topLayerItem.text(0) +'__('+str(errorCount)+')'
+            print newTopLayerItemName
+           # print topLayerItem.text(0)
+            topLayerItem.setText(0,newTopLayerItemName)
             
-    def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName):
+        
+        
+        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
+
+           # print self.errorItem[topLayerItem.text(0)][self.errorItem[topLayerItem.text(0)].keys()[0]]
+        
+        
+    def checkIsMoreThanOne(self,eachItemShortName):
+       # print 'checkIsMoreThanOne' 
+        checkList = cmds.ls(eachItemShortName)
+      #  print checkList
+        if len(checkList) >1 :
+            self.moreThanOne = 1
+        else:
+            self.moreThanOne = 0
+       # return moreThanOne
+       # print moreThanOne errorCount
+            
+
+            
+    def defineItemAddress(self,parentItemForSetName,eachItemDepthList,eachItemShortName,topLayerItemSelect,topLayerItemIndex):  #定義物件的位置，如果是有重複名稱的物件會顯示紅色
+
         depthLength = len(eachItemDepthList)
         itemSelect = parentItemForSetName
         for childIndex in range(1,depthLength):
@@ -2933,10 +2967,18 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             itemSelect = itemSelect.child(int(eachItemDepthList[childIndex]))
 
         itemSelect.setText(0,eachItemShortName)
-        
+        if self.moreThanOne == 0:
+            pass
+        else:
+            itemTypeColor = self.typeListAllowDict['moreThanOneItemTheSameName']
+            itemSelect.setForeground(0,QtGui.QBrush(QtGui.QColor(int(itemTypeColor[0]), int(itemTypeColor[1]), int(itemTypeColor[2]))))#.setFont(0,self.fontLevelThree)
+           # print itemSelect.topLayerItem()
+           # print self.treeWidget_sceneAssembleTree.topLevelWidget(itemSelect)
+          #  print 'topLayerItem',topLayerItemSelect.text(0),topLayerItemIndex
+            self.errorItem[topLayerItemSelect.text(0)][self.errorItem[topLayerItemSelect.text(0)].keys()[0]].append(eachItemShortName)
             
             
-
+            
     def buildDefaultTopLayerItem(self):
 
         defaultTopLayerItem = ['character','vehicle','set','prop','other','effect']
@@ -2947,28 +2989,16 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             topLayerItem.setText(0,'%s'%i)
     
-
-
-        
+     
     def createChildItem(self,delta,currentCount,parentItem,eachItemShortName):   # maxCount 為該層級需要創建幾個物件
-      #  print 'eachItemShortName',eachItemShortName
 
 
-        #self.checkItemInPosition()
         for i in range(0,delta):
-            self.fontColor =[ 255,0,0]
+            
             self.childItem =  QtWidgets.QTreeWidgetItem(parentItem)
             self.childItem.setText(0,eachItemShortName)
-            try:
-                print 'nodeType',cmds.nodeType(eachItemShortName)
-            except:
-                pass
-            #self.childItem.setForeground(0,QtGui.QBrush(QtGui.QColor(int(self.fontColor[0]), int(self.fontColor[1]), int(self.fontColor[2]))))#.setFont(0,self.fontLevelThree)
 
-    
-
-    
-
+ 
 
     def getOutLinerStructure(self,searchAsset):
 
@@ -3296,27 +3326,50 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
     def editItem(self):  ## modify item name in tree   ，修改物件名稱
+        checkTopLayerIndex = self.treeWidget_sceneAssembleTree.indexOfTopLevelItem(self.treeWidget_sceneAssembleTree.currentItem())
+        if checkTopLayerIndex == -1 :  # 檢查是否為第一層物件
+            
+            item = self.treeWidget_sceneAssembleTree.itemFromIndex(self.treeWidget_sceneAssembleTree.selectedIndexes()[0])  #get select Item Name
+            self.origialGroupName = item.text(0)
+            item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsEditable)
+            self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+            print self.origialGroupName
+            self.moreThanOneList =  cmds.ls(self.newGroupName)
+            self.moreThanOneListCount = len(self.moreThanOneList)
 
-        
-        
-        item = self.treeWidget_sceneAssembleTree.itemFromIndex(self.treeWidget_sceneAssembleTree.selectedIndexes()[0])  #get select Item Name
-        self.origialGroupName = item.text(0)
-        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsDragEnabled | QtCore.Qt.ItemIsEditable)
-        #newGroupName = self.treeWidget_sceneAssembleTree.currentItem()(0)
-        print self.origialGroupName
-        self.treeWidget_sceneAssembleTree.itemChanged.connect(self.itemChangedName)
-        #print self.treeWidget_sceneAssembleTree.currentItem().text(0)
-  
+            
+            
+                
+
+            
+        else:
+            print 'it count not change name'
+            pass
+       # self.runBuildItemLevelTree()
+
     def itemChangedName(self):
         print 'chaned item Name'
-        self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
-        #print self.newGroupName
-        print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
-        try:
-            cmds.rename(self.origialGroupName,self.newGroupName)
+        
+        
+        try:    
+
+            if self.moreThanOneListCount > 1:
+                tempName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+                for i in range(0,self.moreThanOneListCount): 
+                    self.origialGroupName = self.moreThanOneList[i]
+                    self.newGroupName = tempName + '_' +'%04d'%i
+                    print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
+                    cmds.rename(self.origialGroupName,self.newGroupName)
+            else:
+                
+                self.newGroupName = self.treeWidget_sceneAssembleTree.currentItem().text(0)
+                print 'self.origialGroupName,self.newGroupName',self.origialGroupName,self.newGroupName
+
+                cmds.rename(self.origialGroupName,self.newGroupName)
         except:
             pass
-            
+        self.runBuildItemLevelTree()
+       # self.runBuildItemLevelTree()
 
     def ttt(self):
        # print self.treeWidget_sceneAssembleTree.currentItem().text(1)
