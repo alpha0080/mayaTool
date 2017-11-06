@@ -787,8 +787,8 @@ class Ui_MainWindow(object):
         self.pushButton_recent.setAutoFillBackground(False)
         self.pushButton_recent.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_recentA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_recent.setIcon(icon)
         self.pushButton_recent.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_recent.setCheckable(True)
@@ -834,8 +834,8 @@ class Ui_MainWindow(object):
         self.pushButton_complete.setAutoFillBackground(False)
         self.pushButton_complete.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon1.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_completeA.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.pushButton_complete.setIcon(icon1)
         self.pushButton_complete.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_complete.setCheckable(True)
@@ -881,8 +881,8 @@ class Ui_MainWindow(object):
         self.pushButton_inProgress.setAutoFillBackground(False)
         self.pushButton_inProgress.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/projSelect_inProgressA.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_inProgress.setIcon(icon2)
         self.pushButton_inProgress.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_inProgress.setCheckable(True)
@@ -897,7 +897,7 @@ class Ui_MainWindow(object):
         self.pushButton_reNewBranchDict.setGeometry(QtCore.QRect(535, 20, 31, 31))
         self.pushButton_reNewBranchDict.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/wrench2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_reNewBranchDict.setIcon(icon3)
         self.pushButton_reNewBranchDict.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_reNewBranchDict.setAutoDefault(False)
@@ -908,7 +908,7 @@ class Ui_MainWindow(object):
         self.pushButton_setting.setGeometry(QtCore.QRect(505, 20, 31, 31))
         self.pushButton_setting.setText("")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/gear2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_setting.setIcon(icon4)
         self.pushButton_setting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_setting.setAutoDefault(False)
@@ -919,7 +919,7 @@ class Ui_MainWindow(object):
         self.pushButton_syncFile.setGeometry(QtCore.QRect(445, 20, 31, 31))
         self.pushButton_syncFile.setText("")
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/radial_arrows2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_syncFile.setIcon(icon5)
         self.pushButton_syncFile.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_syncFile.setAutoDefault(False)
@@ -930,7 +930,7 @@ class Ui_MainWindow(object):
         self.pushButton_buildFolder.setGeometry(QtCore.QRect(415, 20, 31, 31))
         self.pushButton_buildFolder.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/masterB2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_buildFolder.setIcon(icon6)
         self.pushButton_buildFolder.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_buildFolder.setAutoDefault(False)
@@ -1470,7 +1470,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFolder.setGeometry(QtCore.QRect(5, 95, 40, 40))
         self.pushButton_openFolder.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/view-details-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon7.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/view-details-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFolder.setIcon(icon7)
         self.pushButton_openFolder.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_openFolder.setCheckable(True)
@@ -1483,7 +1483,7 @@ class Ui_MainWindow(object):
         self.pushButton_editFileInfo.setGeometry(QtCore.QRect(5, 25, 40, 40))
         self.pushButton_editFileInfo.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/pencil_and_paper-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon8.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/pencil_and_paper-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_editFileInfo.setIcon(icon8)
         self.pushButton_editFileInfo.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_editFileInfo.setCheckable(True)
@@ -1785,8 +1785,8 @@ class Ui_MainWindow(object):
         self.pushButton_processSimulation.setGeometry(QtCore.QRect(300, 20, 21, 30))
         self.pushButton_processSimulation.setText("")
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon9.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon9.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon9.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/simulation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processSimulation.setIcon(icon9)
         self.pushButton_processSimulation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processSimulation.setCheckable(True)
@@ -1799,8 +1799,8 @@ class Ui_MainWindow(object):
         self.pushButton_processAnimation.setGeometry(QtCore.QRect(210, 20, 30, 30))
         self.pushButton_processAnimation.setText("")
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon10.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon10.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon10.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/animation_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processAnimation.setIcon(icon10)
         self.pushButton_processAnimation.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processAnimation.setCheckable(True)
@@ -1813,8 +1813,8 @@ class Ui_MainWindow(object):
         self.pushButton_processEffects.setGeometry(QtCore.QRect(270, 20, 30, 30))
         self.pushButton_processEffects.setText("")
         icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon11.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon11.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon11.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/effect_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processEffects.setIcon(icon11)
         self.pushButton_processEffects.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processEffects.setCheckable(True)
@@ -1827,8 +1827,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLighting.setGeometry(QtCore.QRect(240, 20, 30, 30))
         self.pushButton_processLighting.setText("")
         icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon12.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon12.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon12.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/lighting_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLighting.setIcon(icon12)
         self.pushButton_processLighting.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLighting.setCheckable(True)
@@ -1841,8 +1841,8 @@ class Ui_MainWindow(object):
         self.pushButton_processLayout.setGeometry(QtCore.QRect(180, 20, 30, 30))
         self.pushButton_processLayout.setText("")
         icon13 = QtGui.QIcon()
-        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon13.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon13.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon13.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/layout_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processLayout.setIcon(icon13)
         self.pushButton_processLayout.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processLayout.setCheckable(True)
@@ -1855,8 +1855,8 @@ class Ui_MainWindow(object):
         self.pushButton_processRigging.setGeometry(QtCore.QRect(95, 20, 30, 30))
         self.pushButton_processRigging.setText("")
         icon14 = QtGui.QIcon()
-        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon14.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon14.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon14.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/rigging_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processRigging.setIcon(icon14)
         self.pushButton_processRigging.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processRigging.setCheckable(True)
@@ -1869,8 +1869,8 @@ class Ui_MainWindow(object):
         self.pushButton_processTexture.setGeometry(QtCore.QRect(65, 20, 30, 30))
         self.pushButton_processTexture.setText("")
         icon15 = QtGui.QIcon()
-        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon15.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon15.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon15.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/texture_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processTexture.setIcon(icon15)
         self.pushButton_processTexture.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processTexture.setCheckable(True)
@@ -1887,8 +1887,8 @@ class Ui_MainWindow(object):
         self.pushButton_processConcept.setSizePolicy(sizePolicy)
         self.pushButton_processConcept.setText("")
         icon16 = QtGui.QIcon()
-        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon16.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon16.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/concept_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon16.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/concept3_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processConcept.setIcon(icon16)
         self.pushButton_processConcept.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processConcept.setCheckable(True)
@@ -1901,8 +1901,8 @@ class Ui_MainWindow(object):
         self.pushButton_processModeling.setGeometry(QtCore.QRect(35, 20, 30, 30))
         self.pushButton_processModeling.setText("")
         icon17 = QtGui.QIcon()
-        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon17.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon17.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon17.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/modeling_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processModeling.setIcon(icon17)
         self.pushButton_processModeling.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processModeling.setCheckable(True)
@@ -2131,8 +2131,8 @@ class Ui_MainWindow(object):
         self.pushButton_shot.setGeometry(QtCore.QRect(9, 20, 31, 31))
         self.pushButton_shot.setText("")
         icon18 = QtGui.QIcon()
-        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon18.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon18.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon18.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/shotS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_shot.setIcon(icon18)
         self.pushButton_shot.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_shot.setCheckable(True)
@@ -2810,8 +2810,8 @@ class Ui_MainWindow(object):
         self.pushButton_others.setGeometry(QtCore.QRect(130, 20, 21, 30))
         self.pushButton_others.setText("")
         icon19 = QtGui.QIcon()
-        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon19.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon19.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon19.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/otherS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_others.setIcon(icon19)
         self.pushButton_others.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_others.setCheckable(True)
@@ -2824,8 +2824,8 @@ class Ui_MainWindow(object):
         self.pushButton_vehicle.setGeometry(QtCore.QRect(40, 20, 30, 30))
         self.pushButton_vehicle.setText("")
         icon20 = QtGui.QIcon()
-        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon20.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon20.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon20.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/vehS5_open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_vehicle.setIcon(icon20)
         self.pushButton_vehicle.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_vehicle.setCheckable(True)
@@ -2868,8 +2868,8 @@ class Ui_MainWindow(object):
         self.pushButton_character.setAutoFillBackground(False)
         self.pushButton_character.setText("")
         icon21 = QtGui.QIcon()
-        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon21.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon21.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon21.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/chaS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_character.setIcon(icon21)
         self.pushButton_character.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_character.setCheckable(True)
@@ -2885,8 +2885,8 @@ class Ui_MainWindow(object):
         self.pushButton_set.setGeometry(QtCore.QRect(70, 16, 30, 30))
         self.pushButton_set.setText("")
         icon22 = QtGui.QIcon()
-        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon22.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon22.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon22.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/setS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_set.setIcon(icon22)
         self.pushButton_set.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_set.setCheckable(True)
@@ -2899,8 +2899,8 @@ class Ui_MainWindow(object):
         self.pushButton_props.setGeometry(QtCore.QRect(100, 18, 30, 30))
         self.pushButton_props.setText("")
         icon23 = QtGui.QIcon()
-        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon23.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon23.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon23.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/propsS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_props.setIcon(icon23)
         self.pushButton_props.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_props.setCheckable(True)
@@ -3097,8 +3097,8 @@ class Ui_MainWindow(object):
         self.pushButton_all.setGeometry(QtCore.QRect(10, 20, 25, 25))
         self.pushButton_all.setText("")
         icon24 = QtGui.QIcon()
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon24.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon24.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon24.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/AllS5Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_all.setIcon(icon24)
         self.pushButton_all.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_all.setCheckable(True)
@@ -3263,7 +3263,7 @@ class Ui_MainWindow(object):
         self.pushButton_openBranchJson.setGeometry(QtCore.QRect(5, 93, 40, 40))
         self.pushButton_openBranchJson.setText("")
         icon25 = QtGui.QIcon()
-        icon25.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon25.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/option2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openBranchJson.setIcon(icon25)
         self.pushButton_openBranchJson.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_openBranchJson.setCheckable(True)
@@ -3421,7 +3421,7 @@ class Ui_MainWindow(object):
         self.pushButton_createNewBranch.setGeometry(QtCore.QRect(5, 33, 40, 40))
         self.pushButton_createNewBranch.setText("")
         icon26 = QtGui.QIcon()
-        icon26.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon26.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/newBranch2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_createNewBranch.setIcon(icon26)
         self.pushButton_createNewBranch.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_createNewBranch.setCheckable(True)
@@ -3579,7 +3579,7 @@ class Ui_MainWindow(object):
         self.pushButton_loadFile.setGeometry(QtCore.QRect(5, 295, 40, 40))
         self.pushButton_loadFile.setText("")
         icon27 = QtGui.QIcon()
-        icon27.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/load60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon27.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/load60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_loadFile.setIcon(icon27)
         self.pushButton_loadFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_loadFile.setCheckable(True)
@@ -3592,7 +3592,7 @@ class Ui_MainWindow(object):
         self.pushButton_saveFile.setGeometry(QtCore.QRect(5, 235, 40, 40))
         self.pushButton_saveFile.setText("")
         icon28 = QtGui.QIcon()
-        icon28.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/save60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon28.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/save60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_saveFile.setIcon(icon28)
         self.pushButton_saveFile.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_saveFile.setCheckable(True)
@@ -3895,7 +3895,7 @@ class Ui_MainWindow(object):
         self.pushButton_mergeToMaster.setGeometry(QtCore.QRect(5, 155, 40, 40))
         self.pushButton_mergeToMaster.setText("")
         icon29 = QtGui.QIcon()
-        icon29.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon29.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/merge2-60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_mergeToMaster.setIcon(icon29)
         self.pushButton_mergeToMaster.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_mergeToMaster.setCheckable(True)
@@ -4353,7 +4353,7 @@ class Ui_MainWindow(object):
         self.label_showImage = QtWidgets.QLabel(self.frame_7)
         self.label_showImage.setGeometry(QtCore.QRect(5, 7, 196, 186))
         self.label_showImage.setText("")
-        self.label_showImage.setPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/picture-01-150.png"))
+        self.label_showImage.setPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/picture-01-150.png"))
         self.label_showImage.setObjectName("label_showImage")
         self.frame_13 = QtWidgets.QFrame(self.frame_12)
         self.frame_13.setGeometry(QtCore.QRect(10, 125, 46, 346))
@@ -4505,7 +4505,7 @@ class Ui_MainWindow(object):
         self.pushButton_uploadSync.setGeometry(QtCore.QRect(130, 690, 40, 40))
         self.pushButton_uploadSync.setText("")
         icon30 = QtGui.QIcon()
-        icon30.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/Live_Sync_D60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon30.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/Live_Sync_D60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_uploadSync.setIcon(icon30)
         self.pushButton_uploadSync.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_uploadSync.setCheckable(True)
@@ -4518,7 +4518,7 @@ class Ui_MainWindow(object):
         self.pushButton_uploadPublish.setGeometry(QtCore.QRect(175, 690, 40, 40))
         self.pushButton_uploadPublish.setText("")
         icon31 = QtGui.QIcon()
-        icon31.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/uploadPublishC_60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon31.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/uploadPublishC_60.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_uploadPublish.setIcon(icon31)
         self.pushButton_uploadPublish.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_uploadPublish.setCheckable(True)
@@ -4536,14 +4536,14 @@ class Ui_MainWindow(object):
         self.pushButton_gotPublish.setSizePolicy(sizePolicy)
         self.pushButton_gotPublish.setText("")
         icon32 = QtGui.QIcon()
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C4.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C4.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512D2.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        icon32.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C4.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C4.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512D2.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon32.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/emoji-32-512C3.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_gotPublish.setIcon(icon32)
         self.pushButton_gotPublish.setIconSize(QtCore.QSize(50, 50))
         self.pushButton_gotPublish.setCheckable(True)
@@ -4702,7 +4702,7 @@ class Ui_MainWindow(object):
         self.pushButton_gotoPublishFolder.setGeometry(QtCore.QRect(6, 4, 36, 21))
         self.pushButton_gotoPublishFolder.setText("")
         icon33 = QtGui.QIcon()
-        icon33.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/gotoA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon33.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/gotoA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_gotoPublishFolder.setIcon(icon33)
         self.pushButton_gotoPublishFolder.setIconSize(QtCore.QSize(48, 28))
         self.pushButton_gotoPublishFolder.setCheckable(True)
@@ -5042,7 +5042,7 @@ class Ui_MainWindow(object):
         self.pushButton_changePageA.setGeometry(QtCore.QRect(2, 3, 25, 25))
         self.pushButton_changePageA.setText("")
         icon34 = QtGui.QIcon()
-        icon34.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon34.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/connerA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_changePageA.setIcon(icon34)
         self.pushButton_changePageA.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_changePageA.setCheckable(True)
@@ -5055,7 +5055,7 @@ class Ui_MainWindow(object):
         self.pushButton_changePageB.setGeometry(QtCore.QRect(27, 3, 25, 25))
         self.pushButton_changePageB.setText("")
         icon35 = QtGui.QIcon()
-        icon35.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon35.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/connerB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_changePageB.setIcon(icon35)
         self.pushButton_changePageB.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_changePageB.setCheckable(True)
@@ -5068,7 +5068,7 @@ class Ui_MainWindow(object):
         self.pushButton_changePageC.setGeometry(QtCore.QRect(2, 28, 25, 25))
         self.pushButton_changePageC.setText("")
         icon36 = QtGui.QIcon()
-        icon36.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon36.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/connerC.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_changePageC.setIcon(icon36)
         self.pushButton_changePageC.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_changePageC.setCheckable(True)
@@ -5081,7 +5081,7 @@ class Ui_MainWindow(object):
         self.pushButton_changePageD.setGeometry(QtCore.QRect(27, 28, 25, 25))
         self.pushButton_changePageD.setText("")
         icon37 = QtGui.QIcon()
-        icon37.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/connerD.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon37.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/connerD.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_changePageD.setIcon(icon37)
         self.pushButton_changePageD.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_changePageD.setCheckable(True)
@@ -5093,7 +5093,7 @@ class Ui_MainWindow(object):
         self.pushButton_publishAll_topPage.setGeometry(QtCore.QRect(260, 855, 150, 75))
         self.pushButton_publishAll_topPage.setText("")
         icon38 = QtGui.QIcon()
-        icon38.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/eggA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon38.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/eggA.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_publishAll_topPage.setIcon(icon38)
         self.pushButton_publishAll_topPage.setIconSize(QtCore.QSize(150, 75))
         self.pushButton_publishAll_topPage.setFlat(True)
@@ -6036,7 +6036,7 @@ class Ui_MainWindow(object):
         self.pushButton_convertToPng.setGeometry(QtCore.QRect(90, 10, 40, 40))
         self.pushButton_convertToPng.setText("")
         icon39 = QtGui.QIcon()
-        icon39.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/PNG-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon39.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/PNG-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_convertToPng.setIcon(icon39)
         self.pushButton_convertToPng.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_convertToPng.setFlat(True)
@@ -6045,7 +6045,7 @@ class Ui_MainWindow(object):
         self.pushButton_convertToJpg.setGeometry(QtCore.QRect(130, 10, 40, 40))
         self.pushButton_convertToJpg.setText("")
         icon40 = QtGui.QIcon()
-        icon40.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/jpgs-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon40.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/jpgs-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_convertToJpg.setIcon(icon40)
         self.pushButton_convertToJpg.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_convertToJpg.setFlat(True)
@@ -6072,7 +6072,7 @@ class Ui_MainWindow(object):
         self.pushButton_convertToTex.setGeometry(QtCore.QRect(10, 10, 40, 40))
         self.pushButton_convertToTex.setText("")
         icon41 = QtGui.QIcon()
-        icon41.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/TEX-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon41.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/TEX-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_convertToTex.setIcon(icon41)
         self.pushButton_convertToTex.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_convertToTex.setFlat(True)
@@ -6081,7 +6081,7 @@ class Ui_MainWindow(object):
         self.pushButton_convertToExr.setGeometry(QtCore.QRect(50, 10, 40, 40))
         self.pushButton_convertToExr.setText("")
         icon42 = QtGui.QIcon()
-        icon42.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/EXR-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon42.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/EXR-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_convertToExr.setIcon(icon42)
         self.pushButton_convertToExr.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_convertToExr.setFlat(True)
@@ -6145,7 +6145,7 @@ class Ui_MainWindow(object):
         self.pushButton_replaceFileRoot.setGeometry(QtCore.QRect(585, 700, 30, 30))
         self.pushButton_replaceFileRoot.setText("")
         icon43 = QtGui.QIcon()
-        icon43.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/replaceRoot.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon43.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/replaceRoot.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_replaceFileRoot.setIcon(icon43)
         self.pushButton_replaceFileRoot.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_replaceFileRoot.setFlat(True)
@@ -6727,7 +6727,7 @@ class Ui_MainWindow(object):
         self.pushButton_getSelectedNode.setGeometry(QtCore.QRect(60, 15, 35, 35))
         self.pushButton_getSelectedNode.setText("")
         icon44 = QtGui.QIcon()
-        icon44.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/getSelectItemPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon44.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/getSelectItemPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_getSelectedNode.setIcon(icon44)
         self.pushButton_getSelectedNode.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_getSelectedNode.setFlat(True)
@@ -6736,7 +6736,7 @@ class Ui_MainWindow(object):
         self.pushButton_refreshList.setGeometry(QtCore.QRect(15, 15, 35, 35))
         self.pushButton_refreshList.setText("")
         icon45 = QtGui.QIcon()
-        icon45.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/refreshPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon45.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/refreshPublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_refreshList.setIcon(icon45)
         self.pushButton_refreshList.setIconSize(QtCore.QSize(35, 35))
         self.pushButton_refreshList.setFlat(True)
@@ -6745,7 +6745,7 @@ class Ui_MainWindow(object):
         self.pushButton_reName.setGeometry(QtCore.QRect(195, 20, 30, 30))
         self.pushButton_reName.setText("")
         icon46 = QtGui.QIcon()
-        icon46.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/reNameB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon46.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/reNameB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_reName.setIcon(icon46)
         self.pushButton_reName.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_reName.setFlat(True)
@@ -6754,7 +6754,7 @@ class Ui_MainWindow(object):
         self.pushButton_unCheckAll.setGeometry(QtCore.QRect(145, 20, 30, 30))
         self.pushButton_unCheckAll.setText("")
         icon47 = QtGui.QIcon()
-        icon47.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/unCheckB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon47.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/unCheckB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_unCheckAll.setIcon(icon47)
         self.pushButton_unCheckAll.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_unCheckAll.setFlat(True)
@@ -6905,7 +6905,7 @@ class Ui_MainWindow(object):
         self.pushButton_delectSelectItems.setGeometry(QtCore.QRect(345, 20, 30, 30))
         self.pushButton_delectSelectItems.setText("")
         icon48 = QtGui.QIcon()
-        icon48.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/deletePublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon48.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/deletePublishB.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_delectSelectItems.setIcon(icon48)
         self.pushButton_delectSelectItems.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_delectSelectItems.setFlat(True)
@@ -7386,7 +7386,7 @@ class Ui_MainWindow(object):
         self.pushButton_publishAll2.setGeometry(QtCore.QRect(780, 0, 120, 50))
         self.pushButton_publishAll2.setText("")
         icon49 = QtGui.QIcon()
-        icon49.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/eggD_240.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon49.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/eggD_240.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_publishAll2.setIcon(icon49)
         self.pushButton_publishAll2.setIconSize(QtCore.QSize(120, 60))
         self.pushButton_publishAll2.setFlat(True)
@@ -8481,7 +8481,7 @@ class Ui_MainWindow(object):
         self.pushButton_closeBranch.setGeometry(QtCore.QRect(1390, 330, 31, 31))
         self.pushButton_closeBranch.setText("")
         icon50 = QtGui.QIcon()
-        icon50.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon50.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/delete2_512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_closeBranch.setIcon(icon50)
         self.pushButton_closeBranch.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_closeBranch.setAutoDefault(False)
@@ -8492,7 +8492,7 @@ class Ui_MainWindow(object):
         self.pushButton_openFileJson.setGeometry(QtCore.QRect(1360, 250, 31, 31))
         self.pushButton_openFileJson.setText("")
         icon51 = QtGui.QIcon()
-        icon51.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon51.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/document2-512.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_openFileJson.setIcon(icon51)
         self.pushButton_openFileJson.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_openFileJson.setAutoDefault(False)
@@ -8520,8 +8520,8 @@ class Ui_MainWindow(object):
         self.pushButton_processComp.setGeometry(QtCore.QRect(1340, 550, 29, 29))
         self.pushButton_processComp.setText("")
         icon52 = QtGui.QIcon()
-        icon52.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon52.addPixmap(QtGui.QPixmap("//Art-1405260002/D/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon52.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon52.addPixmap(QtGui.QPixmap("//mcd-one/database/assets/scripts/maya_scripts/icons/publishToolIcon/comp_3Open.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
         self.pushButton_processComp.setIcon(icon52)
         self.pushButton_processComp.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_processComp.setCheckable(True)
@@ -8706,7 +8706,7 @@ class Ui_MainWindow(object):
         self.radioButton_Half.setText(QtWidgets.QApplication.translate("MainWindow", "Half Size", None, -1))
         self.radioButton_Quarter.setText(QtWidgets.QApplication.translate("MainWindow", "Quarter Size", None, -1))
         self.radioButton_Original.setText(QtWidgets.QApplication.translate("MainWindow", "Original Size", None, -1))
-        self.lineEdit_file_sources.setText(QtWidgets.QApplication.translate("MainWindow", "//mcd-server", None, -1))
+        self.lineEdit_file_sources.setText(QtWidgets.QApplication.translate("MainWindow", "//mcd-one", None, -1))
         self.lineEdit_file_sources_2.setText(QtWidgets.QApplication.translate("MainWindow", "fileDesc", None, -1))
         self.lineEdit_prefixName.setText(QtWidgets.QApplication.translate("MainWindow", "Prefix", None, -1))
         self.label_fileData_39.setText(QtWidgets.QApplication.translate("MainWindow", "Refresh", None, -1))
@@ -8747,8 +8747,8 @@ class Ui_MainWindow(object):
         self.label_optionPage_branchFileInfo.setText(QtWidgets.QApplication.translate("MainWindow", "branch File Info position:", None, -1))
         self.plainTextEdit_optionPage_showFileType.setPlainText(QtWidgets.QApplication.translate("MainWindow", "ma,mb,rib,ass,zip", None, -1))
         self.label_optionPage_tempB_2.setText(QtWidgets.QApplication.translate("MainWindow", "Root :", None, -1))
-        self.lineEdit_setRoot.setText(QtWidgets.QApplication.translate("MainWindow", "//mcd-3d/art_3d_project", None, -1))
-        self.plainTextEdit_rootInput.setPlainText(QtWidgets.QApplication.translate("MainWindow", "//mcd-server", None, -1))
+        self.lineEdit_setRoot.setText(QtWidgets.QApplication.translate("MainWindow", "//mcd-one/3d_project", None, -1))
+        self.plainTextEdit_rootInput.setPlainText(QtWidgets.QApplication.translate("MainWindow", "//mcd-one", None, -1))
         self.tabWidget_branch.setTabText(self.tabWidget_branch.indexOf(self.tab_2), QtWidgets.QApplication.translate("MainWindow", "option Edit", None, -1))
         self.label_fileDescription.setText(QtWidgets.QApplication.translate("MainWindow", "File description:", None, -1))
         self.label_selectProject.setText(QtWidgets.QApplication.translate("MainWindow", "select Project", None, -1))
@@ -8853,7 +8853,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #define project root
         #self.root = "C:/mayaProjs" #test in home
-        self.root = "//mcd-server/art_3d_project"   # projects root in company
+        self.root = "//mcd-one/3d_project"   # projects root in company
         #self.root = "//mcd-3d/art_3d_project"
         #self.root = self.lineEdit_setRoot.text()
         #self.doFromAdmin()
@@ -9151,7 +9151,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print self.userPrefDict
     def reSetRoot(self):
         self.root = self.lineEdit_setRoot.text()
-        print self.root
+       # print self.root
         self.userPrefDict.update({'self.root':self.root})
         self.writeToUserPref()
         
@@ -9324,10 +9324,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         try:
             self.setFileTableFromUserPref()
-            print 'self.branchDict',self.branchDict
+           # print 'self.branchDict',self.branchDict
             self.createFileTable()
             self.fileInfoLocation = self.userPrefDict['self.assetBranchFileDir']
-            print 'self.fileInfoLocation',self.fileInfoLocation
+          #  print 'self.fileInfoLocation',self.fileInfoLocation
 
         except:
             pass
@@ -9335,10 +9335,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print 'self.fileInfoLocation',self.fileInfoLocation
 
        # self.printOutFileInfo()
-        print 'self.root',self.root
-        print 'self.project',self.project
-        print 'self.assetClass',self.assetClass
-        print 'self.assetNow ',self.assetNow 
+     #   print 'self.root',self.root
+      #  print 'self.project',self.project
+      #  print 'self.assetClass',self.assetClass
+      #  print 'self.assetNow ',self.assetNow 
         
         self.fileInfoLocation
         self.findAssetClass()
@@ -9414,9 +9414,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print" run createFileTable function start..................."
         
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-        print 'self.itemSelect',self.itemSelect
+      #  print 'self.itemSelect',self.itemSelect
         
-        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+      #  print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
         self.getFilesInfoFromJson()
         
 
@@ -9424,7 +9424,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #select tree item from userPref
         
         print  "setBranchItemSelectFromUserPref   start"
-        print self.userPrefDict['self.fullItemIndex']
+      #  print self.userPrefDict['self.fullItemIndex']
        # print self.treeWidget_branches.topLevelWidget()
         #self.tree_widget.setCurrentItem(self.tree_widget.topLevelItem(0))
 
@@ -9462,7 +9462,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def getDataFromTactic(self):
         print "run getDataFromTactic start"
-        scripts_path = "//Art-1405260002/d/assets"
+        scripts_path = "//mcd-one/database/assets"
         sys.path.append(scripts_path +  "/client")
         sys.path.append(scripts_path + "/scripts/tactic_scripts/ui")
         from tactic_client_lib import TacticServerStub
@@ -9532,7 +9532,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_complete.setChecked(int(self.userPrefDict['projectFilectButtonChecked'][2]))
 
         self.progressType = self.userPrefDict['self.progressType']
-        print 'self.progressType,check setPushButton_a01',self.progressType
+      #  print 'self.progressType,check setPushButton_a01',self.progressType
         
         self.selectProjectFromTactic()
 
@@ -9821,11 +9821,25 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def createNewFolder(self,createFolder):
         
-        try:
-            os.mkdir(createFolder)
-        except:
-            pass
+        baseFolder = ['assets','shot','output','publish','QC','reference','/assets','/shot','/output','/publish','/QC','/reference']
+        exceptList=[]
+        for i in baseFolder:
+            exceptList.append(str(self.root+'/'+i))
+     #   print exceptList
+      #  print createFolder
         
+        if createFolder in exceptList:
+            
+            pass
+        else:
+                
+                
+            
+            try:
+                os.mkdir(createFolder)
+            except:
+                pass
+            
             
     def getAllRequestFolder(self):
         self.getDataFromTactic() #
@@ -9983,15 +9997,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
        # self.assetClass = 'all'
         self.defineWorkingProjectAssemble()       
-        #self.clickAllButton() 
-       # checkAssetsFolder = self.root + '/' + self.project + '/' +'assets'
-        #check the assets folder in self.project is exist
-        #檢查在專案目錄下 assets資料夾是否存在
-       # if os.path.isdir(checkAssetsFolder) == True:
-       #     self.buildAssetsList()
-       # else:
-        #    pass projectCode
-    
+
     
 
         
@@ -10129,7 +10135,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
     def doFromAdmin(self):
-        print self.root
+       # print self.root
         self.selectProj()
         self.saveProjectsInGlobalFile()        
         
@@ -10298,7 +10304,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.allAssetTempList.append('%s.shot'%shotItem)
         print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
+       # print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
         
         #if os.path.isfile(self.projectAssembleDescriptionFile) == True:
         #    f = open(self.projectAssembleDescriptionFile,'r+')
@@ -10310,7 +10316,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.close
         self.userPrefDict.update({'self.projectAssembleDescriptionFile':self.projectAssembleDescriptionFile})
         self.writeToUserPref
-        print 'self.projectAssembleDescription',self.projectAssembleDescription
+       # print 'self.projectAssembleDescription',self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
 
@@ -10452,7 +10458,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "publishToolTemp folder is existed"
         else:
             self.createNewFolder(tempPath)
-            #os.mkdir(tempPath)
+
             print "created the publishTempPath"
             print "folder: %s"%tempPath
         self.publishTempPath = ""
@@ -10467,7 +10473,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def userPrefStore(self):   
         #define user last setting
         #儲存使用者最後使用資訊
-        self.root ="//mcd-server/art_3d_project"
+        self.root ="//mcd-one/3d_project"
         self.project = "3d_pipeline_test"
         self.assetClass ="character"
         self.assetNow = "shot_02"
@@ -10500,11 +10506,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 self.userPrefFileName= self.userPrefFileName + cha
                 
-        print self.userPrefFileName 
+     #   print self.userPrefFileName 
         fileOpen = open(self.userPrefFileName,'w')
         fileOpen.write
         
-        print "created %s"%self.userPrefFileName 
+    #    print "created %s"%self.userPrefFileName 
     
 ######-------------------------------store userPref End-------------------------------------------------------------------        
     
@@ -10702,12 +10708,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def checkPublishFileIsExist(self):
-        print self.isAsset
-        print self.assetNow
-        print self.assetClass
-        print self.processNow
+      #  print self.isAsset
+      #  print self.assetNow
+     #   print self.assetClass
+      #  print self.processNow
         tempName = self.assetNow +'.'+self.assetClass
-        print 'tempName' ,tempName
+      #  print 'tempName' ,tempName
         mayaFileName ='none'
         iconFileName = 'none'
         
@@ -10721,7 +10727,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             try:
                 with open(fileName) as data_file:    
                     data = json.load(data_file)
-                print data
+      #          print data
             except:
                 pass
             
@@ -10776,10 +10782,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
            
-            print 'mayafileName',mayaFileName   
+      #      print 'mayafileName',mayaFileName   
 
 
-            print 'iconFileName',iconFileName
+       #     print 'iconFileName',iconFileName
             
             self.openPublishFileName = mayaFileName   
         else:
@@ -10810,10 +10816,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.assetClass = 'shot'
         #self.userPrefDict.update({'self.assetClass':self.assetClass})
-        print 'self.isAsset',self.isAsset
-        print 'self.assetNow',self.assetNow
-        print 'self.assetListItemRow',self.assetListItemRow
-        print 'self.assetClass',self.assetClass
+     #   print 'self.isAsset',self.isAsset
+     #   print 'self.assetNow',self.assetNow
+     #   print 'self.assetListItemRow',self.assetListItemRow
+     #   print 'self.assetClass',self.assetClass
         #print 'self.realSelectItemAssetClass',self.realSelectItemAssetClass
         
         self.userPrefDict.update({'self.assetName':self.assetName})
@@ -11086,12 +11092,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.hostName = socket.gethostname()
         
-        print "self.root" ,self.root
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset
+      #  print "self.root" ,self.root
+      #  print "self.project" ,self.project
+     #   print "self.assetClass", self.assetClass
+     #   print "self.assetNow", self.assetNow   # if select assets
+     #   print "self.processNow", self.processNow
+     #   print "self.isAsset", self.isAsset
         
         
 
@@ -11130,12 +11136,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.assetNow = self.userPrefDict['self.assetNow']
         print "projectDescription Start    p01"
         self.assetClass = self.userPrefDict['self.assetClass']
-        print "self.root",self.root 
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset ,type(self.isAsset)
+   #     print "self.root",self.root 
+   #     print "self.project" ,self.project
+   #     print "self.assetClass", self.assetClass
+   #     print "self.assetNow", self.assetNow   # if select assets
+    #    print "self.processNow", self.processNow
+    #    print "self.isAsset", self.isAsset ,type(self.isAsset)
         
         #self.checkIsAssetValue()
 
@@ -11144,30 +11150,30 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
             else:
                 self.assetName = "shot" +"/" +self.assetNow
-            print "self.assetName", self.assetName
+    #        print "self.assetName", self.assetName
         except:
             pass
         try:
             self.shotName = "shot"+"/"+ self.assetNow
         
-            print "self.shotName" , self.shotName
+    #        print "self.shotName" , self.shotName
         except:
             pass
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
-        print "self.projectGlobal", self.projectGlobal
+   #     print "self.projectGlobal", self.projectGlobal
         #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
         
-        print "self.projectStructureName", self.projectStructureName
+   #     print "self.projectStructureName", self.projectStructureName
         self.userPrefDict.update({'self.assetName':self.assetName})
   
         self.userPrefDict.update({'self.shotName':self.shotName})
         self.userPrefDict.update({'self.projectGlobal':self.projectGlobal})
         self.userPrefDict.update({'self.projectStructureName':self.projectStructureName})
         self.writeToUserPref()
-        print 'self.processNow',self.processNow
+    #    print 'self.processNow',self.processNow
        
         print "projectDescription check point 01"
         if self.isAsset == True:
@@ -11182,7 +11188,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
             self.assetDir = self.root + "/" + self.project + "/" + self.assetName
             
-            print "self.assetBranchFileDir",self.assetBranchFileDir
+      #      print "self.assetBranchFileDir",self.assetBranchFileDir
 
             if os.path.isdir(self.assetDir) == True:
                 pass
@@ -11223,17 +11229,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "projectDescription check point 03"
 
             self.shotBranchFileName = self.assetNow + "_" + self.processNow +".json"        #shotBranchFileStore FileName
-            print 'self.shotBranchFileName ',self.shotBranchFileName 
+       #     print 'self.shotBranchFileName ',self.shotBranchFileName 
             self.shotRootDir = self.projectGlobal + "/" + "shot"
-            print 'self.shotRootDir',self.shotRootDir
+        #    print 'self.shotRootDir',self.shotRootDir
             self.shotBranchFileDir = self.shotRootDir + "/"+ self.assetNow # shotBranchFileStore Folder
-            print 'self.shotBranchFileDir',self.shotBranchFileDir
+        #    print 'self.shotBranchFileDir',self.shotBranchFileDir
             self.shotBranchFileStore = self.shotBranchFileDir + "/" + self.shotBranchFileName    #export Path + fileName
-            print 'self.shotBranchFileStore',self.shotBranchFileStore
+         #   print 'self.shotBranchFileStore',self.shotBranchFileStore
             self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
-            print 'self.workProject',self.workProject
+        #   print 'self.workProject',self.workProject
             self.shotDir = self.root + "/" + self.project + "/" + self.shotName 
-            print 'self.shotDir',self.shotDir
+        #    print 'self.shotDir',self.shotDir
           #  
           
             print "projectDescription check point 04"
@@ -11258,30 +11264,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.userPrefDict.update({'self.assetBranchFileStore':self.assetBranchFileStore})
             self.userPrefDict.update({'self.workProject':self.workProject})
             self.userPrefDict.update({'self.branchFileStore':self.branchFileStore})
-           # print "self.shotBranchFileDir", self.shotBranchFileDir
-           # print "self.shotBranchFileStore",self.shotBranchFileStore
-           # print "self.workProject", self.workProject    
-           # print "projectDescription check point 05.1"
-
-           # self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
-             
-           # print "projectDescription check point 05.2"
-
-           # self.userPrefDict.update({'self.shotBranchFileStore',self.shotBranchFileStore})
-           # print "projectDescription check point 05.3"
-
-            #self.userPrefDict.update({'self.workProject',self.workProject})
-           # print "projectDescription check point 05.4"
-
-            #self.userPrefDict.update({'self.branchFileStore',self.branchFileStore})
-
-           # print "projectDescription check point 06"
-
-                
-       # try:
-          #  os.mkdir(self.projectGlobal + "/" + self.assetNow)
-       # except:
-          #  pass
+ 
         self.plainTextEdit_optionPage_projDescription.setPlainText(self.projectStructureName)
         self.plainTextEdit_optionPage_workProj.setPlainText(self.workProject)
         self.plainTextEdit_optionPage_branchInfoPos.setPlainText(self.branchFileStore)
@@ -11303,10 +11286,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #get self.workProject, check master /scenes/master folder exist
         #get self.branchFileStore ,check the branchInfoFile ,json file exist
-        print "self.workProject............:" , self.workProject 
+       # print "self.workProject............:" , self.workProject 
         print 'checkMasterExist checkpoint a02'
 
-        print "self.branchFileStore.........:",self.branchFileStore
+     ##   print "self.branchFileStore.........:",self.branchFileStore
        # self.branchInfoFile = self.userPrefDict['self.branchFileStore']
         print 'checkMasterExist checkpoint a03'
         
@@ -11321,9 +11304,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.workProjectImages =self.workProject +'/'+'images' 
         self.workProjectSourceimages =self.workProject +'/'+'sourceimages' 
         self.masterFolder = self.workProject +'/'+'scenes'+ '/' + 'master'
-        print "masterFolder",self.masterFolder
-        print "master folder exist....:" ,os.path.isdir(self.masterFolder)
-        print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
+      #  print "masterFolder",self.masterFolder
+      #  print "master folder exist....:" ,os.path.isdir(self.masterFolder)
+      #  print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
         #timeNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         # .......1. check /scenes/master exist
         
@@ -11348,7 +11331,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 self.createNewFolder(i)
 
-               # os.mkdir(i)
+
                 print "build %s"%i
                                       
 
@@ -11426,9 +11409,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #--------------os.path.isdir(path),check the path is folder or file
         for i in branchPreDict.keys():
             secLevelDirSearch = topLevelDirFileSearch+ '/' + branchPreDict[i].keys()[0]  
-            print 'topLevelDirFileSearch',topLevelDirFileSearch
-            print 'branchPreDict',branchPreDict
-            print 'secLevelDirSearch',secLevelDirSearch 
+         #   print 'topLevelDirFileSearch',topLevelDirFileSearch
+        #    print 'branchPreDict',branchPreDict
+         #   print 'secLevelDirSearch',secLevelDirSearch 
             
             branchPreDict[i][branchPreDict[i].keys()[0]].update({'folder':{}})
             branchPreDict[i][branchPreDict[i].keys()[0]].update({'file':{}})
@@ -11719,7 +11702,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # with open('data.json') as data_file:    
         #data = json.load(data_file)
        # self.getFilesInfoFromJson()
-        print 'self.branchDict',self.branchDict
+      #  print 'self.branchDict',self.branchDict
         #tableWidget_FileList
         self.tableWidget_FileList.clear()
 
@@ -11728,9 +11711,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     #def asss(self):
         print" run createFileTable function start..................."
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-        print 'self.itemSelect',self.itemSelect
+      #  print 'self.itemSelect',self.itemSelect
         
-        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+       # print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
         
  
         # self.buildExistFileInfoTree()
@@ -11740,8 +11723,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             tableIndex = sorted(self.fileInfoDict.keys())  #string
             
             verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
-            print "verIndex",verIndex
-            print 'self.fileInfoDict',self.fileInfoDict
+       #     print "verIndex",verIndex
+      #      print 'self.fileInfoDict',self.fileInfoDict
             print "createFileTable check point 01"
             if len(tableIndex) > 0:
                 for i in range(0,len(tableIndex)):
@@ -11796,7 +11779,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         else:
             self.fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
-        print 'self.fileInfoLocation',self.fileInfoLocation
+       # print 'self.fileInfoLocation',self.fileInfoLocation
             
     
     
@@ -11805,7 +11788,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 1. define asset/shot description file location.
         # 2. create an empty text file in folder
         
-        print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
+     #   print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
         self.getGlobalFolderLocation()
        # if self.isAsset == True:
         #    fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetClass + '/'+ self.assetNow 
@@ -11820,7 +11803,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if os.path.isdir(self.fileInfoLocation) == False:
             self.createNewFolder(self.fileInfoLocation)
 
-            #os.mkdir(self.fileInfoLocation) 
         else:
             pass
         #thumbFileName = self.lineEdit_currentFileName.text().split('.')[0]
@@ -11857,7 +11839,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #add more description when push edit button
         f = open(self.fullFileInfoName,'w')
         dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText().encode('utf-8')
-        print dataEdit
+      #  print dataEdit
         f.write(dataEdit)
         f.close
         
@@ -11872,10 +11854,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        
         cmds.select(cl=True)
         screenShot = cmds.playblast(st=currentFrame, et=currentFrame, format="image", filename=self.fullFileThumbName, forceOverwrite=True, sequenceTime=False, clearCache=True, viewer=False, showOrnaments=False, framePadding=4, percent=100, compression="png", quality=70, width=150, height=150)
-        print 'screenShotAAA',screenShot
+       # print 'screenShotAAA',screenShot
         
         thumbNameCheckKey = self.fullFileThumbName.split('/')[-1]
-        print 'thumbNameCheckKey',thumbNameCheckKey
+      #  print 'thumbNameCheckKey',thumbNameCheckKey
         for i in os.listdir(self.fileInfoLocation):
             
             if i.split('.')[-1] == 'png':
@@ -11883,11 +11865,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     reNameThumbFileName = self.fullFileThumbName +'.0001.png'
                     srcName = self.fileInfoLocation +'/'+ i
                     os.rename( srcName, reNameThumbFileName)
-                    print 'srcName',srcName
-                    print 'reNameThumbFileName',reNameThumbFileName    
+       #             print 'srcName',srcName
+       #             print 'reNameThumbFileName',reNameThumbFileName    
         
         self.screenShot = screenShot.split('.')[0]+'.0001.png'
-        print self.screenShot
+      ##  print self.screenShot
         #self.getThumbnail()
         
         
@@ -11911,21 +11893,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print tempReNameThumbFileName
 
          
-        print 'thumbNameCheckKey',thumbNameCheckKey ,fileInfoLocation
+       # print 'thumbNameCheckKey',thumbNameCheckKey ,fileInfoLocation
         compareTimeTempList = []
         for i in os.listdir(fileInfoLocation):
             
             if i.split('.')[-1] == 'png':
                 if i.split('.')[0] == thumbNameCheckKey:
                     fullFileName = fileInfoLocation+i
-                    print fullFileName
+          #          print fullFileName
                     try:
                         fileTime =  os.path.getmtime(fullFileName) 
                         compareTimeTempList.append(str(fileTime)+'_._'+fullFileName)
                     except:
                         pass
  
-        print compareTimeTempList[0]
+      #  print compareTimeTempList[0]
         srcName = compareTimeTempList[0].split('_._')[-1]
         try:
             os.remove(reNameThumbFileName)
@@ -11935,39 +11917,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         os.rename(srcName,reNameThumbFileName)
      
-        '''
-        print 'srcName' ,srcName
-        print 'reNameThumbFileName',reNameThumbFileName
-        try:
-            os.remove(reNameThumbFileName)
-        except:
-            pass
- 
-        os.rename(srcName,reNameThumbFileName)
-        
-
-      #  os.rename(srcName,reNameThumbFileName)
-        oldFolder = fileInfoLocation+'/'+'old'
-        try:
-            os.mkdir(oldFolder)
-            
-        except:
-            pass
-           
-        for i in range( 1,len(compareTimeTempList)):
-            print i
-            
-            
-            src= compareTimeTempList[i].split('_._')[-1]
-            desc = oldFolder+'/'+compareTimeTempList[i].split('_._')[-1].split('/')[-1]
-            #print src,desc
-            try:
-                os.rename(src,desc)
-            except:
-                pass
-            #print 'srcName',srcName
-           # print 'reNameThumbFileName',reNameThumbFileName   
-       ''' 
+  
     def compareFileTime(self,inputFolder,fileFormat):
         #compareFileTime(self,string,list)
 
@@ -12030,13 +11980,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
         fileName = self.lineEdit_currentFileName.text()
         fullFileName = self.filesStoreBranchFolder +'/' +fileName
-        cmds.file( fullFileName, open=True,f=True ) #open file
+        cmds.file( fullFileName, open=True,f=True,iv=True ) #open file
         
         cmds.workspace(self.workProject, o=True) #set project
         
-        print 'workspace' ,cmds.workspace(q=True, rd=True) #check workspace
-        print '%s'%fileName + ' was opened'
-        print 'self.workProject',self.workProject
+       # print 'workspace' ,cmds.workspace(q=True, rd=True) #check workspace
+     #   print '%s'%fileName + ' was opened'
+       # print 'self.workProject',self.workProject
         print "openSelectFile end"
 
         
@@ -12049,7 +11999,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cmds.workspace(self.workProject,o=True) #set proj
         #print self.getFilesInfoFromJson()
         #print self.filesStoreBranchFolder  #, export branch folder
-        print "self.fileInfoDict" ,self.fileInfoDict
+      #  print "self.fileInfoDict" ,self.fileInfoDict
         #self.root ="//mcd-server/art_3d_project"
         #self.project = "3d_pipeline_test"
         #self.assetClass ="character"
@@ -12059,7 +12009,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         currentBranch = self.itemSelect 
-        print 'currentBranch', currentBranch
+     #   print 'currentBranch', currentBranch
         
 
         #-------------define project initial
@@ -12089,28 +12039,28 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.projectInitial = projectInitial  
         
         projInitLength = len(self.projectInitial)
-        print 'projInitLength',projInitLength
+     #   print 'projInitLength',projInitLength
     
-        print 'self.projectInitial', self.projectInitial
+     #   print 'self.projectInitial', self.projectInitial
         #-----------finding last version, illegal
         tempVerList= []
         if len(self.fileInfoDict.keys()) >0:
             print "the folder is not empty"
 
             for verKey in self.fileInfoDict.keys():
-                print self.fileInfoDict[verKey][0]
+      #          print self.fileInfoDict[verKey][0]
                 fileNameLength = len(self.fileInfoDict[verKey][0])
-                print 'fileNameLength',fileNameLength
+      #          print 'fileNameLength',fileNameLength
                 
                 cutProjInit_fileName = self.fileInfoDict[verKey][0][projInitLength:fileNameLength]
-                print 'cutProjInit_fileName',cutProjInit_fileName
-                print 'check getSavingFile point A01'
+      #          print 'cutProjInit_fileName',cutProjInit_fileName
+      #          print 'check getSavingFile point A01'
 
                 for i in cutProjInit_fileName.split('_'):
                    # print i
                     if i[0:2] in namePartVerCharControl:
                         existVerNum = i.split('v')[1]
-                        print existVerNum
+      #                  print existVerNum
 
                 print 'check getSavingFile point A02'
 
@@ -12136,14 +12086,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #------------define savingFileName in branch fileInfoDict
         getSavingName = self.projectInitial + '_' + self.assetNow +'_'+ self.processNow[0:3] + '_' + currentBranch +'_'+ nextVerNum +'_'+self.currentUser +'.mb'
         
-        print 'getSavingName',getSavingName
+    #    print 'getSavingName',getSavingName
         self.getSaveingBranchFolder()  #get saving folder
         self.longSavingName = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder +'/'  +getSavingName
         self.savingFolder = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder
         self.userPrefDict.update({'self.savingFolder':self.savingFolder})
         self.writeToUserPref()
 
-        print 'self.longSavingName' ,self.longSavingName
+     #   print 'self.longSavingName' ,self.longSavingName
         
         
         #cmds.file(self.longSavingName,rename=True)
@@ -12175,7 +12125,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         printText = self.plainTextEdit_BranchFileInfo.toPlainText()
         
-        print printText
+   #     print printText
         
     
     
@@ -12398,10 +12348,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print data
         load = ""
         for line in data:
-            print line
+      #      print line
             load = load + line
             
-        print load
+     #   print load
         self.plainTextEdit_BranchFileInfo.setPlainText(load)
         
         self.getGlobalFolderLocation()
@@ -12413,8 +12363,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.getThumbnail()
         
-        print 'self.branchDict',self.branchDict
-        print 'self.screenShot',self.screenShot
+     #   print 'self.branchDict',self.branchDict
+     #   print 'self.screenShot',self.screenShot
     
 
  #-----------------print out file info in textBrowser function End-------------------------------------------------------------------     
@@ -12422,7 +12372,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def getChildIndexCount(self):
         
         itemSelect = self.treeWidget_branches.currentItem()
-        print itemSelect.text(0)
+    #    print itemSelect.text(0)
 
        # self.treeWidget_branches.current
 
@@ -12430,15 +12380,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "create New Branch"
         #self.newBranch = self.lineEdit_branchName.text()
         self.getNewBranchName()
-        print self.newBranch
+     ##   print self.newBranch
         
         self.getBranchTopFromTreeList()    # ------------1
    #     print self.treeWidget_branches.currentIndex().row()
 
 
-    def getBranchTopFromTreeListB(self): #---------1
-        print "ggggggggg"
-        print self.treeWidget_branches.topLevelItemCount()
+  #  def getBranchTopFromTreeListB(self): #---------1
+     #   print "ggggggggg"
+     #   print self.treeWidget_branches.topLevelItemCount()
         #print self.treeWidget_branches.indexOfTopLevelItem(1)
 
              
@@ -12590,7 +12540,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex]})
 
         self.writeToUserPref()
-        print 'self.fullItemIndex',self.fullItemIndex
+       # print 'self.fullItemIndex',self.fullItemIndex
 
         print 'run findParentTopLevelItem End'
 
@@ -12694,32 +12644,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     ##-------------------------creader folder---------------------------------------------------------  
 
         createTopLayerFoder = self.workProject + '/' +'scenes'+ '/'+ self.newBranch 
-        print os.path.isdir(createTopLayerFoder)
+
         if os.path.isdir(createTopLayerFoder) == True:
             print "already has "+"%s"%createTopLayerFoder + " folder"
             
         else:
             self.createNewFolder(createTopLayerFoder)
 
-           # os.mkdir(createTopLayerFoder)
-            
-                
-        print createTopLayerFoder
-        
-        #   update self.branchDict, the dictionary of all branches   
-    
-        # topLevelItemCount = len(self.branchDict.keys())
-        
-        # self.branchDict.update({str(topLevelItemCount):{self.newBranch:{}}})
-                          
 
-
-        
-
-    #   update assetBranchFileInfo.json
-  
-       # self.getFilesInfoFromJson()           #reNew jsonFile and dirctionary
- 
         print "......createNewBranchTopLevel function End............."
         
         
@@ -12734,13 +12666,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # create New Branch on Child Level ----------------------------------------------------------------------------------------------------------------------
     def createNewBranchChildLevel(self): 
      #   print"ggg"
-        print len(self.fullItemIndex)    
-        print self.fullItemIndex 
+      #  print len(self.fullItemIndex)    
+     #   print self.fullItemIndex 
        # self.getExistBranchDict()
         itemSelect = self.treeWidget_branches.currentItem().text(0)
         #self.newBranch = self.lineEdit_branchName.text()
         self.getNewBranchName()
-        print self.newBranch
+    ##    print self.newBranch
 
         topLevelIndex = int(self.fullItemIndex[0])
         
@@ -12756,15 +12688,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "Create level 2 branch"
 
             existLevelCount = len(self.branchDict[str(self.fullItemIndex[0])][itemSelect].keys())   # = child,secLevelIndex
-            print existLevelCount
+      #      print existLevelCount
             secItemList = self.branchDict[str(self.fullItemIndex[0])][itemSelect].keys()
-            print secItemList
+       #     print secItemList
 
-            print "topLevelIndex",topLevelIndex
+      #      print "topLevelIndex",topLevelIndex
 
             if self.newBranch in secItemList:
-                print
-                print "Change New Branch Name"
+        #        print
+         #       print "Change New Branch Name"
                 pass
                 
                 
@@ -12778,7 +12710,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
                    
 
-                    print 'topLevelIndex, existLevelCount',topLevelIndex, existLevelCount
+       #             print 'topLevelIndex, existLevelCount',topLevelIndex, existLevelCount
                     
                     
                     print "create New 2nd Item"
@@ -12792,18 +12724,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #pass
                 
                     print "change Name"
-                    print topLevelIndex, existLevelCount
+       #             print topLevelIndex, existLevelCount
                     
             self.treeWidget_branches.topLevelItem(topLevelIndex).child(existLevelCount).setText(0,self.newBranch)   #named the newItem , from typeIn line edit
             # create folder
             createTopLayerFoder = self.workProject + '/' +'scenes'+ '/' + itemSelect +'/' + self.newBranch
-            print createTopLayerFoder
-            print os.path.isdir(createTopLayerFoder)
+       #     print createTopLayerFoder
+       #     print os.path.isdir(createTopLayerFoder)
             if os.path.isdir(createTopLayerFoder) == True:
                 print "already has %s folder"%createTopLayerFoder
             else:
-                print "create %s folder"%createTopLayerFoder
-              #  os.mkdir(createTopLayerFoder)
+
                 self.createNewFolder(createTopLayerFoder)
 
 
@@ -12812,10 +12743,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         elif len(self.fullItemIndex) == 2: # create 2nd Level Item under select item
             print "Create level 3 branch"
-            print self.fullItemIndex
+      #      print self.fullItemIndex
             
             thirdItemList = self.branchDict[str(self.fullItemIndex[0])][self.branchDict[str(self.fullItemIndex[0])].keys()[0]][itemSelect].keys()
-            print thirdItemList
+       #     print thirdItemList
             existThirdLevelCount = len(thirdItemList)
             
             if self.newBranch in thirdItemList:
@@ -12840,13 +12771,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
           #  getSecLevelItem = self.branchDict[str(self.fullItemIndex[0])][self.branchDict[str(self.fullItemIndex[0])].keys()[0]].keys()[self.fullItemIndex[1]]
             createTopLayerFoder = self.workProject + '/' +'scenes'+ '/' +getTopLevelItem +'/' + itemSelect +'/' + self.newBranch
-            print createTopLayerFoder
-            print os.path.isdir(createTopLayerFoder)
+         #   print createTopLayerFoder
+       #     print os.path.isdir(createTopLayerFoder)
             if os.path.isdir(createTopLayerFoder) == True:
                 print "already has %s folder"%createTopLayerFoder
             else:
                 print "create %s folder"%createTopLayerFoder
-               # os.mkdir(createTopLayerFoder)
+
                 self.createNewFolder(createTopLayerFoder)
 
 
@@ -13492,7 +13423,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             except:
                 pass
         
-        print delectList
+       # print delectList
         cmds.delete(delectList)
         self.checkNodeDict = {}
         self.delectBadPlugin()  # delect checked Plugin
@@ -13753,7 +13684,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cmds.file( s=True, typ='mayaAscii')
         
         #self.checkIsAssetValue()
-        print self.isAsset
+        #print self.isAsset
         
         
         if self.isAsset == True:
@@ -13847,7 +13778,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         
                         resetAttribute = self.allCopyFileInfoDict[i][self.allCopyFileInfoDict[i].keys()[j]].split('*.*')[0].split('_._')[0] + self.allCopyFileInfoDict[i].keys()[j].split('*.*')[2] + str(self.allCopyFileInfoDict[i][self.allCopyFileInfoDict[i].keys()[j]].split('*.*')[0].split('_._')[1])
                         
-                        print 'resetAttribute',resetAttribute
+       #                 print 'resetAttribute',resetAttribute
                     else:
                       #  pass
                         print 'resetAttribute',resetAttribute
@@ -13945,7 +13876,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 newAttr = self.readyToAssigForNode[i]
                 #print nodeAttr,newAttr
                 self.assignNewAttr(nodeAttr,newAttr)
-                print i
+         #       print i
 
 
 
@@ -14005,8 +13936,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         fileNameExt = udimFileName + '*.*'+ linkingFile +'*.*'+attrKey
                         self.allCopyFileInfoDict['udimTexture'].update({fileNameExt:nodeNameExt})
                         self.allCopyFileInfoDictItemsValue = self.allCopyFileInfoDictItemsValue +1
-                        print 'nodeNameExt',nodeNameExt
-                        print 'fileNameExt',fileNameExt
+           #             print 'nodeNameExt',nodeNameExt
+           #             print 'fileNameExt',fileNameExt
                     else:
                         pass
                 #self.allCopyFileInfoDict['pxrTexture'].update({nodeName:{self.udimFileNameListudimFileNameList}})    
@@ -14035,7 +13966,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif checkMode == 'ribArchive':
             nodeNameExt = nodeName + '*.*'+ 'none'
             fileNameExt = linkingFile + '*.*'+ nodeName +'*.*'+attrKey
-            print 'fileNameExt',fileNameExt
+        #    print 'fileNameExt',fileNameExt
             self.allCopyFileInfoDict['ribArchive'].update({fileNameExt:nodeNameExt})
             self.allCopyFileInfoDictItemsValue = self.allCopyFileInfoDictItemsValue +1
                   
@@ -14069,7 +14000,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         
        # print 'self.udimFileNameList',self.udimFileNameList
-        print 'self.allCopyFileInfoDict',self.allCopyFileInfoDict
+      #  print 'self.allCopyFileInfoDict',self.allCopyFileInfoDict
           # print linkingFile.split('/')[-1]
     def checkFileSize(self,fileName):
         
@@ -14537,7 +14468,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pxrNodes.append(j+'_._'+i)
 
         for i in pxrNodes:
-            print i
+    #        print i
             if i.split('_._')[1] == 'PxrMultiTexture':
                 for j,k in zip(pxrMultiTexturePathList,range(0,10)):
                     #print i.split('_._')[0], cmds.getAttr(i.split('_._')[0]+'.'+j)
@@ -15019,11 +14950,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             badCount = 0
             
-        print badCount
-        print 'badCount',badCount
+    #    print badCount
+    #    print 'badCount',badCount
         self.countN11 = badCount + loadCound
 
-        print self.countN11 ,badCount,loadCound
+     #   print self.countN11 ,badCount,loadCound
 
         
         for index in range(0,badCount):
@@ -15229,8 +15160,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         #for k in range(0,len(nodeName.split('|'))):
                         #    print k , len(nodeName.split('|'))-k
                         max =nodeNameLength +1
-                        print nodeNameLength
-                        print 'nodeName',nodeName
+                #        print nodeNameLength
+                #        print 'nodeName',nodeName
                         maxReverse = max-1 
                         for c in range(0,max-1):
                             listAdd = ''
@@ -15240,7 +15171,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                             sourceNodeName = listAdd[1:]
                             dectNodeName = sourceNodeName.split('|')[-1] +'_'+'%04d'%count
-                            print sourceNodeName ,dectNodeName
+                 #           print sourceNodeName ,dectNodeName
                            # try:
                          #   cmds.rename(sourceNodeName,dectNodeName)
                            # except:

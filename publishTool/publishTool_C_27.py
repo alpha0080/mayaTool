@@ -9151,7 +9151,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print self.userPrefDict
     def reSetRoot(self):
         self.root = self.lineEdit_setRoot.text()
-        print self.root
+       # print self.root
         self.userPrefDict.update({'self.root':self.root})
         self.writeToUserPref()
         
@@ -9324,10 +9324,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         try:
             self.setFileTableFromUserPref()
-            print 'self.branchDict',self.branchDict
+           # print 'self.branchDict',self.branchDict
             self.createFileTable()
             self.fileInfoLocation = self.userPrefDict['self.assetBranchFileDir']
-            print 'self.fileInfoLocation',self.fileInfoLocation
+          #  print 'self.fileInfoLocation',self.fileInfoLocation
 
         except:
             pass
@@ -9335,10 +9335,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print 'self.fileInfoLocation',self.fileInfoLocation
 
        # self.printOutFileInfo()
-        print 'self.root',self.root
-        print 'self.project',self.project
-        print 'self.assetClass',self.assetClass
-        print 'self.assetNow ',self.assetNow 
+     #   print 'self.root',self.root
+      #  print 'self.project',self.project
+      #  print 'self.assetClass',self.assetClass
+      #  print 'self.assetNow ',self.assetNow 
         
         self.fileInfoLocation
         self.findAssetClass()
@@ -9414,9 +9414,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print" run createFileTable function start..................."
         
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-        print 'self.itemSelect',self.itemSelect
+      #  print 'self.itemSelect',self.itemSelect
         
-        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+      #  print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
         self.getFilesInfoFromJson()
         
 
@@ -9424,7 +9424,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #select tree item from userPref
         
         print  "setBranchItemSelectFromUserPref   start"
-        print self.userPrefDict['self.fullItemIndex']
+      #  print self.userPrefDict['self.fullItemIndex']
        # print self.treeWidget_branches.topLevelWidget()
         #self.tree_widget.setCurrentItem(self.tree_widget.topLevelItem(0))
 
@@ -9498,29 +9498,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         
-    def getDataFromTacticFile(self):
 
-        tacticProjectFile = "C:/mayaProjs/global/projectInTactic.json"
-
-        tacticssetsFile = "C:/mayaProjs/global/assetsInTactic.json"
-
-        tacticShotsFile = "C:/mayaProjs/global/shotsInTactic.json"
-
-
-        import json
-        from pprint import pprint
-
-        with open(tacticProjectFile, 'r') as f:
-            self.projectsInTactic = json.load(f)
-            
-        with open(tacticssetsFile, 'r') as f:
-            self.assetsInTactic = json.load(f)
-            
-        with open(tacticShotsFile, 'r') as f:
-            self.shotsInTactic = json.load(f)
-            
-            
-            
     #----------------------click push button, inProgress, _recent, _complete-----------------------------------------------------------
     def setPushButton_ProjectSelect(self):
         print "setPushButton_ProjectSelect start"
@@ -9532,7 +9510,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_complete.setChecked(int(self.userPrefDict['projectFilectButtonChecked'][2]))
 
         self.progressType = self.userPrefDict['self.progressType']
-        print 'self.progressType,check setPushButton_a01',self.progressType
+      #  print 'self.progressType,check setPushButton_a01',self.progressType
         
         self.selectProjectFromTactic()
 
@@ -10129,7 +10107,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
     def doFromAdmin(self):
-        print self.root
+       # print self.root
         self.selectProj()
         self.saveProjectsInGlobalFile()        
         
@@ -10298,7 +10276,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.allAssetTempList.append('%s.shot'%shotItem)
         print "define self.projectAssembleDescriptionFile,in %s/global/%s__assembleDescription.json"%(self.project,self.project)
         self.projectAssembleDescriptionFile = self.root + '/' + self.project + '/' +'global'+ '/' + self.project + '_assembleDescription.json'
-        print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
+       # print 'self.projectAssembleDescriptionFile',self.projectAssembleDescriptionFile
         
         #if os.path.isfile(self.projectAssembleDescriptionFile) == True:
         #    f = open(self.projectAssembleDescriptionFile,'r+')
@@ -10310,7 +10288,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         f.close
         self.userPrefDict.update({'self.projectAssembleDescriptionFile':self.projectAssembleDescriptionFile})
         self.writeToUserPref
-        print 'self.projectAssembleDescription',self.projectAssembleDescription
+       # print 'self.projectAssembleDescription',self.projectAssembleDescription
         print "run defineWorkingProjectAssemble End"
 
 
@@ -10500,11 +10478,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else:
                 self.userPrefFileName= self.userPrefFileName + cha
                 
-        print self.userPrefFileName 
+     #   print self.userPrefFileName 
         fileOpen = open(self.userPrefFileName,'w')
         fileOpen.write
         
-        print "created %s"%self.userPrefFileName 
+    #    print "created %s"%self.userPrefFileName 
     
 ######-------------------------------store userPref End-------------------------------------------------------------------        
     
@@ -10702,12 +10680,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
     def checkPublishFileIsExist(self):
-        print self.isAsset
-        print self.assetNow
-        print self.assetClass
-        print self.processNow
+      #  print self.isAsset
+      #  print self.assetNow
+     #   print self.assetClass
+      #  print self.processNow
         tempName = self.assetNow +'.'+self.assetClass
-        print 'tempName' ,tempName
+      #  print 'tempName' ,tempName
         mayaFileName ='none'
         iconFileName = 'none'
         
@@ -10721,7 +10699,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             try:
                 with open(fileName) as data_file:    
                     data = json.load(data_file)
-                print data
+      #          print data
             except:
                 pass
             
@@ -10776,10 +10754,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
            
-            print 'mayafileName',mayaFileName   
+      #      print 'mayafileName',mayaFileName   
 
 
-            print 'iconFileName',iconFileName
+       #     print 'iconFileName',iconFileName
             
             self.openPublishFileName = mayaFileName   
         else:
@@ -10810,10 +10788,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.assetClass = 'shot'
         #self.userPrefDict.update({'self.assetClass':self.assetClass})
-        print 'self.isAsset',self.isAsset
-        print 'self.assetNow',self.assetNow
-        print 'self.assetListItemRow',self.assetListItemRow
-        print 'self.assetClass',self.assetClass
+     #   print 'self.isAsset',self.isAsset
+     #   print 'self.assetNow',self.assetNow
+     #   print 'self.assetListItemRow',self.assetListItemRow
+     #   print 'self.assetClass',self.assetClass
         #print 'self.realSelectItemAssetClass',self.realSelectItemAssetClass
         
         self.userPrefDict.update({'self.assetName':self.assetName})
@@ -11086,12 +11064,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.hostName = socket.gethostname()
         
-        print "self.root" ,self.root
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset
+      #  print "self.root" ,self.root
+      #  print "self.project" ,self.project
+     #   print "self.assetClass", self.assetClass
+     #   print "self.assetNow", self.assetNow   # if select assets
+     #   print "self.processNow", self.processNow
+     #   print "self.isAsset", self.isAsset
         
         
 
@@ -11130,12 +11108,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.assetNow = self.userPrefDict['self.assetNow']
         print "projectDescription Start    p01"
         self.assetClass = self.userPrefDict['self.assetClass']
-        print "self.root",self.root 
-        print "self.project" ,self.project
-        print "self.assetClass", self.assetClass
-        print "self.assetNow", self.assetNow   # if select assets
-        print "self.processNow", self.processNow
-        print "self.isAsset", self.isAsset ,type(self.isAsset)
+   #     print "self.root",self.root 
+   #     print "self.project" ,self.project
+   #     print "self.assetClass", self.assetClass
+   #     print "self.assetNow", self.assetNow   # if select assets
+    #    print "self.processNow", self.processNow
+    #    print "self.isAsset", self.isAsset ,type(self.isAsset)
         
         #self.checkIsAssetValue()
 
@@ -11144,30 +11122,30 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.assetName = "assets" + "/" + self.assetClass + "/" + self.assetNow
             else:
                 self.assetName = "shot" +"/" +self.assetNow
-            print "self.assetName", self.assetName
+    #        print "self.assetName", self.assetName
         except:
             pass
         try:
             self.shotName = "shot"+"/"+ self.assetNow
         
-            print "self.shotName" , self.shotName
+    #        print "self.shotName" , self.shotName
         except:
             pass
         
         self.projectGlobal = self.root + "/" + self.project + "/" +"global"
         
-        print "self.projectGlobal", self.projectGlobal
+   #     print "self.projectGlobal", self.projectGlobal
         #projectStructure.json  -- projectName_Structure.json branchPreDict
         self.projectStructureName = self.projectGlobal + "/" + self.project+"_struction.json"
         
-        print "self.projectStructureName", self.projectStructureName
+   #     print "self.projectStructureName", self.projectStructureName
         self.userPrefDict.update({'self.assetName':self.assetName})
   
         self.userPrefDict.update({'self.shotName':self.shotName})
         self.userPrefDict.update({'self.projectGlobal':self.projectGlobal})
         self.userPrefDict.update({'self.projectStructureName':self.projectStructureName})
         self.writeToUserPref()
-        print 'self.processNow',self.processNow
+    #    print 'self.processNow',self.processNow
        
         print "projectDescription check point 01"
         if self.isAsset == True:
@@ -11182,7 +11160,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.workProject = self.root + "/" + self.project + "/" + self.assetName + "/" + self.processNow
             self.assetDir = self.root + "/" + self.project + "/" + self.assetName
             
-            print "self.assetBranchFileDir",self.assetBranchFileDir
+      #      print "self.assetBranchFileDir",self.assetBranchFileDir
 
             if os.path.isdir(self.assetDir) == True:
                 pass
@@ -11223,17 +11201,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "projectDescription check point 03"
 
             self.shotBranchFileName = self.assetNow + "_" + self.processNow +".json"        #shotBranchFileStore FileName
-            print 'self.shotBranchFileName ',self.shotBranchFileName 
+       #     print 'self.shotBranchFileName ',self.shotBranchFileName 
             self.shotRootDir = self.projectGlobal + "/" + "shot"
-            print 'self.shotRootDir',self.shotRootDir
+        #    print 'self.shotRootDir',self.shotRootDir
             self.shotBranchFileDir = self.shotRootDir + "/"+ self.assetNow # shotBranchFileStore Folder
-            print 'self.shotBranchFileDir',self.shotBranchFileDir
+        #    print 'self.shotBranchFileDir',self.shotBranchFileDir
             self.shotBranchFileStore = self.shotBranchFileDir + "/" + self.shotBranchFileName    #export Path + fileName
-            print 'self.shotBranchFileStore',self.shotBranchFileStore
+         #   print 'self.shotBranchFileStore',self.shotBranchFileStore
             self.workProject = self.root + "/" + self.project + "/" + self.shotName + "/" + self.processNow
-            print 'self.workProject',self.workProject
+        #   print 'self.workProject',self.workProject
             self.shotDir = self.root + "/" + self.project + "/" + self.shotName 
-            print 'self.shotDir',self.shotDir
+        #    print 'self.shotDir',self.shotDir
           #  
           
             print "projectDescription check point 04"
@@ -11303,10 +11281,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         #get self.workProject, check master /scenes/master folder exist
         #get self.branchFileStore ,check the branchInfoFile ,json file exist
-        print "self.workProject............:" , self.workProject 
+       # print "self.workProject............:" , self.workProject 
         print 'checkMasterExist checkpoint a02'
 
-        print "self.branchFileStore.........:",self.branchFileStore
+     ##   print "self.branchFileStore.........:",self.branchFileStore
        # self.branchInfoFile = self.userPrefDict['self.branchFileStore']
         print 'checkMasterExist checkpoint a03'
         
@@ -11321,9 +11299,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.workProjectImages =self.workProject +'/'+'images' 
         self.workProjectSourceimages =self.workProject +'/'+'sourceimages' 
         self.masterFolder = self.workProject +'/'+'scenes'+ '/' + 'master'
-        print "masterFolder",self.masterFolder
-        print "master folder exist....:" ,os.path.isdir(self.masterFolder)
-        print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
+      #  print "masterFolder",self.masterFolder
+      #  print "master folder exist....:" ,os.path.isdir(self.masterFolder)
+      #  print "branch Info File exist.:", os.path.isfile(self.branchFileStore)
         #timeNow = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         # .......1. check /scenes/master exist
         
@@ -11426,9 +11404,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #--------------os.path.isdir(path),check the path is folder or file
         for i in branchPreDict.keys():
             secLevelDirSearch = topLevelDirFileSearch+ '/' + branchPreDict[i].keys()[0]  
-            print 'topLevelDirFileSearch',topLevelDirFileSearch
-            print 'branchPreDict',branchPreDict
-            print 'secLevelDirSearch',secLevelDirSearch 
+         #   print 'topLevelDirFileSearch',topLevelDirFileSearch
+        #    print 'branchPreDict',branchPreDict
+         #   print 'secLevelDirSearch',secLevelDirSearch 
             
             branchPreDict[i][branchPreDict[i].keys()[0]].update({'folder':{}})
             branchPreDict[i][branchPreDict[i].keys()[0]].update({'file':{}})
@@ -11719,7 +11697,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # with open('data.json') as data_file:    
         #data = json.load(data_file)
        # self.getFilesInfoFromJson()
-        print 'self.branchDict',self.branchDict
+      #  print 'self.branchDict',self.branchDict
         #tableWidget_FileList
         self.tableWidget_FileList.clear()
 
@@ -11728,9 +11706,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     #def asss(self):
         print" run createFileTable function start..................."
         self.itemSelect =  self.treeWidget_branches.currentItem().text(0)
-        print 'self.itemSelect',self.itemSelect
+      #  print 'self.itemSelect',self.itemSelect
         
-        print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
+       # print 'index',self.treeWidget_branches.indexOfTopLevelItem(self.treeWidget_branches.currentItem())
         
  
         # self.buildExistFileInfoTree()
@@ -11740,8 +11718,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             tableIndex = sorted(self.fileInfoDict.keys())  #string
             
             verIndex = sorted(self.fileInfoDict.keys(), reverse = True )        
-            print "verIndex",verIndex
-            print 'self.fileInfoDict',self.fileInfoDict
+       #     print "verIndex",verIndex
+      #      print 'self.fileInfoDict',self.fileInfoDict
             print "createFileTable check point 01"
             if len(tableIndex) > 0:
                 for i in range(0,len(tableIndex)):
@@ -11796,7 +11774,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         else:
             self.fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"shot"+ '/'+ self.assetNow 
-        print 'self.fileInfoLocation',self.fileInfoLocation
+       # print 'self.fileInfoLocation',self.fileInfoLocation
             
     
     
@@ -11805,7 +11783,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 1. define asset/shot description file location.
         # 2. create an empty text file in folder
         
-        print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
+     #   print "getFileInfo from %s"%self.lineEdit_currentFileName.text()
         self.getGlobalFolderLocation()
        # if self.isAsset == True:
         #    fileInfoLocation = self.root +'/'+ self.project +'/' + 'global' + '/' +"assets"+ '/'+ self.assetClass + '/'+ self.assetNow 
@@ -11857,7 +11835,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #add more description when push edit button
         f = open(self.fullFileInfoName,'w')
         dataEdit = self.plainTextEdit_BranchFileInfo.toPlainText().encode('utf-8')
-        print dataEdit
+      #  print dataEdit
         f.write(dataEdit)
         f.close
         
@@ -11872,10 +11850,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        
         cmds.select(cl=True)
         screenShot = cmds.playblast(st=currentFrame, et=currentFrame, format="image", filename=self.fullFileThumbName, forceOverwrite=True, sequenceTime=False, clearCache=True, viewer=False, showOrnaments=False, framePadding=4, percent=100, compression="png", quality=70, width=150, height=150)
-        print 'screenShotAAA',screenShot
+       # print 'screenShotAAA',screenShot
         
         thumbNameCheckKey = self.fullFileThumbName.split('/')[-1]
-        print 'thumbNameCheckKey',thumbNameCheckKey
+      #  print 'thumbNameCheckKey',thumbNameCheckKey
         for i in os.listdir(self.fileInfoLocation):
             
             if i.split('.')[-1] == 'png':
@@ -11883,11 +11861,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     reNameThumbFileName = self.fullFileThumbName +'.0001.png'
                     srcName = self.fileInfoLocation +'/'+ i
                     os.rename( srcName, reNameThumbFileName)
-                    print 'srcName',srcName
-                    print 'reNameThumbFileName',reNameThumbFileName    
+       #             print 'srcName',srcName
+       #             print 'reNameThumbFileName',reNameThumbFileName    
         
         self.screenShot = screenShot.split('.')[0]+'.0001.png'
-        print self.screenShot
+      ##  print self.screenShot
         #self.getThumbnail()
         
         
@@ -11911,21 +11889,21 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print tempReNameThumbFileName
 
          
-        print 'thumbNameCheckKey',thumbNameCheckKey ,fileInfoLocation
+       # print 'thumbNameCheckKey',thumbNameCheckKey ,fileInfoLocation
         compareTimeTempList = []
         for i in os.listdir(fileInfoLocation):
             
             if i.split('.')[-1] == 'png':
                 if i.split('.')[0] == thumbNameCheckKey:
                     fullFileName = fileInfoLocation+i
-                    print fullFileName
+          #          print fullFileName
                     try:
                         fileTime =  os.path.getmtime(fullFileName) 
                         compareTimeTempList.append(str(fileTime)+'_._'+fullFileName)
                     except:
                         pass
  
-        print compareTimeTempList[0]
+      #  print compareTimeTempList[0]
         srcName = compareTimeTempList[0].split('_._')[-1]
         try:
             os.remove(reNameThumbFileName)
@@ -12030,13 +12008,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             pass
         fileName = self.lineEdit_currentFileName.text()
         fullFileName = self.filesStoreBranchFolder +'/' +fileName
-        cmds.file( fullFileName, open=True,f=True ) #open file
+        cmds.file( fullFileName, open=True,f=True,iv=True ) #open file
         
         cmds.workspace(self.workProject, o=True) #set project
         
-        print 'workspace' ,cmds.workspace(q=True, rd=True) #check workspace
-        print '%s'%fileName + ' was opened'
-        print 'self.workProject',self.workProject
+       # print 'workspace' ,cmds.workspace(q=True, rd=True) #check workspace
+     #   print '%s'%fileName + ' was opened'
+       # print 'self.workProject',self.workProject
         print "openSelectFile end"
 
         
@@ -12049,7 +12027,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cmds.workspace(self.workProject,o=True) #set proj
         #print self.getFilesInfoFromJson()
         #print self.filesStoreBranchFolder  #, export branch folder
-        print "self.fileInfoDict" ,self.fileInfoDict
+      #  print "self.fileInfoDict" ,self.fileInfoDict
         #self.root ="//mcd-server/art_3d_project"
         #self.project = "3d_pipeline_test"
         #self.assetClass ="character"
@@ -12059,7 +12037,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         currentBranch = self.itemSelect 
-        print 'currentBranch', currentBranch
+     #   print 'currentBranch', currentBranch
         
 
         #-------------define project initial
@@ -12089,28 +12067,28 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.projectInitial = projectInitial  
         
         projInitLength = len(self.projectInitial)
-        print 'projInitLength',projInitLength
+     #   print 'projInitLength',projInitLength
     
-        print 'self.projectInitial', self.projectInitial
+     #   print 'self.projectInitial', self.projectInitial
         #-----------finding last version, illegal
         tempVerList= []
         if len(self.fileInfoDict.keys()) >0:
             print "the folder is not empty"
 
             for verKey in self.fileInfoDict.keys():
-                print self.fileInfoDict[verKey][0]
+      #          print self.fileInfoDict[verKey][0]
                 fileNameLength = len(self.fileInfoDict[verKey][0])
-                print 'fileNameLength',fileNameLength
+      #          print 'fileNameLength',fileNameLength
                 
                 cutProjInit_fileName = self.fileInfoDict[verKey][0][projInitLength:fileNameLength]
-                print 'cutProjInit_fileName',cutProjInit_fileName
-                print 'check getSavingFile point A01'
+      #          print 'cutProjInit_fileName',cutProjInit_fileName
+      #          print 'check getSavingFile point A01'
 
                 for i in cutProjInit_fileName.split('_'):
                    # print i
                     if i[0:2] in namePartVerCharControl:
                         existVerNum = i.split('v')[1]
-                        print existVerNum
+      #                  print existVerNum
 
                 print 'check getSavingFile point A02'
 
@@ -12136,14 +12114,14 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #------------define savingFileName in branch fileInfoDict
         getSavingName = self.projectInitial + '_' + self.assetNow +'_'+ self.processNow[0:3] + '_' + currentBranch +'_'+ nextVerNum +'_'+self.currentUser +'.mb'
         
-        print 'getSavingName',getSavingName
+    #    print 'getSavingName',getSavingName
         self.getSaveingBranchFolder()  #get saving folder
         self.longSavingName = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder +'/'  +getSavingName
         self.savingFolder = self.workProject + '/' +'scenes' + '/' + self.currentBranchFolder
         self.userPrefDict.update({'self.savingFolder':self.savingFolder})
         self.writeToUserPref()
 
-        print 'self.longSavingName' ,self.longSavingName
+     #   print 'self.longSavingName' ,self.longSavingName
         
         
         #cmds.file(self.longSavingName,rename=True)
@@ -12175,7 +12153,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         printText = self.plainTextEdit_BranchFileInfo.toPlainText()
         
-        print printText
+   #     print printText
         
     
     
@@ -12398,10 +12376,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #print data
         load = ""
         for line in data:
-            print line
+      #      print line
             load = load + line
             
-        print load
+     #   print load
         self.plainTextEdit_BranchFileInfo.setPlainText(load)
         
         self.getGlobalFolderLocation()
@@ -12413,8 +12391,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         self.getThumbnail()
         
-        print 'self.branchDict',self.branchDict
-        print 'self.screenShot',self.screenShot
+     #   print 'self.branchDict',self.branchDict
+     #   print 'self.screenShot',self.screenShot
     
 
  #-----------------print out file info in textBrowser function End-------------------------------------------------------------------     
@@ -12422,7 +12400,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def getChildIndexCount(self):
         
         itemSelect = self.treeWidget_branches.currentItem()
-        print itemSelect.text(0)
+    #    print itemSelect.text(0)
 
        # self.treeWidget_branches.current
 
@@ -12430,15 +12408,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print "create New Branch"
         #self.newBranch = self.lineEdit_branchName.text()
         self.getNewBranchName()
-        print self.newBranch
+     ##   print self.newBranch
         
         self.getBranchTopFromTreeList()    # ------------1
    #     print self.treeWidget_branches.currentIndex().row()
 
 
-    def getBranchTopFromTreeListB(self): #---------1
-        print "ggggggggg"
-        print self.treeWidget_branches.topLevelItemCount()
+  #  def getBranchTopFromTreeListB(self): #---------1
+     #   print "ggggggggg"
+     #   print self.treeWidget_branches.topLevelItemCount()
         #print self.treeWidget_branches.indexOfTopLevelItem(1)
 
              
@@ -12590,7 +12568,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.userPrefDict.update({'self.fullItemIndex':['%s'%topLevelItemIndex,'%s'%secLevelItemIndex,'%s'%thirdLevelItemIndex]})
 
         self.writeToUserPref()
-        print 'self.fullItemIndex',self.fullItemIndex
+       # print 'self.fullItemIndex',self.fullItemIndex
 
         print 'run findParentTopLevelItem End'
 
@@ -12694,7 +12672,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     ##-------------------------creader folder---------------------------------------------------------  
 
         createTopLayerFoder = self.workProject + '/' +'scenes'+ '/'+ self.newBranch 
-        print os.path.isdir(createTopLayerFoder)
+      #  print os.path.isdir(createTopLayerFoder)
         if os.path.isdir(createTopLayerFoder) == True:
             print "already has "+"%s"%createTopLayerFoder + " folder"
             
@@ -12704,7 +12682,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
            # os.mkdir(createTopLayerFoder)
             
                 
-        print createTopLayerFoder
+     #   print createTopLayerFoder
         
         #   update self.branchDict, the dictionary of all branches   
     
@@ -12734,13 +12712,13 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # create New Branch on Child Level ----------------------------------------------------------------------------------------------------------------------
     def createNewBranchChildLevel(self): 
      #   print"ggg"
-        print len(self.fullItemIndex)    
-        print self.fullItemIndex 
+      #  print len(self.fullItemIndex)    
+     #   print self.fullItemIndex 
        # self.getExistBranchDict()
         itemSelect = self.treeWidget_branches.currentItem().text(0)
         #self.newBranch = self.lineEdit_branchName.text()
         self.getNewBranchName()
-        print self.newBranch
+    ##    print self.newBranch
 
         topLevelIndex = int(self.fullItemIndex[0])
         
@@ -12756,15 +12734,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print "Create level 2 branch"
 
             existLevelCount = len(self.branchDict[str(self.fullItemIndex[0])][itemSelect].keys())   # = child,secLevelIndex
-            print existLevelCount
+      #      print existLevelCount
             secItemList = self.branchDict[str(self.fullItemIndex[0])][itemSelect].keys()
-            print secItemList
+       #     print secItemList
 
-            print "topLevelIndex",topLevelIndex
+      #      print "topLevelIndex",topLevelIndex
 
             if self.newBranch in secItemList:
-                print
-                print "Change New Branch Name"
+        #        print
+         #       print "Change New Branch Name"
                 pass
                 
                 
@@ -12778,7 +12756,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     
                    
 
-                    print 'topLevelIndex, existLevelCount',topLevelIndex, existLevelCount
+       #             print 'topLevelIndex, existLevelCount',topLevelIndex, existLevelCount
                     
                     
                     print "create New 2nd Item"
@@ -12792,17 +12770,17 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     #pass
                 
                     print "change Name"
-                    print topLevelIndex, existLevelCount
+       #             print topLevelIndex, existLevelCount
                     
             self.treeWidget_branches.topLevelItem(topLevelIndex).child(existLevelCount).setText(0,self.newBranch)   #named the newItem , from typeIn line edit
             # create folder
             createTopLayerFoder = self.workProject + '/' +'scenes'+ '/' + itemSelect +'/' + self.newBranch
-            print createTopLayerFoder
-            print os.path.isdir(createTopLayerFoder)
+       #     print createTopLayerFoder
+       #     print os.path.isdir(createTopLayerFoder)
             if os.path.isdir(createTopLayerFoder) == True:
                 print "already has %s folder"%createTopLayerFoder
             else:
-                print "create %s folder"%createTopLayerFoder
+        #        print "create %s folder"%createTopLayerFoder
               #  os.mkdir(createTopLayerFoder)
                 self.createNewFolder(createTopLayerFoder)
 
@@ -12812,10 +12790,10 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         elif len(self.fullItemIndex) == 2: # create 2nd Level Item under select item
             print "Create level 3 branch"
-            print self.fullItemIndex
+      #      print self.fullItemIndex
             
             thirdItemList = self.branchDict[str(self.fullItemIndex[0])][self.branchDict[str(self.fullItemIndex[0])].keys()[0]][itemSelect].keys()
-            print thirdItemList
+       #     print thirdItemList
             existThirdLevelCount = len(thirdItemList)
             
             if self.newBranch in thirdItemList:
@@ -12840,8 +12818,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
           #  getSecLevelItem = self.branchDict[str(self.fullItemIndex[0])][self.branchDict[str(self.fullItemIndex[0])].keys()[0]].keys()[self.fullItemIndex[1]]
             createTopLayerFoder = self.workProject + '/' +'scenes'+ '/' +getTopLevelItem +'/' + itemSelect +'/' + self.newBranch
-            print createTopLayerFoder
-            print os.path.isdir(createTopLayerFoder)
+         #   print createTopLayerFoder
+       #     print os.path.isdir(createTopLayerFoder)
             if os.path.isdir(createTopLayerFoder) == True:
                 print "already has %s folder"%createTopLayerFoder
             else:
@@ -13492,7 +13470,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             except:
                 pass
         
-        print delectList
+       # print delectList
         cmds.delete(delectList)
         self.checkNodeDict = {}
         self.delectBadPlugin()  # delect checked Plugin
@@ -13753,7 +13731,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cmds.file( s=True, typ='mayaAscii')
         
         #self.checkIsAssetValue()
-        print self.isAsset
+        #print self.isAsset
         
         
         if self.isAsset == True:
@@ -13847,7 +13825,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         
                         resetAttribute = self.allCopyFileInfoDict[i][self.allCopyFileInfoDict[i].keys()[j]].split('*.*')[0].split('_._')[0] + self.allCopyFileInfoDict[i].keys()[j].split('*.*')[2] + str(self.allCopyFileInfoDict[i][self.allCopyFileInfoDict[i].keys()[j]].split('*.*')[0].split('_._')[1])
                         
-                        print 'resetAttribute',resetAttribute
+       #                 print 'resetAttribute',resetAttribute
                     else:
                       #  pass
                         print 'resetAttribute',resetAttribute
@@ -13945,7 +13923,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 newAttr = self.readyToAssigForNode[i]
                 #print nodeAttr,newAttr
                 self.assignNewAttr(nodeAttr,newAttr)
-                print i
+         #       print i
 
 
 
@@ -14005,8 +13983,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         fileNameExt = udimFileName + '*.*'+ linkingFile +'*.*'+attrKey
                         self.allCopyFileInfoDict['udimTexture'].update({fileNameExt:nodeNameExt})
                         self.allCopyFileInfoDictItemsValue = self.allCopyFileInfoDictItemsValue +1
-                        print 'nodeNameExt',nodeNameExt
-                        print 'fileNameExt',fileNameExt
+           #             print 'nodeNameExt',nodeNameExt
+           #             print 'fileNameExt',fileNameExt
                     else:
                         pass
                 #self.allCopyFileInfoDict['pxrTexture'].update({nodeName:{self.udimFileNameListudimFileNameList}})    
@@ -14035,7 +14013,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         elif checkMode == 'ribArchive':
             nodeNameExt = nodeName + '*.*'+ 'none'
             fileNameExt = linkingFile + '*.*'+ nodeName +'*.*'+attrKey
-            print 'fileNameExt',fileNameExt
+        #    print 'fileNameExt',fileNameExt
             self.allCopyFileInfoDict['ribArchive'].update({fileNameExt:nodeNameExt})
             self.allCopyFileInfoDictItemsValue = self.allCopyFileInfoDictItemsValue +1
                   
@@ -14069,7 +14047,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
         
        # print 'self.udimFileNameList',self.udimFileNameList
-        print 'self.allCopyFileInfoDict',self.allCopyFileInfoDict
+      #  print 'self.allCopyFileInfoDict',self.allCopyFileInfoDict
           # print linkingFile.split('/')[-1]
     def checkFileSize(self,fileName):
         
@@ -14537,7 +14515,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 pxrNodes.append(j+'_._'+i)
 
         for i in pxrNodes:
-            print i
+    #        print i
             if i.split('_._')[1] == 'PxrMultiTexture':
                 for j,k in zip(pxrMultiTexturePathList,range(0,10)):
                     #print i.split('_._')[0], cmds.getAttr(i.split('_._')[0]+'.'+j)
@@ -15019,11 +14997,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             
             badCount = 0
             
-        print badCount
-        print 'badCount',badCount
+    #    print badCount
+    #    print 'badCount',badCount
         self.countN11 = badCount + loadCound
 
-        print self.countN11 ,badCount,loadCound
+     #   print self.countN11 ,badCount,loadCound
 
         
         for index in range(0,badCount):
@@ -15229,8 +15207,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         #for k in range(0,len(nodeName.split('|'))):
                         #    print k , len(nodeName.split('|'))-k
                         max =nodeNameLength +1
-                        print nodeNameLength
-                        print 'nodeName',nodeName
+                #        print nodeNameLength
+                #        print 'nodeName',nodeName
                         maxReverse = max-1 
                         for c in range(0,max-1):
                             listAdd = ''
@@ -15240,7 +15218,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
                             sourceNodeName = listAdd[1:]
                             dectNodeName = sourceNodeName.split('|')[-1] +'_'+'%04d'%count
-                            print sourceNodeName ,dectNodeName
+                 #           print sourceNodeName ,dectNodeName
                            # try:
                          #   cmds.rename(sourceNodeName,dectNodeName)
                            # except:
@@ -15267,8 +15245,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             showText = showText +  str(image.GetMetaData().keys()[i]) +"  :  " +str(image.GetMetaData()[image.GetMetaData().keys()[i]]) +"\n"
         self.plainTextEdit.setPlainText(showText)
 
-def main():
-#def publishToolMain():
+#def main():
+def publishToolMain():
     global ui
     app = QtWidgets.QApplication.instance()
     if app == None: app = QtWidgets.QApplication(sys.argv)
@@ -15280,8 +15258,8 @@ def main():
     
     ui.show()
  
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 
 
  
