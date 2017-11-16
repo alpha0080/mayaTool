@@ -5911,7 +5911,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         
-        #select item from assetProj List_widget
+        #select item from assetProj List_widget 
         self.listWidget_assetProj.itemClicked.connect(self.click_assetProjListWidget)
         
         
@@ -5922,6 +5922,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_createNewBranch.clicked.connect(self.createNewBranchCombo)
 
         self.pushButton_deleteBranch.clicked.connect(self.delSelectBranch)
+        
+        self.pushButton_uploadPublish.clicked.connect(self.publishToGlobal)
         
         self.treeWidget_branches.itemClicked.connect(self.createFileTable)
         self.treeWidget_branches.doubleClicked.connect(self.changeTreeWidget_branchesItemName)
@@ -6075,6 +6077,39 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.lineEdit_setRoot.textChanged.connect(self.reSetRoot)
         
         
+  
+  
+  
+    def publishToGlobal(self):
+        
+        print 'publish to Global start'
+        print 'self.isAsset',self.isAsset
+        
+        if self.isAsset == True:
+            self.createGlobalPublishFolder('asset')
+            #print 'aaaa'
+        
+        print 'self.root',self.root
+        print 'self.project' , self.project
+        print 'self.assetName',self.assetName
+        print 'self.assetNow',self.assetNow
+        
+        pubishTag = self.root +'/' +'global' +'/' + self.assetName
+        
+        print 'pubishTag',pubishTag
+        
+        
+    def createGlobalPublishFolder(self,option):
+        
+        print 'createGlobalPublishFolder'
+      #  assetGlobalPublishReqestFolderList = ['zBrush','mudbox','substancePainter','scenes','sourceimages','fbx','obj','data',
+        if option == 'asset':
+            print 'asset mode'
+            
+            
+        
+        
+  
         
         
         
@@ -6125,18 +6160,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.userPrefFile = self.userPrefFile + '/'
             else :
                 self.userPrefFile = self.userPrefFile + i
-        #self.userPrefFile = 'c:/temp/publishToolUserPref.json'
-       
-       # print' self.userPrefFile', self.userPrefFile
-      #  f = open(self.userPrefFile,'w')
-        
-        
-       # data = 'sdasdadasd'    
-        #data = json.dumps(self.userPrefDict, sort_keys=True , indent =4)  #編譯成json 且賦予格式 控四格
-       # f.write(data)
-       # f.close
-       # self.writeToUserPref() userPrefDict
-        
+
 
     def writeToUserPref(self):
         f = open(self.userPrefFile,'w')
@@ -7458,29 +7482,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.creatUserPrefFile()
         
-    def userPrefStore(self):   
-        #define user last setting
-        #儲存使用者最後使用資訊
-        self.root ="//mcd-one/3d_project"
-        self.project = "3d_pipeline_test"
-        self.assetClass ="character"
-        self.assetNow = "shot_02"
-        self.processNow ="lighting"
-        self.isAsset = False
-        self.currentUser = getpass.getuser()
-        
-        userPrefInfo = {'self.root':'',
-                        'self.project':'',
-                        'self.assetClass':'',
-                        'self.processNow':'',
-                        'self.currentBranchSelect':'',
-                        'self.workingFile':''
-                        }
-                        
-                        
 
-        
-        
         
         
     def creatUserPrefFile(self):

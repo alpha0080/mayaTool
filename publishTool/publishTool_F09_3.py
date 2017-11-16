@@ -5871,6 +5871,15 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #self.QTITEM.ACTION.connect(self.MODDEF)
         self.setupUi(self)
         
+        #load config file
+        publishConfigFile = '//mcd-one/database/assets/scripts/maya_scripts/publishToolConfig.json'
+
+        with open(publishConfigFile, 'r') as f:
+            self.publishToolSettingData = json.load(f)
+                      
+                
+        
+        
         #lock button not to use
         self.tabWidget_branch.setCurrentIndex(0)
 
@@ -5886,10 +5895,11 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print 'pls import prman plugin'
             pass
 
-        
-        self.fileTypeFillet = ['mb','ma']
+        self.root = self.publishToolSettingData['root']
+        self.fileTypeFillet = self.publishToolSettingData['fileTypeFillet']
 
-        self.root = "//mcd-one/3d_project"   # projects root in company
+
+        #self.root = "//mcd-one/3d_project"   # projects root in company
 
         
         self.getDataFromTactic()
@@ -5911,7 +5921,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
         
         
-        #select item from assetProj List_widget
+        #select item from assetProj List_widget 
         self.listWidget_assetProj.itemClicked.connect(self.click_assetProjListWidget)
         
         
@@ -5922,6 +5932,8 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.pushButton_createNewBranch.clicked.connect(self.createNewBranchCombo)
 
         self.pushButton_deleteBranch.clicked.connect(self.delSelectBranch)
+        
+        self.pushButton_uploadPublish.clicked.connect(self.publishToGlobal)
         
         self.treeWidget_branches.itemClicked.connect(self.createFileTable)
         self.treeWidget_branches.doubleClicked.connect(self.changeTreeWidget_branchesItemName)
@@ -6075,6 +6087,49 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
        # self.lineEdit_setRoot.textChanged.connect(self.reSetRoot)
         
         
+  
+  
+  
+    def publishToGlobal(self):
+        
+        print 'publish to Global start'
+        print 'self.isAsset',self.isAsset
+        
+        if self.isAsset == True:
+            self.createGlobalPublishFolder('asset')
+            #print 'aaaa'
+        
+        print 'self.root',self.root
+        print 'self.project' , self.project
+        print 'self.assetName',self.assetName
+        print 'self.assetNow',self.assetNow
+        
+        
+       # print 'pubishTag',pubishTag
+    def createGlobalPublishDefaultFolder(self):
+        globalPublashDefaultFolder = self.publishToolSettingData['globalPublashDefaultFolder']
+        
+        print 'globalPublashDefaultFolder',globalPublashDefaultFolder
+        
+        
+        
+    def createGlobalPublishFolder(self,option):
+        
+        print 'createGlobalPublishFolder'
+        pubishTag = self.publishToolSettingData['globalPublishRoot'] +'/'+'asssets'+'/' + self.assetClass +'/' +self.assetNow # asset root folder
+        print 'pubishTag',pubishTag
+
+        assetGlobalPublishReqestFolderList = self.publishToolSettingData['assetGlobalPublishReqestFolderList']
+        if option == 'asset':
+            print 'asset mode'
+            #assetGlobalPublishRootFolder = pubishTag
+            for i in assetGlobalPublishReqestFolderList:  # asset request folder
+                print pubishTag + '/' +i
+            
+            
+        
+        
+  
         
         
         
@@ -6125,18 +6180,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 self.userPrefFile = self.userPrefFile + '/'
             else :
                 self.userPrefFile = self.userPrefFile + i
-        #self.userPrefFile = 'c:/temp/publishToolUserPref.json'
-       
-       # print' self.userPrefFile', self.userPrefFile
-      #  f = open(self.userPrefFile,'w')
-        
-        
-       # data = 'sdasdadasd'    
-        #data = json.dumps(self.userPrefDict, sort_keys=True , indent =4)  #編譯成json 且賦予格式 控四格
-       # f.write(data)
-       # f.close
-       # self.writeToUserPref() userPrefDict
-        
+
 
     def writeToUserPref(self):
         f = open(self.userPrefFile,'w')
@@ -6472,38 +6516,24 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         scripts_path = "//mcd-one/database/assets"
         sys.path.append(scripts_path +  "/client")
         sys.path.append(scripts_path + "/scripts/tactic_scripts/ui")
-        from tactic_client_lib import TacticServerStub
-
-        server = TacticServerStub(setup=False)
-       # tactic_server_ip = socket.gethostbyname("vg.com")
         
         
-        try:
-            tactic_server_ip = socket.gethostbyname("vg.com")
-        except:
-            tactic_server_ip = "192.168.163.60"
+        tacticHostName = self.publishToolSettingData['tacticHostName']
+        tacticHostIP = self.publishToolSettingData['tacticHostIP']
+        loginID = self.publishToolSettingData['tacticID']
+        loginPW = self.publishToolSettingData['tacticPW']
+        root = self.publishToolSettingData['root']
+        fileTypeFillet = self.publishToolSettingData['fileTypeFillet']
+        #print tacticHostName,tacticHostIP,loginID,loginPW
 
+        import getTacticData
+        #reload(getTacticData)
 
-        server.set_server(tactic_server_ip)
-        server.set_project("simpleslot")
-        ticket = server.get_ticket("julio", "1234")
-        server.set_ticket(ticket)
-
-        # export projects in Tactic
-        expr = "@SOBJECT(simpleslot/game)"
-        self.projectsInTactic = server.eval(expr)
-
-
-        # export assets
-        expr = "@SOBJECT(simpleslot/assets)"
-        self.assetsInTactic = server.eval(expr)
-
-        # export shots
-        expr = "@SOBJECT(simpleslot/shot)"
-        self.shotsInTactic = server.eval(expr)
-        print "run getDataFromTactic End"
         
-        
+        #runTactic(option,tacticHostName,tacticHostIP,loginID,loginPW):
+        self.projectsInTactic = getTacticData.runTactic('project',tacticHostName,tacticHostIP,loginID,loginPW)
+        self.assetsInTactic = getTacticData.runTactic('asset',tacticHostName,tacticHostIP,loginID,loginPW)
+        self.shotsInTactic = getTacticData.runTactic('shot',tacticHostName,tacticHostIP,loginID,loginPW)
 
             
             
@@ -6612,7 +6642,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 
         self.buildProjectComboBox()
         #self.writeToUserPref()
-        #self.comboBox_selectProj.setCurrentIndex(33)
+        #self.comboBox_selectProj.setCurrentIndex(33) selectWorkingProjectInGlobalFromTactic
         #self.comboBox_selectProj.
 
     #-----------------------------------------------------------------------------------------------------------------------    
@@ -6772,33 +6802,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.getAllRequestFolder()
 
     def createAllRequestFolder(self):
-        self.requestFolder= ['assets',
-                            'assets/character',
-                            'assets/vehicle',
-                            'assets/set',
-                            'assets/prop',
-                            'assets/other',                        
-                            'shot',
-                            'output',
-                            'publish',
-                            'publish/global',                            
-                            'publish/shot',
-                            'publish/assets',
-                            'publish/assets/character',
-                            'publish/assets/vehicle',
-                            'publish/assets/set',
-                            'publish/assets/prop',
-                            'publish/assets/other',                            
-                            'QC',
-                            'global',
-                            'global/shot',
-                            'global/assets',
-                            'global/assets/character',
-                            'global/assets/vehicle',
-                            'global/assets/set',
-                            'global/assets/prop',
-                            'global/assets/other',                     
-                            'reference']    
+        self.requestFolder = self.publishToolSettingData['requestFolder']
         
         
         for i in self.requestFolder:
@@ -6807,7 +6811,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def createNewFolder(self,createFolder):
         
-        baseFolder = ['assets','shot','output','publish','QC','reference','/assets','/shot','/output','/publish','/QC','/reference']
+        baseFolder = self.publishToolSettingData['baseFolder']
         exceptList=[]
         for i in baseFolder:
             exceptList.append(str(self.root+'/'+i))
@@ -6851,7 +6855,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
 
                 
-        mayaDefaultFolderList =['data','data/alembic','data/mayaFluidCache','data/nParticleCache','images','sourceimages','scenes','scenes/master','renderman','renderman/ribarchives/']
+        mayaDefaultFolderList = self.publishToolSettingData['mayaDefaultFolderList']
 
         #build all assets folder
         for i in allAssets:
@@ -7232,25 +7236,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.project = self.comboBox_selectProj.currentText()
 
         #default folder in self.project
-        requestFolder= ['assets',
-                        'assets/character',
-                        'assets/vehicle',
-                        'assets/set',
-                        'assets/prop',
-                        'assets/other',                        
-                        'shot',
-                        'output',
-                        'publish',
-                        'QC',
-                        'global',
-                        'global/shot',
-                        'global/assets',
-                        'global/assets/character',
-                        'global/assets/vehicle',
-                        'global/assets/set',
-                        'global/assets/prop',
-                        'global/assets/other',                     
-                        'reference']
+        requestFolder = self.publishToolSettingData['requestFolder']
 
 
         #print requestFolder
@@ -7330,25 +7316,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.project = self.comboBox_selectProj.currentText()
 
         #default folder in self.project
-        requestFolder= ['assets',
-                        'assets/character',
-                        'assets/vehicle',
-                        'assets/set',
-                        'assets/prop',
-                        'assets/other',                        
-                        'shot',
-                        'output',
-                        'publish',
-                        'QC',
-                        'global',
-                        'global/shot',
-                        'global/assets',
-                        'global/assets/character',
-                        'global/assets/vehicle',
-                        'global/assets/set',
-                        'global/assets/prop',
-                        'global/assets/other',                    
-                        'reference']
+        requestFolder = self.publishToolSettingData['requestFolder']
 
 
         #print requestFolder
@@ -7458,29 +7426,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.creatUserPrefFile()
         
-    def userPrefStore(self):   
-        #define user last setting
-        #儲存使用者最後使用資訊
-        self.root ="//mcd-one/3d_project"
-        self.project = "3d_pipeline_test"
-        self.assetClass ="character"
-        self.assetNow = "shot_02"
-        self.processNow ="lighting"
-        self.isAsset = False
-        self.currentUser = getpass.getuser()
-        
-        userPrefInfo = {'self.root':'',
-                        'self.project':'',
-                        'self.assetClass':'',
-                        'self.processNow':'',
-                        'self.currentBranchSelect':'',
-                        'self.workingFile':''
-                        }
-                        
-                        
 
-        
-        
         
         
     def creatUserPrefFile(self):
@@ -8522,32 +8468,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     #---------------Load Exist File Information From Dictionary END-------------------------------------------------------------------------------------------------------
      
         
-    def testFileInfoDict(self):
-        
-        self.fileInfoDict = {'01':["projectName_assetClass_assetName_process_v001_alpha.mb","alpha","2017/03/28    10:28","info xxxxxxxxxxxxxxxxxxxxxx"],
-                             '02':["projectName_assetClass_assetName_process_v002_alpha.mb","alpha","2017/03/28    10:29"],
-                             '03':["projectName_assetClass_assetName_process_v003_alpha.mb","alpha","2017/03/28    10:30"],
-                             '04':["projectName_assetClass_assetName_process_v004_alpha.mb","alpha","2017/03/28    10:31"],
-                             '05':["projectName_assetClass_assetName_process_v005_alpha.mb","alpha","2017/03/28    10:32"],
-                             '06':["projectName_assetClass_assetName_process_v006_alpha.mb","alpha","2017/03/28    10:33"],
-                             '07':["projectName_assetClass_assetName_process_v007_alpha.mb","alpha","2017/03/28    10:34"],
-                             '08':["projectName_assetClass_assetName_process_v008_alpha.mb","alpha","2017/03/28    10:35"],
-                             '09':["projectName_assetClass_assetName_process_v009_alpha.mb","alpha","2017/03/28    10:36"],
-                             '10':["projectName_assetClass_assetName_process_v010_alpha.mb","alpha","2017/03/28    10:37"],
-                             '11':["projectName_assetClass_assetName_process_v011_alpha.mb","alpha","2017/03/28    10:38"],
-                             '12':["projectName_assetClass_assetName_process_v012_alpha.mb","alpha","2017/03/28    10:39"],
-                             '13':["projectName_assetClass_assetName_process_v013_alpha.mb","alpha","2017/03/28    10:40","info vcvcxvcccccccc"],
-                             '14':["projectName_assetClass_assetName_process_v014_alpha.mb","alpha","2017/03/28    10:41"],
-                             '15':["projectName_assetClass_assetName_process_v015_alpha.mb","alpha","2017/03/28    10:42"],
-                             '16':["projectName_assetClass_assetName_process_v016_alpha.mb","alpha","2017/03/28    10:43"],
-                             '17':["projectName_assetClass_assetName_process_v017_alpha.mb","alpha","2017/03/28    10:44"],
-                             '18':["projectName_assetClass_assetName_process_v018_alpha.mb","alpha","2017/03/28    10:45"],
-                             '19':["projectName_assetClass_assetName_process_v019_alpha.mb","alpha","2017/03/28    10:46"],
-                             '20':["projectName_assetClass_assetName_process_v020_alpha.mb","alpha","2017/03/28    10:47"],
-                             '21':["projectName_assetClass_assetName_process_v021_alpha.mb","alpha","2017/03/28    10:48"]
-                             }
-        
-
 
 
     def defineFont(self):
@@ -9238,35 +9158,9 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
        # self.treeWidget_branches.current
 
-    def createBranchDict(self):            #push button
-        print "create New Branch"
-        #self.newBranch = self.lineEdit_branchName.text()
-        self.getNewBranchName()
-     ##   print self.newBranch
-        
-        self.getBranchTopFromTreeList()    # ------------1
-   #     print self.treeWidget_branches.currentIndex().row()
-
-
-  #  def getBranchTopFromTreeListB(self): #---------1
-     #   print "ggggggggg"
-     #   print self.treeWidget_branches.topLevelItemCount()
-        #print self.treeWidget_branches.indexOfTopLevelItem(1)
 
              
-    def getBranchTopFromTreeList(self): #---------1
-        self.getBranchInfoDict()
-        
-        print "getBranchTopFromTreeList"
-        
-        
-        
-        self.treeWidget_branches.clear()   #get assetDict 
-        
-        self.currentLevelItems = self.branchInfoDict.keys()   #get toLevelList ,as branch in every process, master branch01 branch02.....
-        
-        #self.createCurrentLevelItems()
-        self.creatrTreeItems()
+
 
         
         
@@ -9698,27 +9592,6 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print 'dfdfd'
         
 
-                
-    def updateAssetBranchFileInfo(self,levelList):
-        print "update assetBranchFileInfo.json"
-        path = "C:/mayaProjs/3d_pipeline_test/global/"
-        fileName = "shot_02_lighting.json"
-        storeFileName = path + fileName
-        #storeFile = open(storeFileName,'r')
-        
-        
-        
-        #storeFile.close
-        
-        
-        
-       # fileName = "C:/mayaProjs/3d_pipeline_test/global/shot_02_lighting.json"
-
-        #with open(fileName, 'r') as f:
-    
-       # data = json.load(f)
-        
-        
 
 
 
@@ -10088,75 +9961,12 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         
         
-    def getBranchInfoDict(self):
-        
-        self.branchInfoDict = {'master':{},
-                              'branch_01':{},
-                              'branch_02_alpha':{},
-                              'test_01':{},
-                              'extea_01':{},
-                              'temp':{}
-                              }
 
-
-        self.branchInfoDictB = {'0':{'master':{},
-                                    'branch_01':{},
-                                    'branch_02_alpha':{},
-                                    'test_01':{},
-                                    'extea_01':{},
-                                    'temp':{}
-                                    }
-        }
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     
         
 ####################page publishTool
     def reflashTree(self):

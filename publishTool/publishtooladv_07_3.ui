@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
+    <width>645</width>
     <height>860</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>650</width>
+    <width>645</width>
     <height>860</height>
    </size>
   </property>
@@ -398,7 +398,7 @@
      <rect>
       <x>5</x>
       <y>17</y>
-      <width>641</width>
+      <width>638</width>
       <height>946</height>
      </rect>
     </property>
@@ -3060,7 +3060,7 @@
        <rect>
         <x>247</x>
         <y>313</y>
-        <width>291</width>
+        <width>361</width>
         <height>30</height>
        </rect>
       </property>
@@ -4633,7 +4633,7 @@
        <rect>
         <x>247</x>
         <y>117</y>
-        <width>387</width>
+        <width>361</width>
         <height>195</height>
        </rect>
       </property>
@@ -4997,7 +4997,7 @@
        <rect>
         <x>247</x>
         <y>530</y>
-        <width>387</width>
+        <width>361</width>
         <height>274</height>
        </rect>
       </property>
@@ -5074,7 +5074,7 @@
        <rect>
         <x>247</x>
         <y>344</y>
-        <width>387</width>
+        <width>361</width>
         <height>185</height>
        </rect>
       </property>
@@ -6796,18 +6796,6 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <zorder>pushButton_others</zorder>
-      <zorder>pushButton_vehicle</zorder>
-      <zorder>pushButton_character</zorder>
-      <zorder>pushButton_set</zorder>
-      <zorder>pushButton_props</zorder>
-      <zorder>label_fileData_15</zorder>
-      <zorder>label_fileData_12</zorder>
-      <zorder>label_fileData_11</zorder>
-      <zorder>label_fileData_13</zorder>
-      <zorder>label_fileData_14</zorder>
-      <zorder>pushButton_shot</zorder>
-      <zorder>label_fileData_17</zorder>
      </widget>
      <widget class="QPushButton" name="pushButton_createNewBranch">
       <property name="enabled">
@@ -6815,8 +6803,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>122</y>
+        <x>609</x>
+        <y>117</y>
         <width>25</width>
         <height>25</height>
        </rect>
@@ -6826,14 +6814,14 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/addC.png</normaloff>
-        <normalon>icons/publishToolIcon/addC2.png</normalon>
-        <disabledoff>icons/publishToolIcon/addC.png</disabledoff>
-        <disabledon>icons/publishToolIcon/addC.png</disabledon>
-        <activeoff>icons/publishToolIcon/addC.png</activeoff>
-        <activeon>icons/publishToolIcon/addC2.png</activeon>
-        <selectedoff>icons/publishToolIcon/addC.png</selectedoff>
-        <selectedon>icons/publishToolIcon/addC.png</selectedon>icons/publishToolIcon/addC.png</iconset>
+        <normaloff>icons/publishToolIcon/addD.png</normaloff>
+        <normalon>icons/publishToolIcon/addD2.png</normalon>
+        <disabledoff>icons/publishToolIcon/addD.png</disabledoff>
+        <disabledon>icons/publishToolIcon/addD.png</disabledon>
+        <activeoff>icons/publishToolIcon/addD.png</activeoff>
+        <activeon>icons/publishToolIcon/addD2.png</activeon>
+        <selectedoff>icons/publishToolIcon/addD.png</selectedoff>
+        <selectedon>icons/publishToolIcon/addD.png</selectedon>icons/publishToolIcon/addD.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -6869,8 +6857,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>572</x>
-        <y>122</y>
+        <x>609</x>
+        <y>144</y>
         <width>25</width>
         <height>25</height>
        </rect>
@@ -6880,8 +6868,10 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/subC.png</normaloff>
-        <normalon>icons/publishToolIcon/subC2.png</normalon>icons/publishToolIcon/subC.png</iconset>
+        <normaloff>icons/publishToolIcon/subD.png</normaloff>
+        <normalon>icons/publishToolIcon/subD2.png</normalon>
+        <disabledon>icons/publishToolIcon/subD.png</disabledon>
+        <selectedon>icons/publishToolIcon/subD.png</selectedon>icons/publishToolIcon/subD.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -7902,8 +7892,8 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>604</x>
-        <y>122</y>
+        <x>609</x>
+        <y>171</y>
         <width>25</width>
         <height>25</height>
        </rect>
@@ -7913,8 +7903,10 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>icons/publishToolIcon/openFolder_E1.png</normaloff>
-        <normalon>icons/publishToolIcon/openFolder_E2.png</normalon>icons/publishToolIcon/openFolder_E1.png</iconset>
+        <normaloff>icons/publishToolIcon/openFolder_F1.png</normaloff>
+        <normalon>icons/publishToolIcon/openFolder_F2.png</normalon>
+        <disabledon>icons/publishToolIcon/openFolder_F1.png</disabledon>
+        <selectedon>icons/publishToolIcon/openFolder_F1.png</selectedon>icons/publishToolIcon/openFolder_F1.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -7950,10 +7942,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>313</y>
-        <width>30</width>
-        <height>30</height>
+        <x>609</x>
+        <y>344</y>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -7967,8 +7959,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>30</width>
-        <height>30</height>
+        <width>25</width>
+        <height>25</height>
        </size>
       </property>
       <property name="checkable">
@@ -7990,10 +7982,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>572</x>
-        <y>313</y>
-        <width>30</width>
-        <height>30</height>
+        <x>609</x>
+        <y>370</y>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -8007,8 +7999,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>30</width>
-        <height>30</height>
+        <width>25</width>
+        <height>25</height>
        </size>
       </property>
       <property name="checkable">
@@ -8030,10 +8022,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>604</x>
-        <y>313</y>
-        <width>30</width>
-        <height>30</height>
+        <x>609</x>
+        <y>396</y>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -8047,8 +8039,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>30</width>
-        <height>30</height>
+        <width>25</width>
+        <height>25</height>
        </size>
       </property>
       <property name="checkable">
@@ -8070,10 +8062,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>533</y>
-        <width>30</width>
-        <height>30</height>
+        <x>609</x>
+        <y>530</y>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -8086,8 +8078,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>30</width>
-        <height>30</height>
+        <width>25</width>
+        <height>25</height>
        </size>
       </property>
       <property name="checkable">
@@ -8109,10 +8101,10 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>602</x>
-        <y>533</y>
-        <width>30</width>
-        <height>30</height>
+        <x>609</x>
+        <y>555</y>
+        <width>25</width>
+        <height>25</height>
        </rect>
       </property>
       <property name="text">
@@ -8125,8 +8117,8 @@
       </property>
       <property name="iconSize">
        <size>
-        <width>30</width>
-        <height>30</height>
+        <width>25</width>
+        <height>25</height>
        </size>
       </property>
       <property name="checkable">
