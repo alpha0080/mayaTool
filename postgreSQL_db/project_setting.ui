@@ -1,0 +1,1412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>874</width>
+    <height>881</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>project leader:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>80</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>joey</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>alpha</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>sandy</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>逸倫</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kander</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>建昌</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Duke</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>110</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>team select:</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>140</y>
+      <width>421</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="rowCount">
+     <number>12</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+    </column>
+    <column/>
+    <column/>
+    <column/>
+    <column/>
+    <item row="0" column="0">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>負責工作項目</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>目前執行</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>loading狀態</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>sandy</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>負責人，合成</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>女媧</string>
+     </property>
+    </item>
+    <item row="1" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>合成，技術</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>工具開發</string>
+     </property>
+    </item>
+    <item row="2" column="3">
+     <property name="text">
+      <string>20%</string>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>熊</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>特效</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>內部排程</string>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string>20%</string>
+     </property>
+    </item>
+    <item row="4" column="0">
+     <property name="text">
+      <string>逸倫</string>
+     </property>
+    </item>
+    <item row="4" column="1">
+     <property name="text">
+      <string>motion graphic</string>
+     </property>
+    </item>
+    <item row="4" column="2">
+     <property name="text">
+      <string>女媧</string>
+     </property>
+    </item>
+    <item row="4" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="5" column="0">
+     <property name="text">
+      <string>阿德</string>
+     </property>
+    </item>
+    <item row="5" column="1">
+     <property name="text">
+      <string>motion graphic</string>
+     </property>
+    </item>
+    <item row="5" column="2">
+     <property name="text">
+      <string>鬥魂</string>
+     </property>
+    </item>
+    <item row="5" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="6" column="0">
+     <property name="text">
+      <string>阿麵</string>
+     </property>
+    </item>
+    <item row="6" column="1">
+     <property name="text">
+      <string>合成、剪接</string>
+     </property>
+    </item>
+    <item row="6" column="2">
+     <property name="text">
+      <string>神秘島</string>
+     </property>
+    </item>
+    <item row="6" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="7" column="0">
+     <property name="text">
+      <string>貓頭</string>
+     </property>
+    </item>
+    <item row="7" column="1">
+     <property name="text">
+      <string>後期</string>
+     </property>
+    </item>
+    <item row="7" column="2">
+     <property name="text">
+      <string>賽車</string>
+     </property>
+    </item>
+    <item row="7" column="3">
+     <property name="text">
+      <string>不明</string>
+     </property>
+    </item>
+    <item row="8" column="0">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="8" column="1">
+     <property name="text">
+      <string>rigging、動畫</string>
+     </property>
+    </item>
+    <item row="8" column="2">
+     <property name="text">
+      <string>賽車</string>
+     </property>
+    </item>
+    <item row="8" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="9" column="0">
+     <property name="text">
+      <string>steve</string>
+     </property>
+    </item>
+    <item row="9" column="1">
+     <property name="text">
+      <string>動畫</string>
+     </property>
+    </item>
+    <item row="9" column="2">
+     <property name="text">
+      <string>奧林帕斯</string>
+     </property>
+    </item>
+    <item row="9" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="10" column="0">
+     <property name="text">
+      <string>gaga</string>
+     </property>
+    </item>
+    <item row="10" column="1">
+     <property name="text">
+      <string>動畫</string>
+     </property>
+    </item>
+    <item row="10" column="2">
+     <property name="text">
+      <string>奧林帕斯</string>
+     </property>
+    </item>
+    <item row="10" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+    <item row="11" column="0">
+     <property name="text">
+      <string>paul</string>
+     </property>
+    </item>
+    <item row="11" column="1">
+     <property name="text">
+      <string>rigging</string>
+     </property>
+    </item>
+    <item row="11" column="2">
+     <property name="text">
+      <string>賽車</string>
+     </property>
+    </item>
+    <item row="11" column="3">
+     <property name="text">
+      <string>50%</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>140</y>
+      <width>221</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="rowCount">
+     <number>12</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+    </column>
+    <column/>
+    <column/>
+    <column/>
+    <column/>
+    <item row="0" column="0">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>負責工作項目</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>目前執行</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>loading狀態</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>模型</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="1" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>小樂</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>模型</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="2" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>sandy</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>後期</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="4" column="0">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="4" column="1">
+     <property name="text">
+      <string>後期</string>
+     </property>
+    </item>
+    <item row="4" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="4" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="5" column="0">
+     <property name="text">
+      <string>gaga</string>
+     </property>
+    </item>
+    <item row="5" column="1">
+     <property name="text">
+      <string>動畫</string>
+     </property>
+    </item>
+    <item row="5" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="5" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="6" column="0">
+     <property name="text">
+      <string>steve</string>
+     </property>
+    </item>
+    <item row="6" column="1">
+     <property name="text">
+      <string>動畫</string>
+     </property>
+    </item>
+    <item row="6" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="6" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="7" column="0">
+     <property name="text">
+      <string>paul</string>
+     </property>
+    </item>
+    <item row="7" column="1">
+     <property name="text">
+      <string>rigging</string>
+     </property>
+    </item>
+    <item row="7" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="7" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="0">
+     <property name="text">
+      <string>熊</string>
+     </property>
+    </item>
+    <item row="8" column="1">
+     <property name="text">
+      <string>特效</string>
+     </property>
+    </item>
+    <item row="8" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>150</y>
+      <width>31</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>270</y>
+      <width>31</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>410</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Asset 清單:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>110</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>team member:</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>450</y>
+      <width>601</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="rowCount">
+     <number>12</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+    </column>
+    <column/>
+    <column/>
+    <column/>
+    <column/>
+    <item row="0" column="0">
+     <property name="text">
+      <string>名稱</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>製作人員/模型</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>製作人員/rig</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>製作人員/後期</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>symbol_a</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="1" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>symbol_j</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="2" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>symbol_q</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="4" column="0">
+     <property name="text">
+      <string>symbol_k</string>
+     </property>
+    </item>
+    <item row="4" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="4" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="4" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="5" column="0">
+     <property name="text">
+      <string>symbol_10</string>
+     </property>
+    </item>
+    <item row="5" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="5" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="5" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="6" column="0">
+     <property name="text">
+      <string>symbol_scatter</string>
+     </property>
+    </item>
+    <item row="6" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="6" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="6" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="7" column="0">
+     <property name="text">
+      <string>symbol_wild</string>
+     </property>
+    </item>
+    <item row="7" column="1">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="7" column="2">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="7" column="3">
+     <property name="text">
+      <string>凱森</string>
+     </property>
+    </item>
+    <item row="8" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>680</y>
+      <width>601</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="rowCount">
+     <number>12</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <row/>
+    <column>
+     <property name="text">
+      <string/>
+     </property>
+    </column>
+    <column/>
+    <column/>
+    <column/>
+    <column/>
+    <item row="0" column="0">
+     <property name="text">
+      <string>名稱</string>
+     </property>
+    </item>
+    <item row="0" column="1">
+     <property name="text">
+      <string>製作人員/動畫</string>
+     </property>
+    </item>
+    <item row="0" column="2">
+     <property name="text">
+      <string>製作人員/後期</string>
+     </property>
+    </item>
+    <item row="0" column="3">
+     <property name="text">
+      <string>輸出規格</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>symbol_a_shot</string>
+     </property>
+    </item>
+    <item row="1" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="1" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="1" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="2" column="0">
+     <property name="text">
+      <string>symbol_j_shot</string>
+     </property>
+    </item>
+    <item row="2" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="2" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="2" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="3" column="0">
+     <property name="text">
+      <string>symbol_q_shot</string>
+     </property>
+    </item>
+    <item row="3" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="3" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="3" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="4" column="0">
+     <property name="text">
+      <string>symbol_k_shot</string>
+     </property>
+    </item>
+    <item row="4" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="4" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="4" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="5" column="0">
+     <property name="text">
+      <string>symbol_10_shot</string>
+     </property>
+    </item>
+    <item row="5" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="5" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="5" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="6" column="0">
+     <property name="text">
+      <string>symbol_scatter_shot</string>
+     </property>
+    </item>
+    <item row="6" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="6" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="6" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="7" column="0">
+     <property name="text">
+      <string>symbol_wild_shot</string>
+     </property>
+    </item>
+    <item row="7" column="1">
+     <property name="text">
+      <string>小豪</string>
+     </property>
+    </item>
+    <item row="7" column="2">
+     <property name="text">
+      <string>小黑</string>
+     </property>
+    </item>
+    <item row="7" column="3">
+     <property name="text">
+      <string>連續圖 600x600</string>
+     </property>
+    </item>
+    <item row="8" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="8" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="9" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="10" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="1">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="2">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+    <item row="11" column="3">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>650</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>輸出清單</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>project title</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Myst Island</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>奧林帕斯</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>女媧</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

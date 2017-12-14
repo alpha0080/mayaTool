@@ -48,6 +48,18 @@ assetData = {"itemName":{"aaaaaaaaaaaaaa":""},
              "label":{"aaa1":"","aaa2":"","aaa3":"","aaa4":"","aaa5":"","aaa6":""},
              "keyword":{"asd":"","dfdf":"","sdfdsf":"","ds":"","sdfdsfe":"","fhfgh":""}}
              
+
+
+#index,   assetNameIndex    ,   projectNameIndex    ,    keywordIndex   ,   labelIndex
+# assetNameIndex ={"assetName_XXX1.assetClass":"assetIndexNo",
+#
+# projectNameIndex ={"projectName_xxx1:{"assetName_XXX1.assetClass":"assetIndexNo",
+#                                      "assetName_XXX2.assetClass":"assetIndexNo",
+#
+# keywordIndex= { "keyword_xxxx1:{"assetName_XXX1.assetClass":"assetIndexNo"
+#
+
+
              
 for i in range(0,99999):
     #itemName = 
@@ -63,4 +75,7 @@ with open(fileName, 'w') as f:
     
     
 print fileNameDict["82449"]
+    
+    
+    
     

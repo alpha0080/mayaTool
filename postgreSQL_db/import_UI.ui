@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>316</width>
+    <height>724</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>myst_island</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Project Title</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>20</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PC</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>20</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>aliee</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>yang</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>bonds</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>hannah</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>140</y>
+      <width>256</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>輸出需求</string>
+     </property>
+    </column>
+    <item>
+     <property name="text">
+      <string>UI</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>button spin</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>auto spin</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>max bet</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>bet add</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>bet sub</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>panel</string>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>Symbol</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>wild</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>scatter</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>symbol_a</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>symbol_j</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>symbol_q</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>symbol_10</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>symbol_subject</string>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>Animation</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>transtion_a</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>transtion_b</string>
+      </property>
+     </item>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>deadline</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dateEdit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>50</y>
+      <width>110</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="date">
+     <date>
+      <year>2018</year>
+      <month>3</month>
+      <day>1</day>
+     </date>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>313</x>
+      <y>20</y>
+      <width>20</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>530</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>530</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>delete</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>560</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>info</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>590</y>
+      <width>251</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string>製作說明</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
