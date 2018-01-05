@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>250</y>
+      <width>180</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="indentation">
+     <number>15</number>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="headerDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="headerMinimumSectionSize">
+     <number>21</number>
+    </attribute>
+    <attribute name="headerStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </column>
+    <item>
+     <property name="text">
+      <string>ProjectTitle:</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>test project name</string>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>PC</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>yang</string>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>Manager</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>alpha</string>
+      </property>
+     </item>
+    </item>
+    <item>
+     <property name="text">
+      <string>Member:</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>alpha</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>sandy</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>una</string>
+      </property>
+     </item>
+    </item>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
