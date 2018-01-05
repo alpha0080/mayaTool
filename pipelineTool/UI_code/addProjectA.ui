@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>341</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QListWidget" name="listWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>201</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>a</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>b</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>c</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>30</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../UI/noImage_02.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="toolButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="arrowType">
+      <enum>Qt::LeftArrow</enum>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="toolButton_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="arrowType">
+      <enum>Qt::RightArrow</enum>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="toolButton_3">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+     <property name="arrowType">
+      <enum>Qt::UpArrow</enum>
+     </property>
+    </widget>
+    <zorder>listWidget</zorder>
+    <zorder>label_4</zorder>
+    <zorder>groupBox</zorder>
+    <zorder>groupBox</zorder>
+    <zorder>toolButton</zorder>
+    <zorder>toolButton_2</zorder>
+    <zorder>toolButton_3</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
