@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>891</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="lineEdit_numberJoints">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>80</y>
+      <width>41</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>create Joints</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ef">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>45</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>amount</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_createJoint">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>80</y>
+      <width>75</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>create Joint</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_rt_2">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>333</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>offset </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_offsetFrame">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>360</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_makeOffsetFrame">
+    <property name="geometry">
+     <rect>
+      <x>317</x>
+      <y>360</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>offset Keys</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_offfsetStartFrame">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>360</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_2">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>333</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>start frame</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ef_2">
+    <property name="geometry">
+     <rect>
+      <x>127</x>
+      <y>333</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>end frame</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_offfsetendFrame">
+    <property name="geometry">
+     <rect>
+      <x>127</x>
+      <y>360</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_3">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>159</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>cutKey Frames</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_cutkeyFrames">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>186</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_cutKeys">
+    <property name="geometry">
+     <rect>
+      <x>127</x>
+      <y>186</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>cut Keys</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_alignKey">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>276</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_alignKey">
+    <property name="geometry">
+     <rect>
+      <x>127</x>
+      <y>276</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>align Keys</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_4">
+    <property name="geometry">
+     <rect>
+      <x>47</x>
+      <y>251</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>align frame</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_offsetRandom">
+    <property name="geometry">
+     <rect>
+      <x>137</x>
+      <y>313</y>
+      <width>73</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>random</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_modifyValue">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>600</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1,1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_makdModify">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>600</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>modify Keys</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>580</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>value (value,value)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_6">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>580</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>frames index [0,1,...]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_modifyFrame">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>600</y>
+      <width>151</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>all</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_translateX">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>460</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>translateX</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>400</y>
+      <width>411</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_translateY">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>460</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>translateY</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_translateZ">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>460</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>translateZ</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_rotateX">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>490</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>rotateX</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_rotateY">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>490</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>rotateY</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_rotateZ">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>490</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>rotateZ</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_scaleX">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>520</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scaleX</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_scaleZ">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>520</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scaleZ</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_scaleY">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>520</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>scaleY</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>120</y>
+      <width>420</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_7">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>136</y>
+      <width>171</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Cutting All Keys</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_numberJoints">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>251</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>300</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_witImagePlanes">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>with image plane</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ef_3">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>45</y>
+      <width>61</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>name proxy:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_jointName">
+    <property name="geometry">
+     <rect>
+      <x>312</x>
+      <y>44</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>bone_</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_modifyName">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>680</y>
+      <width>181</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>modify Joints and slot  Names</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_8">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>313</y>
+      <width>101</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Offset All Keys</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_9">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>226</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Align All Keys</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_10">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>420</y>
+      <width>131</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Random All Keys</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_alphaGain">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>136</y>
+      <width>73</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>alpha Gain</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_colorGain">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>136</y>
+      <width>73</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>color Gain</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_modify_alphaGain">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>540</y>
+      <width>73</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>alpha Gain</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_modify_colorGain">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>540</y>
+      <width>73</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>color Gain</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>640</y>
+      <width>411</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sf_11">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>650</y>
+      <width>131</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>other tools</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_modify_all">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>460</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>all</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_offsetV">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>426</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>offset Value</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_replaceV">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>426</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>replace Value</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
