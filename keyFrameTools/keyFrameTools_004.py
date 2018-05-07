@@ -9,9 +9,7 @@
 
 from PySide2 import QtCore, QtGui, QtWidgets
 import maya.cmds as cmds
-import random
-
-
+import random,math
 
 
 class Ui_MainWindow(object):
@@ -311,7 +309,7 @@ class Ui_MainWindow(object):
         self.lineEdit_WidthB.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lineEdit_WidthB.setObjectName("lineEdit_WidthB")
         self.lineEdit_RadiusA = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_RadiusA.setEnabled(False)
+        self.lineEdit_RadiusA.setEnabled(True)
         self.lineEdit_RadiusA.setGeometry(QtCore.QRect(90, 30, 41, 16))
         self.lineEdit_RadiusA.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.lineEdit_RadiusA.setObjectName("lineEdit_RadiusA")
@@ -424,7 +422,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.checkBox_modify_alphaGain.stateChanged.connect(self.modifyAttrStateDict)
         self.checkBox_modify_colorGain.stateChanged.connect(self.modifyAttrStateDict)
         self.checkBox_modify_all.stateChanged.connect(self.modifyAllAttrStateDict)
-
+        self.pushButton_createJoint_2.clicked.connect(self.createJointShape)
     
         self.attrCheckStateDict = {"translateX":0,
                                    "translateY":0,
@@ -441,6 +439,26 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                   
         
     
+    def createJointShape(self):
+        print "create shape"
+        amount = int(self.lineEdit_numberJoints_2.text())
+        if self.radioButton_createRad.isChecked() ==True:
+            self.createRadiation(amount)
+
+    
+    
+    def createRadiation(self,amount):
+        radius = int(self.lineEdit_RadiusA.text())
+        randomX = random.randint(0,radius)
+        randomY = math.sqrt(radius*radius -randomX*randomX )
+        
+        #randomY = 
+        sphere = cmds.polySphere()[0]
+        cmds.setAttr("%s.translateX"%sphere,randomX)
+        cmds.setAttr("%s.translateY"%sphere,randomY)
+        print sphere
+        print radius,amount,randomX,randomY
+
     
     #create joints with plane(slot) or copy key from other object
     def createJoints(self):
@@ -1042,7 +1060,7 @@ class mod_MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         
     
         
-#def keyFrameTool()
+#def keyFrameTool():
 def main():
     global ui
     app = QtWidgets.QApplication.instance()
